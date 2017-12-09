@@ -651,36 +651,6 @@ ccr.perf_statTests<-function(cellLine,
                                GDSC.geneLevCNA=NULL,
                                CCLE.gisticCNA=NULL,
                                RNAseq.fpkms=NULL){
-    
-    if(is.null(GDSC.geneLevCNA)){
-        data(GDSC.geneLevCNA,envir = environment()) 
-    }
-    if(is.null(CCLE.gisticCNA)){
-        data(CCLE.gisticCNA,envir = environment()) 
-    }
-    if(is.null(RNAseq.fpkms)){
-        data(RNAseq.fpkms,envir = environment()) 
-    }
-    
-    
-    GDSC.cna<-ccr.get.gdsc1000.AMPgenes(cellLine = cellLine,GDSC.geneLevCNA = GDSC.geneLevCNA,minCN = 0)
-    CCLE.cna<-ccr.get.CCLEgisticSets(cellLine = cellLine,CCLE.gisticCNA = CCLE.gisticCNA)
-    notExp<-ccr.get.nonExpGenes(cellLine = cellLine,RNAseq.fpkms = RNAseq.fpkms)
-    
-    data(BAGEL_essential,envir = environment()) 
-    data(BAGEL_nonEssential,envir = environment()) 
-    
-    data(EssGenes.DNA_REPLICATION_cons,envir = environment()) 
-    data(EssGenes.KEGG_rna_polymerase,envir = environment()) 
-    data(EssGenes.PROTEASOME_cons,envir = environment()) 
-    data(EssGenes.ribosomalProteins,envir = environment()) 
-    data(EssGenes.SPLICEOSOME_cons,envir = environment()) 
-    
-    CFEgenes<-unique(c(EssGenes.DNA_REPLICATION_cons,EssGenes.KEGG_rna_polymerase,
-                EssGenes.PROTEASOME_cons,EssGenes.ribosomalProteins,EssGenes.SPLICEOSOME_cons))
-    
-    BAGEL_essOnly<-setdiff(BAGEL_essential,CFEgenes)
-    
     nnames<-c('Dep (PN)',
               'Dep (Gistic)',
               'notExp',
@@ -701,60 +671,8 @@ ccr.perf_statTests<-function(cellLine,
               'BAGEL Ess.Only',
               'BAGEL nonEssential',
               'whole-library')
-    
-    
-        options(warn=-1)
-        BAGEL_essential<-ccr.genes2sgRNAs(BAGEL_essential,libraryAnnotation = libraryAnnotation)
-        BAGEL_nonEssential<-ccr.genes2sgRNAs(BAGEL_nonEssential,libraryAnnotation = libraryAnnotation)
-        EssGenes.DNA_REPLICATION_cons<-ccr.genes2sgRNAs(EssGenes.DNA_REPLICATION_cons,libraryAnnotation = libraryAnnotation)
-        EssGenes.KEGG_rna_polymerase<-ccr.genes2sgRNAs(EssGenes.KEGG_rna_polymerase,libraryAnnotation = libraryAnnotation)
-        EssGenes.PROTEASOME_cons<-ccr.genes2sgRNAs(EssGenes.PROTEASOME_cons,libraryAnnotation = libraryAnnotation)
-        EssGenes.ribosomalProteins<-ccr.genes2sgRNAs(EssGenes.ribosomalProteins,libraryAnnotation = libraryAnnotation)
-        EssGenes.SPLICEOSOME_cons<-ccr.genes2sgRNAs(EssGenes.SPLICEOSOME_cons,libraryAnnotation = libraryAnnotation)
         
-        CFEgenes<-ccr.genes2sgRNAs(CFEgenes,libraryAnnotation = libraryAnnotation)
-        BAGEL_essOnly<-ccr.genes2sgRNAs(BAGEL_essOnly,libraryAnnotation = libraryAnnotation)
-        
-        DelGDSC<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN==0])
-        DelCCLE<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gm2)
-        notExpG<-ccr.genes2sgRNAs(libraryAnnotation,notExp)
-        gistic1<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gp1)
-        gistic2<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gp2)
-        gistic1ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(CCLE.cna$gp1,notExp))
-        gistic2ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(CCLE.cna$gp2,notExp))
-        
-        pn2<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=2])
-        pn4<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=4])
-        pn8<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=8])
-        pn10<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=10])
-        
-        pn2ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=2],notExp))
-        pn4ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=4],notExp))
-        pn8ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=8],notExp))
-        pn10ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=10],notExp))
-        
-        options(warn=0)
-        
-        guideSets<-list(DelGDSC,
-                        DelCCLE,
-                        notExpG,
-                        gistic1,
-                        gistic2,
-                        gistic1ne,
-                        gistic2ne,
-                        pn2,
-                        pn4,
-                        pn8,
-                        pn10,
-                        pn2ne,
-                        pn4ne,
-                        pn8ne,
-                        pn10ne,
-                        CFEgenes,
-                        BAGEL_essential,
-                        BAGEL_essOnly,
-                        BAGEL_nonEssential)
-        
+        guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA,RNAseq.fpkms)
         PVALS<-vector()
         PVALSn<-vector()
         
@@ -911,325 +829,102 @@ ccr.perf_statTests<-function(cellLine,
         return(list(PVALS=PVALS,SIGNS=SIGNS,EFFsizes=EFFsizes))
 }
 
+
+
 #### Utils not documented
 #### Assessment and visualisation not documented
 
-
-#Xmin<-min(min(correctedFCs[,'avgFC']),
-#          min(correctedFCs[,'correctedFC']))-1
-#Xmax<-max(max(correctedFCs[,'avgFC']),
-#          max(correctedFCs[,'correctedFC']))+1
-
-# 
-#     whatToPlot<-c('avgFC','correctedFC')
+ccr.multDensPlot<-function(TOPLOT,COLS,XLIMS,TITLE,LEGentries,XLAB=''){
     
-    # #pdf(paste(outDir,cellLine,'_CVgistic_densities.pdf',sep=''),width = 5,height = 8.5)
-    # 
-    # par(mfrow=c(2,1))
-    # 
-    # 
-    # for (j in 1:2){
-    #     
-    #     if(length(gisticGuides$gp1)>0){
-    #         densGistAMP1<-
-    #             density(correctedFCs[gisticSet$gp1,whatToPlot[j]],na.rm = TRUE)
-    #     }else{
-    #         densGistAMP1<-list(x=NA,y=NA)
-    #     }
-    #     
-    #     if(length(gisticGuides$gp2)>0){
-    #         densGistAMP2<-density(correctedFCs$corrected_logFCs[gisticGuides$gp2,whatToPlot[j]],na.rm = TRUE)
-    #     }else{
-    #         densGistAMP2<-list(x=NA,y=NA)
-    #     }
-    #     
-    #     densOthers<-density(correctedFCs$corrected_logFCs[setdiff(1:nrow(correctedFCs$corrected_logFCs),
-    #                                                               c(gisticGuides$gp1,gisticGuides$gp2)),
-    #                                                       whatToPlot[j]],na.rm = TRUE)
-    #     
-    #     COLS<-c('red2','red4','darkgrey')
-    #     toPlot<-list(densGistAMP1,densGistAMP2,densOthers)
-    #     
-    #     if (j==1){
-    #         xlab=''
-    #         title='pre CRISPRcleanR'
-    #     }else{
-    #         xlab='sgRNA log FC'
-    #         title='post CRISPRcleanR'
-    #     }
-    #     if(i==1){
-    #         par(mar=c(2,4,4,1))
-    #     }else{
-    #         par(mar=c(4,4,2,1))
-    #     }
-    #     
-    #     ccr.multDensPlot(TOPLOT = toPlot,COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
-    #                      LEGentries = c('Amp (Gistic +1)','Amp (Gistic +2)','others'),XLAB = xlab)
-    # }
-    # 
-    # dev.off()
+    YM<-vector()
+    for (i in 1:length(TOPLOT)){
+        YM[i]<-max(TOPLOT[[i]]$y,na.rm = TRUE)
+    }
+    
+    Ymax<-max(YM,na.rm=TRUE)
+    
+          plot(0,0,col=NA,ylab='density',xlab=XLAB,
+             xlim=XLIMS,ylim=c(0,Ymax),type='l',main=TITLE)
+    
+    for (i in 1:length(TOPLOT)){
+        cord.x <- c(TOPLOT[[i]]$x)
+        cord.y <- c(TOPLOT[[i]]$y)
+        rgbc<-col2rgb(COLS[i])
+        currCol<-rgb(rgbc[1],rgbc[2],rgbc[3],alpha = 100,maxColorValue = 255)
+        polygon(cord.x,cord.y,col=currCol,border = NA)
+        lines(TOPLOT[[i]],col=COLS[i],lwd=3)
+        if (i == 1){
+            legend('topleft',legend = LEGentries,col=COLS,lwd=3,bty = 'n')
+        }
+    }
+}
+ccr.perf_distributions<-function(cellLine,correctedFCs,
+                                 GDSC.geneLevCNA=NULL,
+                                 CCLE.gisticCNA=NULL,
+                                 RNAseq.fpkms=NULL,
+                                 minCNs=c(8,10)){
     
     
-    # pdf(paste(outDir,cellLine,'_CVpicnic_densities.pdf',sep=''),width = 5,height = 8.5)
-    # 
-    # par(mfrow=c(2,1))
-    # 
-    # for (j in 1:2){
-    #     
-    #     
-    #     currentG<-ampGenes$Gene[which(ampGenes$CN>=8)]
-    #     
-    #     if(sgRNAlevel){
-    #         currentG<-ccr.genes2sgRNAs(libraryAnnotation,currentG)    
-    #     }
-    #     
-    #     if(length(currentG)>0){
-    #         densPicNicAMP8<-
-    #             density(correctedFCs[currentGuides,whatToPlot[j]],na.rm = TRUE)
-    #     }else{
-    #         densPicNicAMP8<-list(x=NA,y=NA)
-    #     }
-    #     
-    #     currentG<-ampGenes$Gene[which(ampGenes$CN>=10)]
-    #     if(sgRNAlevel){
-    #         currentG<-ccr.genes2sgRNAs(libraryAnnotation,currentG)    
-    #     }
-    #     if(length(currentG)>0){
-    #         densPicNicAMP10<-density(correctedFCs[currentG,whatToPlot[j]],na.rm = TRUE)
-    #     }else{
-    #         densPicNicAMP10<-list(x=NA,y=NA)
-    #     }
-    #     
-    #     
-    #     densOthers<-density(correctedFCs[setdiff(1:nrow(correctedFCs),
-    #                                                               c(densPicNicAMP10,densPicNicAMP8)),
-    #                                                       whatToPlot[j]],na.rm = TRUE)
-    #     
-    #     COLS<-c("#FF243C","#FF0000",'darkgrey')
-    #     toPlot<-list(densPicNicAMP8,densPicNicAMP10,densOthers)
-    #     
-    #     if (j==1){
-    #         xlab=''
-    #         title='pre CRISPRcleanR'
-    #     }else{
-    #         xlab='sgRNA log FC'
-    #         title='post CRISPRcleanR'
-    #     }
-    #     if(i==1){
-    #         par(mar=c(2,4,4,1))
-    #     }else{
-    #         par(mar=c(4,4,2,1))
-    #     }
-    #     
-    #     ccr.multDensPlot(TOPLOT = toPlot,
-    #                      COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
-    #                      LEGentries = c('Amp (PNs >= 8)','Amp (PNs >= 10)','Others'),XLAB = xlab)
-    # }
-    # 
-    # dev.off()
-    # 
-    # pdf(paste(outDir,cellLine,'_CVE_densities.pdf',sep=''),width = 5,height = 8.5)
-    # par(mfrow=c(2,1))
-    # 
-    # for (j in 1:2){
-    #     
-    #     notExpAmpGuidesp8<-intersect(names(which(ampGuidesPattern$MINcna>=8)),notExpGuides)
-    #     
-    #     if(length(notExpAmpGuidesp8)>0){
-    #         densNotExpAMPp8<-density(correctedFCs$corrected_logFCs[notExpAmpGuidesp8,whatToPlot[j]],na.rm = TRUE)
-    #     }else{
-    #         densNotExpAMPp8<-list(x=NA,y=NA)
-    #     }
-    #     
-    #     notExpAmpGuidesp10<-intersect(names(which(ampGuidesPattern$MINcna>=10)),notExpGuides)
-    #     
-    #     if(length(notExpAmpGuidesp10)>0){
-    #         densNotExpAMPp10<-density(correctedFCs$corrected_logFCs[notExpAmpGuidesp10,whatToPlot[j]],na.rm = TRUE)
-    #     }else{
-    #         densNotExpAMPp10<-list(x=NA,y=NA)
-    #     }
-    #     
-    #     notExpAmpG<-intersect(gisticGuides$gp2,notExpGuides)
-    #     
-    #     if(length(notExpAmpG)>0){
-    #         densNotExpAmpG<-density(correctedFCs$corrected_logFCs[notExpAmpG,whatToPlot[j]],na.rm = TRUE)
-    #     }else{
-    #         densNotExpAmpG<-list(x=NA,y=NA)
-    #     }
-    #     
-    #     densOthers<-density(correctedFCs$corrected_logFCs[setdiff(1:nrow(correctedFCs$corrected_logFCs),
-    #                                                               c(notExpAmpGuidesp8,notExpAmpGuidesp10,notExpAmpG)),
-    #                                                       whatToPlot[j]],na.rm = TRUE)
-    #     
-    #     COLS<-c('blue',"#2F4CAC","#00008B",'darkgray')
-    #     toPlot<-list(densNotExpAmpG,densNotExpAMPp8,densNotExpAMPp10,densOthers)
-    #     
-    #     if (j==1){
-    #         xlab=''
-    #         title='pre CRISPRcleanR'
-    #     }else{
-    #         xlab='sgRNA log FC'
-    #         title='post CRISPRcleanR'
-    #     }
-    #     if(i==1){
-    #         par(mar=c(2,4,4,1))
-    #     }else{
-    #         par(mar=c(4,4,2,1))
-    #     }
-    #     
-    #     ccr.multDensPlot(TOPLOT = toPlot,COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
-    #                      LEGentries = c('Gistic +2 notExp','PNs >= 8 notExp','PNs >= 10 notExp','Others'),XLAB = xlab)
-    #     
-    # }
-    # 
-    # dev.off()
-    # 
-    # 
-    # pdf(paste(outDir,cellLine,'_ENE_densities.pdf',sep=''),width = 5,height = 8.5)
-    # par(mfrow=c(2,1))
-    # for (j in 1:2){
-    #     densEssGenes<-density(correctedFCs$corrected_logFCs[essGeneGuides,whatToPlot[j]],na.rm = TRUE)
-    #     densBagelEssGenes<-density(correctedFCs$corrected_logFCs[essBagelGeneGuides,whatToPlot[j]],na.rm = TRUE)
-    #     densBagelOnlyEssGenes<-density(correctedFCs$corrected_logFCs[setdiff(essBagelGeneGuides,essGeneGuides),whatToPlot[j]],na.rm = TRUE)
-    #     densBagelNonEssGenes<-density(correctedFCs$corrected_logFCs[NONessBagelGeneGuides,whatToPlot[j]],na.rm=TRUE)
-    #     densNonExpGenes<-density(correctedFCs$corrected_logFCs[NONessBagelGeneGuides,whatToPlot[j]],na.rm=TRUE)
-    #     
-    #     COLS<-c('darkgreen','green','darkcyan',
-    #             "bisque4")
-    #     toPlot<-list(densEssGenes,densBagelEssGenes,densBagelOnlyEssGenes,densBagelNonEssGenes)
-    #     
-    #     if (j==1){
-    #         xlab=''
-    #         title='pre CRISPRcleanR'
-    #     }else{
-    #         xlab='sgRNA log FC'
-    #         title='post CRISPRcleanR'
-    #     }
-    #     if(i==1){
-    #         par(mar=c(2,4,4,1))
-    #     }else{
-    #         par(mar=c(4,4,2,1))
-    #     }
-    #     
-    #     ccr.multDensPlot(TOPLOT = toPlot,COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
-    #                      LEGentries = c('Essential','BAGEL Essential','BAGEL Ess.Only','BAGEL nonEssential'),XLAB = xlab)
-    # }
-    # 
-    # dev.off()
-    # 
-    # CS<-list(essGeneGuides,essBagelGeneGuides,essBagelOnlyGuides,
-    #          names(which(ampGuidesPattern$MINcna>=8)),
-    #          gisticGuides$gp2,
-    #          notExpGuides,
-    #          notExpAmpGuidesp8,
-    #          NONessBagelGeneGuides)
-    # 
-    # pdf(paste(outDir,cellLine,'_ROCs.pdf',sep=''),width = 8,height = 14)
-    # 
-    # COLS<-c('darkgreen','green','darkcyan',
-    #         "red",
-    #         "red4",
-    #         "#626262",
-    #         'blue',
-    #         "bisque4")
-    # 
-    # par(mfrow=c(2,1))
-    # par(mar=c(4,4,4,1))
-    # O1<-order(correctedFCs$corrected_logFCs$avgFC)
-    # predictions1<-rownames(correctedFCs$corrected_logFCs)[O1]
-    # 
-    # 
-    # AUCs<-vector()
-    # 
-    # dd<-c(2,4,5,6,7,8)
-    # for (i in 1:length(CS)){
-    #     
-    #     currentSet<-CS[[i]]
-    #     currentSet<-intersect(currentSet,predictions1)
-    #     pp1<-cumsum(is.element(predictions1,currentSet))/length(currentSet)
-    #     
-    #     if(i == 1){
-    #         plot(100*(1:length(predictions1))/length(predictions1),100*pp1,type='l',xlim=c(0,100),ylim=c(0,100),ylab='cumulative %',
-    #              col=COLS[i],xlab='',
-    #              main=cellLine,lwd=2)
-    #     }else{
-    #         lines(100*(1:length(predictions1))/length(predictions1),100*pp1,type='l',xlim=c(0,100),ylim=c(0,100),col=COLS[i],lwd=2)
-    #     }
-    #     
-    #     AUCs[i]<-trapz(1:length(predictions1)/length(predictions1),pp1)
-    # }
-    # 
-    # legend('bottomright',legend = c('Essential',
-    #                                 'Bagel Ess.',
-    #                                 'Bagel Ess.only',
-    #                                 'Amp.Genes (PN >= 8)',
-    #                                 'Amp.Genes (Gistic = 2)',
-    #                                 'NotExpAmplified',
-    #                                 'NotExp',
-    #                                 'Non.Ess'),col=COLS[c(1,2,3,4,5,7,6,8)],lty=1,cex = 1,lwd=2)
-    # 
-    # O2<-order(correctedFCs$corrected_logFCs$correctedFC)
-    # predictions2<-rownames(correctedFCs$corrected_logFCs)[O2]
-    # 
-    # AUCs1<-vector()
-    # for (i in 1:length(CS)){
-    #     currentSet<-CS[[i]]
-    #     currentSet<-intersect(currentSet,predictions2)
-    #     
-    #     pp2<-cumsum(is.element(predictions2,currentSet))/length(currentSet)
-    #     
-    #     if(i == 1){
-    #         plot(100*(1:length(predictions2))/length(predictions2),100*pp2,type='l',xlim=c(0,100),ylim=c(0,100),ylab='cumulative %',col=COLS[i],
-    #              xlab='sgRNA FC percentile',main=paste(cellLine,'post CRISPRcleanR'),lwd=2)
-    #     }else{
-    #         lines(100*(1:length(predictions2))/length(predictions2),100*pp2,type='l',xlim=c(0,100),ylim=c(0,100),col=COLS[i],lwd=2)
-    #     }
-    #     
-    #     AUCs1[i]<-trapz(1:length(predictions2)/length(predictions2),pp2)
-    # }
-    # 
-    # 
-    # legend('bottomright',legend = c('Essential',
-    #                                 'Bagel Ess.',
-    #                                 'Bagel Ess.only',
-    #                                 'Amp.Genes (PN >= 8)',
-    #                                 'Amp.Genes (Gistic = 2)',
-    #                                 'NotExpAmplified',
-    #                                 'NotExp',
-    #                                 'Non.Ess'),col=COLS[c(1,2,3,4,5,7,6,8)],lty=1,cex = 1,lwd=2)
-    # dev.off()
-    # 
-    # AUCs<-rbind(AUCs,AUCs1)
-    # rownames(AUCs)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
-    # colnames(AUCs)<-c('Ess.Genes','Bagel.Ess','Bagel.Ess.Only','Amp.Genes (PN>=8)','Amp.Genes (Gistic=2)','NotExp','NotExpAmp','Non.Ess')
-    # 
-    # EFFsizes<-rbind(EFFsizes,EFFsizesN)
-    # rownames(EFFsizes)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
-    # colnames(EFFsizes)<-nnames[1:19]
-    # 
-    # PVALS<-rbind(PVALS,PVALSn)
-    # rownames(EFFsizes)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
-    # colnames(EFFsizes)<-nnames[1:19]
-    # 
-    # SIGNS<-rbind(SIGNS,SIGNSn)
-    # rownames(SIGNS)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
-    # colnames(SIGNS)<-nnames[1:19]
-    # 
-    # 
-    # idx<-c(16,17,18,10,7,3,14,19)
-    # EFFsizes<-EFFsizes[,idx]
-    # colnames(EFFsizes)<-colnames(AUCs)
-    # 
-    # PVALS<-PVALS[,idx]
-    # colnames(PVALS)<-colnames(AUCs)
-    # 
-    # SIGNS<-SIGNS[,idx]
-    # colnames(SIGNS)<-colnames(AUCs)
-    # 
-    # return(list(AUCs=AUCs,PVALS=PVALS,SIGNS=SIGNS,EFFsizes=EFFsizes,preCorrValues=preValues,postCorrValues=postValues))
-#}
-
-
+    gs<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA,RNAseq.fpkms)
+    names(gs)[16]<-'MSigDB CFEs'
+    
+    Xmin<-min(min(correctedFCs[,'avgFC']),min(correctedFCs[,'correctedFC']))-1
+    Xmax<-max(max(correctedFCs[,'avgFC']),max(correctedFCs[,'correctedFC']))+1
+    
+    whatToPlot<-c('avgFC','correctedFC')
+    
+    geneSetToPlot<-list(AMPLIFIEDpn=c(paste('Amp (PNs >= ',minCNs,')',sep='')),
+                        AMPLIFIEDgistic=c("Amp (Gistic +1)","Amp (Gistic +2)"),
+                        AMPLIFIEDnotExp=c("Amp (Gistic +2) notExp",paste('Amp (PNs >= ',minCNs,') notExp',sep='')),
+                        REFERENCE=c('MSigDB CFEs',"BAGEL Essential","BAGEL nonEssential"))
+    
+    COLS_list<-list(AMPLIFIEDpn=c("#FF243C","#FF0000",'darkgrey'),
+                    AMPLIFIEDgistic=c('red2','red4','darkgrey'),
+                    AMPLIFIEDnotExp=c('blue',"#2F4CAC","#00008B",'darkgray'),
+                    REFERENCE=c('darkgreen','green',"bisque4"))
+    options(warn = -1)
+    for (i in 1:4){
+        par(mfrow=c(2,1))
+        for (j in 1:2){
+            
+            plotType<-geneSetToPlot[[i]]
+            
+            densities<-list()
+            for (k in 1:length(plotType)){
+                if (length(gs[[plotType[k]]]>0)){
+                    densities[[k]]<-density(correctedFCs[gs[[plotType[k]]],whatToPlot[j]],na.rm = TRUE)    
+                }else{
+                    densities[[k]]<-list(x=NA,y=NA)
+                }
+            }
+            
+            
+            densOthers<-density(correctedFCs[setdiff(rownames(correctedFCs),unlist(gs[plotType])),
+                                             whatToPlot[j]],na.rm = TRUE)
+            
+            COLS<-COLS_list[[i]]
+            toPlot<-append(densities,list(densOthers))
+            
+            if (j==1){
+                xlab=''
+                title='pre CRISPRcleanR'
+            }else{
+                xlab='sgRNA log FC'
+                title='post CRISPRcleanR'
+            }
+            if(i==1){
+                par(mar=c(2,4,4,1))
+            }else{
+                par(mar=c(4,4,2,1))
+            }
+            
+            ccr.multDensPlot(TOPLOT = toPlot,COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
+                             LEGentries = c(plotType,'others'),XLAB = xlab)
+        }
+        options(warn = 0)
+    }
+    
+}
 ## other exported functions
 
 ## not exported functions
@@ -1259,5 +954,421 @@ ccr.cohens_d <- function(x, y) {
     return(cd)
 }
 
+ccr.get.guideSets<-function(cellLine,GDSC.geneLevCNA=NULL,CCLE.gisticCNA=NULL,RNAseq.fpkms=NULL){
+    if(is.null(GDSC.geneLevCNA)){
+        data(GDSC.geneLevCNA,envir = environment()) 
+    }
+    if(is.null(CCLE.gisticCNA)){
+        data(CCLE.gisticCNA,envir = environment()) 
+    }
+    if(is.null(RNAseq.fpkms)){
+        data(RNAseq.fpkms,envir = environment()) 
+    }
+    
+    GDSC.cna<-ccr.get.gdsc1000.AMPgenes(cellLine = cellLine,GDSC.geneLevCNA = GDSC.geneLevCNA,minCN = 0)
+    CCLE.cna<-ccr.get.CCLEgisticSets(cellLine = cellLine,CCLE.gisticCNA = CCLE.gisticCNA)
+    notExp<-ccr.get.nonExpGenes(cellLine = cellLine,RNAseq.fpkms = RNAseq.fpkms)
+    
+    data(BAGEL_essential,envir = environment()) 
+    data(BAGEL_nonEssential,envir = environment()) 
+    
+    data(EssGenes.DNA_REPLICATION_cons,envir = environment()) 
+    data(EssGenes.KEGG_rna_polymerase,envir = environment()) 
+    data(EssGenes.PROTEASOME_cons,envir = environment()) 
+    data(EssGenes.ribosomalProteins,envir = environment()) 
+    data(EssGenes.SPLICEOSOME_cons,envir = environment()) 
+    
+    CFEgenes<-unique(c(EssGenes.DNA_REPLICATION_cons,EssGenes.KEGG_rna_polymerase,
+                       EssGenes.PROTEASOME_cons,EssGenes.ribosomalProteins,EssGenes.SPLICEOSOME_cons))
+    
+    BAGEL_essOnly<-setdiff(BAGEL_essential,CFEgenes)
+    
+    options(warn=-1)
+    BAGEL_essential<-ccr.genes2sgRNAs(BAGEL_essential,libraryAnnotation = libraryAnnotation)
+    BAGEL_nonEssential<-ccr.genes2sgRNAs(BAGEL_nonEssential,libraryAnnotation = libraryAnnotation)
+    EssGenes.DNA_REPLICATION_cons<-ccr.genes2sgRNAs(EssGenes.DNA_REPLICATION_cons,libraryAnnotation = libraryAnnotation)
+    EssGenes.KEGG_rna_polymerase<-ccr.genes2sgRNAs(EssGenes.KEGG_rna_polymerase,libraryAnnotation = libraryAnnotation)
+    EssGenes.PROTEASOME_cons<-ccr.genes2sgRNAs(EssGenes.PROTEASOME_cons,libraryAnnotation = libraryAnnotation)
+    EssGenes.ribosomalProteins<-ccr.genes2sgRNAs(EssGenes.ribosomalProteins,libraryAnnotation = libraryAnnotation)
+    EssGenes.SPLICEOSOME_cons<-ccr.genes2sgRNAs(EssGenes.SPLICEOSOME_cons,libraryAnnotation = libraryAnnotation)
+    
+    CFEgenes<-ccr.genes2sgRNAs(CFEgenes,libraryAnnotation = libraryAnnotation)
+    BAGEL_essOnly<-ccr.genes2sgRNAs(BAGEL_essOnly,libraryAnnotation = libraryAnnotation)
+    
+    DelGDSC<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN==0])
+    DelCCLE<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gm2)
+    notExpG<-ccr.genes2sgRNAs(libraryAnnotation,notExp)
+    gistic1<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gp1)
+    gistic2<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gp2)
+    gistic1ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(CCLE.cna$gp1,notExp))
+    gistic2ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(CCLE.cna$gp2,notExp))
+    
+    pn2<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=2])
+    pn4<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=4])
+    pn8<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=8])
+    pn10<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=10])
+    
+    pn2ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=2],notExp))
+    pn4ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=4],notExp))
+    pn8ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=8],notExp))
+    pn10ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=10],notExp))
+    
+    options(warn=0)
+    
+    guideSets<-list(DelGDSC,
+                    DelCCLE,
+                    notExpG,
+                    gistic1,
+                    gistic2,
+                    gistic1ne,
+                    gistic2ne,
+                    pn2,
+                    pn4,
+                    pn8,
+                    pn10,
+                    pn2ne,
+                    pn4ne,
+                    pn8ne,
+                    pn10ne,
+                    CFEgenes,
+                    BAGEL_essential,
+                    BAGEL_essOnly,
+                    BAGEL_nonEssential)
+    
+    nnames<-c('Dep (PN)',
+              'Dep (Gistic)',
+              'notExp',
+              'Amp (Gistic +1)',
+              'Amp (Gistic +2)',
+              'Amp (Gistic +1) notExp',
+              'Amp (Gistic +2) notExp',
+              'Amp (PNs >= 2)',
+              'Amp (PNs >= 4)',
+              'Amp (PNs >= 8)',
+              'Amp (PNs >= 10)',
+              'Amp (PNs >= 2) notExp',
+              'Amp (PNs >= 4) notExp',
+              'Amp (PNs >= 8) notExp',
+              'Amp (PNs >= 10) notExp',
+              'Essential',
+              'BAGEL Essential',
+              'BAGEL Ess.Only',
+              'BAGEL nonEssential')
+    names(guideSets)<-nnames
+    return(guideSets)
+}
 
+#Xmin<-min(min(correctedFCs[,'avgFC']),
+#          min(correctedFCs[,'correctedFC']))-1
+#Xmax<-max(max(correctedFCs[,'avgFC']),
+#          max(correctedFCs[,'correctedFC']))+1
+
+# 
+#     whatToPlot<-c('avgFC','correctedFC')
+
+# #pdf(paste(outDir,cellLine,'_CVgistic_densities.pdf',sep=''),width = 5,height = 8.5)
+# 
+# par(mfrow=c(2,1))
+# 
+# 
+# for (j in 1:2){
+#     
+#     if(length(gisticGuides$gp1)>0){
+#         densGistAMP1<-
+#             density(correctedFCs[gisticSet$gp1,whatToPlot[j]],na.rm = TRUE)
+#     }else{
+#         densGistAMP1<-list(x=NA,y=NA)
+#     }
+#     
+#     if(length(gisticGuides$gp2)>0){
+#         densGistAMP2<-density(correctedFCs$corrected_logFCs[gisticGuides$gp2,whatToPlot[j]],na.rm = TRUE)
+#     }else{
+#         densGistAMP2<-list(x=NA,y=NA)
+#     }
+#     
+#     densOthers<-density(correctedFCs$corrected_logFCs[setdiff(1:nrow(correctedFCs$corrected_logFCs),
+#                                                               c(gisticGuides$gp1,gisticGuides$gp2)),
+#                                                       whatToPlot[j]],na.rm = TRUE)
+#     
+#     COLS<-c('red2','red4','darkgrey')
+#     toPlot<-list(densGistAMP1,densGistAMP2,densOthers)
+#     
+#     if (j==1){
+#         xlab=''
+#         title='pre CRISPRcleanR'
+#     }else{
+#         xlab='sgRNA log FC'
+#         title='post CRISPRcleanR'
+#     }
+#     if(i==1){
+#         par(mar=c(2,4,4,1))
+#     }else{
+#         par(mar=c(4,4,2,1))
+#     }
+#     
+#     ccr.multDensPlot(TOPLOT = toPlot,COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
+#                      LEGentries = c('Amp (Gistic +1)','Amp (Gistic +2)','others'),XLAB = xlab)
+# }
+# 
+# dev.off()
+
+
+# pdf(paste(outDir,cellLine,'_CVpicnic_densities.pdf',sep=''),width = 5,height = 8.5)
+# 
+# par(mfrow=c(2,1))
+# 
+# for (j in 1:2){
+#     
+#     
+#     currentG<-ampGenes$Gene[which(ampGenes$CN>=8)]
+#     
+#     if(sgRNAlevel){
+#         currentG<-ccr.genes2sgRNAs(libraryAnnotation,currentG)    
+#     }
+#     
+#     if(length(currentG)>0){
+#         densPicNicAMP8<-
+#             density(correctedFCs[currentGuides,whatToPlot[j]],na.rm = TRUE)
+#     }else{
+#         densPicNicAMP8<-list(x=NA,y=NA)
+#     }
+#     
+#     currentG<-ampGenes$Gene[which(ampGenes$CN>=10)]
+#     if(sgRNAlevel){
+#         currentG<-ccr.genes2sgRNAs(libraryAnnotation,currentG)    
+#     }
+#     if(length(currentG)>0){
+#         densPicNicAMP10<-density(correctedFCs[currentG,whatToPlot[j]],na.rm = TRUE)
+#     }else{
+#         densPicNicAMP10<-list(x=NA,y=NA)
+#     }
+#     
+#     
+#     densOthers<-density(correctedFCs[setdiff(1:nrow(correctedFCs),
+#                                                               c(densPicNicAMP10,densPicNicAMP8)),
+#                                                       whatToPlot[j]],na.rm = TRUE)
+#     
+#     COLS<-c("#FF243C","#FF0000",'darkgrey')
+#     toPlot<-list(densPicNicAMP8,densPicNicAMP10,densOthers)
+#     
+#     if (j==1){
+#         xlab=''
+#         title='pre CRISPRcleanR'
+#     }else{
+#         xlab='sgRNA log FC'
+#         title='post CRISPRcleanR'
+#     }
+#     if(i==1){
+#         par(mar=c(2,4,4,1))
+#     }else{
+#         par(mar=c(4,4,2,1))
+#     }
+#     
+#     ccr.multDensPlot(TOPLOT = toPlot,
+#                      COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
+#                      LEGentries = c('Amp (PNs >= 8)','Amp (PNs >= 10)','Others'),XLAB = xlab)
+# }
+# 
+# dev.off()
+# 
+# pdf(paste(outDir,cellLine,'_CVE_densities.pdf',sep=''),width = 5,height = 8.5)
+# par(mfrow=c(2,1))
+# 
+# for (j in 1:2){
+#     
+#     notExpAmpGuidesp8<-intersect(names(which(ampGuidesPattern$MINcna>=8)),notExpGuides)
+#     
+#     if(length(notExpAmpGuidesp8)>0){
+#         densNotExpAMPp8<-density(correctedFCs$corrected_logFCs[notExpAmpGuidesp8,whatToPlot[j]],na.rm = TRUE)
+#     }else{
+#         densNotExpAMPp8<-list(x=NA,y=NA)
+#     }
+#     
+#     notExpAmpGuidesp10<-intersect(names(which(ampGuidesPattern$MINcna>=10)),notExpGuides)
+#     
+#     if(length(notExpAmpGuidesp10)>0){
+#         densNotExpAMPp10<-density(correctedFCs$corrected_logFCs[notExpAmpGuidesp10,whatToPlot[j]],na.rm = TRUE)
+#     }else{
+#         densNotExpAMPp10<-list(x=NA,y=NA)
+#     }
+#     
+#     notExpAmpG<-intersect(gisticGuides$gp2,notExpGuides)
+#     
+#     if(length(notExpAmpG)>0){
+#         densNotExpAmpG<-density(correctedFCs$corrected_logFCs[notExpAmpG,whatToPlot[j]],na.rm = TRUE)
+#     }else{
+#         densNotExpAmpG<-list(x=NA,y=NA)
+#     }
+#     
+#     densOthers<-density(correctedFCs$corrected_logFCs[setdiff(1:nrow(correctedFCs$corrected_logFCs),
+#                                                               c(notExpAmpGuidesp8,notExpAmpGuidesp10,notExpAmpG)),
+#                                                       whatToPlot[j]],na.rm = TRUE)
+#     
+#     COLS<-c('blue',"#2F4CAC","#00008B",'darkgray')
+#     toPlot<-list(densNotExpAmpG,densNotExpAMPp8,densNotExpAMPp10,densOthers)
+#     
+#     if (j==1){
+#         xlab=''
+#         title='pre CRISPRcleanR'
+#     }else{
+#         xlab='sgRNA log FC'
+#         title='post CRISPRcleanR'
+#     }
+#     if(i==1){
+#         par(mar=c(2,4,4,1))
+#     }else{
+#         par(mar=c(4,4,2,1))
+#     }
+#     
+#     ccr.multDensPlot(TOPLOT = toPlot,COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
+#                      LEGentries = c('Gistic +2 notExp','PNs >= 8 notExp','PNs >= 10 notExp','Others'),XLAB = xlab)
+#     
+# }
+# 
+# dev.off()
+# 
+# 
+# pdf(paste(outDir,cellLine,'_ENE_densities.pdf',sep=''),width = 5,height = 8.5)
+# par(mfrow=c(2,1))
+# for (j in 1:2){
+#     densEssGenes<-density(correctedFCs$corrected_logFCs[essGeneGuides,whatToPlot[j]],na.rm = TRUE)
+#     densBagelEssGenes<-density(correctedFCs$corrected_logFCs[essBagelGeneGuides,whatToPlot[j]],na.rm = TRUE)
+#     densBagelOnlyEssGenes<-density(correctedFCs$corrected_logFCs[setdiff(essBagelGeneGuides,essGeneGuides),whatToPlot[j]],na.rm = TRUE)
+#     densBagelNonEssGenes<-density(correctedFCs$corrected_logFCs[NONessBagelGeneGuides,whatToPlot[j]],na.rm=TRUE)
+#     densNonExpGenes<-density(correctedFCs$corrected_logFCs[NONessBagelGeneGuides,whatToPlot[j]],na.rm=TRUE)
+#     
+#     COLS<-c('darkgreen','green','darkcyan',
+#             "bisque4")
+#     toPlot<-list(densEssGenes,densBagelEssGenes,densBagelOnlyEssGenes,densBagelNonEssGenes)
+#     
+#     if (j==1){
+#         xlab=''
+#         title='pre CRISPRcleanR'
+#     }else{
+#         xlab='sgRNA log FC'
+#         title='post CRISPRcleanR'
+#     }
+#     if(i==1){
+#         par(mar=c(2,4,4,1))
+#     }else{
+#         par(mar=c(4,4,2,1))
+#     }
+#     
+#     ccr.multDensPlot(TOPLOT = toPlot,COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
+#                      LEGentries = c('Essential','BAGEL Essential','BAGEL Ess.Only','BAGEL nonEssential'),XLAB = xlab)
+# }
+# 
+# dev.off()
+# 
+# CS<-list(essGeneGuides,essBagelGeneGuides,essBagelOnlyGuides,
+#          names(which(ampGuidesPattern$MINcna>=8)),
+#          gisticGuides$gp2,
+#          notExpGuides,
+#          notExpAmpGuidesp8,
+#          NONessBagelGeneGuides)
+# 
+# pdf(paste(outDir,cellLine,'_ROCs.pdf',sep=''),width = 8,height = 14)
+# 
+# COLS<-c('darkgreen','green','darkcyan',
+#         "red",
+#         "red4",
+#         "#626262",
+#         'blue',
+#         "bisque4")
+# 
+# par(mfrow=c(2,1))
+# par(mar=c(4,4,4,1))
+# O1<-order(correctedFCs$corrected_logFCs$avgFC)
+# predictions1<-rownames(correctedFCs$corrected_logFCs)[O1]
+# 
+# 
+# AUCs<-vector()
+# 
+# dd<-c(2,4,5,6,7,8)
+# for (i in 1:length(CS)){
+#     
+#     currentSet<-CS[[i]]
+#     currentSet<-intersect(currentSet,predictions1)
+#     pp1<-cumsum(is.element(predictions1,currentSet))/length(currentSet)
+#     
+#     if(i == 1){
+#         plot(100*(1:length(predictions1))/length(predictions1),100*pp1,type='l',xlim=c(0,100),ylim=c(0,100),ylab='cumulative %',
+#              col=COLS[i],xlab='',
+#              main=cellLine,lwd=2)
+#     }else{
+#         lines(100*(1:length(predictions1))/length(predictions1),100*pp1,type='l',xlim=c(0,100),ylim=c(0,100),col=COLS[i],lwd=2)
+#     }
+#     
+#     AUCs[i]<-trapz(1:length(predictions1)/length(predictions1),pp1)
+# }
+# 
+# legend('bottomright',legend = c('Essential',
+#                                 'Bagel Ess.',
+#                                 'Bagel Ess.only',
+#                                 'Amp.Genes (PN >= 8)',
+#                                 'Amp.Genes (Gistic = 2)',
+#                                 'NotExpAmplified',
+#                                 'NotExp',
+#                                 'Non.Ess'),col=COLS[c(1,2,3,4,5,7,6,8)],lty=1,cex = 1,lwd=2)
+# 
+# O2<-order(correctedFCs$corrected_logFCs$correctedFC)
+# predictions2<-rownames(correctedFCs$corrected_logFCs)[O2]
+# 
+# AUCs1<-vector()
+# for (i in 1:length(CS)){
+#     currentSet<-CS[[i]]
+#     currentSet<-intersect(currentSet,predictions2)
+#     
+#     pp2<-cumsum(is.element(predictions2,currentSet))/length(currentSet)
+#     
+#     if(i == 1){
+#         plot(100*(1:length(predictions2))/length(predictions2),100*pp2,type='l',xlim=c(0,100),ylim=c(0,100),ylab='cumulative %',col=COLS[i],
+#              xlab='sgRNA FC percentile',main=paste(cellLine,'post CRISPRcleanR'),lwd=2)
+#     }else{
+#         lines(100*(1:length(predictions2))/length(predictions2),100*pp2,type='l',xlim=c(0,100),ylim=c(0,100),col=COLS[i],lwd=2)
+#     }
+#     
+#     AUCs1[i]<-trapz(1:length(predictions2)/length(predictions2),pp2)
+# }
+# 
+# 
+# legend('bottomright',legend = c('Essential',
+#                                 'Bagel Ess.',
+#                                 'Bagel Ess.only',
+#                                 'Amp.Genes (PN >= 8)',
+#                                 'Amp.Genes (Gistic = 2)',
+#                                 'NotExpAmplified',
+#                                 'NotExp',
+#                                 'Non.Ess'),col=COLS[c(1,2,3,4,5,7,6,8)],lty=1,cex = 1,lwd=2)
+# dev.off()
+# 
+# AUCs<-rbind(AUCs,AUCs1)
+# rownames(AUCs)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
+# colnames(AUCs)<-c('Ess.Genes','Bagel.Ess','Bagel.Ess.Only','Amp.Genes (PN>=8)','Amp.Genes (Gistic=2)','NotExp','NotExpAmp','Non.Ess')
+# 
+# EFFsizes<-rbind(EFFsizes,EFFsizesN)
+# rownames(EFFsizes)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
+# colnames(EFFsizes)<-nnames[1:19]
+# 
+# PVALS<-rbind(PVALS,PVALSn)
+# rownames(EFFsizes)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
+# colnames(EFFsizes)<-nnames[1:19]
+# 
+# SIGNS<-rbind(SIGNS,SIGNSn)
+# rownames(SIGNS)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
+# colnames(SIGNS)<-nnames[1:19]
+# 
+# 
+# idx<-c(16,17,18,10,7,3,14,19)
+# EFFsizes<-EFFsizes[,idx]
+# colnames(EFFsizes)<-colnames(AUCs)
+# 
+# PVALS<-PVALS[,idx]
+# colnames(PVALS)<-colnames(AUCs)
+# 
+# SIGNS<-SIGNS[,idx]
+# colnames(SIGNS)<-colnames(AUCs)
+# 
+# return(list(AUCs=AUCs,PVALS=PVALS,SIGNS=SIGNS,EFFsizes=EFFsizes,preCorrValues=preValues,postCorrValues=postValues))
+#}
 

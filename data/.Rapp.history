@@ -1,0 +1,2 @@
+load("/Users/iorio/Dropbox/__CRISPRcleanR/code_im_old/CRISPRcleanR/data/BRUNELLO.RData")
+load("/Users/iorio/Dropbox/__CRISPRcleanR/code_im_old/CRISPRcleanR/data/nonEssGenes.BAGEL.RData")

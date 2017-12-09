@@ -25,6 +25,7 @@ export(ccr.get.CCLEgisticSets)
 #visualisation and assessment
 export(ccr.PrecisionRecallCurve)
 export(ccr.VisDepAndSig)
+export(ccr.perf_statTests)
 
 #export(ccr.retrieveAMPgeneGuides)
 #export(ccr.retrieveDELgeneGuides)

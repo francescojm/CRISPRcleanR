@@ -361,7 +361,7 @@ ccr.get.gdsc1000.AMPgenes<-function(cellLine,
         data(GDSC.geneLevCNA,envir = environment())    
     }
     
-    data(GDSC.CL_annotation)
+    data(GDSC.CL_annotation,envir = environment()) 
     
     if(!is.element(cellLine,GDSC.CL_annotation$CL.name) & !is.element(cellLine,GDSC.CL_annotation$COSMIC.ID)){
         stop('Cell line not found: Please provide a valid cell line cosmic identifier or name (see available cell lines here: http://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources//Data/suppData/TableS1E.xlsx)', call. = TRUE, domain = NULL)
@@ -644,29 +644,22 @@ ccr.VisDepAndSig<-function(FCsprofile,
     
 }
 
-#### Utils not documented
-#### Assessment and visualisation not documented
-
-
-
-ccr.assessmentReport<-function(cellLine,
+ccr.perf_statTests<-function(cellLine,
                                 libraryAnnotation,
                                 correctedFCs,
-                                sgRNAlevel=TRUE,
-                                outDir='.',
+                                outDir='./',
                                GDSC.geneLevCNA=NULL,
                                CCLE.gisticCNA=NULL,
                                RNAseq.fpkms=NULL){
     
-    
     if(is.null(GDSC.geneLevCNA)){
-        data(GDSC.geneLevCNA)
+        data(GDSC.geneLevCNA,envir = environment()) 
     }
     if(is.null(CCLE.gisticCNA)){
-        data(CCLE.gisticCNA)
+        data(CCLE.gisticCNA,envir = environment()) 
     }
     if(is.null(RNAseq.fpkms)){
-        data(RNAseq.fpkms)
+        data(RNAseq.fpkms,envir = environment()) 
     }
     
     
@@ -674,10 +667,19 @@ ccr.assessmentReport<-function(cellLine,
     CCLE.cna<-ccr.get.CCLEgisticSets(cellLine = cellLine,CCLE.gisticCNA = CCLE.gisticCNA)
     notExp<-ccr.get.nonExpGenes(cellLine = cellLine,RNAseq.fpkms = RNAseq.fpkms)
     
-    data(BAGEL_essential)
-    data(BAGEL_nonEssential)
+    data(BAGEL_essential,envir = environment()) 
+    data(BAGEL_nonEssential,envir = environment()) 
     
+    data(EssGenes.DNA_REPLICATION_cons,envir = environment()) 
+    data(EssGenes.KEGG_rna_polymerase,envir = environment()) 
+    data(EssGenes.PROTEASOME_cons,envir = environment()) 
+    data(EssGenes.ribosomalProteins,envir = environment()) 
+    data(EssGenes.SPLICEOSOME_cons,envir = environment()) 
     
+    CFEgenes<-unique(c(EssGenes.DNA_REPLICATION_cons,EssGenes.KEGG_rna_polymerase,
+                EssGenes.PROTEASOME_cons,EssGenes.ribosomalProteins,EssGenes.SPLICEOSOME_cons))
+    
+    BAGEL_essOnly<-setdiff(BAGEL_essential,CFEgenes)
     
     nnames<-c('Dep (PN)',
               'Dep (Gistic)',
@@ -701,7 +703,223 @@ ccr.assessmentReport<-function(cellLine,
               'whole-library')
     
     
+        options(warn=-1)
+        BAGEL_essential<-ccr.genes2sgRNAs(BAGEL_essential,libraryAnnotation = libraryAnnotation)
+        BAGEL_nonEssential<-ccr.genes2sgRNAs(BAGEL_nonEssential,libraryAnnotation = libraryAnnotation)
+        EssGenes.DNA_REPLICATION_cons<-ccr.genes2sgRNAs(EssGenes.DNA_REPLICATION_cons,libraryAnnotation = libraryAnnotation)
+        EssGenes.KEGG_rna_polymerase<-ccr.genes2sgRNAs(EssGenes.KEGG_rna_polymerase,libraryAnnotation = libraryAnnotation)
+        EssGenes.PROTEASOME_cons<-ccr.genes2sgRNAs(EssGenes.PROTEASOME_cons,libraryAnnotation = libraryAnnotation)
+        EssGenes.ribosomalProteins<-ccr.genes2sgRNAs(EssGenes.ribosomalProteins,libraryAnnotation = libraryAnnotation)
+        EssGenes.SPLICEOSOME_cons<-ccr.genes2sgRNAs(EssGenes.SPLICEOSOME_cons,libraryAnnotation = libraryAnnotation)
+        
+        CFEgenes<-ccr.genes2sgRNAs(CFEgenes,libraryAnnotation = libraryAnnotation)
+        BAGEL_essOnly<-ccr.genes2sgRNAs(BAGEL_essOnly,libraryAnnotation = libraryAnnotation)
+        
+        DelGDSC<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN==0])
+        DelCCLE<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gm2)
+        notExpG<-ccr.genes2sgRNAs(libraryAnnotation,notExp)
+        gistic1<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gp1)
+        gistic2<-ccr.genes2sgRNAs(libraryAnnotation,CCLE.cna$gp2)
+        gistic1ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(CCLE.cna$gp1,notExp))
+        gistic2ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(CCLE.cna$gp2,notExp))
+        
+        pn2<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=2])
+        pn4<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=4])
+        pn8<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=8])
+        pn10<-ccr.genes2sgRNAs(libraryAnnotation,GDSC.cna$Gene[GDSC.cna$CN>=10])
+        
+        pn2ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=2],notExp))
+        pn4ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=4],notExp))
+        pn8ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=8],notExp))
+        pn10ne<-ccr.genes2sgRNAs(libraryAnnotation,intersect(GDSC.cna$Gene[GDSC.cna$CN>=10],notExp))
+        
+        options(warn=0)
+        
+        guideSets<-list(DelGDSC,
+                        DelCCLE,
+                        notExpG,
+                        gistic1,
+                        gistic2,
+                        gistic1ne,
+                        gistic2ne,
+                        pn2,
+                        pn4,
+                        pn8,
+                        pn10,
+                        pn2ne,
+                        pn4ne,
+                        pn8ne,
+                        pn10ne,
+                        CFEgenes,
+                        BAGEL_essential,
+                        BAGEL_essOnly,
+                        BAGEL_nonEssential)
+        
+        PVALS<-vector()
+        PVALSn<-vector()
+        
+        EFFsizes<-vector()
+        EFFsizesN<-vector()
+        
+        SIGNS<-vector()
+        SIGNSn<-vector()
+    
+        for (i in 1:length(guideSets)){
+            
+            print(paste('Testing sgRNAs targeting:', nnames[i], 'genes'))
+            currentSet<-guideSets[[i]]
+            
+            if(length(currentSet)>1){
+                tt<-t.test(correctedFCs[currentSet,'avgFC'],
+                           correctedFCs[setdiff(rownames(correctedFCs),currentSet),'avgFC'])
+                
+                ttn<-t.test(correctedFCs[currentSet,'correctedFC'],
+                            correctedFCs[setdiff(rownames(correctedFCs),currentSet),'correctedFC'])
+                
+                EFFsizes[i]<-ccr.cohens_d(x = correctedFCs[currentSet,'avgFC'],
+                                          y = correctedFCs[setdiff(rownames(correctedFCs),currentSet),'avgFC'])
+                EFFsizesN[i]<-ccr.cohens_d(x = correctedFCs[currentSet,'correctedFC'],
+                                           y = correctedFCs[setdiff(rownames(correctedFCs),currentSet),'correctedFC'])
+                
+                PVALS[i]<-tt$p.value
+                PVALSn[i]<-ttn$p.value
+                
+                SIGNS[i]<-sign(tt$estimate[2]-tt$estimate[1])
+                SIGNSn[i]<-sign(ttn$estimate[2]-ttn$estimate[1])
+                
+            }else{
+                PVALS[i]<-NA
+                PVALSn[i]<-NA
+                
+                EFFsizes[i]<-NA
+                EFFsizesN[i]<-NA
+                
+                SIGNS[i]<-NA
+                SIGNSn[i]<-NA
+                
+            }
+        }
+        
+        pdf(paste(outDir,cellLine,'_bp.pdf',sep=''),width = 15,height = 10)
+        AT<-c(1,2,3,4.5,5.5,6.5,7.5,9,10,11,12,13,14,15,16,17.5,18.5,19.5,20.5,22)
+        par(mfrow=c(2,1))
+        par(mar=c(6,4,4,1))
+        par(xpd=NA)
+        plotpar<-boxplot(correctedFCs[guideSets[[1]],'avgFC'],
+                         correctedFCs[guideSets[[2]],'avgFC'],
+                         correctedFCs[guideSets[[3]],'avgFC'],
+                         correctedFCs[guideSets[[4]],'avgFC'],
+                         correctedFCs[guideSets[[5]],'avgFC'],
+                         correctedFCs[guideSets[[6]],'avgFC'],
+                         correctedFCs[guideSets[[7]],'avgFC'],
+                         correctedFCs[guideSets[[8]],'avgFC'],
+                         correctedFCs[guideSets[[9]],'avgFC'],
+                         correctedFCs[guideSets[[10]],'avgFC'],
+                         correctedFCs[guideSets[[11]],'avgFC'],
+                         correctedFCs[guideSets[[12]],'avgFC'],
+                         correctedFCs[guideSets[[13]],'avgFC'],
+                         correctedFCs[guideSets[[14]],'avgFC'],
+                         correctedFCs[guideSets[[15]],'avgFC'],
+                         correctedFCs[guideSets[[16]],'avgFC'],
+                         correctedFCs[guideSets[[17]],'avgFC'],
+                         correctedFCs[guideSets[[18]],'avgFC'],
+                         correctedFCs[guideSets[[19]],'avgFC'],
+                         correctedFCs$avgFC,
+                         at=AT,names = nnames,las=2,outline = FALSE,
+                         frame.plot=FALSE,main=cellLine,ylab='pre-CRISPRcleanR sgRNA log2 FC',
+                         col=c('#B0B0B0',"#898989","#626262",c('red2','red4'),'cornflowerblue','blue',
+                               c("#FF6EB4","#FF4978","#FF243C","#FF0000"),"#8EE5EE","#5E98CD","#2F4CAC","#00008B",'darkgreen','green','darkcyan',
+                               "bisque4","white"))
+        
+        sigVec<-rep('',19)
+        sigVec[which(PVALS<0.05)]<-'.'
+        sigVec[which(PVALS<0.05 & EFFsizes > 0.5)]<-'*'
+        sigVec[which(PVALS<0.05 & EFFsizes > 1)]<-'**'
+        sigVec[which(PVALS<0.05 & EFFsizes > 2)]<-'***'
+        
+        posY<-(max(correctedFCs$avgFC)-min(correctedFCs$avgFC))/30+max(correctedFCs$avgFC)
+        
+        for (i in 1:19){
+            text(AT[i],posY,sigVec[i],cex = 1.5)
+        }
+        dd<-mean(correctedFCs$avgFC)
+        lines(x = c(0.2,22.8),y = c(dd,dd),lty=2,col='red',lwd=2)
+        
+        #text(AT+0.25,min(correctedFCs$corrected_logFCs$avgFC)-1,labels = nnames,srt=45,pos = 2)
+        par(mar=c(2,4,8,1))
+        par(xpd=NA)
+        
+        boxplot(correctedFCs[guideSets[[1]],'correctedFC'],
+                correctedFCs[guideSets[[2]],'correctedFC'],
+                correctedFCs[guideSets[[3]],'correctedFC'],
+                correctedFCs[guideSets[[4]],'correctedFC'],
+                correctedFCs[guideSets[[5]],'correctedFC'],
+                correctedFCs[guideSets[[6]],'correctedFC'],
+                correctedFCs[guideSets[[7]],'correctedFC'],
+                correctedFCs[guideSets[[8]],'correctedFC'],
+                correctedFCs[guideSets[[9]],'correctedFC'],
+                correctedFCs[guideSets[[10]],'correctedFC'],
+                correctedFCs[guideSets[[11]],'correctedFC'],
+                correctedFCs[guideSets[[12]],'correctedFC'],
+                correctedFCs[guideSets[[13]],'correctedFC'],
+                correctedFCs[guideSets[[14]],'correctedFC'],
+                correctedFCs[guideSets[[15]],'correctedFC'],
+                correctedFCs[guideSets[[16]],'correctedFC'],
+                correctedFCs[guideSets[[17]],'correctedFC'],
+                correctedFCs[guideSets[[18]],'correctedFC'],
+                correctedFCs[guideSets[[19]],'correctedFC'],
+                correctedFCs$correctedFC,
+                at=AT,outline = FALSE,
+                names = rep('',20),frame.plot=FALSE,main='',ylab='pre-CRISPRcleanR sgRNA log2 FC',
+                col=c('#B0B0B0',"#898989","#626262",c('red2','red4'),'cornflowerblue','blue',
+                      c("#FF6EB4","#FF4978","#FF243C","#FF0000"),"#8EE5EE","#5E98CD","#2F4CAC","#00008B",'darkgreen','green','darkcyan',
+                      "bisque4","white"))
+     
+        
+        sigVec1<-rep('',19)
+        sigVec1[which(PVALSn<0.05)]<-'.'
+        sigVec1[which(PVALSn<0.05 & EFFsizesN > 0.5)]<-'*'
+        sigVec1[which(PVALSn<0.05 & EFFsizesN > 1)]<-'**'
+        sigVec1[which(PVALSn<0.05 & EFFsizesN > 2)]<-'***'
+        
+        posY<-(max(correctedFCs$correctedFC)-min(correctedFCs$correctedFC))/30+max(correctedFCs$correctedFC)
+        
+        for (i in 1:19){
+            text(AT[i],posY,sigVec1[i],cex = 1.5)
+        }
+        dd<-mean(correctedFCs$correctedFC)
+        lines(x = c(0.2,22.8),y = c(dd,dd),lty=2,col='red',lwd=2)
+        
+        legend('bottomleft',legend = c('.     p < 0.05',
+                                       '*     p < 0.05, Effect size > 0.5',
+                                       '**    p < 0.05, Effect size > 1',
+                                       '***   p < 0.05, Effect size > 2'))
+        dev.off()
+        
+        EFFsizes<-rbind(EFFsizes,EFFsizesN)
+        rownames(EFFsizes)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
+        colnames(EFFsizes)<-nnames[1:19]
+        
+        PVALS<-rbind(PVALS,PVALSn)
+        rownames(PVALS)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
+        colnames(PVALS)<-nnames[1:19]
+        
+        SIGNS<-rbind(SIGNS,SIGNSn)
+        rownames(SIGNS)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
+        colnames(SIGNS)<-nnames[1:19]
+    
+        return(list(PVALS=PVALS,SIGNS=SIGNS,EFFsizes=EFFsizes))
 }
+
+#### Utils not documented
+#### Assessment and visualisation not documented
+
+
+#Xmin<-min(min(correctedFCs[,'avgFC']),
+#          min(correctedFCs[,'correctedFC']))-1
+#Xmax<-max(max(correctedFCs[,'avgFC']),
+#          max(correctedFCs[,'correctedFC']))+1
+
 # 
 #     whatToPlot<-c('avgFC','correctedFC')
     
@@ -709,10 +927,6 @@ ccr.assessmentReport<-function(cellLine,
     # 
     # par(mfrow=c(2,1))
     # 
-    # Xmin<-min(min(correctedFCs[,'avgFC']),
-    #           min(correctedFCs[,'correctedFC']))-1
-    # Xmax<-max(max(correctedFCs[,'avgFC']),
-    #           max(correctedFCs[,'correctedFC']))+1
     # 
     # for (j in 1:2){
     #     
@@ -1029,5 +1243,21 @@ ccr.boxplot<-function(toPlot,main,names){
              lines(x=c(i-0.2,i+0.2),y=c(MEANS[i],MEANS[i]),col='red',lwd=5)
              lines(x=c(i-0.3,i+0.3),y=c(MEANS[i],MEANS[i])-SD[i],col='blue',lwd=2)
          }
-    }
+}
+
+ccr.cohens_d <- function(x, y) {
+    lx <- length(x)- 1
+    ly <- length(y)- 1
+    
+    md  <- abs(mean(x,na.rm = TRUE) - mean(y,na.rm = TRUE))        ## mean difference (numerator)
+    csd <- lx * var(x,na.rm = TRUE) + ly * var(y,na.rm = TRUE)
+    
+    csd <- csd/(lx + ly)
+    csd <- sqrt(csd)                     ## common sd computation
+    
+    cd  <- md/csd                        ## cohen's d
+    return(cd)
+}
+
+
 

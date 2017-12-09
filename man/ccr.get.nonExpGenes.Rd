@@ -38,7 +38,8 @@ Nucleic Acids Research, Volume 45, Issue D1, 4 January 2017, Pages D777-D783.
 [2] Garcia-Alonso L, Iorio F, Matchan A, et al. \emph{Transcription factor activities enhance markers of drug response in cancer}
 doi: https://doi.org/10.1101/129478
 
-[3] Iorio, F., Behan, F. M., Goncalves, E., Beaver, C., Ansari, R., Pooley, R., et al. (n.d.). Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 targeting.
+[3] Iorio, F., Behan, F. M., Goncalves, E., Beaver, C., Ansari, R., Pooley, R., et al.\cr
+Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 targeting.\cr
 http://doi.org/10.1101/228189
 }
 \author{

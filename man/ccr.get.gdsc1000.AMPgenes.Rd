@@ -14,7 +14,7 @@ ccr.get.gdsc1000.AMPgenes(cellLine, minCN = 8, exact = FALSE,
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{cellLine}{
-    A string specifying the name of a cell line used in (or a COSMIC identifier [1]);
+    A string specifying the name of a cell line (or a COSMIC identifier [1]);
 }
   \item{minCN}{
 Lower threshold for the minimum copy number of any genomic segment containing coding sequence of a gene in order for it to be considered as copy number amplified.

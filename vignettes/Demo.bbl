@@ -1,0 +1,399 @@
+% $ biblatex auxiliary file $
+% $ biblatex version 2.5 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\entry{Tzelepis:2016ix}{article}{}
+  \name{author}{27}{}{%
+    {{}%
+     {Tzelepis}{T.}%
+     {Konstantinos}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Koike-Yusa}{K.-Y.}%
+     {Hiroko}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {De~Braekeleer}{D.~B.}%
+     {Etienne}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Yilong}{Y.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Metzakopian}{M.}%
+     {Emmanouil}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Dovey}{D.}%
+     {Oliver~M}{O.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mupo}{M.}%
+     {Annalisa}{A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Grinkevich}{G.}%
+     {Vera}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Li}{L.}%
+     {Meng}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mazan}{M.}%
+     {Milena}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gozdecka}{G.}%
+     {Malgorzata}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ohnishi}{O.}%
+     {Shuhei}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cooper}{C.}%
+     {Jonathan}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Patel}{P.}%
+     {Miten}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McKerrell}{M.}%
+     {Thomas}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Chen}{C.}%
+     {Bin}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Domingues}{D.}%
+     {Ana~Filipa}{A.~F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gallipoli}{G.}%
+     {Paolo}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Teichmann}{T.}%
+     {Sarah}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ponstingl}{P.}%
+     {Hannes}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {McDermott}{M.}%
+     {Ultan}{U.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Saez-Rodriguez}{S.-R.}%
+     {Julio}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Huntly}{H.}%
+     {Brian J~P}{B.~J.~P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Iorio}{I.}%
+     {Francesco}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pina}{P.}%
+     {Cristina}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Vassiliou}{V.}%
+     {George~S}{G.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yusa}{Y.}%
+     {Kosuke}{K.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{TK+1}
+  \strng{fullhash}{TKKYHDBELYMEDOMMAGVLMMMGMOSCJPMMTCBDAFGPTSPHMUSRJHBJPIFPCVGSYK1}
+  \field{number}{4}
+  \field{pages}{1193\bibrangedash 1205}
+  \field{title}{{A CRISPR Dropout Screen Identifies Genetic Vulnerabilities and
+  Therapeutic Targets in Acute Myeloid Leukemia.}}
+  \field{volume}{17}
+  \field{journaltitle}{Cell reports}
+  \field{month}{10}
+  \field{year}{2016}
+\endentry
+
+\entry{Iorio:2017}{article}{}
+  \name{author}{12}{}{%
+    {{}%
+     {Iorio}{I.}%
+     {Francesco}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Behan}{B.}%
+     {Fiona~M}{F.~M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Goncalves}{G.}%
+     {Emanuel}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Beaver}{B.}%
+     {Charlotte}{C.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ansari}{A.}%
+     {Rizwan}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pooley}{P.}%
+     {Rachel}{R.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Wilkinson}{W.}%
+     {Piers}{P.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Harper}{H.}%
+     {Sarah}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Stronach}{S.}%
+     {Euan}{E.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Saez-Rodriguez}{S.-R.}%
+     {Julio}{J.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Yusa}{Y.}%
+     {Kosuke}{K.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Garnett}{G.}%
+     {Mathew~J}{M.~J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{IF+1}
+  \strng{fullhash}{IFBFMGEBCARPRWPHSSESRJYKGMJ1}
+  \field{number}{0}
+  \field{pages}{0\bibrangedash 0}
+  \field{title}{{Unsupervised correction of gene-independent cell responses to
+  CRISPR-Cas9 targeting}}
+  \field{volume}{0}
+  \field{journaltitle}{revision}
+  \field{month}{12}
+\endentry
+
+\entry{Li:2014kt}{article}{}
+  \name{author}{10}{}{%
+    {{}%
+     {Li}{L.}%
+     {Wei}{W.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Xu}{X.}%
+     {Han}{H.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Xiao}{X.}%
+     {Tengfei}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Cong}{C.}%
+     {Le}{L.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Love}{L.}%
+     {Michael~I}{M.~I.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Zhang}{Z.}%
+     {Feng}{F.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Irizarry}{I.}%
+     {Rafael~A}{R.~A.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Liu}{L.}%
+     {Jun~S}{J.~S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Brown}{B.}%
+     {Myles}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Liu}{L.}%
+     {X~Shirley}{X.~S.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{LW+1}
+  \strng{fullhash}{LWXHXTCLLMIZFIRALJSBMLXS1}
+  \field{number}{12}
+  \field{pages}{554}
+  \field{title}{{MAGeCK enables robust identification of essential genes from
+  genome-scale CRISPR/Cas9 knockout screens.}}
+  \field{volume}{15}
+  \field{journaltitle}{Genome Biology}
+  \field{year}{2014}
+\endentry
+
+\entry{Hart:2016ja}{article}{}
+  \name{author}{2}{}{%
+    {{}%
+     {Hart}{H.}%
+     {Traver}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Moffat}{M.}%
+     {Jason}{J.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{HTMJ1}
+  \strng{fullhash}{HTMJ1}
+  \field{pages}{164}
+  \field{title}{{BAGEL: a computational framework for identifying essential
+  genes from pooled library screens.}}
+  \field{volume}{17}
+  \field{journaltitle}{BMC bioinformatics}
+  \field{month}{04}
+  \field{year}{2016}
+\endentry
+
+\entry{Subramanian:2005wu}{article}{}
+  \name{author}{10}{}{%
+    {{}%
+     {Subramanian}{S.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Tamayo}{T.}%
+     {P}{P}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mootha}{M.}%
+     {VK}{V.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Mukherjee}{M.}%
+     {S}{S}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Ebert}{E.}%
+     {BL}{B.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Gillette}{G.}%
+     {MA}{M.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Paulovich}{P.}%
+     {A}{A}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Pomeroy}{P.}%
+     {SL}{S.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Golub}{G.}%
+     {TR}{T.}%
+     {}{}%
+     {}{}}%
+    {{}%
+     {Lander}{L.}%
+     {ES}{E.}%
+     {}{}%
+     {}{}}%
+  }
+  \strng{namehash}{SA+1}
+  \strng{fullhash}{SATPMVMSEBGMPAPSGTLE1}
+  \field{number}{43}
+  \field{pages}{15545}
+  \field{title}{{Gene set enrichment analysis: a knowledge-based approach for
+  interpreting genome-wide expression profiles}}
+  \field{volume}{102}
+  \field{journaltitle}{Proceedings of the National Academy of Sciences of the
+  United States of America}
+  \field{year}{2005}
+\endentry
+
+\lossort
+\endlossort
+
+\endinput

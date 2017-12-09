@@ -5,7 +5,8 @@ import(graphics)
 import(stringr)
 import(DNAcopy)
 import(pROC)
-#import(pracma)
+import(pracma)
+
 
 
 #analysis
@@ -28,7 +29,7 @@ export(ccr.VisDepAndSig)
 export(ccr.perf_statTests)
 export(ccr.multDensPlot)
 export(ccr.perf_distributions)
-
+export(ccr.RecallCurves)
 #export(ccr.retrieveAMPgeneGuides)
 #export(ccr.retrieveDELgeneGuides)
 #export(ccr.retrieveNotEXPgeneGuides)

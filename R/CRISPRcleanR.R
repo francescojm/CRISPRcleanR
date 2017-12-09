@@ -854,11 +854,6 @@ ccr.multDensPlot<-function(TOPLOT,COLS,XLIMS,TITLE,LEGentries,XLAB=''){
     }
 }
 
-
-
-#### Utils not documented
-#### Assessment and visualisation not documented
-
 ccr.perf_distributions<-function(cellLine,correctedFCs,
                                  GDSC.geneLevCNA=NULL,
                                  CCLE.gisticCNA=NULL,
@@ -916,7 +911,7 @@ ccr.perf_distributions<-function(cellLine,correctedFCs,
                 xlab='sgRNA log FC'
                 title='post CRISPRcleanR'
             }
-                
+            
             par(mar=c(4,4,2,1))
             
             options(warn = -1)
@@ -929,6 +924,88 @@ ccr.perf_distributions<-function(cellLine,correctedFCs,
     }
     
 }
+
+ccr.RecallCurves<-function(cellLine,correctedFCs,
+                           GDSC.geneLevCNA=NULL,
+                           RNAseq.fpkms=NULL,
+                           minCN=8,
+                           libraryAnnotation,
+                           GeneLev=FALSE){
+    
+    guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA=NULL,RNAseq.fpkms,
+                                 libraryAnnotation = libraryAnnotation)
+    
+    if(GeneLev){
+        guideSets<-lapply(guideSets,function(x){libraryAnnotation[x,'GENES']})
+    }
+    
+    COLS<-c("bisque4",'green','red','blue')
+    
+    par(mfrow=c(2,1))
+    par(mar=c(4,4,4,1))
+    
+    toPlot<-c('avgFC','correctedFC')
+    
+    AUCcombo<-NULL
+    for (j in 1:length(toPlot)){
+        
+        if (j == 1){
+            MAIN<-paste(cellLine,'pre-CRISPRcleanR')
+        }else{
+            MAIN<-paste(cellLine,'post-CRISPRcleanR')
+        }
+        
+        if(!GeneLev){
+            O1<-order(correctedFCs[,toPlot[j]])
+            predictions1<-rownames(correctedFCs)[O1]   
+            XLAB='sgRNA logFC percentile'
+        }else{
+            sgProf<-correctedFCs[,toPlot[j]]
+            names(sgProf)<-rownames(correctedFCs)
+            gProf<-ccr.geneMeanFCs(sgProf,libraryAnnotation)
+            O1<-order(gProf)
+            predictions1<-names(gProf)[O1]
+            XLAB='gene Avg logFC percentile'
+        }
+        
+        toTest<-c("BAGEL nonEssential","BAGEL Essential",
+                  paste("Amp (PNs >= ",minCN,")",sep=''),
+                  paste("Amp (PNs >= ",minCN,") notExp",sep=''))
+        
+        AUCs<-vector()
+        for (i in 1:length(toTest)){
+            currentSet<-guideSets[[toTest[i]]]
+            currentSet<-intersect(currentSet,predictions1)
+            pp1<-cumsum(is.element(predictions1,currentSet))/length(currentSet)
+            
+            if(i == 1){
+                plot(100*(1:length(predictions1))/length(predictions1),
+                     100*pp1,type='l',xlim=c(0,100),ylim=c(0,100),ylab='% Recall',
+                     col=COLS[i],xlab=XLAB,
+                     main=MAIN,lwd=2)
+            }else{
+                lines(100*(1:length(predictions1))/length(predictions1),
+                      100*pp1,type='l',xlim=c(0,100),ylim=c(0,100),col=COLS[i],lwd=2)
+            }
+            
+            AUCs[i]<-trapz(1:length(predictions1)/length(predictions1),pp1)
+        }
+        
+        AUCcombo<-rbind(AUCcombo,AUCs)
+        if (j == 1){
+            legend('bottomright',toTest,cex=0.8,lwd=2,col=COLS)
+        }
+    }
+    
+    rownames(AUCcombo)<-c('pre-CRISPRcleanR','post-CRISPRcleanR')
+    colnames(AUCcombo)<-toTest
+    
+    return(AUCcombo)
+}
+
+#### Utils not documented
+#### Assessment and visualisation not documented
+
 ## other exported functions
 
 ## not exported functions

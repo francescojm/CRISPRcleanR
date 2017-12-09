@@ -672,7 +672,7 @@ ccr.perf_statTests<-function(cellLine,
               'BAGEL nonEssential',
               'whole-library')
         
-        guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA,RNAseq.fpkms)
+        guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA,RNAseq.fpkms,libraryAnnotation = libraryAnnotation)
         PVALS<-vector()
         PVALSn<-vector()
         
@@ -829,11 +829,6 @@ ccr.perf_statTests<-function(cellLine,
         return(list(PVALS=PVALS,SIGNS=SIGNS,EFFsizes=EFFsizes))
 }
 
-
-
-#### Utils not documented
-#### Assessment and visualisation not documented
-
 ccr.multDensPlot<-function(TOPLOT,COLS,XLIMS,TITLE,LEGentries,XLAB=''){
     
     YM<-vector()
@@ -843,8 +838,8 @@ ccr.multDensPlot<-function(TOPLOT,COLS,XLIMS,TITLE,LEGentries,XLAB=''){
     
     Ymax<-max(YM,na.rm=TRUE)
     
-          plot(0,0,col=NA,ylab='density',xlab=XLAB,
-             xlim=XLIMS,ylim=c(0,Ymax),type='l',main=TITLE)
+    plot(0,0,col=NA,ylab='density',xlab=XLAB,
+         xlim=XLIMS,ylim=c(0,Ymax),type='l',main=TITLE)
     
     for (i in 1:length(TOPLOT)){
         cord.x <- c(TOPLOT[[i]]$x)
@@ -858,16 +853,25 @@ ccr.multDensPlot<-function(TOPLOT,COLS,XLIMS,TITLE,LEGentries,XLAB=''){
         }
     }
 }
+
+
+
+#### Utils not documented
+#### Assessment and visualisation not documented
+
 ccr.perf_distributions<-function(cellLine,correctedFCs,
                                  GDSC.geneLevCNA=NULL,
                                  CCLE.gisticCNA=NULL,
                                  RNAseq.fpkms=NULL,
-                                 minCNs=c(8,10)){
+                                 minCNs=c(8,10),
+                                 libraryAnnotation){
     
+    guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA,RNAseq.fpkms,
+                                 libraryAnnotation = libraryAnnotation)
     
-    gs<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA,RNAseq.fpkms)
-    names(gs)[16]<-'MSigDB CFEs'
+    names(guideSets)[16]<-'MSigDB CFEs'
     
+    gs<-guideSets
     Xmin<-min(min(correctedFCs[,'avgFC']),min(correctedFCs[,'correctedFC']))-1
     Xmax<-max(max(correctedFCs[,'avgFC']),max(correctedFCs[,'correctedFC']))+1
     
@@ -912,14 +916,14 @@ ccr.perf_distributions<-function(cellLine,correctedFCs,
                 xlab='sgRNA log FC'
                 title='post CRISPRcleanR'
             }
-            if(i==1){
-                par(mar=c(2,4,4,1))
-            }else{
-                par(mar=c(4,4,2,1))
-            }
+                
+            par(mar=c(4,4,2,1))
             
+            options(warn = -1)
             ccr.multDensPlot(TOPLOT = toPlot,COLS = COLS,XLIMS = c(Xmin,Xmax),TITLE=title,
                              LEGentries = c(plotType,'others'),XLAB = xlab)
+            
+            options(warn = 0)
         }
         options(warn = 0)
     }
@@ -954,7 +958,7 @@ ccr.cohens_d <- function(x, y) {
     return(cd)
 }
 
-ccr.get.guideSets<-function(cellLine,GDSC.geneLevCNA=NULL,CCLE.gisticCNA=NULL,RNAseq.fpkms=NULL){
+ccr.get.guideSets<-function(cellLine,GDSC.geneLevCNA=NULL,CCLE.gisticCNA=NULL,RNAseq.fpkms=NULL,libraryAnnotation){
     if(is.null(GDSC.geneLevCNA)){
         data(GDSC.geneLevCNA,envir = environment()) 
     }

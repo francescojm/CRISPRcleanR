@@ -23,16 +23,16 @@ ccr.perf_statTests(cellLine, libraryAnnotation, correctedFCs,
     The sgRNA library annotations formatted as specified in the reference manual entry of the \code{\link{KY_Library_v1.0}} built in library.
 }
   \item{correctedFCs}{
-    sgRNAs log fold changes corrected for gene independent responses, generated with the function \code{ccr.GWclean} (first data frame included in the list outputted by \code{ccr.GWclean}, i.e. \code{corrected_logFCs}).
+    sgRNAs log fold changes corrected for gene independent responses to CRISPR-Cas9 targeting, generated with the function \code{ccr.GWclean} (first data frame included in the list outputted by \code{ccr.GWclean}, i.e. \code{corrected_logFCs}).
 }
   \item{outDir}{
     The path of the folder where the boxplot will be saved.
 }
   \item{GDSC.geneLevCNA}{
-Genome-wide copy number data with the same format of \code{\link{GDSC.geneLevCNA}}. This can be assembled from the xls sheet specified in the source section [a] (containing data for the GDSC1000 cell lines). If NULL, then this function uses the data in the built in \code{\link{GDSC.geneLevCNA}} data frame, containing data derived from [a] for 15 cell lines used in [2] to assess the performances of CRISPRcleanR.
+Genome-wide copy number data with the same format of \code{\link{GDSC.geneLevCNA}}. This can be assembled from the xls sheet specified in the source section [a] (containing data for the GDSC1000 cell lines). If NULL, then this function uses the built in \code{\link{GDSC.geneLevCNA}} data frame, containing data derived from [a] for 15 cell lines used in [2] to assess the performances of CRISPRcleanR.
 }
   \item{CCLE.gisticCNA}{
- Genome-wide Gistic [3] scores quantifying copy number status across cell lines with the same format of \code{\link{CCLE.gisticCNA}}. If NULL then this function uses the \code{\link{CCLE.gisticCNA}} builtin data frame, containing data for 13 cell lines of the 15 used in [1] to assess the performances of CRISPRcleanR.
+ Genome-wide Gistic [3] scores quantifying copy number status across cell lines with the same format of \code{\link{CCLE.gisticCNA}}. If NULL then this function uses the \code{\link{CCLE.gisticCNA}} builtin data frame, containing data for 13 cell lines of the 15 used in [2] to assess the performances of CRISPRcleanR.
 }
   \item{RNAseq.fpkms}{
 Genome-wide substitute reads with fragments per kilobase of exon per million reads mapped (FPKM) across cell lines. These can be derived from a comprehensive collection of RNAseq profiles described in [4]. The format must be the same of the \code{\link{RNAseq.fpkms}} builtin data frame. If NULL then this function uses the \code{\link{RNAseq.fpkms}} builtin data fram containing data for 15 cell lines used in [2] to assess CRISPRcleaneR results.

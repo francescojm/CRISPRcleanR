@@ -104,6 +104,15 @@ volume = {102},
 number = {43},
 pages = {15545}
 }
+
+@article{Iorio:2016ds,
+author = {Iorio, Francesco and Knijnenburg, Theo A and Vis, Daniel J and Bignell, Graham R and Menden, Michael P and Schubert, Michael and Aben, Nanne and Gon{\c c}alves, Emanuel and Barthorpe, Syd and Lightfoot, Howard and Cokelaer, Thomas and Greninger, Patricia and van Dyk, Ewald and Chang, Han and de Silva, Heshani and Heyn, Holger and Deng, Xianming and Egan, Regina K and Liu, Qingsong and Mironenko, Tatiana and Mitropoulos, Xeni and Richardson, Laura and Wang, Jinhua and Zhang, Tinghu and Moran, Sebastian and Sayols, Sergi and Soleimani, Maryam and Tamborero, David and Lopez-Bigas, Nuria and Ross-Macdonald, Petra and Esteller, Manel and Gray, Nathanael S and Haber, Daniel A and Stratton, Michael R and Benes, Cyril H and Wessels, Lodewyk F A and Saez-Rodriguez, Julio and McDermott, Ultan and Garnett, Mathew J},
+title = {{A Landscape of Pharmacogenomic Interactions in Cancer.}},
+journal = {Cell},
+year = {2016},
+month = jul
+}
+
 \end{filecontents*}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
@@ -113,9 +122,9 @@ pages = {15545}
 \section{Quick start}
 
 \subsection{Installation}
-
-First, you need to install and load the devtools package. You can do this from CRAN. Invoke R and then type.
-
+ 
+First, you need to install and load the devtools package. You can do this from CRAN. Invoke R and then type:
+ 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -125,7 +134,7 @@ First, you need to install and load the devtools package. You can do this from C
 \end{kframe}
 \end{knitrout}
 
-Secondly, install the CRISPRcleanR with the following command:
+Secondly, install CRISPRcleanR with the following command:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -136,10 +145,10 @@ Secondly, install the CRISPRcleanR with the following command:
 \end{knitrout}
 
 \subsection{Raw sgRNA count median-ratio normalisation and computation of sgRNAs' log fold-changes}
+ 
+Load CRISPRcleanR.
 
-Load the package.
-
-
+ 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -163,8 +172,8 @@ Load the package.
 \end{knitrout}
 
 
-
-\textbf{Step 1:} Load your sgRNA library annotation. In this example we will use a built in data frame containing the annotation of the SANGER v1.0 library \cite{Tzelepis:2016ix}:
+% 
+\textbf{Step 1:} Load your sgRNA library annotation. In this example we will use a built in data frame containing the annotation of the SANGER v1.0 library, introduced in \cite{Tzelepis:2016ix}:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -172,30 +181,31 @@ Load the package.
 \end{alltt}
 \end{kframe}
 \end{knitrout}
+% 
+To use your own library annotation you will have to store it into a data frame with the same format of the \texttt{KY\char`_Library\char`_v1.0} (detailed in the corresponding entry of the reference manual of the CRISPRcleanR package).\\
 
-To use your own library annotation you will have to put it in a data frame with the same format of the \texttt{KY\char`_Library\char`_v1.0} data frame (detailed in the corresponding entry of the reference manual of the CRISPRcleanR package).\\
+\textbf{Step 2:} Store the path of the tsv file containing your sgRNAs' raw counts in a temporary variable. In this example we will use counts generated upon a CRISPR-Cas9 pooled drop-out screen (described in \cite{Iorio:2017}) built in this package, for an example immortalised human cancer cell line (HT-29)
 
-\textbf{Step 2:} Store the path of the tsv file containing your sgRNAs' raw counts in a temporare variable. In this example we will use counts generated upon a CRISPR-Cas9 pooled drop-out screen (described in \cite{Iorio:2017}) built in this package.
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-\hlstd{fn}\hlkwb{<-}\hlkwd{paste}\hlstd{(}\hlkwd{system.file}\hlstd{(}\hlstr{'extdata'}\hlstd{,}\hlkwc{package} \hlstd{=} \hlstr{'CRISPRcleanR'}\hlstd{),}
-          \hlstr{'/HT-29_counts.tsv'}\hlstd{,}\hlkwc{sep}\hlstd{=}\hlstr{''}\hlstd{)}
+ \hlstd{fn}\hlkwb{<-}\hlkwd{paste}\hlstd{(}\hlkwd{system.file}\hlstd{(}\hlstr{'extdata'}\hlstd{,}\hlkwc{package} \hlstd{=} \hlstr{'CRISPRcleanR'}\hlstd{),}
+           \hlstr{'/HT-29_counts.tsv'}\hlstd{,}\hlkwc{sep}\hlstd{=}\hlstr{''}\hlstd{)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-The tsv with the sgRNAs' raw counts must be formatted as specified in the reference manual entry for function \texttt{ccr.NormfoldChanges}.\\
 
-\textbf{Step 3:} Performing median-ratio normalisation of raw counts and computing sgRNAs' log fold-changes.
-In this example we will exclude sgRNAs with less than 30 reads in the plasmid sample.
+The tsv file with the sgRNAs' raw counts must be formatted as specified in the reference manual entry of the \texttt{ccr.NormfoldChanges} function.\\
+ 
+\textbf{Step 3:} Perform a median-ratio normalisation of raw counts and compute sgRNAs' log fold-changes (in this example we will exclude sgRNAs with less than 30 reads in the plasmid sample).
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlstd{normANDfcs}\hlkwb{<-}\hlkwd{ccr.NormfoldChanges}\hlstd{(fn,}
-                                \hlkwc{min_reads}\hlstd{=}\hlnum{30}\hlstd{,}
-                                \hlkwc{EXPname}\hlstd{=}\hlstr{'HT-29'}\hlstd{,}
-                                \hlkwc{libraryAnnotation}\hlstd{=KY_Library_v1.0)}
+                                 \hlkwc{min_reads}\hlstd{=}\hlnum{30}\hlstd{,}
+                                 \hlkwc{EXPname}\hlstd{=}\hlstr{'HT-29'}\hlstd{,}
+                                 \hlkwc{libraryAnnotation}\hlstd{=KY_Library_v1.0)}
 \end{alltt}
 \end{kframe}
 \includegraphics[width=\maxwidth]{figure/Norm_and_fc-1} 
@@ -203,7 +213,8 @@ In this example we will exclude sgRNAs with less than 30 reads in the plasmid sa
 \includegraphics[width=\maxwidth]{figure/Norm_and_fc-2} 
 
 \end{knitrout}
-This function returns a list of two data frames, respectively with normalised counts and log fold-changes, and it saves the as Robject in the directory whose path is specified with the parameter \texttt{outdir} (set to \texttt{'./'} by default).
+
+This function returns a list of two data frames containing, normalised counts and log fold-changes, respectively, and it saves them as Robjects in a user defined directory (specified by the parameter \texttt{outdir}, which is set to \texttt{'./'} by default).
 
 \begin{knitrout}\small
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -247,22 +258,22 @@ This function returns a list of two data frames, respectively with normalised co
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-
+ 
 \textbf{IMPORTANT:} if there are control replicates in your sgRNAs count file their number must be specified by in the parameter \texttt{ncontrols} (equal to 1 by default) of the \texttt{ccr.NormfoldChanges} function.
-
+ 
 \subsection{Genome sorting of sgRNAs' log fold-changes and their correction for gene independent responses to CRISPR-Cas9 targeting}
 
-\textbf{Step 1:} Map genome-wide sgRNAs' log fold changes (averaged across replicates) on the genome, sorted according to their positions of the targeted region on the chromosomes.
-
+\textbf{Step 1:} Map genome-wide sgRNAs' log fold changes (averaged across replicates) on the genome, sorted according to the of their targeted gene on the chromosomes.
+ 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlstd{gwSortedFCs}\hlkwb{<-}
-    \hlkwd{ccr.logFCs2chromPos}\hlstd{(normANDfcs}\hlopt{$}\hlstd{logFCs,KY_Library_v1.0)}
+     \hlkwd{ccr.logFCs2chromPos}\hlstd{(normANDfcs}\hlopt{$}\hlstd{logFCs,KY_Library_v1.0)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-
+ 
 \begin{knitrout}\small
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -286,9 +297,8 @@ This function returns a list of two data frames, respectively with normalised co
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-
-\textbf{Step 2:} Identify and correct biased sgRNAs' log fold-changes putatively due to gene independent responses to CRISPR-Cas9 targeting (this function calls iteratively the \texttt{ccr.cleanChrm} function,
-which performs the correction in each chromosome individually). In this example we are using a completely unsuerpvised approach and correcting chromosomal segments of equal sgRNA log fold-changes if they include sgRNAs targeting at least 3 different genes, and without making any assumption on gene essentiality nor knowing \textit{a priori} the copy number status of the included genes \cite{Iorio:2017}.
+% 
+\textbf{Step 2:} Identify and correct biased sgRNAs' log fold-changes putatively due to gene independent responses to CRISPR-Cas9 targeting, using the \texttt{ccr.GWclean} function. This function calls iteratively the \texttt{ccr.cleanChrm} function, which performs the correction on an individual chromosome). In this example we are using a completely unsuerpvised approach and correcting chromosomal segments of equal sgRNA log fold-changes if they include sgRNAs targeting at least 3 different genes, and without making any assumption on gene essentiality, nor knowing \textit{a priori} the copy number status of the included genes \cite{Iorio:2017}.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -297,13 +307,13 @@ which performs the correction in each chromosome individually). In this example 
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-The corrected sgRNAs fold-changes are returned in a list (as a data frame), together with another data frame
-with annotation of the identified segments and a vector of strings containing all the sgRNAs identifier genome-sorted.
 
+The corrected sgRNAs fold-changes are returned in a list (as a data frame), together with the annotation of the identified segments (in another data frame) and a vector of strings containing all the gemome-sorted sgRNAs' identifiers.
+ 
 \begin{knitrout}\small
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
-    \hlkwd{head}\hlstd{(correctedFCs}\hlopt{$}\hlstd{corrected_logFCs)}
+     \hlkwd{head}\hlstd{(correctedFCs}\hlopt{$}\hlstd{corrected_logFCs)}
 \end{alltt}
 \begin{verbatim}
 ##                                          CHR startp   endp  genes
@@ -330,35 +340,34 @@ with annotation of the identified segments and a vector of strings containing al
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-
-Details on how the data frame with the corrected sgRNAs fold-changes should be interpreted can be found in the
-entry of the \texttt{ccr.GWclean} function in the package reference manual.\\
-
-This function also produces one plot per chromosome, with segments of sgRNAs' equal log fold-changes before and after the correction. An example of these plot is reported below (chromosome 8, in HT-29 with the region containing \textit{MYC} highly biased toward consistent negative fold-changes)
-
+% 
+Details on how the data frame with the corrected sgRNAs' log fold-changes should be interpreted can be found in the entry of the \texttt{ccr.GWclean} function, of the package reference manual.\\
+ 
+This function also produces one plot per chromosome, with segments of sgRNAs' equal log fold-change before and after the correction. An example of these plot is reported below: chromosome 8, in HT-29, showing a region containing \textit{MYC}, which is highly biased toward consistent negative fold-changes.
+ 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
 \includegraphics[width=\maxwidth]{figure/correction_chrm8-1} 
 
 \end{knitrout}
-
+ 
 \subsection{Correcting sgRNAs' treatment counts for mean-variance modeling}
-In order to apply the inverse transformation described in \cite{Iorio:2017}, thus to derive corrected normalised sgRNAs' treatment counts from corrected log fold-changes, it is sufficient to run the function \texttt{ccr.correctCounts} as follows:
+In order to apply the inverse transformation described in \cite{Iorio:2017}, deriving corrected normalised sgRNAs' treatment counts from CRISPRcleanR corrected log fold-changes, it is sufficient to run the function \texttt{ccr.correctCounts} as follows:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlstd{correctedCounts}\hlkwb{<-}\hlkwd{ccr.correctCounts}\hlstd{(}\hlstr{'HT-29'}\hlstd{,}
-                                   \hlstd{normANDfcs}\hlopt{$}\hlstd{norm_counts,}
-                                   \hlstd{correctedFCs,}
-                                   \hlstd{KY_Library_v1.0,}
-                                   \hlkwc{minTargetedGenes}\hlstd{=}\hlnum{3}\hlstd{,}
-                                   \hlkwc{OutDir}\hlstd{=}\hlstr{'./'}\hlstd{)}
+                                    \hlstd{normANDfcs}\hlopt{$}\hlstd{norm_counts,}
+                                    \hlstd{correctedFCs,}
+                                    \hlstd{KY_Library_v1.0,}
+                                    \hlkwc{minTargetedGenes}\hlstd{=}\hlnum{3}\hlstd{,}
+                                    \hlkwc{OutDir}\hlstd{=}\hlstr{'./'}\hlstd{)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-
-With the plasmid counts, are suitable for mean-variance modeling approach (such that implemented in MAGeCK\cite{Li:2014kt}). 
+% 
+Together with the plasmid counts, the corrected treatment counts can be used to compute depletion singificance scores with a mean-variance modeling approach (such that implemented in MAGeCK\cite{Li:2014kt}). 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -383,35 +392,34 @@ With the plasmid counts, are suitable for mean-variance modeling approach (such 
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-
+ 
 This function also saves the correctedCounts as Rdata object at the location specified by the parameter \texttt{OutDir}.
-To run MAGeCK, using these corrected sgRNAs' counts you will need to save them as a tsv file first:
+To run MAGeCK, using these corrected sgRNAs' counts you will need to save them as a tsv file, which will be ued as input for MAGeCK:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlkwd{write.table}\hlstd{(correctedCounts,}
-            \hlkwc{quote}\hlstd{=}\hlnum{FALSE}\hlstd{,}
-            \hlkwc{row.names} \hlstd{=} \hlnum{FALSE}\hlstd{,}
-            \hlkwc{sep}\hlstd{=}\hlstr{'\textbackslash{}t'}\hlstd{,}
-            \hlkwc{file}\hlstd{=}\hlstr{'./HT-29_mgk_input_corrected.tsv'}\hlstd{)}
+             \hlkwc{quote}\hlstd{=}\hlnum{FALSE}\hlstd{,}
+             \hlkwc{row.names} \hlstd{=} \hlnum{FALSE}\hlstd{,}
+             \hlkwc{sep}\hlstd{=}\hlstr{'\textbackslash{}t'}\hlstd{,}
+             \hlkwc{file}\hlstd{=}\hlstr{'./HT-29_mgk_input_corrected.tsv'}\hlstd{)}
 \end{alltt}
 \end{kframe}
 \end{knitrout}
 
-then use this file as input for MAGeCK.\\
-
-\textbf{IMPORTANT:} the corrected sgRNAs' count are already median-normalised
+ 
+\textbf{IMPORTANT:} the corrected sgRNAs' counts are already median-normalised,
 therefore, when executing MAGeCK, the parameter \texttt{--norm-method} should be set to \texttt{none}.
-
+ 
 \section{Visualisation and assessment of Results}
-
+ 
 \subsection{Classification performances of reference sets of genes (or sgRNAs) based on depletion log fold-changes}
 
-To perform a basic quality control assessment of your data it is possible to test the genome-wide profile of sgRNAs' depletion logFCs (or gene depletion logFCs averaged across targeting sgRNAs)
-as a classifier of reference sets of core-fitness essential (CFE) and non-essential genes.
-What you need for this is a named vector of sgRNAs (or gene) log fold changes and two reference gene sets. In this example we make use of a precomputed essentiality profile from the builtin data object \texttt{EPLC.272HcorrectedFCs}. This is a list containing corrected sgRNAs log fold-changes and segment annotations for an example cell line (EPLC-272H), obtained using the \texttt{ccr.GWclean} function, as detailed in its reference manual entry. However the data frame containing the corrected log fold-changes, included in this list, reports also the original sgRNAs logFC (column \texttt{avgFC} which will be used in this example).
+To perform a basic quality control assessment of your data it is possible to test the genome-wide profile of sgRNAs' depletion log fold-changes (logFCs) (or gene depletion logFCs, averaged across targeting sgRNAs) as a classifier of reference sets of core-fitness essential (CFE) and non-essential genes.\\
 
+What you need for this is a named vector of sgRNAs (or gene) logFCs and two reference gene sets (respectively for positive and negative cases). In this example we make use of a precomputed essentiality profile from the builtin data object \texttt{EPLC.272HcorrectedFCs}. This is a list containing corrected sgRNAs log fold-changes and segment annotations for an example cell line (EPLC-272H), obtained using the \texttt{ccr.GWclean} function, as detailed in its reference manual entry. However the data frame containing the corrected log fold-changes, included in this list, reports also the original sgRNAs logFC (column \texttt{avgFC}), which will be used in this example.
+ 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
@@ -450,8 +458,8 @@ What you need for this is a named vector of sgRNAs (or gene) log fold changes an
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-
-As reference gene sets we will lists of CFE and non-essential genes assembled from multiple RNAi studies used as classification template by the BAGEL algorithm to call gene depletion significance \cite{Hart:2016ja}, included in the builtin data objects \texttt{BAGEL\char`_essential} and \texttt{BAGEL\char`_nonEssential}.
+ 
+As reference gene sets we will use lists of CFE and non-essential genes assembled from multiple RNAi studies. These are used as classification template by the BAGEL algorithm to call gene depletion significance \cite{Hart:2016ja}, and are included in the builtin data objects \texttt{BAGEL\char`_essential} and \texttt{BAGEL\char`_nonEssential}.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -473,7 +481,7 @@ As reference gene sets we will lists of CFE and non-essential genes assembled fr
 \end{kframe}
 \end{knitrout}
 
-Finally, we will need the sgRNAs library annotation. In this case we will use the builtin object \texttt{KY\char`_KY\char`_Library\char`_v1.0} (introduced in the previous section) \cite{Tzelepis:2016ix}. To use a different library annotation you will have to put it in a data frame with the same format of the \texttt{KY\char`_Library\char`_v1.0} data frame (detailed in the corresponding entry of the reference manual of the CRISPRcleanR package).\\
+Finally, you will need the sgRNAs library annotation. In this case we will use the builtin object \texttt{KY\char`_KY\char`_Library\char`_v1.0} (introduced in the previous section) \cite{Tzelepis:2016ix}. As for the previous examples, to use a different library annotation you will have to store it in a data frame with the same format of the \texttt{KY\char`_Library\char`_v1.0} data frame (detailed in the corresponding entry of the reference manual of the CRISPRcleanR package).\\
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -483,7 +491,7 @@ Finally, we will need the sgRNAs library annotation. In this case we will use th
 \end{kframe}
 \end{knitrout}
 
-We will start with an evualuation at the sgRNA level. As mentioned, the log fold-changes needs to be stored a named vector:
+We will start with an evualuation at the sgRNA level. As mentioned, the logFCs need to be stored a named vector:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -494,7 +502,7 @@ We will start with an evualuation at the sgRNA level. As mentioned, the log fold
 \end{kframe}
 \end{knitrout}
 
-To convert the reference CFE and non-essential gene sets into sets of sgRNAs, the function \texttt{ccr.genes2sgRNAs} can be used, as follows:
+The \texttt{ccr.genes2sgRNAs} function can be used, as follows, to convert the reference sets of CFE and non-essential genes into sets of sgRNAs:
 
 
 
@@ -511,14 +519,14 @@ To convert the reference CFE and non-essential gene sets into sets of sgRNAs, th
 
 
 
-Following these calls, possible warning messages could appear informing you that some of the reference genes are not targeted by any sgRNA in the considered library. This has no impact on the following steps and results.\\
+Following these calls, possible warning messages could appear informing you that some of the reference genes are not targeted by any sgRNAs in the considered library. This has no impact on the following steps and results.\\
 
-Finally, to visualise the precision-recall curve quantifying the performances in classifying the considered reference sets it is sufficient to call: 
+Finally, to visualise the precision-recall curve quantifying the performances in classifying the considered reference sets based on their logFCs, it is sufficient to call:
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlkwd{ccr.PrecisionRecallCurve}\hlstd{(FCs,BAGEL_essential_sgRNAs,}
-                             \hlstd{BAGEL_nonEssential_sgRNAs)}
+                              \hlstd{BAGEL_nonEssential_sgRNAs)}
 \end{alltt}
 \end{kframe}
 \includegraphics[width=\maxwidth]{figure/unnamed-chunk-23-1} 
@@ -534,8 +542,8 @@ Finally, to visualise the precision-recall curve quantifying the performances in
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-
-To reperform the analysis at the gene level, first we should convert the profile of sgRNA log fold change into gene level summaries. The function \texttt{ccr.geneMeanFCs} performs this conversion by considering for each gene the average logFC across targeting guides.
+% 
+To reperform the analysis at the gene level, you should first convert the profile of sgRNAs' logFCs into gene level summaries. The function \texttt{ccr.geneMeanFCs} performs this conversion by considering for each gene the average logFC across its targeting sgRNAs.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -550,8 +558,7 @@ To reperform the analysis at the gene level, first we should convert the profile
 \end{kframe}
 \end{knitrout}
 
-The following call reperform the analysis at the gene level and it also computes and shows Recall values
-at a fixed False Discovery Rate (in this case equal to 5\%).
+The following call reperforms the analysis at the gene level and it also computes and shows Recall values at fixed False Discovery Rate (which is defined by the user and in this case is equal to 5\%).
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -575,14 +582,14 @@ at a fixed False Discovery Rate (in this case equal to 5\%).
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-
+ 
 As can be seen above, when setting the parameter \texttt{FRDth} to a value different from \texttt{NULL}
-(its default value), this function also return the log fold change threshold at which a classification FDR equal to the inputted value is achieved. 
-
+(its default value), this function also returns the log fold change threshold at which a classification FDR equal to the inputted value is achieved. 
+ 
 \subsection{Depletion profile visualisation with genes signatures superimposed and recall computation}
-For another quick assessment of your data it is possible to visually inspect enrichments of predefined sets of core-fitness essential genes at the top of the genome wide essentiality profiles (ranked based on depletion logFC in increasing order), and to compute their classification recall at a fixed FDR (determined as deatiled in the previous subsection).\\
-
-To this aim, in this example we will load additional sets of CFE genes assembled from MsigDB \cite{Subramanian:2005wu} as detailed in \cite{Iorio:2017}, and we will assemble them into a named list, as follows:
+For another quick assessment of your data it is possible to visually inspect enrichments of predefined sets of core-fitness essential genes near the top of the genome wide essentiality profiles (composed of sgRNA or gene depletion logFCs ranked in increasing order), and to compute their classification recall at a fixed FDR (determined as deatiled in the previous subsection).\\
+ 
+To this aim, in this example we will load additional sets of CFE genes assembled from MsigDB \cite{Subramanian:2005wu} as detailed in \cite{Iorio:2017}, and we will store all of them into a named list, as follows:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -593,7 +600,6 @@ To this aim, in this example we will load additional sets of CFE genes assembled
 \hlkwd{data}\hlstd{(EssGenes.PROTEASOME_cons)}
 \hlkwd{data}\hlstd{(EssGenes.SPLICEOSOME_cons)}
 
-\hlcom{## Assembling a named list with all the considered gene sets}
 \hlstd{SIGNATURES}\hlkwb{<-}\hlkwd{list}\hlstd{(}\hlkwc{Ribosomal_Proteins}\hlstd{=EssGenes.ribosomalProteins,}
                  \hlkwc{DNA_Replication} \hlstd{= EssGenes.DNA_REPLICATION_cons,}
                  \hlkwc{RNA_polymerase} \hlstd{= EssGenes.KEGG_rna_polymerase,}
@@ -604,17 +610,17 @@ To this aim, in this example we will load additional sets of CFE genes assembled
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-
-Finally we will create a visualisation of the gene essentiality profile with superimposed these signatures, as follows:
-
+% 
+Finally a visualisation of the gene essentiality profile with superimposed these signatures, can be created as follows:
+ 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlstd{Recall_scores}\hlkwb{<-}\hlkwd{ccr.VisDepAndSig}\hlstd{(}\hlkwc{FCsprofile} \hlstd{= geneFCs,}
-                            \hlkwc{SIGNATURES} \hlstd{= SIGNATURES,}
-                            \hlkwc{TITLE} \hlstd{=} \hlstr{'EPLC-272H'}\hlstd{,}
-                            \hlkwc{pIs} \hlstd{=} \hlnum{6}\hlstd{,}
-                            \hlkwc{nIs} \hlstd{=} \hlnum{7}\hlstd{)}
+                             \hlkwc{SIGNATURES} \hlstd{= SIGNATURES,}
+                             \hlkwc{TITLE} \hlstd{=} \hlstr{'EPLC-272H'}\hlstd{,}
+                             \hlkwc{pIs} \hlstd{=} \hlnum{6}\hlstd{,}
+                             \hlkwc{nIs} \hlstd{=} \hlnum{7}\hlstd{)}
 \end{alltt}
 \end{kframe}
 
@@ -625,9 +631,9 @@ Finally we will create a visualisation of the gene essentiality profile with sup
 
 
 \end{knitrout}
-
+% 
 \textbf{IMPORTANT:} When calling \texttt{ccr.VisDepAndSig} it is important to correctly specify the index position of the reference gene sets that are used as classification template to derive the FDR threshold, within the list of signatures. In this case the template sets are \texttt{BAGEL\char`_essential} and \texttt{BAGEL\char`_nonEssential}, which in the \texttt{SIGNATURE} list are in position 6 and 7, respectively (this must be specified in the \texttt{pIs} and \texttt{nIs} parameters of the \texttt{ccr.VisDepAndSig} function).\\
-
+% 
 This function also returns recall values at 5\% FDR for all the inputted signatures.
 
 \begin{knitrout}
@@ -647,9 +653,9 @@ This function also returns recall values at 5\% FDR for all the inputted signatu
 \end{knitrout}
 
 \subsection{CRISPRcleanR correction assessment: Statistical tests}
-To evaluate the effect of the CRISPRcleanR correction on your data it is possible to inspect the logFCs changes of sgRNAs targeting different sets of genes for statistically significant differences with respect to background pre/post CRISPRcleanR correction.\\
+To evaluate the effect of the CRISPRcleanR correction on your data it is possible to inspect the logFCs' variations for sgRNAs targeting predefined sets of genes for statistically significant differences with respect to background pre/post CRISPRcleanR correction.\\
 
-To this aim, in this example we will use the builtin data object\\ \texttt{HT.29correctedFCs} containing corrected sgRNAs logFCs and segment annotations for an example cell line (HT-29), obtained using the \texttt{ccr.GWclean} function, as detailed in its reference manual entry.
+To this aim, in this example we will use the builtin data object\\ \texttt{HT.29correctedFCs} containing corrected sgRNAs' logFCs and segment annotations for an example cell line (HT-29), obtained using the \texttt{ccr.GWclean} function, as detailed in its reference manual entry.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -661,7 +667,7 @@ To this aim, in this example we will use the builtin data object\\ \texttt{HT.29
 
 The function \texttt{ccr.perf\char`_statTests} performs this analysis, saving pdf figures in a user defined location ('./' by default).\\
 
-Particularly, this functions assess the statistical difference pre/post CRISPRcleanR correction of log fold changes for sgRNAs targeting respectively:
+Particularly, this functions assess statistical difference respect to background population pre/post CRISPRcleanR correction of logFCs for sgRNAs targeting respectively:
 
 \begin{itemize}
         \item copy number (CN) deleted genes according to the GDSC1000 repository
@@ -679,10 +685,10 @@ Particularly, this functions assess the statistical difference pre/post CRISPRcl
         \item non expressed genes (FPKM lower than 0.05) with minimal CN = 4, according to the GDSC1000
         \item non expressed genes (FPKM lower than 0.05) with minimal CN = 8, according to the GDSC1000
         \item non expressed genes (FPKM lower than 0.05) with minimal CN = 10, according to the GDSC1000
-        
+
         \end{itemize}
 
-It should be called as follows:
+The call should be as follows:
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -693,28 +699,50 @@ It should be called as follows:
                    \hlkwc{CCLE.gisticCNA} \hlstd{=} \hlkwa{NULL}\hlstd{,}
                    \hlkwc{RNAseq.fpkms} \hlstd{=} \hlkwa{NULL}\hlstd{)}
 \end{alltt}
+\begin{verbatim}
+## [1] "Testing sgRNAs targeting: Dep (PN) genes"
+## [1] "Testing sgRNAs targeting: Dep (Gistic) genes"
+## [1] "Testing sgRNAs targeting: notExp genes"
+## [1] "Testing sgRNAs targeting: Amp (Gistic +1) genes"
+## [1] "Testing sgRNAs targeting: Amp (Gistic +2) genes"
+## [1] "Testing sgRNAs targeting: Amp (Gistic +1) notExp genes"
+## [1] "Testing sgRNAs targeting: Amp (Gistic +2) notExp genes"
+## [1] "Testing sgRNAs targeting: Amp (PNs >= 2) genes"
+## [1] "Testing sgRNAs targeting: Amp (PNs >= 4) genes"
+## [1] "Testing sgRNAs targeting: Amp (PNs >= 8) genes"
+## [1] "Testing sgRNAs targeting: Amp (PNs >= 10) genes"
+## [1] "Testing sgRNAs targeting: Amp (PNs >= 2) notExp genes"
+## [1] "Testing sgRNAs targeting: Amp (PNs >= 4) notExp genes"
+## [1] "Testing sgRNAs targeting: Amp (PNs >= 8) notExp genes"
+## [1] "Testing sgRNAs targeting: Amp (PNs >= 10) notExp genes"
+## [1] "Testing sgRNAs targeting: Essential genes"
+## [1] "Testing sgRNAs targeting: BAGEL Essential genes"
+## [1] "Testing sgRNAs targeting: BAGEL Ess.Only genes"
+## [1] "Testing sgRNAs targeting: BAGEL nonEssential genes"
+\end{verbatim}
 \end{kframe}
 \end{knitrout}
+ 
+This saves a pdf with the following figure in a user defined location ('./' by default). 
 
-It will save the following figure in the indicated path. 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=130mm]{HT-29_bp.pdf}
 \end{figure}
+ 
+Leaving the parameters \texttt{GDSC.geneLevCNA}, \texttt{CCLE.gisticCNA}, and\\ \texttt{RNAseq.fpkms} to their default NULL value will force this function to use the respective builtin data objects encompassing data only for 15 cell lines, used in \cite{Iorio:2017} and in this package to assess the performances of CRISPRcleanR.\\
 
-Leaving the parameters \texttt{GDSC.geneLevCNA}, \texttt{CCLE.gisticCNA}, and\\ \texttt{RNAseq.fpkms} to their default NULL value will force this function to use the respective builtin data object containing data only for 15 cell lines used in \cite{Iorio:2017} and in this package documentation to assess the performances of CRISPRcleanR.\\
+\textbf{IMPORTANT:} To analyse data from screening a different cell line ad-hoc \texttt{GDSC.geneLevCNA}, \texttt{CCLE.gisticCNA}, and \texttt{RNAseq.fpkms} data objects should be assembled and passed to this function. These should have the same format of the respective builtin counterparts, detailaed in their user reference manual entries, which contains also additional infos on how to derive this datasets for 1,000 human cance cell lines from the GDSC1000 data portal \cite{Iorio:2016ds}).\\
 
-\textbf{IMPORTANT:} To analyse data from screening a different cell line ad-hoc \texttt{GDSC.geneLevCNA}, \texttt{CCLE.gisticCNA}, and \texttt{RNAseq.fpkms} data object should be assembled (with the same format of the respective builtin data objects, detailaed in their user reference manual entries, which contain also additional infos on how to derive data for 1,000 human cance cell lines).\\
+Comprehensive statistical scores (detailed in the user reference manual) are also returned in output by this function.\\
 
-Comprehensive statistical scores (detailed in the user reference manual) resulting from the executio of this function are also returned in output.\\
-
-Another example, analysing in the same way the essentiality profile of the EPLC-272H cell line is reported below.
+Another example, analysing in the same way the essentiality profile of the EPLC-272H cell line (includede in a corresponding builtin R object) is reported below, 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlstd{RES}\hlkwb{<-}\hlkwd{ccr.perf_statTests}\hlstd{(}\hlstr{'EPLC-272H'}\hlstd{,}\hlkwc{libraryAnnotation} \hlstd{= KY_Library_v1.0,}
-                   \hlkwc{correctedFCs} \hlstd{= EPLC.272HcorrectedFCs}\hlopt{$}\hlstd{corrected_logFCs)}
+                    \hlkwc{correctedFCs} \hlstd{= EPLC.272HcorrectedFCs}\hlopt{$}\hlstd{corrected_logFCs)}
 \end{alltt}
 \begin{verbatim}
 ## [1] "No gistic CNA scores available for this cell line"
@@ -804,7 +832,7 @@ Another example, analysing in the same way the essentiality profile of the EPLC-
 \end{figure}
 
 \newpage
-To inspect the variation induced by the CRISPRcleanR correction on distribution densities of sgRNA log fold changes for defined sets of targeted genes prior/post CRISPRcleanR correction, the following function can be also used:
+To inspect the variation induced by the CRISPRcleanR correction on the logFCs' distributions of sgRNAs targeting defined sets of genes prior/post\\ CRISPRcleanR correction, the following function can be also used (and will produce the following density plots):
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -829,7 +857,7 @@ Additional infos on how to use this function can be found in the user reference 
 
 \subsection{Recall variations following CRISPRcleanR correction for reference, copy number amplified, and non expressed genes}
 
-A final analysis that can be done with the CRISPRcleanR package in order to evalute the effect of its correction on the classfication recall of predefined gene sets can be performed with the following call, which can perform the analysis at the sgRNA level:
+A final analysis that can be done with the CRISPRcleanR package in order to evalute the effect of its correction on the classfication recall for predefined gene sets can be performed by calling the function, which can work at the sgRNA 
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -852,7 +880,7 @@ A final analysis that can be done with the CRISPRcleanR package in order to eval
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
-
+ 
 as well as the gene level:
 
 \begin{knitrout}

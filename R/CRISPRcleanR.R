@@ -1,7 +1,7 @@
 ## exported, documented, vignetted functions
 #### Analysis
 ccr.NormfoldChanges<-function(filename,
-                              display=FALSE,
+                              display=TRUE,
                               saveToFig=FALSE,
                               outdir='./',
                               min_reads=30,

@@ -39,7 +39,10 @@ export(ccr.RecallCurves)
 #export(ccr.retrieveGisticScores)
 #export(ccr.retrievePICNICscores)
 
-## to be documented
+## to be documented 
+## to be debugged
+export(ccr.fixedFDRthreshold)
+
 #export(ccr.assessmentReport)
 
 #export(ccr.autoROC)

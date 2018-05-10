@@ -505,6 +505,19 @@ ccr.get.CCLEgisticSets<-function(cellLine,CCLE.gisticCNA=NULL){
     
 }
 
+ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
+    presentGenes<-intersect(c(TruePositives,TrueNegatives),names(FCsprofile))
+    predictions<-FCsprofile[presentGenes]
+    observations<-is.element(presentGenes,TruePositives)+0
+    names(observations)<-presentGenes
+    RES<-roc(observations,predictions,'>')
+    COORS<-coords(RES,'all',ret = c('threshold','ppv'))
+    FDRpercTh<-max(COORS['threshold',which(COORS['ppv',]>=(1-th))])
+    FDRpercRANK<-max(which(sort(FCsprofile)<=FDRpercTh))
+    
+    return(list(FCth=FDRpercTh,RANK=FDRpercRANK))
+}
+
 
 #### Assessment and visualisation
 ccr.PrecisionRecallCurve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
@@ -566,14 +579,13 @@ ccr.VisDepAndSig<-function(FCsprofile,
     
     
     if(length(pIs)>0 & length(nIs)>0){
-        presentGenes<-intersect(c(SIGNATURES[[pIs]],SIGNATURES[[nIs]]),names(FCsprofile))
-        predictions<-FCsprofile[presentGenes]
-        observations<-is.element(presentGenes,SIGNATURES[[pIs]])+0
-        names(observations)<-presentGenes
-        RES<-roc(observations,predictions,'>')
-        COORS<-coords(RES,'all',ret = c('threshold','ppv'))
-        FDR5percTh<-max(COORS['threshold',which(COORS['ppv',]>=(1-th))])
-        FDR5percRANK<-max(which(sort(FCsprofile)<=FDR5percTh))
+        RES<-ccr.fixedFDRthreshold(FCsprofile = FCsprofile,
+                                   TruePositives = SIGNATURES[[pIs]],
+                                   TrueNegatives = SIGNATURES[[nIs]],
+                                   th = th)
+        FDR5percRANK<-RES$RANK
+        FDR5percTh<-RES$FCth
+        
     }else{
         FDR5percRANK<-NULL
     }

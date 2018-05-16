@@ -520,7 +520,7 @@ ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
 
 
 #### Assessment and visualisation
-ccr.PrecisionRecallCurve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
+ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
     
     FCsprofile<-FCsprofile[intersect(c(positives,negatives),names(FCsprofile))]
     

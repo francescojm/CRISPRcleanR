@@ -1,14 +1,14 @@
-\name{ccr.PrecisionRecallCurve}
-\alias{ccr.PrecisionRecallCurve}
+\name{ccr.ROC_Curve}
+\alias{ccr.ROC_Curve}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Classification performances of reference sets of genes (or sgRNAs) based on depletion log fold-changes
 }
 \description{
-This functions computes Precision/Recall (PR) curve, area under the PR curve and (optionally) Recall at fixed false discovery rate (and corresponding log fold change threshold) when classifying reference sets of genes (or sgRNAs) based on their depletion log fold-changes
+This functions computes Specificity/Sensitivity (or TNR/TPR, or ROC) curve, area under the ROC curve and (optionally) Recall (i.e. TPR) at fixed false discovery rate (computed as 1 - Precision (or Positive Predicted Value)) and corresponding log fold change threshold) when classifying reference sets of genes (or sgRNAs) based on their depletion log fold-changes
 }
 \usage{
-ccr.PrecisionRecallCurve(FCsprofile,
+ccr.ROC_Curve(FCsprofile,
                          positives,
                          negatives,
                          display = TRUE,
@@ -65,13 +65,13 @@ BAGEL_essential_sgRNAs<-ccr.genes2sgRNAs(KY_Library_v1.0,BAGEL_essential)
 BAGEL_nonEssential_sgRNAs<-ccr.genes2sgRNAs(KY_Library_v1.0,BAGEL_nonEssential)
 
 ## computing classification performances at the sgRNA level
-ccr.PrecisionRecallCurve(FCs,BAGEL_essential_sgRNAs,BAGEL_nonEssential_sgRNAs)
+ccr.ROC_Curve(FCs,BAGEL_essential_sgRNAs,BAGEL_nonEssential_sgRNAs)
 
 ## computing gene level log fold-changes
 geneFCs<-ccr.geneMeanFCs(FCs,KY_Library_v1.0)
 
 ## computing classification performances at the sgRNA level, with Recall at 5\% FDR
-ccr.PrecisionRecallCurve(geneFCs,BAGEL_essential,BAGEL_nonEssential,FDRth = 0.05)
+ccr.ROC_Curve(geneFCs,BAGEL_essential,BAGEL_nonEssential,FDRth = 0.05)
 
 
 }

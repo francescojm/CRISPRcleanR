@@ -24,7 +24,7 @@ export(ccr.get.nonExpGenes)
 export(ccr.get.CCLEgisticSets)
 
 #visualisation and assessment
-export(ccr.PrecisionRecallCurve)
+export(ccr.ROC_Curve)
 export(ccr.VisDepAndSig)
 export(ccr.perf_statTests)
 export(ccr.multDensPlot)

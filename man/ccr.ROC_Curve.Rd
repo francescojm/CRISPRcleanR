@@ -35,7 +35,7 @@ A logical parameter specifying if a plot containing the computed precision/recal
 }
 }
 \value{
-    A list containint three numerical variable \code{AUC}, \code{Recall}, and \code{sigthreshold} indicating the area under the precision/recall curve and (if \code{FDRth} is not NULL) the recall at the specifying false discovery rate and the corresponding log fold change threshold (both equal to NULL, if \code{FDRth} is NULL), respectively. 
+    A list containint three numerical variable \code{AUC}, \code{Recall}, and \code{sigthreshold} indicating the area under ROC curve and (if \code{FDRth} is not NULL) the recall at the specifying false discovery rate and the corresponding log fold change threshold (both equal to NULL, if \code{FDRth} is NULL), respectively. 
 }
 \author{
     Francesco Iorio (fi9323@gmail.com)

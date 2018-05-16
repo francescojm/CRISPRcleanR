@@ -45,7 +45,7 @@ A logic value specifying whether the log fold changes should be plotted.
 Francesco Iorio (iorio@gmail.com)
 }
 \seealso{
-\code{\link{ccr.PrecisionRecallCurve}}
+\code{\link{ccr.ROC_Curve}}
 }
 \examples{
 ## loading corrected sgRNAs log fold-changes and segment annotations

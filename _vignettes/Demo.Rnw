@@ -260,9 +260,9 @@ BAGEL_nonEssential_sgRNAs<-
 
 Following these calls, possible warning messages could appear informing you that some of the reference genes are not targeted by any sgRNAs in the considered library. This has no impact on the following steps and results.\\
 
-Finally, to visualise the precision-recall curve quantifying the performances in classifying the considered reference sets based on their logFCs, it is sufficient to call:
+Finally, to visualise the ROC curve quantifying the performances in classifying the considered reference sets based on their logFCs, it is sufficient to call:
 <<fig.width=5, fig.height=5>>=
-ccr.PrecisionRecallCurve(FCs,BAGEL_essential_sgRNAs,
+ccr.ROC_Curve(FCs,BAGEL_essential_sgRNAs,
                               BAGEL_nonEssential_sgRNAs)
 @
 % 
@@ -276,7 +276,7 @@ head(geneFCs)
 The following call reperforms the analysis at the gene level and it also computes and shows Recall values at fixed False Discovery Rate (which is defined by the user and in this case is equal to 5\%).
 
 <<fig.width=5, fig.height=5>>=
-ccr.PrecisionRecallCurve(geneFCs,
+ccr.ROC_Curve(geneFCs,
                          BAGEL_essential,
                          BAGEL_nonEssential,
                          FDRth = 0.05)

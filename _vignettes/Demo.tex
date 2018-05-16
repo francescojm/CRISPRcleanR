@@ -168,7 +168,9 @@ Load CRISPRcleanR.
 
 {\ttfamily\noindent\itshape\color{messagecolor}{\#\# The following objects are masked from 'package:stats':\\\#\# \\\#\#\ \ \ \  cov, smooth, var}}
 
-{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Loading required package: pracma}}\end{kframe}
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Loading required package: pracma}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# Loading required package: PRROC}}\end{kframe}
 \end{knitrout}
 
 
@@ -583,6 +585,55 @@ The following call reperforms the analysis at the gene level and it also compute
 \end{kframe}
 \end{knitrout}
  
+ 
+The same assessment can be performed at the level of Precision/Recall (PrRc) evaluation: to visualise the PrRc curve quantifying the performances in classifying the considered reference sets based on their logFCs, it is sufficient to call:
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{ccr.PrRc_Curve}\hlstd{(FCs,BAGEL_essential_sgRNAs,}
+                              \hlstd{BAGEL_nonEssential_sgRNAs)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-26-1} 
+\begin{kframe}\begin{verbatim}
+## $AUC
+## [1] 0.8388248
+## 
+## $Recall
+## NULL
+## 
+## $sigthreshold
+## NULL
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+% 
+As before, to reperform the analysis at the gene level, it is sufficient to call the following function, which also computes and shows Recall values at fixed False Discovery Rate (which is defined by the user and in this case is equal to 5\%).
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{ccr.PrRc_Curve}\hlstd{(geneFCs,}
+                         \hlstd{BAGEL_essential,}
+                         \hlstd{BAGEL_nonEssential,}
+                         \hlkwc{FDRth} \hlstd{=} \hlnum{0.05}\hlstd{)}
+\end{alltt}
+\end{kframe}
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-27-1} 
+\begin{kframe}\begin{verbatim}
+## $AUC
+## [1] 0.9011415
+## 
+## $Recall
+## [1] 0.7514124
+## 
+## $sigthreshold
+## [1] -0.7688516
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
+  
+ 
 As can be seen above, when setting the parameter \texttt{FRDth} to a value different from \texttt{NULL}
 (its default value), this function also returns the log fold change threshold at which a classification FDR equal to the inputted value is achieved. 
  
@@ -624,7 +675,7 @@ Finally a visualisation of the gene essentiality profile with superimposed these
 \end{alltt}
 \end{kframe}
 
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-27-1} 
+{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-29-1} 
 
 }
 
@@ -841,13 +892,13 @@ To inspect the variation induced by the CRISPRcleanR correction on the logFCs' d
                        \hlkwc{libraryAnnotation} \hlstd{= KY_Library_v1.0)}
 \end{alltt}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-33-1} 
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-35-1} 
 
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-33-2} 
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-35-2} 
 
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-33-3} 
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-35-3} 
 
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-33-4} 
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-35-4} 
 
 \end{knitrout}
 
@@ -869,7 +920,7 @@ A final analysis that can be done with the CRISPRcleanR package in order to eval
 ## [1] "No gistic CNA scores available for this cell line"
 \end{verbatim}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-34-1} 
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-36-1} 
 \begin{kframe}\begin{verbatim}
 ##                   BAGEL nonEssential BAGEL Essential Amp (PNs >= 8)
 ## pre-CRISPRcleanR           0.4405845       0.8282859      0.7921870
@@ -893,7 +944,7 @@ as well as the gene level:
 ## [1] "No gistic CNA scores available for this cell line"
 \end{verbatim}
 \end{kframe}
-\includegraphics[width=\maxwidth]{figure/unnamed-chunk-35-1} 
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-37-1} 
 \begin{kframe}\begin{verbatim}
 ##                   BAGEL nonEssential BAGEL Essential Amp (PNs >= 8)
 ## pre-CRISPRcleanR           0.4188711       0.8704539      0.8697322

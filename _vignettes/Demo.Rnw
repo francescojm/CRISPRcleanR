@@ -282,6 +282,23 @@ ccr.ROC_Curve(geneFCs,
                          FDRth = 0.05)
 @
  
+ 
+The same assessment can be performed at the level of Precision/Recall (PrRc) evaluation: to visualise the PrRc curve quantifying the performances in classifying the considered reference sets based on their logFCs, it is sufficient to call:
+<<fig.width=5, fig.height=5>>=
+ccr.PrRc_Curve(FCs,BAGEL_essential_sgRNAs,
+                              BAGEL_nonEssential_sgRNAs)
+@
+% 
+As before, to reperform the analysis at the gene level, it is sufficient to call the following function, which also computes and shows Recall values at fixed False Discovery Rate (which is defined by the user and in this case is equal to 5\%).
+
+<<fig.width=5, fig.height=5>>=
+ccr.PrRc_Curve(geneFCs,
+                         BAGEL_essential,
+                         BAGEL_nonEssential,
+                         FDRth = 0.05)
+@
+  
+ 
 As can be seen above, when setting the parameter \texttt{FRDth} to a value different from \texttt{NULL}
 (its default value), this function also returns the log fold change threshold at which a classification FDR equal to the inputted value is achieved. 
  

@@ -1,14 +1,14 @@
-\name{ccr.ROC_Curve}
-\alias{ccr.ROC_Curve}
+\name{ccr.PrRc_Curve}
+\alias{ccr.PrRc_Curve}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Classification performances of reference sets of genes (or sgRNAs) based on depletion log fold-changes
 }
 \description{
-This functions computes Specificity/Sensitivity (or TNR/TPR, or ROC) curve, area under the ROC curve and (optionally) Recall (i.e. TPR) at fixed false discovery rate (computed as 1 - Precision (or Positive Predicted Value)) and corresponding log fold change threshold) when classifying reference sets of genes (or sgRNAs) based on their depletion log fold-changes
+This functions computes Precision/Recall (or PPV/Sensitivity, PrRc) curve, area under the PrRc curve and (optionally) Recall (i.e. TPR) at fixed false discovery rate (computed as 1 - Precision (or PPV)) and corresponding log fold change threshold) when classifying reference sets of genes (or sgRNAs) based on their depletion log fold-changes
 }
 \usage{
-ccr.ROC_Curve(FCsprofile,
+ccr.PrRc_Curve(FCsprofile,
                          positives,
                          negatives,
                          display = TRUE,
@@ -35,7 +35,7 @@ A logical parameter specifying if a plot containing the computed precision/recal
 }
 }
 \value{
-    A list containint three numerical variable \code{AUC}, \code{Recall}, and \code{sigthreshold} indicating the area under ROC curve and (if \code{FDRth} is not NULL) the recall at the specifying false discovery rate and the corresponding log fold change threshold (both equal to NULL, if \code{FDRth} is NULL), respectively. 
+    A list containint three numerical variable \code{AUC}, \code{Recall}, and \code{sigthreshold} indicating the area under PrRc curve and (if \code{FDRth} is not NULL) the recall at the specifying false discovery rate and the corresponding log fold change threshold (both equal to NULL, if \code{FDRth} is NULL), respectively. 
 }
 \author{
     Francesco Iorio (fi9323@gmail.com)
@@ -45,7 +45,7 @@ A logical parameter specifying if a plot containing the computed precision/recal
 
 \code{\link{ccr.genes2sgRNAs}}, \code{\link{ccr.VisDepAndSig}},
 
-\code{\link{ccr.PrRc_Curve}}
+\code{\link{ccr.ROC_Curve}}
 }
 \examples{
 ## loading corrected sgRNAs log fold-changes and segment annotations for an example
@@ -68,13 +68,13 @@ BAGEL_essential_sgRNAs<-ccr.genes2sgRNAs(KY_Library_v1.0,BAGEL_essential)
 BAGEL_nonEssential_sgRNAs<-ccr.genes2sgRNAs(KY_Library_v1.0,BAGEL_nonEssential)
 
 ## computing classification performances at the sgRNA level
-ccr.ROC_Curve(FCs,BAGEL_essential_sgRNAs,BAGEL_nonEssential_sgRNAs)
+ccr.PrRc_Curve(FCs,BAGEL_essential_sgRNAs,BAGEL_nonEssential_sgRNAs)
 
 ## computing gene level log fold-changes
 geneFCs<-ccr.geneMeanFCs(FCs,KY_Library_v1.0)
 
 ## computing classification performances at the sgRNA level, with Recall at 5\% FDR
-ccr.ROC_Curve(geneFCs,BAGEL_essential,BAGEL_nonEssential,FDRth = 0.05)
+ccr.PrRc_Curve(geneFCs,BAGEL_essential,BAGEL_nonEssential,FDRth = 0.05)
 
 
 }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 MAY 2018 13:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  16 MAY 2018 15:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -480,23 +480,23 @@ LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 131.
 Package color Info: Redefining color shadecolor on input line 140.
 Package color Info: Redefining color shadecolor on input line 153.
-Package color Info: Redefining color shadecolor on input line 178.
+Package color Info: Redefining color shadecolor on input line 180.
  [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 185--186
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
-Package color Info: Redefining color shadecolor on input line 190.
+Package color Info: Redefining color shadecolor on input line 192.
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+Underfull \hbox (badness 10000) in paragraph at lines 200--201
 
  []
 
-Package color Info: Redefining color shadecolor on input line 203.
+Package color Info: Redefining color shadecolor on input line 205.
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 208--208
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 210--210
 []                                 []\OT1/cmtt/m/n/10 libraryAnnotation[][]=KY_
 Library_v1.0)[][] 
  []
@@ -505,10 +505,10 @@ Library_v1.0)[][]
 File: figure/Norm_and_fc-1.pdf Graphic file (type pdf)
 
 <use figure/Norm_and_fc-1.pdf>
-Package pdftex.def Info: figure/Norm_and_fc-1.pdf used on input line 211.
+Package pdftex.def Info: figure/Norm_and_fc-1.pdf used on input line 213.
 (pdftex.def)             Requested size: 345.0pt x 172.49767pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 211--212
+Overfull \hbox (15.0pt too wide) in paragraph at lines 213--214
 [][] 
  []
 
@@ -516,365 +516,396 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 211--212
 File: figure/Norm_and_fc-2.pdf Graphic file (type pdf)
 
 <use figure/Norm_and_fc-2.pdf>
-Package pdftex.def Info: figure/Norm_and_fc-2.pdf used on input line 213.
+Package pdftex.def Info: figure/Norm_and_fc-2.pdf used on input line 215.
 (pdftex.def)             Requested size: 345.0pt x 172.49767pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 213--214
+Overfull \hbox (15.0pt too wide) in paragraph at lines 215--216
 [][] 
  []
 
 [2 <./figure/Norm_and_fc-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 220.
+Package color Info: Redefining color shadecolor on input line 222.
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 222.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 224.
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 239--239
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
 []\OT1/cmtt/m/n/9 ##                                             sgRNA gene ERS
 717283.plasmid[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 239--239
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
 []\OT1/cmtt/m/n/9 ## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG    
      292.14621[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 239--239
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
 []\OT1/cmtt/m/n/9 ## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG    
      151.02032[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 239--239
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
 []\OT1/cmtt/m/n/9 ## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG    
      209.08503[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 239--239
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
 []\OT1/cmtt/m/n/9 ## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG    
      110.40106[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 239--239
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
 []\OT1/cmtt/m/n/9 ## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG    
       95.81979[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 239--239
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
 []\OT1/cmtt/m/n/9 ## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF    
       60.92889[] 
  []
 
 [3 <./figure/Norm_and_fc-2.pdf>]
-Overfull \hbox (2.44728pt too wide) in paragraph at lines 264--264
+Overfull \hbox (2.44728pt too wide) in paragraph at lines 266--266
 \OT1/cmr/bx/n/12 cor-rec-tion for gene in-de-pen-dent re-sponses to CRISPR-
  []
 
-Package color Info: Redefining color shadecolor on input line 269.
-Package color Info: Redefining color shadecolor on input line 278.
+Package color Info: Redefining color shadecolor on input line 271.
+Package color Info: Redefining color shadecolor on input line 280.
 
-Overfull \hbox (5.9444pt too wide) in paragraph at lines 301--302
+Overfull \hbox (5.9444pt too wide) in paragraph at lines 303--304
 \OT1/cmr/m/n/10 to gene in-de-pen-dent re-sponses to CRISPR-Cas9 tar-get-ing, u
 s-ing the \OT1/cmtt/m/n/10 ccr.GWclean
  []
 
-Package color Info: Redefining color shadecolor on input line 304.
+Package color Info: Redefining color shadecolor on input line 306.
 [4]
-Package color Info: Redefining color shadecolor on input line 314.
+Package color Info: Redefining color shadecolor on input line 316.
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 340--340
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 342--342
 []\OT1/cmtt/m/n/9 ##                                                avgFC      
  BP correction[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 340--340
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 342--342
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 -0.12965287 87126
 5.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 340--340
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 342--342
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2  0.09329615 87446
 2.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 340--340
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 342--342
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3  0.25286616 87449
 8.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 340--340
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 342--342
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 -0.05128489 87470
 4.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 340--340
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 342--342
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 -0.02110076 87661
 2.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 340--340
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 342--342
 []\OT1/cmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  -1.27571756 88739
 9.5          0[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 346--347
 
  []
 
-Package color Info: Redefining color shadecolor on input line 349.
+Package color Info: Redefining color shadecolor on input line 351.
 <figure/correction_chrm8-1.pdf, id=89, 433.62pt x 578.16pt>
 File: figure/correction_chrm8-1.pdf Graphic file (type pdf)
 
 <use figure/correction_chrm8-1.pdf>
-Package pdftex.def Info: figure/correction_chrm8-1.pdf used on input line 350.
+Package pdftex.def Info: figure/correction_chrm8-1.pdf used on input line 352.
 (pdftex.def)             Requested size: 345.0pt x 460.02318pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 350--351
+Overfull \hbox (15.0pt too wide) in paragraph at lines 352--353
 [][] 
  []
 
 [5]
-Overfull \hbox (12.91258pt too wide) in paragraph at lines 354--354
+Overfull \hbox (12.91258pt too wide) in paragraph at lines 356--356
 []\OT1/cmr/bx/n/12 Correcting sgR-NAs' treat-ment counts for mean-variance
  []
 
-Package color Info: Redefining color shadecolor on input line 358.
+Package color Info: Redefining color shadecolor on input line 360.
 [6 <./figure/correction_chrm8-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 373.
+Package color Info: Redefining color shadecolor on input line 375.
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 392--392
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 394--394
 []\OT1/cmtt/m/n/10 ##                                             sgRNA gene ER
 S717283.plasmid[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 392--392
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 394--394
 []\OT1/cmtt/m/n/10 ## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG   
       292.14621[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 392--392
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 394--394
 []\OT1/cmtt/m/n/10 ## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG   
       151.02032[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 392--392
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 394--394
 []\OT1/cmtt/m/n/10 ## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG   
       209.08503[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 392--392
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 394--394
 []\OT1/cmtt/m/n/10 ## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG   
       110.40106[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 392--392
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 394--394
 []\OT1/cmtt/m/n/10 ## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG   
        95.81979[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 392--392
+Overfull \hbox (48.74657pt too wide) in paragraph at lines 394--394
 []\OT1/cmtt/m/n/10 ## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF   
        60.92889[] 
  []
 
-Package color Info: Redefining color shadecolor on input line 400.
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 405
+Package color Info: Redefining color shadecolor on input line 402.
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 407
 .
 (/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/omscmtt.fd
 File: omscmtt.fd 
 )
 LaTeX Font Info:    Font shape `OMS/cmtt/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 405.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 407.
 
-Overfull \hbox (11.43056pt too wide) in paragraph at lines 412--414
+Overfull \hbox (11.43056pt too wide) in paragraph at lines 414--416
 []\OT1/cmr/bx/n/10 IMPORTANT: \OT1/cmr/m/n/10 the cor-rected sgR-NAs' counts ar
 e al-ready median-normalised,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 419--420
+Underfull \hbox (badness 10000) in paragraph at lines 421--422
 
  []
 
 [7]
-Package color Info: Redefining color shadecolor on input line 424.
-Package color Info: Redefining color shadecolor on input line 432.
+Package color Info: Redefining color shadecolor on input line 426.
+Package color Info: Redefining color shadecolor on input line 434.
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 458--458
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 460--460
 []\OT1/cmtt/m/n/9 ##                                                avgFC      
  BP correction[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 458--458
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 460--460
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 -0.20295496 87126
 5.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 458--458
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 460--460
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 -0.08917153 87446
 2.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 458--458
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 460--460
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 -0.04417670 87449
 8.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 458--458
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 460--460
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4  0.30441537 87470
 4.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 458--458
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 460--460
 []\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 -0.11240079 87661
 2.5          0[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 458--458
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 460--460
 []\OT1/cmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  -1.61370746 88739
 9.5          0[] 
  []
 
 [8]
-Package color Info: Redefining color shadecolor on input line 465.
+Package color Info: Redefining color shadecolor on input line 467.
 
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
-
- []
-
-Package color Info: Redefining color shadecolor on input line 487.
-Package color Info: Redefining color shadecolor on input line 497.
-Package color Info: Redefining color shadecolor on input line 510.
-
-Underfull \hbox (badness 10000) in paragraph at lines 522--523
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
 
  []
 
-Package color Info: Redefining color shadecolor on input line 526.
+Package color Info: Redefining color shadecolor on input line 489.
+Package color Info: Redefining color shadecolor on input line 499.
+Package color Info: Redefining color shadecolor on input line 512.
+
+Underfull \hbox (badness 10000) in paragraph at lines 524--525
+
+ []
+
+Package color Info: Redefining color shadecolor on input line 528.
 [9] <figure/unnamed-chunk-23-1.pdf, id=124, 361.35pt x 361.35pt>
 File: figure/unnamed-chunk-23-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-23-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-23-1.pdf used on input line 532.
+Package pdftex.def Info: figure/unnamed-chunk-23-1.pdf used on input line 534.
 (pdftex.def)             Requested size: 345.0pt x 345.00084pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 532--533
+Overfull \hbox (15.0pt too wide) in paragraph at lines 534--535
 [][] 
  []
 
 
-Overfull \hbox (4.79604pt too wide) in paragraph at lines 546--547
+Overfull \hbox (4.79604pt too wide) in paragraph at lines 548--549
 \OT1/cmr/m/n/10 file of sgR-NAs' logFCs into gene level sum-maries. The func-ti
 on \OT1/cmtt/m/n/10 ccr.geneMeanFCs
  []
 
-Package color Info: Redefining color shadecolor on input line 549.
+Package color Info: Redefining color shadecolor on input line 551.
 [10 <./figure/unnamed-chunk-23-1.pdf>]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 557--557
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 559--559
 []\OT1/cmtt/m/n/10 ##       A1BG       A1CF        A2M      A2ML1    A3GALT2   
   A4GALT[] 
  []
 
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 557--557
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 559--559
 []\OT1/cmtt/m/n/10 ## -0.2474235 -0.1550534  0.2190111  0.3736683 -0.5151889 -0
 .1698269[] 
  []
 
-Package color Info: Redefining color shadecolor on input line 564.
+Package color Info: Redefining color shadecolor on input line 566.
 <figure/unnamed-chunk-25-1.pdf, id=134, 361.35pt x 361.35pt>
 File: figure/unnamed-chunk-25-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-25-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-25-1.pdf used on input line 572.
+Package pdftex.def Info: figure/unnamed-chunk-25-1.pdf used on input line 574.
 (pdftex.def)             Requested size: 345.0pt x 345.00084pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 572--573
+Overfull \hbox (15.0pt too wide) in paragraph at lines 574--575
 [][] 
  []
 
 [11 <./figure/unnamed-chunk-25-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 590--591
+Package color Info: Redefining color shadecolor on input line 591.
 
+<figure/unnamed-chunk-26-1.pdf, id=144, 361.35pt x 361.35pt>
+File: figure/unnamed-chunk-26-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-26-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-26-1.pdf used on input line 597.
+(pdftex.def)             Requested size: 345.0pt x 345.00084pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 597--598
+[][] 
  []
 
-Package color Info: Redefining color shadecolor on input line 595.
-Package color Info: Redefining color shadecolor on input line 617.
-[12] <figure/unnamed-chunk-27-1.pdf, id=151, 505.89pt x 505.89pt>
+[12 <./figure/unnamed-chunk-26-1.pdf>]
+Package color Info: Redefining color shadecolor on input line 614.
+
+<figure/unnamed-chunk-27-1.pdf, id=154, 361.35pt x 361.35pt>
 File: figure/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 
 <use figure/unnamed-chunk-27-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-27-1.pdf used on input line 627.
+Package pdftex.def Info: figure/unnamed-chunk-27-1.pdf used on input line 622.
+(pdftex.def)             Requested size: 345.0pt x 345.00084pt.
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 622--623
+[][] 
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 641--642
+
+ []
+
+[14 <./figure/unnamed-chunk-27-1.pdf>]
+Package color Info: Redefining color shadecolor on input line 646.
+Package color Info: Redefining color shadecolor on input line 668.
+
+<figure/unnamed-chunk-29-1.pdf, id=172, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-29-1.pdf Graphic file (type pdf)
+
+<use figure/unnamed-chunk-29-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-29-1.pdf used on input line 678.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
-Package color Info: Redefining color shadecolor on input line 640.
- [13 <./figure/unnamed-chunk-27-1.pdf>]
-Overfull \hbox (4.68335pt too wide) in paragraph at lines 655--655
+ [15]
+Package color Info: Redefining color shadecolor on input line 691.
+
+Overfull \hbox (4.68335pt too wide) in paragraph at lines 706--706
 []\OT1/cmr/bx/n/12 CRISPRcleanR cor-rec-tion as-sess-ment: Sta-tis-ti-cal tests
  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 656--657
+Underfull \hbox (badness 10000) in paragraph at lines 707--708
 
  []
 
-Package color Info: Redefining color shadecolor on input line 661.
+[16 <./figure/unnamed-chunk-29-1.pdf>]
+Package color Info: Redefining color shadecolor on input line 712.
 
-Underfull \hbox (badness 10000) in paragraph at lines 668--669
+Underfull \hbox (badness 10000) in paragraph at lines 719--720
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 673.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 724.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 673.
- [14]
-Package color Info: Redefining color shadecolor on input line 694.
-
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 696--696
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 724.
+Package color Info: Redefining color shadecolor on input line 745.
+ [17]
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 747--747
 [][]\OT1/cmtt/m/n/10 RES[][]<-[][]ccr.perf_statTests[][]([][]^^MHT-29^^M[][],[]
 []libraryAnnotation[] []= KY_Library_v1.0,[][] 
  []
 
 
-Overfull \hbox (17.24684pt too wide) in paragraph at lines 697--697
+Overfull \hbox (17.24684pt too wide) in paragraph at lines 748--748
 []                   []\OT1/cmtt/m/n/10 correctedFCs[] []= HT.29correctedFCs[][
 ]$[][]corrected_logFCs,[][] 
  []
 
-<HT-29_bp.pdf, id=168, 1084.05pt x 722.7pt>
+<HT-29_bp.pdf, id=192, 1084.05pt x 722.7pt>
 File: HT-29_bp.pdf Graphic file (type pdf)
  <use HT-29_bp.pdf>
-Package pdftex.def Info: HT-29_bp.pdf used on input line 730.
+Package pdftex.def Info: HT-29_bp.pdf used on input line 781.
 (pdftex.def)             Requested size: 369.88582pt x 246.58592pt.
 
-Overfull \hbox (24.88582pt too wide) in paragraph at lines 730--731
+Overfull \hbox (24.88582pt too wide) in paragraph at lines 781--782
  [][] 
  []
 
@@ -882,223 +913,224 @@ Overfull \hbox (24.88582pt too wide) in paragraph at lines 730--731
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 733--734
+Underfull \hbox (badness 10000) in paragraph at lines 784--785
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 735--736
+Underfull \hbox (badness 10000) in paragraph at lines 786--787
 
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 737--738
+
+Underfull \hbox (badness 10000) in paragraph at lines 788--789
 
  []
 
-Package color Info: Redefining color shadecolor on input line 742.
+[18]
+Package color Info: Redefining color shadecolor on input line 793.
 
-Overfull \hbox (32.9967pt too wide) in paragraph at lines 744--744
+Overfull \hbox (32.9967pt too wide) in paragraph at lines 795--795
 [][]\OT1/cmtt/m/n/10 RES[][]<-[][]ccr.perf_statTests[][]([][]^^MEPLC-272H^^M[][
 ],[][]libraryAnnotation[] []= KY_Library_v1.0,[][] 
  []
 
 
-Overfull \hbox (43.49661pt too wide) in paragraph at lines 745--745
+Overfull \hbox (43.49661pt too wide) in paragraph at lines 796--796
 []                    []\OT1/cmtt/m/n/10 correctedFCs[] []= EPLC.272HcorrectedF
 Cs[][]$[][]corrected_logFCs)[][] 
  []
 
-[16 <./HT-29_bp.pdf>]
-Package color Info: Redefining color shadecolor on input line 773.
+[19 <./HT-29_bp.pdf>]
+Package color Info: Redefining color shadecolor on input line 824.
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 799--799
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 850--850
 []\OT1/cmtt/m/n/9 ##                       Dep (PN) Dep (Gistic)       notExp A
 mp (Gistic +1)[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 799--799
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 850--850
 []\OT1/cmtt/m/n/9 ## pre-CRISPRcleanR  5.145194e-27           NA  0.00000e+00  
             NA[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 799--799
+Overfull \hbox (9.37088pt too wide) in paragraph at lines 850--850
 []\OT1/cmtt/m/n/9 ## post-CRISPRcleanR 3.219730e-06           NA 5.69841e-173  
             NA[] 
  []
 
-[17] <EPLC-272H_bp.pdf, id=190, 1084.05pt x 722.7pt>
+[20] <EPLC-272H_bp.pdf, id=215, 1084.05pt x 722.7pt>
 File: EPLC-272H_bp.pdf Graphic file (type pdf)
  <use EPLC-272H_bp.pdf>
-Package pdftex.def Info: EPLC-272H_bp.pdf used on input line 831.
+Package pdftex.def Info: EPLC-272H_bp.pdf used on input line 882.
 (pdftex.def)             Requested size: 369.88582pt x 246.58592pt.
 
-Overfull \hbox (24.88582pt too wide) in paragraph at lines 831--832
+Overfull \hbox (24.88582pt too wide) in paragraph at lines 882--883
  [][] 
  []
 
-[18 <./EPLC-272H_bp.pdf>]
-Package color Info: Redefining color shadecolor on input line 838.
+[21 <./EPLC-272H_bp.pdf>]
+Package color Info: Redefining color shadecolor on input line 889.
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 840--840
+Overfull \hbox (1.49698pt too wide) in paragraph at lines 891--891
 [][]\OT1/cmtt/m/n/10 ccr.perf_distributions[][]([][]^^MHT-29^^M[][],HT.29correc
 tedFCs[][]$[][]corrected_logFCs,[][] 
  []
 
-<figure/unnamed-chunk-33-1.pdf, id=201, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-33-1.pdf Graphic file (type pdf)
+<figure/unnamed-chunk-35-1.pdf, id=226, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-35-1.pdf Graphic file (type pdf)
 
-<use figure/unnamed-chunk-33-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-33-1.pdf used on input line 844.
+<use figure/unnamed-chunk-35-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-35-1.pdf used on input line 895.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 844--845
+Overfull \hbox (15.0pt too wide) in paragraph at lines 895--896
 [][] 
  []
 
-<figure/unnamed-chunk-33-2.pdf, id=202, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-33-2.pdf Graphic file (type pdf)
+<figure/unnamed-chunk-35-2.pdf, id=227, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-35-2.pdf Graphic file (type pdf)
 
-<use figure/unnamed-chunk-33-2.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-33-2.pdf used on input line 846.
+<use figure/unnamed-chunk-35-2.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-35-2.pdf used on input line 897.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 846--847
+Overfull \hbox (15.0pt too wide) in paragraph at lines 897--898
 [][] 
  []
 
-<figure/unnamed-chunk-33-3.pdf, id=203, 505.89pt x 505.89pt> [19 <./figure/unna
-med-chunk-33-1.pdf>]
-File: figure/unnamed-chunk-33-3.pdf Graphic file (type pdf)
- <use figure/unnamed-chunk-33-3.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-33-3.pdf used on input line 848.
+<figure/unnamed-chunk-35-3.pdf, id=228, 505.89pt x 505.89pt> [22 <./figure/unna
+med-chunk-35-1.pdf>]
+File: figure/unnamed-chunk-35-3.pdf Graphic file (type pdf)
+ <use figure/unnamed-chunk-35-3.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-35-3.pdf used on input line 899.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 848--849
+Overfull \hbox (15.0pt too wide) in paragraph at lines 899--900
 [][] 
  []
 
-<figure/unnamed-chunk-33-4.pdf, id=218, 505.89pt x 505.89pt> [20 <./figure/unna
-med-chunk-33-2.pdf>]
-File: figure/unnamed-chunk-33-4.pdf Graphic file (type pdf)
- <use figure/unnamed-chunk-33-4.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-33-4.pdf used on input line 850.
+<figure/unnamed-chunk-35-4.pdf, id=242, 505.89pt x 505.89pt> [23 <./figure/unna
+med-chunk-35-2.pdf>]
+File: figure/unnamed-chunk-35-4.pdf Graphic file (type pdf)
+ <use figure/unnamed-chunk-35-4.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-35-4.pdf used on input line 901.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 850--851
+Overfull \hbox (15.0pt too wide) in paragraph at lines 901--902
 [][] 
  []
 
-[21 <./figure/unnamed-chunk-33-3.pdf>]
-Overfull \hbox (11.54176pt too wide) in paragraph at lines 854--855
+[24 <./figure/unnamed-chunk-35-3.pdf>]
+Overfull \hbox (11.54176pt too wide) in paragraph at lines 905--906
 []\OT1/cmr/bx/n/10 IMPORTANT: \OT1/cmr/m/n/10 The in-struc-tions pro-vided re-g
 ard-ing what CN/transcriptional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 854--855
+Underfull \hbox (badness 10000) in paragraph at lines 905--906
 
  []
 
-Package color Info: Redefining color shadecolor on input line 863.
+Package color Info: Redefining color shadecolor on input line 914.
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 865--865
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 916--916
 [][]\OT1/cmtt/m/n/10 ccr.RecallCurves[][]([][]^^MEPLC-272H^^M[][],EPLC.272Hcorr
 ectedFCs[][]$[][]corrected_logFCs,[][] 
  []
 
-[22 <./figure/unnamed-chunk-33-4.pdf>]
-<figure/unnamed-chunk-34-1.pdf, id=258, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-34-1.pdf Graphic file (type pdf)
+[25 <./figure/unnamed-chunk-35-4.pdf>]
+<figure/unnamed-chunk-36-1.pdf, id=283, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-36-1.pdf Graphic file (type pdf)
 
-<use figure/unnamed-chunk-34-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-34-1.pdf used on input line 872.
+<use figure/unnamed-chunk-36-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-36-1.pdf used on input line 923.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 872--873
+Overfull \hbox (15.0pt too wide) in paragraph at lines 923--924
 [][] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 880--880
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 931--931
 []\OT1/cmtt/m/n/10 ##                   BAGEL nonEssential BAGEL Essential Amp 
 (PNs >= 8)[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 880--880
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 931--931
 []\OT1/cmtt/m/n/10 ## pre-CRISPRcleanR           0.4405845       0.8282859     
  0.7921870[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 880--880
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 931--931
 []\OT1/cmtt/m/n/10 ## post-CRISPRcleanR          0.4663982       0.8149893     
  0.5109027[] 
  []
 
-Package color Info: Redefining color shadecolor on input line 887.
+Package color Info: Redefining color shadecolor on input line 938.
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 889--889
+Overfull \hbox (11.99689pt too wide) in paragraph at lines 940--940
 [][]\OT1/cmtt/m/n/10 ccr.RecallCurves[][]([][]^^MEPLC-272H^^M[][],EPLC.272Hcorr
 ectedFCs[][]$[][]corrected_logFCs,[][] 
  []
 
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 890--890
+Overfull \hbox (6.74693pt too wide) in paragraph at lines 941--941
 []                  []\OT1/cmtt/m/n/10 libraryAnnotation[][]=KY_Library_v1.0,[]
 []GeneLev[] []=[] []TRUE[][])[][] 
  []
 
-<figure/unnamed-chunk-35-1.pdf, id=259, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-35-1.pdf Graphic file (type pdf)
+<figure/unnamed-chunk-37-1.pdf, id=284, 505.89pt x 505.89pt>
+File: figure/unnamed-chunk-37-1.pdf Graphic file (type pdf)
 
-<use figure/unnamed-chunk-35-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-35-1.pdf used on input line 896.
+<use figure/unnamed-chunk-37-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-37-1.pdf used on input line 947.
 (pdftex.def)             Requested size: 345.0pt x 345.00414pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 896--897
+Overfull \hbox (15.0pt too wide) in paragraph at lines 947--948
 [][] 
  []
 
-[23 <./figure/unnamed-chunk-34-1.pdf>]
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 904--904
+[26 <./figure/unnamed-chunk-36-1.pdf>]
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 955--955
 []\OT1/cmtt/m/n/10 ##                   BAGEL nonEssential BAGEL Essential Amp 
 (PNs >= 8)[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 904--904
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 955--955
 []\OT1/cmtt/m/n/10 ## pre-CRISPRcleanR           0.4188711       0.8704539     
  0.8697322[] 
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 904--904
+Overfull \hbox (22.4968pt too wide) in paragraph at lines 955--955
 []\OT1/cmtt/m/n/10 ## post-CRISPRcleanR          0.4570109       0.8627785     
  0.5156109[] 
  []
 
 
-Overfull \hbox (11.54176pt too wide) in paragraph at lines 908--909
+Overfull \hbox (11.54176pt too wide) in paragraph at lines 959--960
 []\OT1/cmr/bx/n/10 IMPORTANT: \OT1/cmr/m/n/10 The in-struc-tions pro-vided re-g
 ard-ing what CN/transcriptional
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 908--909
+Underfull \hbox (badness 10000) in paragraph at lines 959--960
 
  []
 
-[24 <./figure/unnamed-chunk-35-1.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 915.
- [25]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 915.
+[27 <./figure/unnamed-chunk-37-1.pdf>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 966.
+ [28]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 966.
  (./Demo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 915.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 915.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 966.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 966.
 Package rerunfilecheck Info: File `Demo.out' has not changed.
 (rerunfilecheck)             Checksum: BFE3B4B10255DFC02981BCD3B7EF2D7E;1151.
 Package logreq Info: Writing requests to 'Demo.run.xml'.
@@ -1106,10 +1138,10 @@ Package logreq Info: Writing requests to 'Demo.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 10164 strings out of 493089
- 163921 string characters out of 6134842
- 362254 words of memory out of 5000000
- 13497 multiletter control sequences out of 15000+600000
+ 10177 strings out of 493089
+ 164256 string characters out of 6134842
+ 360254 words of memory out of 5000000
+ 13505 multiletter control sequences out of 15000+600000
  9043 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,6n,49p,838b,1049s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1123,10 +1155,10 @@ local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
 cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Demo.pdf (25 pages, 2751687 bytes).
+Output written on Demo.pdf (28 pages, 2781410 bytes).
 PDF statistics:
- 333 PDF objects out of 1000 (max. 8388607)
- 265 compressed objects within 3 object streams
- 43 named destinations out of 1000 (max. 500000)
- 151 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 357 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

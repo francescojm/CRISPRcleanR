@@ -25,6 +25,7 @@ export(ccr.get.CCLEgisticSets)
 
 #visualisation and assessment
 export(ccr.ROC_Curve)
+export(ccr.PrRc_Curve)
 export(ccr.VisDepAndSig)
 export(ccr.perf_statTests)
 export(ccr.multDensPlot)
@@ -38,10 +39,6 @@ export(ccr.RecallCurves)
 #export(ccr.retrieveBAGEL_nonEssGeneGuides)
 #export(ccr.retrieveGisticScores)
 #export(ccr.retrievePICNICscores)
-
-## to be documented 
-## to be debugged
-export(ccr.fixedFDRthreshold)
 
 #export(ccr.assessmentReport)
 

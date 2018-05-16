@@ -505,18 +505,6 @@ ccr.get.CCLEgisticSets<-function(cellLine,CCLE.gisticCNA=NULL){
     
 }
 
-ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
-    presentGenes<-intersect(c(TruePositives,TrueNegatives),names(FCsprofile))
-    predictions<-FCsprofile[presentGenes]
-    observations<-is.element(presentGenes,TruePositives)+0
-    names(observations)<-presentGenes
-    RES<-roc(observations,predictions,'>')
-    COORS<-coords(RES,'all',ret = c('threshold','ppv'))
-    FDRpercTh<-max(COORS['threshold',which(COORS['ppv',]>=(1-th))])
-    FDRpercRANK<-max(which(sort(FCsprofile)<=FDRpercTh))
-    
-    return(list(FCth=FDRpercTh,RANK=FDRpercRANK))
-}
 
 
 #### Assessment and visualisation
@@ -564,6 +552,55 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
     ### threshold, and recall at fixed FDR to be returned
     return(RES)
 }
+ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
+    
+    FCsprofile<-FCsprofile[intersect(c(positives,negatives),names(FCsprofile))]
+    
+    predictions<- -FCsprofile
+    observations<-is.element(names(FCsprofile),positives)+0
+    names(observations)<-names(predictions)
+    
+    
+    prc<-pr.curve(scores.class0 = predictions,weights.class0 = observations,
+                  curve = TRUE,sorted = TRUE)
+    
+    
+    PRECISION<-prc$curve[,2]
+    RECALL<-prc$curve[,1]
+    
+    if(display){
+        plot(RECALL,PRECISION,col='blue',lwd=3,xlab='Recall',ylab='Precision',type='l')
+    }
+    
+    SENS<-NULL
+    threshold<-NULL
+    if(length(FDRth)>0){
+        
+        FDR5percTh<- -prc$curve[min(which(prc$curve[,2]>= 1-FDRth)),3]
+        SENS<- prc$curve[min(which(prc$curve[,2]>= 1-FDRth)),1]
+        threshold<-FDR5percTh
+        if(display){
+            abline(h=1-FDRth,lty=2)
+            
+            abline(v=SENS,lty=1)
+        }
+    }
+    
+    if(display){
+        if(length(SENS)==0){
+            legend('bottomleft',paste('AUC = ',format(prc$auc.integral,digits=3)),bty = 'n')    
+        }else{
+            legend('bottomleft',c(paste('Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
+                                  paste('AUC = ',format(prc$auc.integral,digits=3))),bty = 'n')
+        }
+    }    
+    # 
+    RES<-list(AUC=prc$auc.integral,Recall=SENS,sigthreshold=threshold)
+    # ### threshold, and recall at fixed FDR to be returned
+    return(RES)
+}
+
+
 ccr.VisDepAndSig<-function(FCsprofile,
                            SIGNATURES,
                            TITLE='',
@@ -1016,6 +1053,19 @@ ccr.RecallCurves<-function(cellLine,correctedFCs,
 }
 
 #### Utils not documented
+ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
+    presentGenes<-intersect(c(TruePositives,TrueNegatives),names(FCsprofile))
+    predictions<-FCsprofile[presentGenes]
+    observations<-is.element(presentGenes,TruePositives)+0
+    names(observations)<-presentGenes
+    RES<-roc(observations,predictions,'>')
+    COORS<-coords(RES,'all',ret = c('threshold','ppv'))
+    FDRpercTh<-max(COORS['threshold',which(COORS['ppv',]>=(1-th))])
+    FDRpercRANK<-max(which(sort(FCsprofile)<=FDRpercTh))
+    
+    return(list(FCth=FDRpercTh,RANK=FDRpercRANK))
+}
+
 #### Assessment and visualisation not documented
 
 ## other exported functions

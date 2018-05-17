@@ -524,8 +524,9 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
     
     SENS<-NULL
     threshold<-NULL
+    COORS<-coords(RES,'all',ret = c('threshold','ppv','sensitivity','specificity'))
     if(length(FDRth)>0){
-        COORS<-coords(RES,'all',ret = c('threshold','ppv','sensitivity','specificity'))
+        
         
         FDR5percTh<-max(COORS['threshold',which(COORS['ppv',]>=(1-FDRth))])
         
@@ -548,7 +549,9 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
         
     }    
     
-    RES<-list(AUC=RES$auc,Recall=SENS,sigthreshold=threshold)
+    
+    COORS<-t(COORS[c('specificity','sensitivity','threshold'),])
+    RES<-list(AUC=RES$auc,Recall=SENS,sigthreshold=threshold,curve=COORS)
     ### threshold, and recall at fixed FDR to be returned
     return(RES)
 }
@@ -569,7 +572,7 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     RECALL<-prc$curve[,1]
     
     if(display){
-        plot(RECALL,PRECISION,col='blue',lwd=3,xlab='Recall',ylab='Precision',type='l')
+        plot(RECALL,PRECISION,col='blue',lwd=3,xlab='Recall',ylab='Precision',type='l',xlim=c(0,1),ylim=c(0,1))
     }
     
     SENS<-NULL
@@ -593,9 +596,13 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
             legend('bottomleft',c(paste('Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
                                   paste('AUC = ',format(prc$auc.integral,digits=3))),bty = 'n')
         }
+        
+        abline(h=sum(observations)/length(observations))
     }    
     # 
-    RES<-list(AUC=prc$auc.integral,Recall=SENS,sigthreshold=threshold)
+    curve<-prc$curve
+    colnames(curve)<-c('recall','precision','threshold')
+    RES<-list(AUC=prc$auc.integral,Recall=SENS,sigthreshold=threshold,curve=curve)
     # ### threshold, and recall at fixed FDR to be returned
     return(RES)
 }

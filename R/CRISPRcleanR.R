@@ -566,8 +566,7 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     
     prc<-pr.curve(scores.class0 = predictions,weights.class0 = observations,
                   curve = TRUE,sorted = TRUE)
-    
-    
+
     PRECISION<-prc$curve[,2]
     RECALL<-prc$curve[,1]
     
@@ -605,6 +604,69 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     RES<-list(AUC=prc$auc.integral,Recall=SENS,sigthreshold=threshold,curve=curve)
     # ### threshold, and recall at fixed FDR to be returned
     return(RES)
+}
+ccr.randomised_PrCr_curves<-function(FCs,PERCrandn,ntrials,positives,negatives,LibraryAnnotation){
+    
+    
+    posGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = positives)
+    negGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = negatives)
+    
+    guidesToShuffle<-union(posGuides,negGuides)
+    
+    nguides<-round(length(guidesToShuffle)*PERCrandn/100)
+    
+    rndSENSITIVITY <- NULL
+    rndSPECIFICITY <- NULL
+    rndAUROC <- NULL
+    
+    rndRECALL <- NULL
+    rndPRECISION <- NULL
+    rndAUPRC <- NULL
+    
+    rndRECALL_at_fixedFDR<-NULL
+    
+    for (i in 1:ntrials){
+        print(i)
+        toReplace <- sample(length(FCs), nguides)
+        
+        RNDFCs <- FCs
+        names(RNDFCs)[toReplace] <-
+            names(RNDFCs)[toReplace[sample(length(toReplace))]]
+        RNDgeneFCs <- ccr.geneMeanFCs(RNDFCs, LibraryAnnotation)
+        
+        RESroc <-
+            ccr.ROC_Curve(
+                RNDgeneFCs,
+                positives,
+                negatives,
+                FDRth = 0.05,
+                display = FALSE
+            )
+        rndSENSITIVITY <- rbind(rndSENSITIVITY, RESroc$curve[, 'sensitivity'])
+        rndSPECIFICITY <- rbind(rndSPECIFICITY, RESroc$curve[, 'specificity'])
+        rndAUROC <- c(rndAUROC, RESroc$AUC)
+        
+        RESprrc <-
+            ccr.PrRc_Curve(
+                RNDgeneFCs,
+                positives,
+                negatives,
+                FDRth = 0.05,
+                display = FALSE
+            )
+        rndRECALL <- rbind(rndRECALL, RESprrc$curve[, 'recall'])
+        rndPRECISION <- rbind(rndPRECISION, RESprrc$curve[, 'precision'])
+        rndAUPRC <- c(rndAUPRC, RESprrc$AUC)
+        rndRECALL_at_fixedFDR<-c(rndRECALL_at_fixedFDR,RESprrc$Recall)
+    }
+    
+    return(list(rndSENSITIVITY = rndSENSITIVITY,
+                rndSPECIFICITY = rndSPECIFICITY,
+                rndAUROC = rndAUROC,
+                rndRECALL = rndRECALL,
+                rndPRECISION = rndPRECISION,
+                rndAUPRC = rndAUPRC,
+                rndRECALL_at_fixedFDR = rndRECALL_at_fixedFDR))
 }
 
 

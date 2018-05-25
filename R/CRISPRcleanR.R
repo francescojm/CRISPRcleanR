@@ -327,7 +327,6 @@ ccr.correctCounts<-function(CL,normalised_counts,correctedFCs_and_segments,
     }
     
     
-    colnames(normalised_counts)<-tolower(colnames(normalised_counts))
     
     adjusted<-
         as.data.frame(cbind(normalised_counts$sgRNA,

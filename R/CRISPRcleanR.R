@@ -147,6 +147,7 @@ ccr.cleanChrm<-function(gwSortedFCs,
     ID<-which(gwSortedFCs$CHR==CHR)
     gwSortedFCs<-gwSortedFCs[ID,]
     
+    set.seed(0xA5EED)
     my.CNA.object <- CNA(cbind(gwSortedFCs$avgFC),
                          gwSortedFCs$CHR,
                          gwSortedFCs$BP,
@@ -325,7 +326,13 @@ ccr.correctCounts<-function(CL,normalised_counts,correctedFCs_and_segments,
         }
     }
     
-    adjusted<-as.data.frame(cbind(normalised_counts$sgRNA,normalised_counts$gene,correctedCounts),stringAsFactors=FALSE)
+    
+    colnames(normalised_counts)<-tolower(colnames(normalised_counts))
+    
+    adjusted<-
+        as.data.frame(cbind(normalised_counts$sgRNA,
+                            normalised_counts$gene,
+                            correctedCounts),stringAsFactors=FALSE)
     colnames(adjusted)<-colnames(normalised_counts)
     rownames(adjusted)<-NULL
     
@@ -605,13 +612,15 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     # ### threshold, and recall at fixed FDR to be returned
     return(RES)
 }
-ccr.randomised_PrCr_curves<-function(FCs,PERCrandn,ntrials,positives,negatives,LibraryAnnotation){
+ccr.randomised_ROC<-function(FCs,PERCrandn,ntrials,positives,negatives,LibraryAnnotation){
     
     
     posGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = positives)
     negGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = negatives)
     
-    guidesToShuffle<-union(posGuides,negGuides)
+    guidesToShuffle<-intersect(union(posGuides,negGuides),names(FCs))
+    
+    idGuidesToShuffle<-match(guidesToShuffle,names(FCs))
     
     nguides<-round(length(guidesToShuffle)*PERCrandn/100)
     
@@ -625,13 +634,21 @@ ccr.randomised_PrCr_curves<-function(FCs,PERCrandn,ntrials,positives,negatives,L
     
     rndRECALL_at_fixedFDR<-NULL
     
+    
+    
     for (i in 1:ntrials){
         print(i)
-        toReplace <- sample(length(FCs), nguides)
         
-        RNDFCs <- FCs
-        names(RNDFCs)[toReplace] <-
-            names(RNDFCs)[toReplace[sample(length(toReplace))]]
+        RNDFCs<-FCs
+        mid<-sample(length(guidesToShuffle),nguides)
+        toShuffle<-idGuidesToShuffle[mid]    
+        
+        otherGuides<-setdiff(1:length(FCs),toShuffle)
+        
+        toReplace <- otherGuides[sample(length(otherGuides), nguides)]
+        
+        names(RNDFCs)[c(toShuffle,toReplace)] <- names(FCs)[c(toReplace,toShuffle)]
+        
         RNDgeneFCs <- ccr.geneMeanFCs(RNDFCs, LibraryAnnotation)
         
         RESroc <-

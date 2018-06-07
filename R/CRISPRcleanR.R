@@ -611,81 +611,6 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     # ### threshold, and recall at fixed FDR to be returned
     return(RES)
 }
-ccr.randomised_ROC<-function(FCs,PERCrandn,ntrials,positives,negatives,LibraryAnnotation){
-    
-    
-    posGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = positives)
-    negGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = negatives)
-    
-    guidesToShuffle<-intersect(union(posGuides,negGuides),names(FCs))
-    
-    idGuidesToShuffle<-match(guidesToShuffle,names(FCs))
-    
-    nguides<-round(length(guidesToShuffle)*PERCrandn/100)
-    
-    rndSENSITIVITY <- NULL
-    rndSPECIFICITY <- NULL
-    rndAUROC <- NULL
-    
-    rndRECALL <- NULL
-    rndPRECISION <- NULL
-    rndAUPRC <- NULL
-    
-    rndRECALL_at_fixedFDR<-NULL
-    
-    
-    
-    for (i in 1:ntrials){
-        print(i)
-        
-        RNDFCs<-FCs
-        mid<-sample(length(guidesToShuffle),nguides)
-        toShuffle<-idGuidesToShuffle[mid]    
-        
-        otherGuides<-setdiff(1:length(FCs),toShuffle)
-        
-        toReplace <- otherGuides[sample(length(otherGuides), nguides)]
-        
-        names(RNDFCs)[c(toShuffle,toReplace)] <- names(FCs)[c(toReplace,toShuffle)]
-        
-        RNDgeneFCs <- ccr.geneMeanFCs(RNDFCs, LibraryAnnotation)
-        
-        RESroc <-
-            ccr.ROC_Curve(
-                RNDgeneFCs,
-                positives,
-                negatives,
-                FDRth = 0.05,
-                display = FALSE
-            )
-        rndSENSITIVITY <- rbind(rndSENSITIVITY, RESroc$curve[, 'sensitivity'])
-        rndSPECIFICITY <- rbind(rndSPECIFICITY, RESroc$curve[, 'specificity'])
-        rndAUROC <- c(rndAUROC, RESroc$AUC)
-        
-        RESprrc <-
-            ccr.PrRc_Curve(
-                RNDgeneFCs,
-                positives,
-                negatives,
-                FDRth = 0.05,
-                display = FALSE
-            )
-        rndRECALL <- rbind(rndRECALL, RESprrc$curve[, 'recall'])
-        rndPRECISION <- rbind(rndPRECISION, RESprrc$curve[, 'precision'])
-        rndAUPRC <- c(rndAUPRC, RESprrc$AUC)
-        rndRECALL_at_fixedFDR<-c(rndRECALL_at_fixedFDR,RESprrc$Recall)
-    }
-    
-    return(list(rndSENSITIVITY = rndSENSITIVITY,
-                rndSPECIFICITY = rndSPECIFICITY,
-                rndAUROC = rndAUROC,
-                rndRECALL = rndRECALL,
-                rndPRECISION = rndPRECISION,
-                rndAUPRC = rndAUPRC,
-                rndRECALL_at_fixedFDR = rndRECALL_at_fixedFDR))
-}
-
-
 ccr.VisDepAndSig<-function(FCsprofile,
                            SIGNATURES,
                            TITLE='',
@@ -1137,6 +1062,68 @@ ccr.RecallCurves<-function(cellLine,correctedFCs,
     return(AUCcombo)
 }
 
+ccr.impactOnPhenotype<-function(MO_uncorrectedFile,MO_correctedFile,
+                                sigFDR=0.05,
+                                outputPath=NULL){
+
+    th<-sigFDR
+    
+    pre<-read.table(MO_uncorrectedFile,
+                    sep='\t',
+                    header=TRUE, row.names = 1,stringsAsFactors = FALSE)
+    
+    pre<-pre[order(rownames(pre)),]
+    
+    post<-read.table(MO_correctedFile,
+                     sep='\t',
+                     header=TRUE, row.names = 1,stringsAsFactors = FALSE)
+    
+    post<-post[order(rownames(post)),]
+    
+    aDD<-length(which(pre$neg.fdr<th & post$neg.fdr<th))
+    aDN<-length(which(pre$neg.fdr<th & post$neg.fdr>=th & post$pos.fdr>=th))
+    aDE<-length(which(pre$neg.fdr<th & post$pos.fdr<th & post$neg.fdr>=th))
+    
+    aND<-length(which(pre$neg.fdr>=th & pre$pos.fdr>=th & post$neg.fdr<th))
+    aNN<-length(which(pre$neg.fdr>=th & pre$pos.fdr>=th & post$neg.fdr>=th & post$pos.fdr>=th))
+    aNE<-length(which(pre$neg.fdr>=th & pre$pos.fdr>=th & post$pos.fdr<th & post$neg.fdr>=th))
+    
+    aED<-length(which(pre$pos.fdr<th & post$neg.fdr<th))
+    aEN<-length(which(pre$pos.fdr<th & post$neg.fdr>=th & post$pos.fdr>=th))
+    aEE<-length(which(pre$pos.fdr<th & post$pos.fdr<th & post$neg.fdr>=th))
+    
+    cm<-matrix(c(aDD,aDN,aDE,aND,aNN,aNE,aED,aEN,aEE),3,3,dimnames = list(c('cD','cN','cE'),c('uD','uN','uE')))
+    cm[is.na(cm)]<-0
+    
+    IMPACTEDg<-100*sum(triu(cm,1)+tril(cm,-1))/sum(c(cm))
+    IMPACTED_phenGenes<-100*(cm[2,1]+cm[2,3]+cm[3,1]+cm[3,2])/sum(c(cm[,c(1,3)]))
+    DISTORTEDg<-100*(cm[1,3]+cm[3,1])/sum(c(cm))
+    DISTORTED_phenGenes<-100*(cm[1,3]+cm[3,1])/sum(c(cm[,c(1,3)]))
+        
+    geneCounts<-cm
+    
+    colnames(cm)<-paste(colSums(cm),c('depletions','no phenotype','enrichments'),sep='\n')
+    cm<-cm/t(matrix(rep(colSums(cm),nrow(cm)),3,3))
+    par(mar=c(5,4,4,10))
+    par(xpd=TRUE)
+    barplot(100*cm,col=c('red','gray','blue'),border = FALSE,main=cls[i],ylab='%',xlab='original counts')
+    legend('right',c('depletions','no phenotype','enrichments'),inset = c(-.5,0),title = 'Corrected counts',
+           fill=c('red','gray','blue'),border = NA)
+    
+    dimnames(geneCounts)<-list(`corrected counts`=c('dep.','null','enr.'),`original counts`=c('dep.','null','enr.'))
+    
+    
+    if(length(outputPath)){
+        gg<-which(pre$neg.fdr<th | pre$pos.fdr<th)
+    }
+    
+    return(list(`GW_impact %`=IMPACTEDg,
+                `Phenotype_G_impact %`=IMPACTED_phenGenes,
+                `GW_distortion %`=DISTORTEDg,
+                `Phenotype_G_distortion %`=DISTORTED_phenGenes,
+                    geneCounts=geneCounts))
+}
+
 #### Utils not documented
 ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
     presentGenes<-intersect(c(TruePositives,TrueNegatives),names(FCsprofile))
@@ -1152,6 +1139,79 @@ ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
 }
 
 #### Assessment and visualisation not documented
+ccr.randomised_ROC<-function(FCs,PERCrandn,ntrials,positives,negatives,LibraryAnnotation){
+    
+    
+    posGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = positives)
+    negGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = negatives)
+    
+    guidesToShuffle<-intersect(union(posGuides,negGuides),names(FCs))
+    
+    idGuidesToShuffle<-match(guidesToShuffle,names(FCs))
+    
+    nguides<-round(length(guidesToShuffle)*PERCrandn/100)
+    
+    rndSENSITIVITY <- NULL
+    rndSPECIFICITY <- NULL
+    rndAUROC <- NULL
+    
+    rndRECALL <- NULL
+    rndPRECISION <- NULL
+    rndAUPRC <- NULL
+    
+    rndRECALL_at_fixedFDR<-NULL
+    
+    
+    
+    for (i in 1:ntrials){
+        print(i)
+        
+        RNDFCs<-FCs
+        mid<-sample(length(guidesToShuffle),nguides)
+        toShuffle<-idGuidesToShuffle[mid]    
+        
+        otherGuides<-setdiff(1:length(FCs),toShuffle)
+        
+        toReplace <- otherGuides[sample(length(otherGuides), nguides)]
+        
+        names(RNDFCs)[c(toShuffle,toReplace)] <- names(FCs)[c(toReplace,toShuffle)]
+        
+        RNDgeneFCs <- ccr.geneMeanFCs(RNDFCs, LibraryAnnotation)
+        
+        RESroc <-
+            ccr.ROC_Curve(
+                RNDgeneFCs,
+                positives,
+                negatives,
+                FDRth = 0.05,
+                display = FALSE
+            )
+        rndSENSITIVITY <- rbind(rndSENSITIVITY, RESroc$curve[, 'sensitivity'])
+        rndSPECIFICITY <- rbind(rndSPECIFICITY, RESroc$curve[, 'specificity'])
+        rndAUROC <- c(rndAUROC, RESroc$AUC)
+        
+        RESprrc <-
+            ccr.PrRc_Curve(
+                RNDgeneFCs,
+                positives,
+                negatives,
+                FDRth = 0.05,
+                display = FALSE
+            )
+        rndRECALL <- rbind(rndRECALL, RESprrc$curve[, 'recall'])
+        rndPRECISION <- rbind(rndPRECISION, RESprrc$curve[, 'precision'])
+        rndAUPRC <- c(rndAUPRC, RESprrc$AUC)
+        rndRECALL_at_fixedFDR<-c(rndRECALL_at_fixedFDR,RESprrc$Recall)
+    }
+    
+    return(list(rndSENSITIVITY = rndSENSITIVITY,
+                rndSPECIFICITY = rndSPECIFICITY,
+                rndAUROC = rndAUROC,
+                rndRECALL = rndRECALL,
+                rndPRECISION = rndPRECISION,
+                rndAUPRC = rndAUPRC,
+                rndRECALL_at_fixedFDR = rndRECALL_at_fixedFDR))
+}
 
 ## other exported functions
 

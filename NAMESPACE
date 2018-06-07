@@ -7,8 +7,6 @@ import(DNAcopy)
 import(pROC)
 import(pracma)
 
-
-
 #analysis
 export(ccr.NormfoldChanges)
 export(ccr.logFCs2chromPos)
@@ -32,7 +30,9 @@ export(ccr.perf_statTests)
 export(ccr.multDensPlot)
 export(ccr.perf_distributions)
 export(ccr.RecallCurves)
+#visualisation and assessment non Documented
 export(ccr.impactOnPhenotype)
+
 #export(ccr.retrieveAMPgeneGuides)
 #export(ccr.retrieveDELgeneGuides)
 #export(ccr.retrieveNotEXPgeneGuides)

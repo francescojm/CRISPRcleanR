@@ -1137,6 +1137,68 @@ ccr.RecallCurves<-function(cellLine,correctedFCs,
     return(AUCcombo)
 }
 
+ccr.impactOnPhenotype<-function(MO_uncorrectedFile,MO_correctedFile,
+                                sigFDR=0.05,
+                                outputPath=NULL){
+    
+    th<-sigFDR
+    
+    pre<-read.table(MO_uncorrectedFile,
+                    sep='\t',
+                    header=TRUE, row.names = 1,stringsAsFactors = FALSE)
+    
+    pre<-pre[order(rownames(pre)),]
+    
+    post<-read.table(MO_correctedFile,
+                     sep='\t',
+                     header=TRUE, row.names = 1,stringsAsFactors = FALSE)
+    
+    post<-post[order(rownames(post)),]
+    
+    aDD<-length(which(pre$neg.fdr<th & post$neg.fdr<th))
+    aDN<-length(which(pre$neg.fdr<th & post$neg.fdr>=th & post$pos.fdr>=th))
+    aDE<-length(which(pre$neg.fdr<th & post$pos.fdr<th & post$neg.fdr>=th))
+    
+    aND<-length(which(pre$neg.fdr>=th & pre$pos.fdr>=th & post$neg.fdr<th))
+    aNN<-length(which(pre$neg.fdr>=th & pre$pos.fdr>=th & post$neg.fdr>=th & post$pos.fdr>=th))
+    aNE<-length(which(pre$neg.fdr>=th & pre$pos.fdr>=th & post$pos.fdr<th & post$neg.fdr>=th))
+    
+    aED<-length(which(pre$pos.fdr<th & post$neg.fdr<th))
+    aEN<-length(which(pre$pos.fdr<th & post$neg.fdr>=th & post$pos.fdr>=th))
+    aEE<-length(which(pre$pos.fdr<th & post$pos.fdr<th & post$neg.fdr>=th))
+    
+    cm<-matrix(c(aDD,aDN,aDE,aND,aNN,aNE,aED,aEN,aEE),3,3,dimnames = list(c('cD','cN','cE'),c('uD','uN','uE')))
+    cm[is.na(cm)]<-0
+    
+    IMPACTEDg<-100*sum(triu(cm,1)+tril(cm,-1))/sum(c(cm))
+    IMPACTED_phenGenes<-100*(cm[2,1]+cm[2,3]+cm[3,1]+cm[3,2])/sum(c(cm[,c(1,3)]))
+    DISTORTEDg<-100*(cm[1,3]+cm[3,1])/sum(c(cm))
+    DISTORTED_phenGenes<-100*(cm[1,3]+cm[3,1])/sum(c(cm[,c(1,3)]))
+    
+    geneCounts<-cm
+    
+    colnames(cm)<-paste(colSums(cm),c('depletions','no phenotype','enrichments'),sep='\n')
+    cm<-cm/t(matrix(rep(colSums(cm),nrow(cm)),3,3))
+    par(mar=c(5,4,4,10))
+    par(xpd=TRUE)
+    barplot(100*cm,col=c('red','gray','blue'),border = FALSE,main=cls[i],ylab='%',xlab='original counts')
+    legend('right',c('depletions','no phenotype','enrichments'),inset = c(-.5,0),title = 'Corrected counts',
+           fill=c('red','gray','blue'),border = NA)
+    
+    dimnames(geneCounts)<-list(`corrected counts`=c('dep.','null','enr.'),`original counts`=c('dep.','null','enr.'))
+    
+    
+    if(length(outputPath)){
+        gg<-which(pre$neg.fdr<th | pre$pos.fdr<th)
+    }
+    
+    return(list(`GW_impact %`=IMPACTEDg,
+                `Phenotype_G_impact %`=IMPACTED_phenGenes,
+                `GW_distortion %`=DISTORTEDg,
+                `Phenotype_G_distortion %`=DISTORTED_phenGenes,
+                geneCounts=geneCounts))
+}
+
 #### Utils not documented
 ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
     presentGenes<-intersect(c(TruePositives,TrueNegatives),names(FCsprofile))

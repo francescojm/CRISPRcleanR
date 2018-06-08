@@ -59,16 +59,6 @@ Unsupervised identification and correction of gene independent cell responses to
     The second data frame (segments) contains the identified region of estimated equal log fold changes (one region per row) and the following
     columns/headers:
         \itemize{
-            \item \code{CHR}: the chromosome of the gene targeted by the sgRNA under consideration;
-            \item \code{startp}: the genomic coordinate of the starting position of the region targeted by the sgRNA under consideration;
-            \item \code{endp}: the genomic coordinate of the ending position of the region targeted by the sgRNA under consideration;
-            \item \code{genes}: the HGNC symbol of the gene targeted by the sgRNA under consideration;
-            \item \code{avgFC}: the log fold change of the sgRNA averaged across replicates;
-            \item \code{correction}: the type of correction: 1 = increased log fold change, -1 = decreased log fold change. 0 indicates no correction;
-            \item \code{correctedFC}: the corrected log fold change of the sgRNA}.\cr
-    The second data frame (segments) contains the identified region of estimated equal log fold changes (one region per row) and the following
-    columns/headers:
-        \itemize{
             \item \code{CHR}: the chromosome of the region under consideration;
             \item \code{startp}: the genomic coordinate of the starting position of the region under consideration;
             \item \code{endp}: the genomic coordinate of the ending position of the region under consideration;

@@ -39,7 +39,9 @@ ccr.impactOnPhenotype(MO_uncorrectedFile,
             \item \code{GW_impact \%}: Percentage of genes impacted by the CRISPRcleanR correction, i.e. showing a gain/loss-of-fitness genes effect in the MAGeCK gene summary obtained from uncorrected sgRNA counts, over the total number of screened genes;
             \item \code{Phenotype_G_impact \%}: Percentage of genes impacted by the CRISPRcleanR correction, i.e. showing a gain/loss-of-fitness genes effect in the MAGeCK gene summary obtained from uncorrected sgRNA counts, over the total number of genes showing a gain/loss of fitness effect in the MAGeCK gene summary obtained from uncorrected sgRNA counts;
             \item \code{GW_distortion \%}: Percentage of genes distorted by the CRISPRcleanR correction, i.e. showing a gain/loss-of-fitness effect in the MAGeCK gene summary obtained from corrected sgRNA counts that is opposite to the effect in that obtained from uncorrected sgRNA counts, over the total number of screened genes;
-            \item \code{Phenotype_G_distortion \%}: Percentage of genes distorted by the CRISPRcleanR correction, i.e. showing a gain/loss-of-fitness effect in the MAGeCK gene summary obtained from corrected sgRNA counts that is opposite to the effect in that obtained from uncorrected sgRNA counts, over the total number of screened genes,over the total number of genes showing a gain/loss of fitness effect in the MAGeCK gene summary obtained from uncorrected sgRNA counts.
+            \item \code{Phenotype_G_distortion \%}: Percentage of genes distorted by the CRISPRcleanR correction, i.e. showing a gain/loss-of-fitness effect in the MAGeCK gene summary obtained from corrected sgRNA counts that is opposite to the effect in that obtained from uncorrected sgRNA counts, over the total number of screened genes,over the total number of genes showing a gain/loss of fitness effect in the MAGeCK gene summary obtained from uncorrected sgRNA countsl;
+            \item \code{geneCounts}: A contingency table with gene counts as entries, with data referring to the original (uncorrected) sgRNA counts on the columns, and to the corrected sgRNA counts on the rows. There are three vectors for each dimensions, respectively for number of genes showing a significant loss of fitness effect (dep.), number of genes not showing any fitness effect (or with a not clear effect, i.e. showing both gain and loss of fitness effect, null), and number of genes showing a significant gain of fitness effect (enr.);
+            \item \code{distortion}: a data frame showing genes whose fitness effect has been distorted by the CRISPRcleanR correction: one row per gene (as specified by the row names), with two column per condition (i.e. prior/post correction), indicating the loss of fitness effect fdr (neg.fdr and ccr.neg.fdr) and the gain of fitness effect fdr (pos.fdr and ccr.pos.fdr) as outputted by MAGeCK;
             }
 }
 \details{
@@ -119,7 +121,12 @@ RES[3]
 ## over the total number of genes with a significant gain/loss-of fitness effect when 
 ## using uncorrected sgRNA counts
 RES[4]
-                      
+
+## Contingency table showing the impact of the CRISPRcleanR correction on the phenotype
+RES$geneCounts
+
+## Genes whose gain/loss-of-fitness effect has been distorted by the CRISPRcleanR correction
+RES$distortion
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

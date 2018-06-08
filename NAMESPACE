@@ -21,6 +21,7 @@ export(ccr.get.gdsc1000.AMPgenes)
 export(ccr.get.nonExpGenes)
 export(ccr.get.CCLEgisticSets)
 export(ccr.PlainTsvFile)
+export(ccr.ExecuteMageck)
 
 #visualisation and assessment
 export(ccr.randomised_ROC)

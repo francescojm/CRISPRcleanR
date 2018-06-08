@@ -522,6 +522,24 @@ ccr.PlainTsvFile<-function(sgRNA_count_object,fprefix='',
     
     return(fname)
 }
+ccr.ExecuteMageck<-function(mgckInputFile,expName='expName',normMethod='none',
+                            outputPath='./'){
+    fc<-read.table(mgckInputFile,sep='\t',header=TRUE)
+    
+    
+    Cnames<-colnames(fc)[3]
+    Tnames<-colnames(fc)[4:ncol(fc)]
+    
+    textbunch<-'mageck test -k'
+    textbunch<-paste(textbunch,' ',mgckInputFile,' -c ',paste(Cnames,collapse=','),' -t ',paste(Tnames,collapse=','),' -n ',
+                     outputPath,expName,' --norm-method ',normMethod,sep='')
+    system(textbunch)
+    
+    geneSummaryFN<-paste(outputPath,expName,'.gene_summary.txt',sep='')
+    
+    return(geneSummaryFN)
+}
+
 
 #### Assessment and visualisation
 ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
@@ -1265,26 +1283,6 @@ ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
                 distortion=to_bind))
 }
 ### Utils
-
-
-ccr.ExecuteMageck<-function(mgckInputFile,expName='expName',normMethod='none',
-                              outputPath='./'){
-    fc<-read.table(mgckInputFile,sep='\t',header=TRUE)
-    
-
-    Cnames<-colnames(fc)[3]
-    Tnames<-colnames(fc)[4:ncol(fc)]
-    
-    textbunch<-'mageck test -k'
-    textbunch<-paste(textbunch,' ',mgckInputFile,' -c ',paste(Cnames,collapse=','),' -t ',paste(Tnames,collapse=','),' -n ',
-                     outputPath,expName,' --norm-method ',normMethod,sep='')
-    system(textbunch)
-    
-    geneSummaryFN<-paste(expName,'.gene_summary.txt',sep='')
-    
-    return(geneSummaryFN)
-}
-
 
 ## not exported functions
 ccr.boxplot<-function(toPlot,main,names){

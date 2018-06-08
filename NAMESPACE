@@ -32,9 +32,9 @@ export(ccr.perf_statTests)
 export(ccr.multDensPlot)
 export(ccr.perf_distributions)
 export(ccr.RecallCurves)
+export(ccr.impactOnPhenotype)
 
 #visualisation and assessment non Documented
-export(ccr.impactOnPhenotype)
 
 #utils non Documented
 

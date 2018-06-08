@@ -1166,9 +1166,6 @@ ccr.RecallCurves<-function(cellLine,correctedFCs,
 }
 
 
-## other exported non documented functions
-
-#### Assessment and visualisation
 ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
                                 MO_correctedFile,
                                 sigFDR=0.05,
@@ -1282,6 +1279,10 @@ ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
                 geneCounts=geneCounts,
                 distortion=to_bind))
 }
+## other exported non documented functions
+
+#### Assessment and visualisation
+
 ### Utils
 
 ## not exported functions

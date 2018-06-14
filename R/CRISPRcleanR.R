@@ -142,12 +142,24 @@ ccr.cleanChrm<-function(gwSortedFCs,
                         label='',
                         saveTO=NULL,
                         min.ngenes=3,
-                        ignoredGenes=NULL){
+                        ignoredGenes=NULL,
+                        capped = FALSE,
+                        corrMet = 'mean',
+                        alpha = 0.01,
+                        nperm = 10000,
+                        p.method ="hybrid",
+                        min.width=2,
+                        kmax=25,
+                        nmin=200, 
+                        eta=0.05,
+                        trim = 0.025,
+                        undo.splits = "none",
+                        undo.prune=0.05, 
+                        undo.SD=3){
     
     ID<-which(gwSortedFCs$CHR==CHR)
     gwSortedFCs<-gwSortedFCs[ID,]
     
-    set.seed(0xA5EED)
     my.CNA.object <- CNA(cbind(gwSortedFCs$avgFC),
                          gwSortedFCs$CHR,
                          gwSortedFCs$BP,
@@ -156,7 +168,19 @@ ccr.cleanChrm<-function(gwSortedFCs,
     
     
     my.smoothed.CNA.object <- smooth.CNA(my.CNA.object)
-    my.segment.smoothed.CNA.object <- segment(my.smoothed.CNA.object, verbose=1)
+    my.segment.smoothed.CNA.object <- segment(my.smoothed.CNA.object,
+                                              verbose=1,
+                                              alpha = alpha,
+                                              nperm = nperm,
+                                              p.method = p.method,
+                                              min.width = min.width,
+                                              kmax=kmax,
+                                              nmin=nmin,
+                                              eta=eta,
+                                              trim=trim,
+                                              undo.splits=undo.splits,
+                                              undo.prune = undo.prune,
+                                              undo.SD=undo.SD)
     
     nsegments<-
         nrow(my.segment.smoothed.CNA.object$output)
@@ -177,14 +201,25 @@ ccr.cleanChrm<-function(gwSortedFCs,
             nGeneInSeg[i]<-length(includedGenes)
         }
         
-        
         if(nGeneInSeg[i]>=min.ngenes){
             
             orSign<-sign(newFC[idxs])
-            newFC[idxs]<-newFC[idxs]-mean(newFC[idxs])
+            
+            
+            if(corrMet=='mean'){
+                newFC[idxs]<-newFC[idxs]-mean(newFC[idxs])
+            }else{
+                    newFC[idxs]<-newFC[idxs]-median(newFC[idxs])
+            
+                    }
+            
+            if(capped){
+                newFC[idxs[which(sign(newFC[idxs])!=orSign)]]<-0
+            }
             
             correction[idxs]<- -sign(mean(newFC[idxs]))
         }
+        
         guides[i]<-paste(includedGuides,collapse=', ')
     }
     

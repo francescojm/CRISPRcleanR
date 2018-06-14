@@ -9,7 +9,13 @@ This function applies a circular binary segmentation algorithm [1, 2] to genomic
 }
 \usage{
 ccr.cleanChrm(gwSortedFCs,CHR,display=TRUE,label='',
-              saveTO=NULL,min.ngenes=3,ignoredGenes=NULL)}
+              saveTO=NULL,min.ngenes=3,ignoredGenes=NULL,
+              capped = FALSE,corrMet = 'mean',alpha = 0.01,
+              nperm = 10000,p.method ="hybrid",min.width=2,
+              kmax=25,nmin=200,eta=0.05,trim = 0.025,
+              undo.splits = "none",undo.prune=0.05, 
+              undo.SD=3)
+}
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{gwSortedFCs}{
@@ -40,8 +46,16 @@ ccr.cleanChrm(gwSortedFCs,CHR,display=TRUE,label='',
     A numerical value (>0) specifying the minimal number of different genes that the set of sgRNAs within a region of estimated equal log fold changes should target in order for that region to be corrected, i.e. mean centered.
 }
   \item{ignoredGenes}{
-    A vector of strings containing HGNC symbols of genes that should not be considered when computing the minimal number of different genes targeted by the sgRNAs in the same identified region of estimated equal log fold changes. This vector could contain, for example, a priori known essential genes. This parameter should be set to NULL for a completely unsupervised correction.
+    A vector of strings containing HGNC symbols of genes that should not be considered when computing the minimal number of different genes targeted by the sgRNAs in the same identified region of estimated equal log fold changes. This vector could contain, for example, a priori known essential genes. This parameter should be set to NULL (default value) for a completely unsupervised correction.
 }
+  \item{capped}{
+    Boolean argument that if TRUE prevents the sgRNAs changing the sign of their logFC due to the correction, by capping corresponding values to 0. By default is FALSE.
+}
+  \item{corrMet}{
+    String specifying the correction to be applied, if equal to 'mean' (its default value) than the mean of the sgRNA logFC in a biased segment is subtracted to the logFCs of all the sgRNA in the same biased segment. If different from 'mean' then the median of the sgRNA logFC in a biased segment is subtracted to the logFCs of all the sgRNA in the same biased segment.
+}
+
+The rest of the arguments are passed to the \code{segment} function of the \code{DNAcopy} package as they are. 
 }
 \value{
 

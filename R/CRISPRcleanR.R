@@ -1,6 +1,7 @@
 ## exported, documented, vignetted functions
 #### Analysis
 ccr.NormfoldChanges<-function(filename,
+                              Dframe=NULL,
                               display=TRUE,
                               saveToFig=FALSE,
                               outdir='./',
@@ -9,7 +10,12 @@ ccr.NormfoldChanges<-function(filename,
                               libraryAnnotation,
                               ncontrols=1){
     
-    counts<-read.table(filename,sep='\t',header=TRUE,stringsAsFactors = FALSE)
+    if (length(Dframe)==0){
+        counts<-read.table(filename,sep='\t',header=TRUE,stringsAsFactors = FALSE)    
+    }else{
+        counts<-Dframe
+    }
+    
     counts<-counts[is.element(counts$sgRNA,rownames(libraryAnnotation)),]
     
     if(saveToFig){

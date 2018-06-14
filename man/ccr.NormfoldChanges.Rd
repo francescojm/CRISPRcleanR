@@ -8,7 +8,9 @@ Median-ratio normalisation of sgRNA counts and fold change computation
     This function median-ratio normalises [1,2] sgRNAs' counts stored in a tsv file whose path is provided in input, to adjust for the effect of library size and read count distributions. It computes log fold changes of transfected library replicates versus controls (tipically the sgRNA counts in the plasmid). The output of this function is returned as a list, and it is also saved into two tsv files.
  }
 \usage{
-ccr.NormfoldChanges(filename, display=TRUE, saveToFig=FALSE,
+ccr.NormfoldChanges(filename,
+                    Dframe=NULL, display=TRUE,
+                    saveToFig=FALSE,
                     outdir='./', min_reads=30, EXPname='',
                     libraryAnnotation, ncontrols=1)
 }
@@ -21,6 +23,16 @@ ccr.NormfoldChanges(filename, display=TRUE, saveToFig=FALSE,
             \item gene: containing HGNC symbols of the genes targeted by the sgRNA under consideration; 
             }
 followed by the columns containing the sgRNAs' counts for the controls and columns for library trasfected samples.
+The argument is ignored if \code{Dframe} is not NULL.
+}
+\item{Dframe}{
+        A data frame containing the raw sgRNA counts (usable as alternative to providing the path to a tsv file, i.e. previous argument). This must have one row per sgRNA and the following columns/headers: 
+        \itemize{
+            \item sgRNA: containing alphanumerical identifiers of the sgRNA under consideration;
+            \item gene: containing HGNC symbols of the genes targeted by the sgRNA under consideration; 
+            }
+followed by the columns containing the sgRNAs' counts for the controls and columns for library trasfected samples.
+If set to its default NULL value, then the function will try to load and use the file specified in \code{filename}.
 }
   \item{display}{
     A logic value specifying whether figures containing boxplots with the count values pre/post normalisation and log fold-changes should be visualised (TRUE, by default). 

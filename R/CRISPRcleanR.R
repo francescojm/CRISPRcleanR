@@ -163,6 +163,8 @@ ccr.cleanChrm<-function(gwSortedFCs,
                         undo.prune=0.05, 
                         undo.SD=3){
     
+    gwSortedFCs<-as.data.frame(gwSortedFCs)
+    
     ID<-which(gwSortedFCs$CHR==CHR)
     gwSortedFCs<-gwSortedFCs[ID,]
     
@@ -282,6 +284,7 @@ ccr.cleanChrm<-function(gwSortedFCs,
 
 ccr.GWclean<-function(gwSortedFCs,label='',display=TRUE,saveTO=NULL,ignoredGenes=NULL,min.ngenes=3){
     
+    gwSortedFCs<-as.data.frame(gwSortedFCs)
     CHRs<-as.character(sort(unique(gwSortedFCs$CHR)))
     
     for (i in 1:length(CHRs)){

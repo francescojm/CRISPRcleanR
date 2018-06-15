@@ -688,6 +688,7 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
         }
     }
     
+    RND<-sum(observations)/length(observations)
     if(display){
         if(length(SENS)==0){
             legend('bottomleft',paste('AUC = ',format(prc$auc.integral,digits=3)),bty = 'n')    
@@ -696,12 +697,12 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
                                   paste('AUC = ',format(prc$auc.integral,digits=3))),bty = 'n')
         }
         
-        abline(h=sum(observations)/length(observations))
+        abline(h=RND)
     }    
     # 
     curve<-prc$curve
     colnames(curve)<-c('recall','precision','threshold')
-    RES<-list(AUC=prc$auc.integral,Recall=SENS,sigthreshold=threshold,curve=curve)
+    RES<-list(AUC=prc$auc.integral,Recall=SENS,sigthreshold=threshold,curve=curve,RND=RND)
     # ### threshold, and recall at fixed FDR to be returned
     return(RES)
 }

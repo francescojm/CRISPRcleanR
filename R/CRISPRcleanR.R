@@ -282,7 +282,18 @@ ccr.cleanChrm<-function(gwSortedFCs,
     
 }
 
-ccr.GWclean<-function(gwSortedFCs,label='',display=TRUE,saveTO=NULL,ignoredGenes=NULL,min.ngenes=3){
+ccr.GWclean<-function(gwSortedFCs,label='',display=TRUE,saveTO=NULL,ignoredGenes=NULL,min.ngenes=3,
+                      alpha = 0.01,
+                      nperm = 10000,
+                      p.method ="hybrid",
+                      min.width=2,
+                      kmax=25,
+                      nmin=200, 
+                      eta=0.05,
+                      trim = 0.025,
+                      undo.splits = "none",
+                      undo.prune=0.05, 
+                      undo.SD=3){
     
     gwSortedFCs<-as.data.frame(gwSortedFCs)
     CHRs<-as.character(sort(unique(gwSortedFCs$CHR)))
@@ -295,7 +306,18 @@ ccr.GWclean<-function(gwSortedFCs,label='',display=TRUE,saveTO=NULL,ignoredGenes
                            label = label,
                            saveTO=saveTO,
                            ignoredGenes = ignoredGenes,
-                           min.ngenes=min.ngenes)
+                           min.ngenes=min.ngenes,
+                           alpha = alpha,
+                           nperm = nperm,
+                           p.method = p.method,
+                           min.width=min.width,
+                           kmax=kmax,
+                           nmin=nmin, 
+                           eta=eta,
+                           trim = trim,
+                           undo.splits = undo.splits,
+                           undo.prune=undo.prune, 
+                           undo.SD=undo.SD)
         
         if(i == 1){
             corrected_logFCs<-res$correctedFCs

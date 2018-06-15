@@ -12,7 +12,18 @@ Unsupervised identification and correction of gene independent cell responses to
 }
 \usage{
     ccr.GWclean(gwSortedFCs,label='',display=TRUE,
-                saveTO=NULL,ignoredGenes=NULL,min.ngenes=3)
+                saveTO=NULL,ignoredGenes=NULL,min.ngenes=3,
+                alpha = 0.01,
+                nperm = 10000,
+                p.method ="hybrid",
+                min.width=2,
+                kmax=25,
+                nmin=200, 
+                eta=0.05,
+                trim = 0.025,
+                undo.splits = "none",
+                undo.prune=0.05, 
+                undo.SD=3)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -43,6 +54,7 @@ Unsupervised identification and correction of gene independent cell responses to
     \item{min.ngenes}{
         A numerical value (>0) specifying the minimal number of different genes that the set of sgRNAs within a region of estimated equal logFCs should target in order for theri logFCs to be corrected, i.e. mean centered.
 }
+The rest of the arguments are passed to the \code{segment} function of the \code{DNAcopy} package as they are. 
 }
 
 \value{

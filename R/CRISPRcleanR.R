@@ -1339,12 +1339,21 @@ ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
     colnames(to_bind_c)<-paste(c('','','ccr.','ccr.'),colnames(to_bind_c),sep='')
     
     
+    id<-intersect(preD,postNULL)
+    to_bind_A<-cbind(pre[id,c('neg.fdr','pos.fdr')],post[id,c('neg.fdr','pos.fdr')])
+    
+    id<-intersect(preE,postNULL)
+    to_bind_A<-rbind(to_bind_A,cbind(pre[id,c('neg.fdr','pos.fdr')],post[id,c('neg.fdr','pos.fdr')]))
+    colnames(to_bind)<-paste(c('','','ccr.','ccr.'),colnames(to_bind),sep='')
+    
+    
     return(list(`GW_impact %`=IMPACTEDg,
                 `Phenotype_G_impact %`=IMPACTED_phenGenes,
                 `GW_distortion %`=DISTORTEDg,
                 `Phenotype_G_distortion %`=DISTORTED_phenGenes,
                 geneCounts=geneCounts,
-                distortion=to_bind))
+                distortion=to_bind,
+                attenuation=to_bind_A))
 }
 ## other exported non documented functions
 

@@ -1278,8 +1278,15 @@ ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
     
     IMPACTEDg<-100*sum(triu(cm,1)+tril(cm,-1))/sum(c(cm))
     IMPACTED_phenGenes<-100*(cm[2,1]+cm[2,3]+cm[3,1]+cm[3,2])/sum(c(cm[,c(1,3)]))
+    
+    IMPACTED_Depletions<-100*(cm[2,1]+cm[2,3])/sum(cm[,1])
+    IMPACTED_Enrichments<-100*(cm[2,3]+cm[1,3])/sum(cm[,3])
+    
     DISTORTEDg<-100*(cm[1,3]+cm[3,1])/sum(c(cm))
     DISTORTED_phenGenes<-100*(cm[1,3]+cm[3,1])/sum(c(cm[,c(1,3)]))
+    
+    DISTORTED_Depletions<-100*cm[3,1]/sum(cm[,1])
+    DISTORTED_Enrichments<-100*cm[1,3]/sum(cm[,3])
     
     geneCounts<-cm
     
@@ -1349,11 +1356,16 @@ ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
     
     return(list(`GW_impact %`=IMPACTEDg,
                 `Phenotype_G_impact %`=IMPACTED_phenGenes,
+                `Depleted_G_impact %`=IMPACTED_Depletions,
+                `Enriched_G_impact %`=IMPACTED_Enrichments,
                 `GW_distortion %`=DISTORTEDg,
                 `Phenotype_G_distortion %`=DISTORTED_phenGenes,
+                `Depleted_G_distortion %`=DISTORTED_Depletions,
+                `Enriched_G_distortion %`=DISTORTED_Enrichments,
+                
                 geneCounts=geneCounts,
                 distortion=to_bind,
-                attenuation=to_bind_A))
+                impact=to_bind_A))
 }
 ## other exported non documented functions
 

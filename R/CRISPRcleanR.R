@@ -168,6 +168,8 @@ ccr.cleanChrm<-function(gwSortedFCs,
     ID<-which(gwSortedFCs$CHR==CHR)
     gwSortedFCs<-gwSortedFCs[ID,]
     
+    set.seed(0xA5EED)
+    
     my.CNA.object <- CNA(cbind(gwSortedFCs$avgFC),
                          gwSortedFCs$CHR,
                          gwSortedFCs$BP,

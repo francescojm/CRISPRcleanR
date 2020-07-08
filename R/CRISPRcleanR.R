@@ -1508,7 +1508,7 @@ ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
     predictions<-FCsprofile[presentGenes]
     observations<-is.element(presentGenes,TruePositives)+0
     names(observations)<-presentGenes
-    RES<-roc(observations,predictions,'>')
+    RES<-roc(observations,predictions,direction='>')
     COORS<-coords(RES,'all',ret = c('threshold','ppv'))
     FDRpercTh<-max(COORS['threshold',which(COORS['ppv',]>=(1-th))])
     FDRpercRANK<-max(which(sort(FCsprofile)<=FDRpercTh))

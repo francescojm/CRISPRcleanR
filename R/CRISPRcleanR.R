@@ -618,7 +618,7 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
     observations<-is.element(names(FCsprofile),positives)+0
     names(observations)<-names(predictions)
     
-    RES<-roc(observations,predictions,direction = '>')
+    RES<-roc(observations,predictions,direction = '>',quiet = TRUE)
     
     if(display){
         plot(RES,col='blue',lwd=3,xlab='TNR',ylab='Recall')
@@ -626,7 +626,7 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
     
     SENS<-NULL
     threshold<-NULL
-    COORS<-coords(RES,'all',ret = c('threshold','ppv','sensitivity','specificity'))
+    COORS<-coords(RES,'all',ret = c('threshold','ppv','sensitivity','specificity'),transpose = TRUE)
     if(length(FDRth)>0){
         
         
@@ -1508,8 +1508,8 @@ ccr.fixedFDRthreshold<-function(FCsprofile,TruePositives,TrueNegatives,th){
     predictions<-FCsprofile[presentGenes]
     observations<-is.element(presentGenes,TruePositives)+0
     names(observations)<-presentGenes
-    RES<-roc(observations,predictions,direction='>')
-    COORS<-coords(RES,'all',ret = c('threshold','ppv'))
+    RES<-roc(observations,predictions,direction='>',quiet = TRUE)
+    COORS<-coords(RES,'all',ret = c('threshold','ppv'),transpose=TRUE)
     FDRpercTh<-max(COORS['threshold',which(COORS['ppv',]>=(1-th))])
     FDRpercRANK<-max(which(sort(FCsprofile)<=FDRpercTh))
     

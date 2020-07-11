@@ -629,7 +629,6 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
     COORS<-coords(RES,'all',ret = c('threshold','ppv','sensitivity','specificity'),transpose = TRUE)
     if(length(FDRth)>0){
         
-        
         FDR5percTh<-max(COORS['threshold',which(COORS['ppv',]>=(1-FDRth))])
         
         threshold<-COORS['threshold',min(which(COORS['threshold',]<=FDR5percTh))]
@@ -665,7 +664,6 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     observations<-is.element(names(FCsprofile),positives)+0
     names(observations)<-names(predictions)
     
-    
     prc<-pr.curve(scores.class0 = predictions,weights.class0 = observations,
                   curve = TRUE,sorted = TRUE)
 
@@ -680,9 +678,11 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     threshold<-NULL
     if(length(FDRth)>0){
         
-        FDR5percTh<- -prc$curve[min(which(prc$curve[,2]>= 1-FDRth)),3]
-        SENS<- prc$curve[min(which(prc$curve[,2]>= 1-FDRth)),1]
-        threshold<-FDR5percTh
+        res<-ccr.ROC_Curve(FCsprofile,positives,negatives,display = FALSE,FDRth = FDRth)
+        
+        SENS<- res$Recall
+        threshold<- res$sigthreshold
+        
         if(display){
             abline(h=1-FDRth,lty=2)
             
@@ -709,7 +709,6 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     return(RES)
 }
 ccr.randomised_ROC<-function(FCs,PERCrandn,ntrials,positives,negatives,LibraryAnnotation){
-    
     
     posGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = positives)
     negGuides<-ccr.genes2sgRNAs(libraryAnnotation = LibraryAnnotation,genes = negatives)

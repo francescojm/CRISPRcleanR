@@ -1,6 +1,6 @@
 # CRISPRcleanR
 
-![alt text](https://github.com/francescojm/CELLector_App/blob/master/www/Cellector-logo-double-size.png)
+![alt text](https://github.com/francescojm/CRISPRcleanR/blob/master/web/CCRlogo.jpg)
 
 test
 

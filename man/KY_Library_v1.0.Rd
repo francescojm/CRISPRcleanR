@@ -2,10 +2,10 @@
 \alias{KY_Library_v1.0}
 \docType{data}
 \title{
-    sgRNAs' genome-wide annotation for the Sanger sgRNA pooled Library v1.0
+    sgRNAs' genome-wide annotation for the Sanger sgRNA Library v1.0
 }
 \description{
-A data frame with a named row for each sgRNA of the Sanger sgRNA pooled library presented in [1] including annotations such as targeted genes, and genomic coordinates.
+A data frame with a named row for each sgRNA of the Sanger sgRNA library presented in [1] including annotations such as targeted genes, and genomic coordinates.
 }
 \usage{data("KY_Library_v1.0")}
 \format{

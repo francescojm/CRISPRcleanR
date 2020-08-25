@@ -2,10 +2,10 @@
 \alias{AVANA_Library}
 \docType{data}
 \title{
-sgRNAs' genome-wide annotation for the AVANA sgRNA pooled library
+sgRNAs' genome-wide annotation for the AVANA sgRNA library
 }
 \description{
-A data frame with a named row for each sgRNA of the AVANA sgRNA pooled library [1] including annotations such as targeted genes, and genomic coordinates.
+A data frame with a named row for each sgRNA of the AVANA sgRNA library [1] including annotations such as targeted genes, and genomic coordinates.
 }
 \usage{data("AVANA_Library")}
 \format{

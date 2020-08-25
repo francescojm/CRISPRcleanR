@@ -9,16 +9,23 @@ CRISPRcleanR is an R package for the processing of pooled genome-wide CRISPR-Ca
 Quick start guide:
 https://github.com/francescojm/CRISPRcleanR/blob/master/Quick_start.pdf
 
+**NEWS**
+
+Now fully supporting the following additional libraries, with dedicated native annotation data objects and example datasets:
+    - Brunello [7]
+
 **References**
 
-[1] Iorio, F., Behan, F. M., Goncalves, E., Beaver, C., Ansari, R., Pooley, R., et al. (n.d.). Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 targeting. BMC Genomics. 2018 Aug 13;19(1):604
+[1] Iorio F, Behan FM, Goncalves E, Beaver C, Ansari R, Pooley R, et al. *Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 targeting*. BMC Genomics. 2018 Aug 13;19(1):604
 
-[3] Olshen A.B., Venkatraman E.S., Lucito R., et al. (2004). *Circular binary segmentation for the analysis of array-based DNA copy number data*. Biostatistics 5: 557-572.
+[3] Olshen AB, Venkatraman ES, Lucito R et al. (2004). *Circular binary segmentation for the analysis of array-based DNA copy number data*. Biostatistics 5: 557-572.
 
-[3] Venkatraman E.S., Olshen A.B. (2007). *A faster circular binary segmentation algorithm for the analysis of array CGH data*. Bioinformatics 23: 657-63.
+[3] Venkatraman ES, Olshen AB (2007). *A faster circular binary segmentation algorithm for the analysis of array CGH data*. Bioinformatics 23: 657-63.
 
-[4] Aguirre A.J., Meyers R.M., Weir B.A., et al. *Genomic copy number dictates a gene-independent cell response to CRISPR-Cas9 targeting*. Cancer Discov June 3 2016 DOI: 10.1158/2159-8290.CD-16-0154
+[4] Aguirre AJ, Meyers RM, Weir BA et al. *Genomic copy number dictates a gene-independent cell response to CRISPR-Cas9 targeting*. Cancer Discov June 3 2016 DOI: 10.1158/2159-8290.CD-16-0154
 
-[5] Li W, Xu H, Xiao T, Cong L, Love MI, Zhang F, Irizarry RA, Liu JS, Brown M, Liu XS. MAGeCK enables robust identification of essential genes from genome-scale CRISPR/Cas9 knockout screens. Genome Biol. 2014;15(12):554.
+[5] Li W, Xu H, Xiao T, Cong L, Love MI, Zhang F, Irizarry RA, Liu JS, Brown M, Liu XS. *MAGeCK enables robust identification of essential genes from genome-scale CRISPR/Cas9 knockout screens*. Genome Biol. 2014;15(12):554.
 
-[6] BAGEL: a computational framework for identifying essential genes from pooled library screens. Traver Hart and Jason Moffat. BMC Bioinformatics, 2016 vol. 17 p. 164.
+[6] Hart T and Moffat J. *BAGEL: a computational framework for identifying essential genes from pooled library screens*. BMC Bioinformatics, 2016 vol. 17 p. 164.
+
+[7] Doench JG, Fusi N, Sullender M, Hegde M, Vaimberg EW, Donovan KF, et al. *Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9*. Nat Biotechnol. 2016;34:184–91.

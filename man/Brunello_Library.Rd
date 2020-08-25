@@ -25,6 +25,11 @@ A data frame with a named row for each sgRNA of the Brunello sgRNA library [1] i
 Optimized sgRNA design to maximize activity and minimize off-target
 effects of CRISPR-Cas9. Nat Biotechnol. 2016;34:184–91.
 }
+\source{
+Addgene website (catalog number: 73179; file:
+broadgpp-brunello-library-contents.txt, url:
+https://www.addgene.org/static/cms/filer_public/8b/4c/8b4c89d9-eac1-44b2-bb2f-8fea95672705/broadgpp-brunello-library-contents.txt)
+}
 \examples{
 
 ## Loading sgRNA Brunello library annotation file

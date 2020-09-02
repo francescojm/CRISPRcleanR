@@ -2,12 +2,12 @@
 \alias{AVANA_Library}
 \docType{data}
 \title{
-sgRNAs' genome-wide annotation for the AVANA sgRNA library
+Genome-wide annotation for the AVANA sgRNA library
 }
 \description{
 A data frame with a named row for each sgRNA of the AVANA sgRNA library [1] including annotations such as targeted genes, and genomic coordinates.
 }
-\usage{data("AVANA_Library")}
+\usage{data(AVANA_Library)}
 \format{
    A a row named data frame with 71482 observations (one for each sgRNA) of the following 7 variables.
   \describe{
@@ -28,3 +28,4 @@ data(AVANA_Library)
 head(AVANA_Library)
 }
 \keyword{datasets}
+\keyword{Supported sgRNA libraries}

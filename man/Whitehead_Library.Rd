@@ -27,12 +27,12 @@ A data frame with a named row for each sgRNA of the Whitehead sgRNA library [1] 
 Discontinued by Addgene
 }
 \examples{
-## Loading sgRNA Brunello library annotation file
+## Loading sgRNA Whitehead library annotation file
 data(Whitehead_Library)
 ## Visualising first entries
 head(Whitehead_Library)
 
-## Deriving the paht of an example count file
+## Deriving the path of an example count file
 ## from screening the HT-29 cell line with the Whitehead library
 ## [2]
 fn<-paste(system.file('extdata', package = 'CRISPRcleanR'),

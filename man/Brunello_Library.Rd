@@ -40,7 +40,7 @@ data(Brunello_Library)
 ## Visualising first entries
 head(Brunello_Library)
 
-## Deriving the paht of an example count file
+## Deriving the path of an example count file
 ## from screening the HT-29 cell line with the Brunello library
 ## [2]
 

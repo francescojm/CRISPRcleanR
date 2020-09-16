@@ -26,7 +26,37 @@ https://github.com/EmanuelGoncalves/crispy/blob/master/notebooks/minlib/librarie
 [1] Gonçalves E, Thomas M, Behan FM, Picco G, Pacini C, Allen F, Parry-Smith D, et al. 2019. “Minimal Genome-Wide Human CRISPR-Cas9 Library.” BioRxiv, January, 848895. https://doi.org/10.1101/848895
 }
 \examples{
+## Loading sgRNA MiniLibCas9 library annotation file
 data(MiniLibCas9_Library)
+## Visualising first entries
 head(MiniLibCas9_Library)
+
+## Deriving the path of an example count file
+## from screening the HT-29 cell line with the Brunello library
+## [1]
+
+fn<-paste(system.file('extdata', package = 'CRISPRcleanR'),
+          '/HT29-MiniLibCas9_counts.tsv',sep='')
+
+expName<-'HT29-MiniLibCas9'
+
+## Loading, median-normalizing and computing fold-changes
+normANDfcs<-
+    ccr.NormfoldChanges(filename = fn,
+                        display = TRUE,
+                        min_reads = 30,
+                        EXPname = expName,
+                        libraryAnnotation = MiniLibCas9_Library)
+
+## Genome-sorting the fold changes
+gwSortedFCs<-
+    ccr.logFCs2chromPos(foldchanges = normANDfcs$logFCs,
+                        libraryAnnotation = MiniLibCas9_Library)
+
+## Identifying and correcting biased sgRNAs' fold changes
+correctedFCs_and_segments<-
+    ccr.GWclean(gwSortedFCs = gwSortedFCs,
+                display=TRUE,
+                label=expName)
 }
 \keyword{datasets}

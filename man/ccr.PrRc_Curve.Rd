@@ -12,7 +12,8 @@ ccr.PrRc_Curve(FCsprofile,
                          positives,
                          negatives,
                          display = TRUE,
-                         FDRth = NULL)
+                         FDRth = NULL,
+                         expName = NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -32,6 +33,9 @@ A logical parameter specifying if a plot containing the computed precision/recal
   \item{FDRth}{
   If different from NULL, will be a numerical value >=0 and <=1 specifying the false discovery rate threshold at which
   fixed recall will be computed. In this case, if the \code{display} parameter is TRUE, an orizontal dashed line will be   added to the plot at the resulting recall and its value will be visualised in the legend.
+}
+\item{expName}{
+  If different from NULL and \code{display} parameter is TRUE this parameter should be a string specifying the title of the plot with the computed precision/recall curve.
 }
 }
 \value{

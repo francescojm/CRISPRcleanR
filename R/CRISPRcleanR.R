@@ -610,7 +610,7 @@ ccr.ExecuteMageck<-function(mgckInputFile,expName='expName',normMethod='none',
 
 
 #### Assessment and visualisation
-ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
+ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,expName=NULL){
     
     FCsprofile<-FCsprofile[intersect(c(positives,negatives),names(FCsprofile))]
     
@@ -621,7 +621,7 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
     RES<-roc(observations,predictions,direction = '>',quiet = TRUE)
     
     if(display){
-        plot(RES,col='blue',lwd=3,xlab='TNR',ylab='Recall')
+        plot(RES,col='blue',lwd=3,xlab='TNR',ylab='Recall',main=expName)
     }
     
     SENS<-NULL
@@ -656,7 +656,7 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
     ### threshold, and recall at fixed FDR to be returned
     return(RES)
 }
-ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL){
+ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,expName=NULL){
     
     FCsprofile<-FCsprofile[intersect(c(positives,negatives),names(FCsprofile))]
     
@@ -671,7 +671,7 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL)
     RECALL<-prc$curve[,1]
     
     if(display){
-        plot(RECALL,PRECISION,col='blue',lwd=3,xlab='Recall',ylab='Precision',type='l',xlim=c(0,1),ylim=c(0,1))
+        plot(RECALL,PRECISION,col='blue',lwd=3,xlab='Recall',ylab='Precision',type='l',xlim=c(0,1),ylim=c(0,1),main=expName)
     }
     
     SENS<-NULL

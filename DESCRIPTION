@@ -1,7 +1,7 @@
 Package: CRISPRcleanR
 Type: Package
 Title: Unsupervised correction of gene independent cell responses to CRISPR-cas9 targeting
-Version: 2.0
+Version: 2.0.1
 Date: 2020-09-16
 Author: Francesco Iorio
 Maintainer: Francesco Iorio <iorio@ebi.ac.uk>

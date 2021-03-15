@@ -1,6 +1,6 @@
 \documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
-%% maxwidth is the original width if it is less than linewidth
-%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+% maxwidth is the original width if it is less than linewidth
+% otherwise use linewidth (to make sure the graphics do not exceed the margin)
 \makeatletter
 \def\maxwidth{ %
   \ifdim\Gin@nat@width>\linewidth
@@ -144,7 +144,7 @@ Secondly, install CRISPRcleanR with the following command:
 \end{kframe}
 \end{knitrout}
 
-\subsection{Raw sgRNA count median-ratio normalisation and computation of sgRNAs' log fold-changes}
+\subsection{Raw sgRNA count normalisation and computation of sgRNAs' log fold-changes}
 
 Load CRISPRcleanR.
 
@@ -199,7 +199,7 @@ To use your own library annotation you will have to store it into a data frame w
 
 The tsv file with the sgRNAs' raw counts must be formatted as specified in the reference manual entry of the \texttt{ccr.NormfoldChanges} function.\\
 
-\textbf{Step 3:} Perform a median-ratio normalisation of raw counts and compute sgRNAs' log fold-changes (in this example we will exclude sgRNAs with less than 30 reads in the plasmid sample).
+\textbf{Step 3:} Perform normalisation of raw counts and compute sgRNAs' log fold-changes (in this example we will exclude sgRNAs with less than 30 reads in the plasmid sample).
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -243,20 +243,20 @@ This function returns a list of two data frames containing, normalised counts an
 \hlkwd{head}\hlstd{(normANDfcs}\hlopt{$}\hlstd{logFCs)}
 \end{alltt}
 \begin{verbatim}
-##                                             sgRNA gene HT29_c904R1
-## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG  0.07635566
-## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG -0.05472442
-## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG  0.42548611
-## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG -0.45663336
-## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG -0.28197989
-## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF -0.34756262
-##   HT29_c904R2 HT29_c904R3
-## 1  0.28027938  0.06469488
-## 2 -0.41467098  0.14010902
-## 3 -0.03752168  0.09293733
-## 4 -0.78070106 -0.48496821
-## 5  0.36800353  0.10820208
-## 6  0.32598467 -0.02784489
+##                                             sgRNA gene HT29_c904R1 HT29_c904R2
+## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG  0.07635566  0.28027938
+## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG -0.05472442 -0.41467098
+## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG  0.42548611 -0.03752168
+## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG -0.45663336 -0.78070106
+## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG -0.28197989  0.36800353
+## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF -0.34756262  0.32598467
+##   HT29_c904R3
+## 1  0.06469488
+## 2  0.14010902
+## 3  0.09293733
+## 4 -0.48496821
+## 5  0.10820208
+## 6 -0.02784489
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -282,20 +282,20 @@ This function returns a list of two data frames containing, normalised counts an
 \hlkwd{head}\hlstd{(gwSortedFCs)}
 \end{alltt}
 \begin{verbatim}
-##                                          CHR startp   endp  genes
-## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 SAMD11
-## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 SAMD11
-## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 SAMD11
-## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 SAMD11
-## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 SAMD11
-## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411  NOC2L
-##                                                avgFC       BP
-## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 -0.12965287 871265.5
-## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2  0.09329615 874462.5
-## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3  0.25286616 874498.5
-## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 -0.05128489 874704.5
-## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 -0.02110076 876612.5
-## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  -1.27571756 887399.5
+##                                          CHR startp   endp  genes       avgFC
+## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 SAMD11 -0.12965287
+## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 SAMD11  0.09329615
+## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 SAMD11  0.25286616
+## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 SAMD11 -0.05128489
+## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 SAMD11 -0.02110076
+## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411  NOC2L -1.27571756
+##                                                BP
+## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 871265.5
+## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 874462.5
+## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 874498.5
+## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 874704.5
+## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 876612.5
+## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  887399.5
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -318,27 +318,20 @@ The corrected sgRNAs fold-changes are returned in a list (as a data frame), toge
      \hlkwd{head}\hlstd{(correctedFCs}\hlopt{$}\hlstd{corrected_logFCs)}
 \end{alltt}
 \begin{verbatim}
-##                                          CHR startp   endp  genes
-## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 SAMD11
-## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 SAMD11
-## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 SAMD11
-## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 SAMD11
-## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 SAMD11
-## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411  NOC2L
-##                                                avgFC       BP correction
-## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 -0.12965287 871265.5          0
-## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2  0.09329615 874462.5          0
-## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3  0.25286616 874498.5          0
-## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 -0.05128489 874704.5          0
-## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 -0.02110076 876612.5          0
-## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  -1.27571756 887399.5          0
-##                                          correctedFC
-## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 -0.12965287
-## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2  0.09329615
-## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3  0.25286616
-## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 -0.05128489
-## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 -0.02110076
-## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  -1.27571756
+##                                          CHR startp   endp  genes       avgFC
+## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 SAMD11 -0.12965287
+## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 SAMD11  0.09329615
+## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 SAMD11  0.25286616
+## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 SAMD11 -0.05128489
+## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 SAMD11 -0.02110076
+## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411  NOC2L -1.27571756
+##                                                BP correction correctedFC
+## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 871265.5          0 -0.12965287
+## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 874462.5          0  0.09329615
+## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 874498.5          0  0.25286616
+## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 874704.5          0 -0.05128489
+## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 876612.5          0 -0.02110076
+## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  887399.5          0 -1.27571756
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -410,7 +403,7 @@ To run MAGeCK, using these corrected sgRNAs' counts you will need to save them a
 \end{knitrout}
 
 
-\textbf{IMPORTANT:} the corrected sgRNAs' counts are already median-normalised,
+\textbf{IMPORTANT:} the corrected sgRNAs' counts are already normalised,
 therefore, when executing MAGeCK, the parameter \texttt{--norm-method} should be set to \texttt{none}.
 
 \section{Visualisation and assessment of Results}
@@ -435,27 +428,20 @@ What you need for this is a named vector of sgRNAs (or gene) logFCs and two refe
 \hlkwd{head}\hlstd{(EPLC.272HcorrectedFCs}\hlopt{$}\hlstd{corrected_logFCs)}
 \end{alltt}
 \begin{verbatim}
-##                                          CHR startp   endp  genes
-## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 SAMD11
-## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 SAMD11
-## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 SAMD11
-## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 SAMD11
-## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 SAMD11
-## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411  NOC2L
-##                                                avgFC       BP correction
-## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 -0.20295496 871265.5          0
-## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 -0.08917153 874462.5          0
-## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 -0.04417670 874498.5          0
-## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4  0.30441537 874704.5          0
-## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 -0.11240079 876612.5          0
-## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  -1.61370746 887399.5          0
-##                                          correctedFC
-## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 -0.20295496
-## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 -0.08917153
-## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 -0.04417670
-## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4  0.30441537
-## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 -0.11240079
-## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  -1.61370746
+##                                          CHR startp   endp  genes       avgFC
+## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 SAMD11 -0.20295496
+## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 SAMD11 -0.08917153
+## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 SAMD11 -0.04417670
+## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 SAMD11  0.30441537
+## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 SAMD11 -0.11240079
+## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411  NOC2L -1.61370746
+##                                                BP correction correctedFC
+## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 871265.5          0 -0.20295496
+## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 874462.5          0 -0.08917153
+## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 874498.5          0 -0.04417670
+## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 874704.5          0  0.30441537
+## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 876612.5          0 -0.11240079
+## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  887399.5          0 -1.61370746
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -602,7 +588,8 @@ As can be seen above, when setting the parameter \texttt{FRDth} to a value diffe
 \hlstd{gene_level_PrRc}\hlopt{$}\hlstd{sigthreshold}
 \end{alltt}
 \begin{verbatim}
-## [1] -0.7688516
+##  threshold 
+## -0.7683409
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -664,12 +651,10 @@ This function also returns recall values at 5\% FDR for all the inputted signatu
 \hlstd{Recall_scores}
 \end{alltt}
 \begin{verbatim}
-## Ribosomal_Proteins    DNA_Replication     RNA_polymerase 
-##         0.96721311         0.86666667         0.80769231 
-##         Proteasome        Spliceosome                CFE 
-##         0.78947368         0.86842105         0.75141243 
-##      non_essential 
-##         0.01874163
+## Ribosomal_Proteins    DNA_Replication     RNA_polymerase         Proteasome 
+##         0.96721311         0.86666667         0.80769231         0.78947368 
+##        Spliceosome                CFE      non_essential 
+##         0.86842105         0.75141243         0.01874163
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -800,24 +785,21 @@ Another example, analysing in the same way the essentiality profile of the EPLC-
 ##                       Dep (PN) Dep (Gistic)       notExp Amp (Gistic +1)
 ## pre-CRISPRcleanR  5.145194e-27           NA  0.00000e+00              NA
 ## post-CRISPRcleanR 3.219730e-06           NA 5.69841e-173              NA
-##                   Amp (Gistic +2) Amp (Gistic +1) notExp
-## pre-CRISPRcleanR               NA                     NA
-## post-CRISPRcleanR              NA                     NA
-##                   Amp (Gistic +2) notExp Amp (PNs >= 2) Amp (PNs >= 4)
-## pre-CRISPRcleanR                      NA   1.580669e-18   1.780173e-57
-## post-CRISPRcleanR                     NA   4.951065e-05   1.593962e-02
-##                   Amp (PNs >= 8) Amp (PNs >= 10) Amp (PNs >= 2) notExp
-## pre-CRISPRcleanR   1.991668e-137    1.476429e-42         2.268570e-311
-## post-CRISPRcleanR   2.036767e-01    9.122396e-02         7.683083e-168
-##                   Amp (PNs >= 4) notExp Amp (PNs >= 8) notExp
-## pre-CRISPRcleanR           2.387775e-52          3.575550e-07
-## post-CRISPRcleanR          4.710481e-49          1.871438e-01
-##                   Amp (PNs >= 10) notExp     Essential BAGEL Essential
-## pre-CRISPRcleanR            4.600584e-05 2.736956e-175   2.898286e-297
-## post-CRISPRcleanR           4.089818e-01 3.550035e-159   5.759565e-270
-##                   BAGEL Ess.Only BAGEL nonEssential
-## pre-CRISPRcleanR   1.591525e-205       8.174798e-81
-## post-CRISPRcleanR  2.745117e-183       7.856856e-48
+##                   Amp (Gistic +2) Amp (Gistic +1) notExp Amp (Gistic +2) notExp
+## pre-CRISPRcleanR               NA                     NA                     NA
+## post-CRISPRcleanR              NA                     NA                     NA
+##                   Amp (PNs >= 2) Amp (PNs >= 4) Amp (PNs >= 8) Amp (PNs >= 10)
+## pre-CRISPRcleanR    1.580669e-18   1.780173e-57  1.991668e-137    1.476429e-42
+## post-CRISPRcleanR   4.951065e-05   1.593962e-02   2.036767e-01    9.122396e-02
+##                   Amp (PNs >= 2) notExp Amp (PNs >= 4) notExp
+## pre-CRISPRcleanR          2.268570e-311          2.387775e-52
+## post-CRISPRcleanR         7.683083e-168          4.710481e-49
+##                   Amp (PNs >= 8) notExp Amp (PNs >= 10) notExp     Essential
+## pre-CRISPRcleanR           3.575550e-07           4.600584e-05 2.736956e-175
+## post-CRISPRcleanR          1.871438e-01           4.089818e-01 3.550035e-159
+##                   BAGEL Essential BAGEL Ess.Only BAGEL nonEssential
+## pre-CRISPRcleanR    2.898286e-297  1.591525e-205       8.174798e-81
+## post-CRISPRcleanR   5.759565e-270  2.745117e-183       7.856856e-48
 \end{verbatim}
 \begin{alltt}
 \hlstd{RES}\hlopt{$}\hlstd{EFFsizes}
@@ -826,24 +808,21 @@ Another example, analysing in the same way the essentiality profile of the EPLC-
 ##                    Dep (PN) Dep (Gistic)    notExp Amp (Gistic +1)
 ## pre-CRISPRcleanR  0.7269806           NA 0.3141696              NA
 ## post-CRISPRcleanR 0.2874528           NA 0.2168474              NA
-##                   Amp (Gistic +2) Amp (Gistic +1) notExp
-## pre-CRISPRcleanR               NA                     NA
-## post-CRISPRcleanR              NA                     NA
-##                   Amp (Gistic +2) notExp Amp (PNs >= 2) Amp (PNs >= 4)
-## pre-CRISPRcleanR                      NA     0.10987879      0.1142627
-## post-CRISPRcleanR                     NA     0.05019186      0.0170022
-##                   Amp (PNs >= 8) Amp (PNs >= 10) Amp (PNs >= 2) notExp
-## pre-CRISPRcleanR       1.0609873      1.34598769             0.3054594
-## post-CRISPRcleanR      0.0426818      0.09939445             0.2183217
-##                   Amp (PNs >= 4) notExp Amp (PNs >= 8) notExp
-## pre-CRISPRcleanR              0.2039852             0.6678038
-## post-CRISPRcleanR             0.1916572             0.1506673
-##                   Amp (PNs >= 10) notExp Essential BAGEL Essential
-## pre-CRISPRcleanR               0.9848744  2.859216        2.223645
-## post-CRISPRcleanR              0.1617632  2.945718        2.244647
-##                   BAGEL Ess.Only BAGEL nonEssential
-## pre-CRISPRcleanR        1.915641          0.2455203
-## post-CRISPRcleanR       1.900852          0.1799946
+##                   Amp (Gistic +2) Amp (Gistic +1) notExp Amp (Gistic +2) notExp
+## pre-CRISPRcleanR               NA                     NA                     NA
+## post-CRISPRcleanR              NA                     NA                     NA
+##                   Amp (PNs >= 2) Amp (PNs >= 4) Amp (PNs >= 8) Amp (PNs >= 10)
+## pre-CRISPRcleanR      0.10987879      0.1142627      1.0609873      1.34598769
+## post-CRISPRcleanR     0.05019186      0.0170022      0.0426818      0.09939445
+##                   Amp (PNs >= 2) notExp Amp (PNs >= 4) notExp
+## pre-CRISPRcleanR              0.3054594             0.2039852
+## post-CRISPRcleanR             0.2183217             0.1916572
+##                   Amp (PNs >= 8) notExp Amp (PNs >= 10) notExp Essential
+## pre-CRISPRcleanR              0.6678038              0.9848744  2.859216
+## post-CRISPRcleanR             0.1506673              0.1617632  2.945718
+##                   BAGEL Essential BAGEL Ess.Only BAGEL nonEssential
+## pre-CRISPRcleanR         2.223645       1.915641          0.2455203
+## post-CRISPRcleanR        2.244647       1.900852          0.1799946
 \end{verbatim}
 \end{kframe}
 \end{knitrout}
@@ -944,7 +923,7 @@ Before running the below example let us clean the R enviromnent with the followi
 \end{kframe}
 \end{knitrout}
 
-Subsequently, as detailed above, we load the reference sgRNA library annotation, a we load and median normalise sgRNA counts for the EPLC-272H example cell line.
+Subsequently, as detailed above, we load the reference sgRNA library annotation, we load and normalise sgRNA counts for the EPLC-272H example cell line.
 
 \begin{knitrout}
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
@@ -985,7 +964,9 @@ Run-time information displayed by MAGeCK (not reported in this document) will be
                       \hlkwc{expName} \hlstd{=} \hlstr{'EPLC-272H'}\hlstd{,}
                       \hlkwc{normMethod} \hlstd{=} \hlstr{'none'}\hlstd{)}
 \end{alltt}
-\end{kframe}
+
+
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning in system(textbunch): error in running command}}\end{kframe}
 \end{knitrout}
 
 This function returns in output the path of the gene summary file outputted by MAGeCK.
@@ -1031,7 +1012,9 @@ Then we execute MAGeCK on the corrected sgRNA counts.
                                    \hlkwc{expName} \hlstd{=} \hlstr{'EPLC-272H_ccleaned'}\hlstd{,}
                                    \hlkwc{normMethod} \hlstd{=} \hlstr{'none'}\hlstd{)}
 \end{alltt}
-\end{kframe}
+
+
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning in system(textbunch): error in running command}}\end{kframe}
 \end{knitrout}
 
 Finally, we assess the impact of CRISPcleanR correction on gain/loss-of-fitness genes with the following call, which
@@ -1043,21 +1026,11 @@ will produce bar/pie charts reported below
                       \hlkwc{MO_correctedFile} \hlstd{= corrected_gs_fn,}
                       \hlkwc{expName} \hlstd{=} \hlstr{'EPLC-272H'}\hlstd{)}
 \end{alltt}
-\end{kframe}
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-46-1} 
-
-}
 
 
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning in file(file, "{}rt"{}): cannot open file './EPLC-272H.gene\_summary.txt': No such file or directory}}
 
-
-{\centering \includegraphics[width=\maxwidth]{figure/unnamed-chunk-46-2} 
-
-}
-
-
-
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in file(file, "{}rt"{}): cannot open the connection}}\end{kframe}
 \end{knitrout}
 
 \printbibliography

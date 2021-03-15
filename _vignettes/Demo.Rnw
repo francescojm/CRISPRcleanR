@@ -86,7 +86,7 @@ Secondly, install CRISPRcleanR with the following command:
 install_github("francescojm/CRISPRcleanR")
 @
 
-\subsection{Raw sgRNA count median-ratio normalisation and computation of sgRNAs' log fold-changes}
+\subsection{Raw sgRNA count normalisation and computation of sgRNAs' log fold-changes}
 
 Load CRISPRcleanR.
 <<results='hide',echo=FALSE>>=
@@ -117,7 +117,7 @@ To use your own library annotation you will have to store it into a data frame w
 
 The tsv file with the sgRNAs' raw counts must be formatted as specified in the reference manual entry of the \texttt{ccr.NormfoldChanges} function.\\
 
-\textbf{Step 3:} Perform a median-ratio normalisation of raw counts and compute sgRNAs' log fold-changes (in this example we will exclude sgRNAs with less than 30 reads in the plasmid sample).
+\textbf{Step 3:} Perform normalisation of raw counts and compute sgRNAs' log fold-changes (in this example we will exclude sgRNAs with less than 30 reads in the plasmid sample).
 
 <<Norm_and_fc, fig.width=10, fig.height=5>>=
 normANDfcs<-ccr.NormfoldChanges(fn,
@@ -195,7 +195,7 @@ ccr.PlainTsvFile(correctedCounts,fprefix = 'HT-29')
 @
 
 
-\textbf{IMPORTANT:} the corrected sgRNAs' counts are already median-normalised,
+\textbf{IMPORTANT:} the corrected sgRNAs' counts are already normalised,
 therefore, when executing MAGeCK, the parameter \texttt{--norm-method} should be set to \texttt{none}.
 
 \section{Visualisation and assessment of Results}
@@ -456,7 +456,7 @@ Before running the below example let us clean the R enviromnent with the followi
 rm(list=ls())
 @
 
-Subsequently, as detailed above, we load the reference sgRNA library annotation, a we load and median normalise sgRNA counts for the EPLC-272H example cell line.
+Subsequently, as detailed above, we load the reference sgRNA library annotation, we load and normalise sgRNA counts for the EPLC-272H example cell line.
 
 <<fig.show='hide',  results='hide'>>=
 data(KY_Library_v1.0)

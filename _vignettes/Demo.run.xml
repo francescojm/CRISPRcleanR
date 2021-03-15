@@ -51,10 +51,12 @@
       <file>Demo.bbl</file>
     </requires>
     <requires type="static">
+      <file>blx-dm.def</file>
       <file>blx-compat.def</file>
+      <file>blx-bibtex.def</file>
       <file>biblatex.def</file>
-      <file>numeric.bbx</file>
       <file>standard.bbx</file>
+      <file>numeric.bbx</file>
       <file>numeric.cbx</file>
       <file>biblatex.cfg</file>
       <file>english.lbx</file>

@@ -8,7 +8,8 @@ ccr.NormfoldChanges<-function(filename,
                               min_reads=30,
                               EXPname='',
                               libraryAnnotation,
-                              ncontrols=1){
+                              ncontrols=1,
+                              method='CPM'){
     
     if (length(Dframe)==0){
         counts<-read.table(filename,sep='\t',header=TRUE,stringsAsFactors = FALSE)    
@@ -42,10 +43,17 @@ ccr.NormfoldChanges<-function(filename,
     numd<-numd[IDX,]
     counts<-counts[IDX,]
     
+    
+    if(method=='MedRatios'){
+        numd<-numd+0.5
+        pseudo_ref_sample<-apply(numd,MARGIN = 1,function(x){prod(x)^(1/length(x))})
+        pseudo_ref_mat<-matrix(rep(pseudo_ref_sample,ncol(numd)),length(pseudo_ref_sample),ncol(numd))
+        numd<-numd/pseudo_ref_mat
+    } 
     normFact<-t(matrix(rep(colSums(numd),nrow(numd)),ncol(counts)-2,nrow(numd)))
+    numd<-numd/normFact*1000000
     
-    numd<-numd/normFact*10000000
-    
+  
     normed<-cbind(counts[,1:2],numd)
     
     if(display){

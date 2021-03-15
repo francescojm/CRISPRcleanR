@@ -5,14 +5,15 @@
 Median-ratio normalisation of sgRNA counts and fold change computation
 }
 \description{
-    This function median-ratio normalises [1,2] sgRNAs' counts stored in a tsv file whose path is provided in input, to adjust for the effect of library size and read count distributions. It computes log fold changes of transfected library replicates versus controls (tipically the sgRNA counts in the plasmid). The output of this function is returned as a list, and it is also saved into two tsv files.
+    This function normalises sgRNAs' counts stored in a tsv file whose path is provided in input, to adjust for the effect of library size and read count distributions, scaling by the total number of reads per sample or using the gene wise median of ratios method [1]. It computes log fold changes of transfected library replicates versus controls (tipically the sgRNA counts in the plasmid). The output of this function is returned as a list, and it is also saved into two tsv files.
  }
 \usage{
 ccr.NormfoldChanges(filename,
                     Dframe=NULL, display=TRUE,
                     saveToFig=FALSE,
                     outdir='./', min_reads=30, EXPname='',
-                    libraryAnnotation, ncontrols=1)
+                    libraryAnnotation, ncontrols=1,
+                    method='CPM')
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -50,19 +51,21 @@ If set to its default NULL value, then the function will try to load and use the
   A string specifying the name of the experiment. This will be used to compose main title of the generated figures and file names.
 }
   \item{libraryAnnotation}{
-  A data frame containing the sgRNA annotations, with a named row for each sgRNA, and columns for targeted genes, genomic coordinates and possibly other informations. This should be formatted as the \code{\link{KY_Library_v1.0}} data object containing the annotation of the sgRNA library presented in [3].
+  A data frame containing the sgRNA annotations, with a named row for each sgRNA, and columns for targeted genes, genomic coordinates and possibly other informations. This should be formatted as the \code{\link{KY_Library_v1.0}} data object containing the annotation of the sgRNA library presented in [2].
 }
   \item{ncontrols}{
   A numerical value indicating the number of control replicates (therefore columns to be considered as control counts after the first two, in the inputted tsv file).
+}
+  \item{method}{
+  A string specifying the normalisation method: 'CMP' for scaling samples by total numbers or reads, 'MedRatios' to use the median of ratios method [1].
 }
 }
 \value{
     A list containing two data frames: for the normalised sgRNAs' counts (norm_counts) and the sgRNAs' log fold changes (logFCs) respectively. First two columns in these data frames contain sgRNAs' identifiers and HGNC symbols of targete gene, respectively.
 }
 \references{
-    [1] Wang T, Wei JJ, Sabatini DM, Lander ES. \emph{Genetic screens in human cells using the CRISPR-Cas9 system}. Science. 2014, 343: 80-84.\cr
-    [2] Anders S, Huber W. \emph{Differential expression analysis for sequence count data}. Genome Biol. 2010, 11: R106 \cr
-    [3] Tzelepis K, Koike-Yusa H, De Braekeleer E, et al \emph{A CRISPR dropout screen identifies genetic vulnerabilities and therapeutic targets in acute myeloid leukaemia}. Cell Reports 2016 Oct 18;17(4):1193-1205\cr
+    [1] Anders S, Huber W. \emph{Differential expression analysis for sequence count data}. Genome Biol. 2010, 11: R106 \cr
+    [2] Tzelepis K, Koike-Yusa H, De Braekeleer E, et al \emph{A CRISPR dropout screen identifies genetic vulnerabilities and therapeutic targets in acute myeloid leukaemia}. Cell Reports 2016 Oct 18;17(4):1193-1205\cr
 }
 \author{
 Francesco Iorio (fi9323@gmail.com)

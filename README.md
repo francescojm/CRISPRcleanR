@@ -12,7 +12,7 @@ Quick start guide:
 https://github.com/francescojm/CRISPRcleanR/blob/master/Quick_start.pdf
 
 **NEWS**
-- Error fixed in version 2.2.0: the function ccr.NormfoldChanges was erroneously documented as performing Median ratios normalisation but implemeted a sample scaling for total number of reads. This function has been now parametrised and the user can choice between the Median Ratios method or scaling for total number of reads.
+- Error fixed in version 2.2.0: the function ccr.NormfoldChanges was erroneously documented as performing Median ratios normalisation but implemeted a sample scaling for total number of reads. This function has been now parametrised and the user can choose between the Median Ratios method or scaling for total number of reads.
 
 - Now fully supporting the following additional libraries, with dedicated native annotation data objects and example datasets:
 

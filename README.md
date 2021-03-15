@@ -14,24 +14,24 @@ https://github.com/francescojm/CRISPRcleanR/blob/master/Quick_start.pdf
 
 - Now fully supporting the following additional libraries, with dedicated native annotation data objects and example datasets:
 
-  Whitehead
-  Source: Wang T, Birsoy K, Hughes NW, et al. Identification and characterization of essential genes in the human genome. Science. 2015;350(6264):1096-1101.       doi:10.1126/science.aac7041
+    Whitehead
+    Source: Wang T, Birsoy K, Hughes NW, et al. Identification and characterization of essential genes in the human genome. Science. 2015;350(6264):1096-1101.       doi:10.1126/science.aac7041
 
-  Brunello
-  Source: Doench JG, Fusi N, Sullender M, Hegde M, Vaimberg EW, Donovan KF, et al. Optimized sgRNA design to maximize activity and minimize off-target effects of   CRISPR-Cas9. Nat Biotechnol. 2016;34:184–91.
+    Brunello
+    Source: Doench JG, Fusi N, Sullender M, Hegde M, Vaimberg EW, Donovan KF, et al. Optimized sgRNA design to maximize activity and minimize off-target effects     of CRISPR-Cas9. Nat Biotechnol. 2016;34:184–91.
 
-  GeCKO v2
-  Sanjana NE, Shalem O, Zhang F. Improved vectors and genome-wide libraries for CRISPR screening. Nat Methods. 2014;11(8):783-784. doi:10.1038/nmeth.3047
+    GeCKO v2
+    Sanjana NE, Shalem O, Zhang F. Improved vectors and genome-wide libraries for CRISPR screening. Nat Methods. 2014;11(8):783-784. doi:10.1038/nmeth.3047
 
-  MiniLibCas9
-  Gonçalves E, Thomas M, Behan FM, Picco G, Pacini C, Allen F, Parry-Smith D, et al. 2019.
-  “Minimal Genome-Wide Human CRISPR-Cas9 Library.” BioRxiv, January, 848895. https://doi.org/10.1101/848895
+    MiniLibCas9
+    Gonçalves E, Thomas M, Behan FM, Picco G, Pacini C, Allen F, Parry-Smith D, et al. 2019.
+    “Minimal Genome-Wide Human CRISPR-Cas9 Library.” BioRxiv, January, 848895. https://doi.org/10.1101/848895
 
 **References**
 
 [1] Iorio F, Behan FM, Goncalves E, Beaver C, Ansari R, Pooley R, et al. *Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 targeting*. BMC Genomics. 2018 Aug 13;19(1):604
 
-[3] Olshen AB, Venkatraman ES, Lucito R et al. (2004). *Circular binary segmentation for the analysis of array-based DNA copy number data*. Biostatistics 5: 557-572.
+[2] Olshen AB, Venkatraman ES, Lucito R et al. (2004). *Circular binary segmentation for the analysis of array-based DNA copy number data*. Biostatistics 5: 557-572.
 
 [3] Venkatraman ES, Olshen AB (2007). *A faster circular binary segmentation algorithm for the analysis of array CGH data*. Bioinformatics 23: 657-63.
 

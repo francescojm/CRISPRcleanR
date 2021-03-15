@@ -10,9 +10,22 @@ Quick start guide:
 https://github.com/francescojm/CRISPRcleanR/blob/master/Quick_start.pdf
 
 **NEWS**
+- Error fixed in version 2.2.0: the function ccr.NormfoldChanges was erroneously documented as performing Median ratios normalisation but implemeted a sample scaling for total number of reads. This function has been now parametrised and the user can choice between the Median Ratios method or scaling for total number of reads.
 
-Now fully supporting the following additional libraries, with dedicated native annotation data objects and example datasets:
-    - Brunello [7]
+- Now fully supporting the following additional libraries, with dedicated native annotation data objects and example datasets:
+
+Whitehead
+Source: Wang T, Birsoy K, Hughes NW, et al. Identification and characterization of essential genes in the human genome. Science. 2015;350(6264):1096-1101. doi:10.1126/science.aac7041
+
+Brunello
+Source: Doench JG, Fusi N, Sullender M, Hegde M, Vaimberg EW, Donovan KF, et al. Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9. Nat Biotechnol. 2016;34:184–91.
+
+GeCKO v2
+Sanjana NE, Shalem O, Zhang F. Improved vectors and genome-wide libraries for CRISPR screening. Nat Methods. 2014;11(8):783-784. doi:10.1038/nmeth.3047
+
+MiniLibCas9
+Gonçalves E, Thomas M, Behan FM, Picco G, Pacini C, Allen F, Parry-Smith D, et al. 2019.
+“Minimal Genome-Wide Human CRISPR-Cas9 Library.” BioRxiv, January, 848895. https://doi.org/10.1101/848895
 
 **References**
 
@@ -27,5 +40,3 @@ Now fully supporting the following additional libraries, with dedicated native a
 [5] Li W, Xu H, Xiao T, Cong L, Love MI, Zhang F, Irizarry RA, Liu JS, Brown M, Liu XS. *MAGeCK enables robust identification of essential genes from genome-scale CRISPR/Cas9 knockout screens*. Genome Biol. 2014;15(12):554.
 
 [6] Hart T and Moffat J. *BAGEL: a computational framework for identifying essential genes from pooled library screens*. BMC Bioinformatics, 2016 vol. 17 p. 164.
-
-[7] Doench JG, Fusi N, Sullender M, Hegde M, Vaimberg EW, Donovan KF, et al. *Optimized sgRNA design to maximize activity and minimize off-target effects of CRISPR-Cas9*. Nat Biotechnol. 2016;34:184–91.

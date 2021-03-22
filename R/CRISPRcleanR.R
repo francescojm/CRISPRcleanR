@@ -51,7 +51,7 @@ ccr.NormfoldChanges<-function(filename,
         numd<-numd/pseudo_ref_mat
     } 
     normFact<-t(matrix(rep(colSums(numd),nrow(numd)),ncol(counts)-2,nrow(numd)))
-    numd<-numd/normFact*1000000
+    numd<-numd/normFact*10000000
     
   
     normed<-cbind(counts[,1:2],numd)

@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/francescojm/CRISPRcleanR/blob/master/web/CCRlogo.jpg)
 
-v2.2.0
+v2.2.1
 
 **An R package for unsupervised identification and correction of gene independent cell responses to CRISPR-cas9 targeting**
 

@@ -1,12 +1,13 @@
 Package: CRISPRcleanR
 Type: Package
 Title: Unsupervised correction of gene independent cell responses to CRISPR-cas9 targeting
-Version: 2.2.0
+Version: 2.2.1
 Date: 2021-03-15
 Author: Francesco Iorio
 Maintainer: Francesco Iorio <iorio@ebi.ac.uk>
 License: GPL-2
 Description: CRISPRcleanR is an R package for identifying and correcting gene independent responses to CRISPRcas9 targeting, in genome-wide pooled sgRNA drop-out screens. CRISPRcleanR uses an unsupervised approach based on the segmentation of single-guide RNA (sgRNA) fold change values across the genome, without making any assumption on the copy number status of the targeted genes. CRISPRcleanR reports sgRNA fold changes and normalised sgRNA read counts, and is therefore compatible with downstream analysis tools, and works with multiple sgRNA libraries. 
+biocViews:
 Depends: stringr, DNAcopy, pROC, stats, utils, grDevices, graphics, pracma, PRROC
 RoxygenNote: 6.0.1
 

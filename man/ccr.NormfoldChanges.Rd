@@ -13,7 +13,7 @@ ccr.NormfoldChanges(filename,
                     saveToFig=FALSE,
                     outdir='./', min_reads=30, EXPname='',
                     libraryAnnotation, ncontrols=1,
-                    method='CPM')
+                    method='_CPM')
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -57,7 +57,7 @@ If set to its default NULL value, then the function will try to load and use the
   A numerical value indicating the number of control replicates (therefore columns to be considered as control counts after the first two, in the inputted tsv file).
 }
   \item{method}{
-  A string specifying the normalisation method: 'CMP' for scaling samples by total numbers or reads, 'MedRatios' to use the median of ratios method [1].
+  A string specifying the normalisation method: '_CMP' for scaling samples by total numbers or reads, 'MedRatios' to use the median of ratios method [1], or a gene name for scaling samples by total number of reads of the guides targeting that gene.
 }
 }
 \value{

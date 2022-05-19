@@ -23,8 +23,8 @@ A data frame with a named row for each sgRNA of the MiniLibCas9 sgRNA library [1
 https://github.com/EmanuelGoncalves/crispy/blob/master/notebooks/minlib/libraries/MinLibCas9.csv.gz
 }
 \references{
-[1] Gonçalves E, Thomas M, Behan FM, Picco G, Pacini C, Allen F, Parry-Smith D, et al. 2019.
-“Minimal Genome-Wide Human CRISPR-Cas9 Library.” BioRxiv, January, 848895. https://doi.org/10.1101/848895
+[1] Goncalves E, Thomas M, Behan FM, Picco G, Pacini C, Allen F, Parry-Smith D, et al. 2019.
+Minimal Genome-Wide Human CRISPR-Cas9 Library. BioRxiv, January, 848895. https://doi.org/10.1101/848895
 }
 \examples{
 ## Loading sgRNA MiniLibCas9 library annotation file

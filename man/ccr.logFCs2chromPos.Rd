@@ -46,7 +46,7 @@ ccr.logFCs2chromPos(foldchanges, libraryAnnotation)
 Cell Reports 2016 Oct 18;17(4):1193-1205
 }
 \author{
-Francesco Iorio (iorio@ebi.ac.uk)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
     \code{\link{ccr.NormfoldChanges}}, \code{\link{KY_Library_v1.0}}

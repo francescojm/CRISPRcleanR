@@ -21,7 +21,7 @@ A data frame with a named row for each sgRNA of the AVANA sgRNA library [1] incl
   }
 }
 \references{
-[1] Meyers RM, Bryan JG, McFarland JM, Weir BA. Computational correction of copy number effect improves specificity of CRISPR–Cas9 essentiality screens in cancer cells. Nature. 2017.
+[1] Meyers RM, Bryan JG, McFarland JM, Weir BA. Computational correction of copy number effect improves specificity of CRISPR-Cas9 essentiality screens in cancer cells. Nature. 2017.
 }
 \examples{
 data(AVANA_Library)

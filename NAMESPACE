@@ -6,6 +6,7 @@ import(stringr)
 import(DNAcopy)
 import(pROC)
 import(pracma)
+import(PRROC)
 
 #analysis
 export(ccr.NormfoldChanges)
@@ -24,7 +25,6 @@ export(ccr.PlainTsvFile)
 export(ccr.ExecuteMageck)
 
 #visualisation and assessment
-export(ccr.randomised_ROC)
 export(ccr.ROC_Curve)
 export(ccr.PrRc_Curve)
 export(ccr.VisDepAndSig)

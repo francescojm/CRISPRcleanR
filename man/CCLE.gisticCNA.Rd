@@ -18,7 +18,7 @@ This data frame has been derived from the tsv file downloadable at \cr
 \url{http://www.cbioportal.org/study?id=cellline_ccle_broad#summary}.\cr
 This has been obtained by processing Affymetrix SNP array data in the Cancer 
 Cell Line Encyclopaedia [4] repository \cr 
-(\url{https://portals.broadinstitute.org/ccle_legacy/data/}) 
+(\url{https://depmap.org/portal/download/}) 
 }
 \references{
 [1] Mermel CH, Schumacher SE, Hill B, et al. \emph{GISTIC2.0 facilitates sensitive and confident localization of the targets of focal somatic copy-number alteration in human cancers.} Genome Biol. 2011;12(4):R41. doi: 10.1186/gb-2011-12-4-r41. \cr

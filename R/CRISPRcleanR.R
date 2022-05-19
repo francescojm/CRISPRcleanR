@@ -626,9 +626,15 @@ ccr.ExecuteMageck<-function(mgckInputFile,expName='expName',normMethod='none',
     textbunch<-'mageck test -k'
     textbunch<-paste(textbunch,' ',mgckInputFile,' -c ',paste(Cnames,collapse=','),' -t ',paste(Tnames,collapse=','),' -n ',
                      outputPath,expName,' --norm-method ',normMethod,sep='')
-    system(textbunch)
-    
+    resOut <- try(system(textbunch))
+
+    # Fix for CRAN upload - START
     geneSummaryFN<-paste(outputPath,expName,'.gene_summary.txt',sep='')
+    if (class(resOut) == 'try-error' | !file.exists(geneSummaryFN)) {
+            warning("MAGeCK execution was NOT succesfull.")
+            geneSummaryFN <- ""
+    }
+    # Fix for CRAN upload - END
     
     return(geneSummaryFN)
 }

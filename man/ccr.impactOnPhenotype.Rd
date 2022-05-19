@@ -52,7 +52,7 @@ For each of the considered MAGeCK gene summaries, this function calls loss/gain-
 [1] Li, W., Xu, H., Xiao, T., Cong, L., Love, M. I., Zhang, F., et al. (2014). MAGeCK enables robust identification of essential genes from genome-scale CRISPR/Cas9 knockout screens. Genome Biology, 15(12), 554. [2] Hart, T., & Moffat, J. (2016). BAGEL: a computational framework for identifying essential genes from pooled library screens. BMC Bioinformatics, 17(1), 164.
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
     \code{\link{ccr.ExecuteMageck}}

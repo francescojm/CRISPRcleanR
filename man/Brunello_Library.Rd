@@ -23,7 +23,7 @@ A data frame with a named row for each sgRNA of the Brunello sgRNA library [1] i
 \references{
 [1] Doench JG, Fusi N, Sullender M, Hegde M, Vaimberg EW, Donovan KF, et al.
 Optimized sgRNA design to maximize activity and minimize off-target
-effects of CRISPR-Cas9. Nat Biotechnol. 2016;34:184–91.
+effects of CRISPR-Cas9. Nat Biotechnol. 2016;34:184-91.
 
 [2] Ong SH, Li Y, Koike-Yusa H, Yusa K. Optimised metrics for CRISPR-KO screens with second-generation gRNA libraries [published correction appears in Sci Rep. 2018 Apr 12;8(1):6136]. Sci Rep. 2017;7(1):7384. Published 2017 Aug 7. doi:10.1038/s41598-017-07827-z
 

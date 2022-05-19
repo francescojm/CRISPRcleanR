@@ -23,7 +23,7 @@ ccr.geneMeanFCs(sgRNA_FCprofile, libraryAnnotation)
     A numerical vector containing gene average log fold-changes, with corresponding HGNC symbols as names.
 }
 \author{
-    Francesco Iorio (fi9323@gmail.com)
+    Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
 \code{\link{KY_Library_v1.0}}

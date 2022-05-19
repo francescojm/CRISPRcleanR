@@ -50,7 +50,7 @@ http://doi.org/10.1101/228189
 [a] \url{ftp://ftp.sanger.ac.uk/pub/project/cancerrxgene/releases/release-6.0/Gene_level_CN.xlsx}.\cr
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
     \code{\link{ccr.get.CCLEgisticSets}}

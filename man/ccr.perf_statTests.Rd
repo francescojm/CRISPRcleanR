@@ -88,7 +88,7 @@ doi: https://doi.org/10.1101/129478
 
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
 \code{\link{KY_Library_v1.0}}, \code{\link{ccr.GWclean}}, \cr

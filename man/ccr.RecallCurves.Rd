@@ -65,7 +65,7 @@ doi: https://doi.org/10.1101/129478
 [5] BAGEL: a computational framework for identifying essential genes from pooled library screens. Traver Hart and Jason Moffat. BMC Bioinformatics, 2016 vol. 17 p. 164.
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
 \code{\link{KY_Library_v1.0}}, \code{\link{ccr.GWclean}}, \cr

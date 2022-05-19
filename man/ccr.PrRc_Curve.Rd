@@ -42,7 +42,7 @@ A logical parameter specifying if a plot containing the computed precision/recal
     A list containint three numerical variable \code{AUC}, \code{Recall}, and \code{sigthreshold} indicating the area under PrRc curve and (if \code{FDRth} is not NULL) the recall at the specifying false discovery rate and the corresponding log fold change threshold (both equal to NULL, if \code{FDRth} is NULL), respectively. 
 }
 \author{
-    Francesco Iorio (fi9323@gmail.com)
+    Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
 \code{\link{BAGEL_essential}}, \code{\link{BAGEL_nonEssential}},

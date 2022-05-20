@@ -48,7 +48,7 @@ Nucleic Acids Research, Volume 45, Issue D1, 4 January 2017, Pages D777-D783, \c
 http://doi.org/10.1101/228189
 }
 \author{
-Francesco Iorio (iorio@ebi.ac.uk)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
 \code{\link{ccr.get.gdsc1000.AMPgenes}}

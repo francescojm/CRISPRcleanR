@@ -43,7 +43,7 @@ Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 target
 http://doi.org/10.1101/228189
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
 \code{\link{ccr.get.gdsc1000.AMPgenes}}

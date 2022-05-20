@@ -51,12 +51,12 @@ ccr.correctCounts(CL,normalised_counts,
     A data frame with one entry per sgRNA and individual columns for the control/treatment samples included in the normalised count data object specified by the \code{normalised_counts} parameter, and containing sgRNA counts corrected for gene independent responses to CRISPR-Cas9 targeting and median-ratio normalised.
 }
 \references{
-[1] Iorio F, Behan FM, Gonçalves E, Bhosle SG, Chen E, Shepherd R, Beaver C, Ansari R, Pooley R, Wilkinson P, Harper S, Butler AP, Stronach EA, Saez-Rodriguez J, Yusa K, Garnett MJ. Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 targeting. BMC Genomics. 2018 Aug 13;19(1):604. doi: 10.1186/s12864-018-4989-y.
+[1] Iorio F, Behan FM, Goncalves E, Bhosle SG, Chen E, Shepherd R, Beaver C, Ansari R, Pooley R, Wilkinson P, Harper S, Butler AP, Stronach EA, Saez-Rodriguez J, Yusa K, Garnett MJ. Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 targeting. BMC Genomics. 2018 Aug 13;19(1):604. doi: 10.1186/s12864-018-4989-y.
 
 [2] Li, W., Xu, H., Xiao, T., Cong, L., Love, M. I., Zhang, F., et al. (2014). MAGeCK enables robust identification of essential genes from genome-scale CRISPR/Cas9 knockout screens. Genome Biology, 15(12), 554.
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)
+Francesco Iorio (francesco.iorio@fht.orgfht.org)
 }
 \seealso{
 \code{\link{ccr.NormfoldChanges}}, \code{\link{ccr.GWclean}}

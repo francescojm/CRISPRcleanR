@@ -68,7 +68,7 @@ If set to its default NULL value, then the function will try to load and use the
     [2] Tzelepis K, Koike-Yusa H, De Braekeleer E, et al \emph{A CRISPR dropout screen identifies genetic vulnerabilities and therapeutic targets in acute myeloid leukaemia}. Cell Reports 2016 Oct 18;17(4):1193-1205\cr
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \seealso{
 \code{\link{KY_Library_v1.0}}

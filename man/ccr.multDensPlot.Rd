@@ -32,7 +32,7 @@ A vector of strings (one per each density in \code{TOPLOT}) specifying correspon
 }
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)}
+Francesco Iorio (francesco.iorio@fht.org)}
 \examples{
 ## generating random data
 x <- rnorm(1000, 0, 0.5)

@@ -19,7 +19,7 @@ ccr.genes2sgRNAs(libraryAnnotation,genes)
 A list of strings containing the identifiers of the sgRNAs targeting the inputted set of genes
 }
 \author{
-Francesco Iorio (fi9323@gmail.com)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 \examples{
     ## Loading an sgRNA pooled library annotation

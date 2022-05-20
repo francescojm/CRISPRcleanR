@@ -54,6 +54,39 @@ ccr.cleanChrm(gwSortedFCs,CHR,display=TRUE,label='',
   \item{corrMet}{
     String specifying the correction to be applied, if equal to 'mean' (its default value) than the mean of the sgRNA logFC in a biased segment is subtracted to the logFCs of all the sgRNA in the same biased segment. If different from 'mean' then the median of the sgRNA logFC in a biased segment is subtracted to the logFCs of all the sgRNA in the same biased segment.
 }
+  \item{alpha}{
+    significance levels for the test to accept change-points (see DNAcopy).
+}
+  \item{nperm}{
+    number of permutations used for p-value computation (see DNAcopy).
+}
+  \item{p.method}{
+    method used for p-value computation. For the "perm" method the p-value is based on full permutation. For the "hybrid" method the maximum over the entire region is split into maximum of max over small segments and max over the rest. Approximation is used for the larger segment max. Default is hybrid (see DNAcopy).
+}
+  \item{min.width}{
+    the minimum number of markers for a changed segment. The default is 2 but can be made larger. Maximum possible value is set at 5 since arbitrary widths can have the undesirable effect of incorrect change-points when a true signal of narrow widths exists (see DNAcopy).
+}
+  \item{kmax}{
+    the maximum width of smaller segment for permutation in the hybrid method (see DNAcopy).
+}
+  \item{nmin}{
+    the minimum length of data for which the approximation of maximum statistic is used under the hybrid method. should be larger than 4*kmax (see DNAcopy).
+}
+  \item{eta}{
+    the probability to declare a change conditioned on the permuted statistic exceeding the observed statistic exactly j (= 1,...,nperm*alpha) times. (see DNAcopy).
+}
+  \item{trim}{
+    proportion of data to be trimmed for variance calculation for smoothing outliers and undoing splits based on SD (see DNAcopy).
+}
+  \item{undo.splits}{
+    a character string specifying how change-points are to be undone, if at all. Default is "none". Other choices are "prune", which uses a sum of squares criterion, and "sdundo", which undoes splits that are not at least this many SDs apart. (see DNAcopy).
+}
+  \item{undo.prune}{
+    the proportional increase in sum of squares allowed when eliminating splits if undo.splits="prune" (see DNAcopy).
+}
+  \item{undo.SD}{
+    the number of SDs between means to keep a split if undo.splits="sdundo" (see DNAcopy).
+}
 
 The rest of the arguments are passed to the \code{segment} function of the \code{DNAcopy} package as they are. 
 }
@@ -89,7 +122,7 @@ Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 target
  http://doi.org/10.1101/228189
 }
 \author{
-Francesco Iorio (iorio@ebi.ac.uk)
+Francesco Iorio (francesco.iorio@fht.org)
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

@@ -97,37 +97,43 @@ corrected_fn<-ccr.PlainTsvFile(sgRNA_count_object = correctedCounts,
                                fprefix = 'EPLC-272H_ccleaned')
 
 ## execute MAGeCK on corrected normalised counts
+## - it requires MAGeCK to be pre-installed - 
 corrected_gs_fn<-ccr.ExecuteMageck(mgckInputFile = corrected_fn,
                                    expName = 'EPLC-272H_ccleaned')
 
+## If MAGeCK is installed and correctly executed then
 ## Assessing the impact of CRISPcleanR correction on gain/loss-of-fitness genes
-RES<-ccr.impactOnPhenotype(MO_uncorrectedFile = uncorrected_gs_fn,
-                      MO_correctedFile = corrected_gs_fn,
-                      expName = 'EPLC-272H')
 
-## Percentage of genes whose gain/loss-of fitness effect is impacted by CRISPRcleanR 
-## over the total number of screened genes
-RES[1]  
+if (corrected_gs_fn!=''){
 
-## Percentage of genes whose gain/loss-of fitness effect is impacted by CRISPRcleanR 
-## over the total number of genes with a significant gain/loss-of fitness effect when 
-## using uncorrected sgRNA counts
-RES[2]
+  RES<-ccr.impactOnPhenotype(MO_uncorrectedFile = uncorrected_gs_fn,
+                        MO_correctedFile = corrected_gs_fn,
+                        expName = 'EPLC-272H')
 
-## Percentage of genes whose gain/loss-of fitness effect is distorted by CRISPRcleanR 
-## over the total number of screened genes
-RES[3]
+  ## Percentage of genes whose gain/loss-of fitness effect is impacted by CRISPRcleanR 
+  ## over the total number of screened genes
+  RES[1]  
 
-## Percentage of genes whose gain/loss-of fitness effect is distorted by CRISPRcleanR 
-## over the total number of genes with a significant gain/loss-of fitness effect when 
-## using uncorrected sgRNA counts
-RES[4]
+  ## Percentage of genes whose gain/loss-of fitness effect is impacted by CRISPRcleanR 
+  ## over the total number of genes with a significant gain/loss-of fitness effect when 
+  ## using uncorrected sgRNA counts
+  RES[2]
 
-## Contingency table showing the impact of the CRISPRcleanR correction on the phenotype
-RES$geneCounts
+  ## Percentage of genes whose gain/loss-of fitness effect is distorted by CRISPRcleanR 
+  ## over the total number of screened genes
+  RES[3]
 
-## Genes whose gain/loss-of-fitness effect has been distorted by the CRISPRcleanR correction
-RES$distortion
+  ## Percentage of genes whose gain/loss-of fitness effect is distorted by CRISPRcleanR 
+  ## over the total number of genes with a significant gain/loss-of fitness effect when 
+  ## using uncorrected sgRNA counts
+  RES[4]
+
+  ## Contingency table showing the impact of the CRISPRcleanR correction on the phenotype
+  RES$geneCounts
+
+  ## Genes whose gain/loss-of-fitness effect has been distorted by the CRISPRcleanR correction
+  RES$distortion
+  }
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

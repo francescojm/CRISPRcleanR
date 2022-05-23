@@ -14,7 +14,8 @@ ccr.perf_distributions(cellLine, correctedFCs,
                        CCLE.gisticCNA = NULL,
                        RNAseq.fpkms = NULL,
                        minCNs = c(8, 10),
-                       libraryAnnotation)
+                       libraryAnnotation,
+                       GDSC.CL_annotation=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -41,6 +42,9 @@ Genome-wide substitute reads with fragments per kilobase of exon per million rea
 \item{libraryAnnotation}{
     The sgRNA library annotations formatted as specified in the reference manual entry of the \code{\link{KY_Library_v1.0}} built in library.
 }
+  \item{GDSC.CL_annotation}{
+    Cell lines annotation dataframe with the same structure of the \code{\link{GDSC.CL_annotation}}. If NULL then the \code{\link{GDSC.CL_annotation}} is used.
+  }
 }
 \details{
 This function generates 4 sets of plots. They contains log fold change distributions density plots prior/post

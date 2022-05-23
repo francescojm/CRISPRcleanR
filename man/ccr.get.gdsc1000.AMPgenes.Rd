@@ -9,7 +9,7 @@ This function takes in input the name (or the COSMIC identifier [1]) of a cell l
 }
 \usage{
 ccr.get.gdsc1000.AMPgenes(cellLine, minCN = 8, exact = FALSE,
-                          GDSC.geneLevCNA=NULL)
+                          GDSC.geneLevCNA=NULL,GDSC.CL_annotation=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -25,6 +25,9 @@ If TRUE, then those genes for which any genomic segment containing coding sequen
   \item{GDSC.geneLevCNA}{
     Genome-wide copy number data with the same format of \code{\link{GDSC.geneLevCNA}}. This can be assembled
     from the xls sheet specified in the source section [a] (containing data for the GDSC1000 cell lines). If NULL, then this function uses the data in the built in \code{\link{GDSC.geneLevCNA}} data frame, containing data derived from [a] for 15 cell lines used in [3] to assess the performances of CRISPRcleanR.
+  }
+  \item{GDSC.CL_annotation}{
+    Cell lines annotation dataframe with the same structure of the \code{\link{GDSC.CL_annotation}}. If NULL then the \code{\link{GDSC.CL_annotation}} is used.
   }
 }
 \value{

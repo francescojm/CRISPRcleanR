@@ -12,7 +12,8 @@ ccr.perf_statTests(cellLine, libraryAnnotation, correctedFCs,
                    outDir = "./",
                    GDSC.geneLevCNA = NULL,
                    CCLE.gisticCNA = NULL,
-                   RNAseq.fpkms = NULL)
+                   RNAseq.fpkms = NULL,
+                   GDSC.CL_annotation=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -37,6 +38,9 @@ Genome-wide copy number data with the same format of \code{\link{GDSC.geneLevCNA
   \item{RNAseq.fpkms}{
 Genome-wide substitute reads with fragments per kilobase of exon per million reads mapped (FPKM) across cell lines. These can be derived from a comprehensive collection of RNAseq profiles described in [4]. The format must be the same of the \code{\link{RNAseq.fpkms}} builtin data frame. If NULL then this function uses the \code{\link{RNAseq.fpkms}} builtin data fram containing data for 15 cell lines used in [2] to assess CRISPRcleaneR results.
 }
+  \item{GDSC.CL_annotation}{
+    Cell lines annotation dataframe with the same structure of the \code{\link{GDSC.CL_annotation}}. If NULL then the \code{\link{GDSC.CL_annotation}} is used.
+  }
 }
 \details{
     This functions assess the statistical difference pre/post CRISPRcleanR correction of log fold changes for sgRNAs targeting respectively: 

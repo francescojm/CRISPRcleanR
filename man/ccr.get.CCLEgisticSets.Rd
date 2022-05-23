@@ -8,7 +8,7 @@ CCLE gistic score gene sets
     This function splits all the genes into 5 classes (-2, -1, 0, +1 and +2) based on the CNA Gistic [1] score observed in a given cell line.
 }
 \usage{
-ccr.get.CCLEgisticSets(cellLine,CCLE.gisticCNA=NULL)
+ccr.get.CCLEgisticSets(cellLine,CCLE.gisticCNA=NULL,GDSC.CL_annotation=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -18,6 +18,9 @@ ccr.get.CCLEgisticSets(cellLine,CCLE.gisticCNA=NULL)
     Genome-wide Gistic [1] scores quantifying copy number status across cell lines with the same format of
     \code{\link{CCLE.gisticCNA}}. If NULL then this function uses the \code{\link{CCLE.gisticCNA}} builtin data frame, containing data for 13 cell lines of the 15 used in [3] to assess the performances of CRISPRcleanR.
 }
+  \item{GDSC.CL_annotation}{
+    Cell lines annotation dataframe with the same structure of the \code{\link{GDSC.CL_annotation}}. If NULL then the \code{\link{GDSC.CL_annotation}} is used.
+  }
 }
 \value{
     A named list of vectors with the following fields:

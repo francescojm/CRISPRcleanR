@@ -11,7 +11,7 @@ from classifying defined sets of sgRNAs (respectively genes) based on their log 
 \usage{
 ccr.RecallCurves(cellLine, correctedFCs, GDSC.geneLevCNA = NULL,
                  RNAseq.fpkms = NULL, minCN = 8, libraryAnnotation,
-                 GeneLev = FALSE)
+                 GeneLev = FALSE,GDSC.CL_annotation=NULL)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -38,6 +38,9 @@ Genome-wide substitute reads with fragments per kilobase of exon per million rea
   \item{GeneLev}{
 A logical value specifying if the Recall should be computed at level of genes. In this case average gene log fold changes are computed from the inputted corrected log fold changes across targeting sgRNAs. 
 }
+  \item{GDSC.CL_annotation}{
+    Cell lines annotation dataframe with the same structure of the \code{\link{GDSC.CL_annotation}}. If NULL then the \code{\link{GDSC.CL_annotation}} is used.
+  }
 }
 \details{
 This function generates 2 plots, showing Recall curves resulting from classifying the following 4 sets of sgRNAs (or Genes, depending on the parameter \code{GeneLev}, based on their log fold changes (or log fold changes averaged across targeting guides):

@@ -454,13 +454,14 @@ ccr.geneMeanFCs<-function(sgRNA_FCprofile,libraryAnnotation){
 ccr.get.gdsc1000.AMPgenes<-function(cellLine,
                                minCN=8,
                                exact=FALSE,
-                               GDSC.geneLevCNA=NULL){
+                               GDSC.geneLevCNA=NULL,
+                               GDSC.CL_annotation = NULL){
     
     if(is.null(GDSC.geneLevCNA)){
         data(GDSC.geneLevCNA,envir = environment())    
     }
     
-    data(GDSC.CL_annotation,envir = environment()) 
+    if (is.null(GDSC.CL_annotation)) data(GDSC.CL_annotation,envir = environment()) 
     
     if(!is.element(cellLine,GDSC.CL_annotation$CL.name) & !is.element(cellLine,GDSC.CL_annotation$COSMIC.ID)){
         stop('Cell line not found: Please provide a valid cell line cosmic identifier or name (see available cell lines here: http://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources//Data/suppData/TableS1E.xlsx)', call. = TRUE, domain = NULL)
@@ -517,9 +518,9 @@ ccr.get.gdsc1000.AMPgenes<-function(cellLine,
         return(NULL)
     }
 }
-ccr.get.nonExpGenes<-function(cellLine,th=0.05,amplified=FALSE,minCN=8,RNAseq.fpkms=NULL){
+ccr.get.nonExpGenes<-function(cellLine,th=0.05,amplified=FALSE,minCN=8,RNAseq.fpkms=NULL,GDSC.CL_annotation=NULL){
     
-    data(GDSC.CL_annotation,envir = environment())
+    if(is.null(GDSC.CL_annotation)) data(GDSC.CL_annotation,envir = environment())
     
     if(is.null(RNAseq.fpkms)){
         data(RNAseq.fpkms,envir = environment())   
@@ -537,7 +538,7 @@ ccr.get.nonExpGenes<-function(cellLine,th=0.05,amplified=FALSE,minCN=8,RNAseq.fp
     
     
     if(amplified){
-        amplifiedGenes<-ccr.get.gdsc1000.AMPgenes(cellLine = cellLine,minCN=minCN)
+        amplifiedGenes<-ccr.get.gdsc1000.AMPgenes(cellLine = cellLine,minCN=minCN,GDSC.CL_annotation=GDSC.CL_annotation)
         amplifiedGenes<-
             unique(amplifiedGenes$Gene)
     }
@@ -557,9 +558,9 @@ ccr.get.nonExpGenes<-function(cellLine,th=0.05,amplified=FALSE,minCN=8,RNAseq.fp
         return(NULL)
     }
 }
-ccr.get.CCLEgisticSets<-function(cellLine,CCLE.gisticCNA=NULL){
+ccr.get.CCLEgisticSets<-function(cellLine,CCLE.gisticCNA=NULL,GDSC.CL_annotation=NULL){
     
-    data(GDSC.CL_annotation,envir = environment())
+    if (is.null(GDSC.CL_annotation)) data(GDSC.CL_annotation,envir = environment())
     
     if(is.null(CCLE.gisticCNA)){
         data(CCLE.gisticCNA,envir = environment())    
@@ -630,7 +631,7 @@ ccr.ExecuteMageck<-function(mgckInputFile,expName='expName',normMethod='none',
 
     # Fix for CRAN upload - START
     geneSummaryFN<-paste(outputPath,expName,'.gene_summary.txt',sep='')
-    if (class(resOut) == 'try-error' | !file.exists(geneSummaryFN)) {
+    if (inherits(resOut, "try-error") | !file.exists(geneSummaryFN)) {
             warning("MAGeCK execution was NOT succesfull.")
             geneSummaryFN <- ""
     }
@@ -911,7 +912,8 @@ ccr.perf_statTests<-function(cellLine,
                                 outDir='./',
                                GDSC.geneLevCNA=NULL,
                                CCLE.gisticCNA=NULL,
-                               RNAseq.fpkms=NULL){
+                               RNAseq.fpkms=NULL,
+                               GDSC.CL_annotation=NULL){
     nnames<-c('Dep (PN)',
               'Dep (Gistic)',
               'notExp',
@@ -933,7 +935,10 @@ ccr.perf_statTests<-function(cellLine,
               'BAGEL nonEssential',
               'whole-library')
         
-        guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA,RNAseq.fpkms,libraryAnnotation = libraryAnnotation)
+        guideSets<-ccr.get.guideSets(cellLine,
+            GDSC.geneLevCNA,CCLE.gisticCNA,
+            RNAseq.fpkms,libraryAnnotation = libraryAnnotation,
+            GDSC.CL_annotation=GDSC.CL_annotation)
         PVALS<-vector()
         PVALSn<-vector()
         
@@ -1120,10 +1125,13 @@ ccr.perf_distributions<-function(cellLine,correctedFCs,
                                  CCLE.gisticCNA=NULL,
                                  RNAseq.fpkms=NULL,
                                  minCNs=c(8,10),
-                                 libraryAnnotation){
+                                 libraryAnnotation,
+                                 GDSC.CL_annotation=NULL){
     
-    guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA,RNAseq.fpkms,
-                                 libraryAnnotation = libraryAnnotation)
+    guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,
+        CCLE.gisticCNA,RNAseq.fpkms,
+        libraryAnnotation = libraryAnnotation,
+        GDSC.CL_annotation=GDSC.CL_annotation)
     
     names(guideSets)[16]<-'MSigDB CFEs'
     
@@ -1191,10 +1199,15 @@ ccr.RecallCurves<-function(cellLine,correctedFCs,
                            RNAseq.fpkms=NULL,
                            minCN=8,
                            libraryAnnotation,
-                           GeneLev=FALSE){
+                           GeneLev=FALSE,
+                           GDSC.CL_annotation=NULL){
     
-    guideSets<-ccr.get.guideSets(cellLine,GDSC.geneLevCNA,CCLE.gisticCNA=NULL,RNAseq.fpkms,
-                                 libraryAnnotation = libraryAnnotation)
+    guideSets<-ccr.get.guideSets(cellLine,
+        GDSC.geneLevCNA,
+        CCLE.gisticCNA=NULL,
+        RNAseq.fpkms,
+        libraryAnnotation = libraryAnnotation,
+        GDSC.CL_annotation=GDSC.CL_annotation)
     
     if(GeneLev){
         guideSets<-lapply(guideSets,function(x){libraryAnnotation[x,'GENES']})
@@ -1430,7 +1443,7 @@ ccr.cohens_d <- function(x, y) {
     cd  <- md/csd                        ## cohen's d
     return(cd)
 }
-ccr.get.guideSets<-function(cellLine,GDSC.geneLevCNA=NULL,CCLE.gisticCNA=NULL,RNAseq.fpkms=NULL,libraryAnnotation){
+ccr.get.guideSets<-function(cellLine,GDSC.geneLevCNA=NULL,CCLE.gisticCNA=NULL,RNAseq.fpkms=NULL,libraryAnnotation,GDSC.CL_annotation=NULL){
     if(is.null(GDSC.geneLevCNA)){
         data(GDSC.geneLevCNA,envir = environment()) 
     }
@@ -1441,9 +1454,9 @@ ccr.get.guideSets<-function(cellLine,GDSC.geneLevCNA=NULL,CCLE.gisticCNA=NULL,RN
         data(RNAseq.fpkms,envir = environment()) 
     }
     
-    GDSC.cna<-ccr.get.gdsc1000.AMPgenes(cellLine = cellLine,GDSC.geneLevCNA = GDSC.geneLevCNA,minCN = 0)
-    CCLE.cna<-ccr.get.CCLEgisticSets(cellLine = cellLine,CCLE.gisticCNA = CCLE.gisticCNA)
-    notExp<-ccr.get.nonExpGenes(cellLine = cellLine,RNAseq.fpkms = RNAseq.fpkms)
+    GDSC.cna<-ccr.get.gdsc1000.AMPgenes(cellLine = cellLine,GDSC.geneLevCNA = GDSC.geneLevCNA,minCN = 0,GDSC.CL_annotation=GDSC.CL_annotation)
+    CCLE.cna<-ccr.get.CCLEgisticSets(cellLine = cellLine,CCLE.gisticCNA = CCLE.gisticCNA,GDSC.CL_annotation=GDSC.CL_annotation)
+    notExp<-ccr.get.nonExpGenes(cellLine = cellLine,RNAseq.fpkms = RNAseq.fpkms,GDSC.CL_annotation=GDSC.CL_annotation)
     
     data(BAGEL_essential,envir = environment()) 
     data(BAGEL_nonEssential,envir = environment()) 

@@ -3,8 +3,8 @@ _vignettes$
 web$
 CRISPRcleanR.pdf$
 CRISPRcleanR.Rproj$
-Quick_start.pdf$
-Reference_Manual.pdf$
+Quick_start.pdf
+Reference_Manual.pdf
 ^.*\.Rproj$
 ^.*\.Rproj$
 ^\.Rproj\.user$

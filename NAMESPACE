@@ -1,4 +1,4 @@
-import(stats)
+#import(stats)
 import(utils)
 import(grDevices)
 import(graphics)

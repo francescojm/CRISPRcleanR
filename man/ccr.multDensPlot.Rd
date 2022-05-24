@@ -33,7 +33,7 @@ A vector of strings (one per each density in \code{TOPLOT}) specifying correspon
 }
 \author{
 Francesco Iorio (francesco.iorio@fht.org)}
-\examples{\dontshow{setwd(tempdir())}
+\examples{
 ## generating random data
 x <- rnorm(1000, 0, 0.5)
 y <- rnorm(1000, 2, 0.4)
@@ -47,7 +47,6 @@ ToPlot<-list(x=density(x),y=density(y),z=density(z))
 ccr.multDensPlot(ToPlot,COLS = c('red','blue','gray'),
     TITLE = 'example',LEGentries = c('x','y','z'),
     XLIMS = c(-5,3))
-
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

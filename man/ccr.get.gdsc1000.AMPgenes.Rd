@@ -58,7 +58,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
     \code{\link{ccr.get.CCLEgisticSets}}
 }
-\examples{\dontshow{setwd(tempdir())}
+\examples{
 CNAgenes<-
     ccr.get.gdsc1000.AMPgenes('HT-29')
 head(CNAgenes)

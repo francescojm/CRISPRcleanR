@@ -100,7 +100,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \code{\link{EssGenes.DNA_REPLICATION_cons}}, \code{\link{EssGenes.KEGG_rna_polymerase}}, \code{\link{EssGenes.PROTEASOME_cons}}, \code{\link{EssGenes.ribosomalProteins}}, \code{\link{EssGenes.SPLICEOSOME_cons}} \cr
 \code{\link{BAGEL_essential}}, \code{\link{BAGEL_nonEssential}}
 }
-\examples{\dontshow{setwd(tempdir())}
+\examples{\dontrun{
 ## loading corrected sgRNAs log fold-changes and segment annotations for an example
 ## cell line (EPLC-272H)
 data(EPLC.272HcorrectedFCs)
@@ -114,7 +114,7 @@ RES<-ccr.perf_statTests('EPLC-272H',libraryAnnotation = KY_Library_v1.0,
                    correctedFCs = EPLC.272HcorrectedFCs$corrected_logFCs)
 RES$PVALS
 RES$EFFsizes
-}
+}}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{Assessment and Visualisation}% use one of  RShowDoc("KEYWORDS")

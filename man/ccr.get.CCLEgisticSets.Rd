@@ -56,7 +56,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{ccr.get.gdsc1000.AMPgenes}}
 }
-\examples{\dontshow{setwd(tempdir())}
+\examples{
 GS<-ccr.get.CCLEgisticSets('HT-29')
 
 head(GS$gm2)
@@ -64,7 +64,6 @@ head(GS$gm1)
 head(GS$gz)
 head(GS$gp1)
 head(GS$gp2)
-
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

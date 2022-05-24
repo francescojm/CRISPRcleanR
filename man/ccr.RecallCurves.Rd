@@ -75,7 +75,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \code{\link{GDSC.geneLevCNA}}, \code{\link{RNAseq.fpkms}}, \cr
 \code{\link{BAGEL_essential}}, \code{\link{BAGEL_nonEssential}}
 }
-\examples{\dontshow{setwd(tempdir())}
+\examples{
 ## loading corrected sgRNAs log fold-changes and segment annotations for an example
 ## cell line (EPLC-272H)
 data(EPLC.272HcorrectedFCs)

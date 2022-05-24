@@ -51,7 +51,7 @@ A logical parameter specifying if a plot containing the computed ROC curve with 
 
 \code{\link{ccr.PrRc_Curve}}
 }
-\examples{\dontshow{setwd(tempdir())}
+\examples{
 ## loading corrected sgRNAs log fold-changes and segment annotations for an example
 ## cell line (EPLC-272H)
 data(EPLC.272HcorrectedFCs)
@@ -79,7 +79,5 @@ geneFCs<-ccr.geneMeanFCs(FCs,KY_Library_v1.0)
 
 ## computing classification performances at the sgRNA level, with Recall at 5\% FDR
 ccr.ROC_Curve(geneFCs,BAGEL_essential,BAGEL_nonEssential,FDRth = 0.05)
-
-
 }
 \keyword{Assessment and Visualisation}% use one of  RShowDoc("KEYWORDS")

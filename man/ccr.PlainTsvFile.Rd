@@ -38,7 +38,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{ccr.NormfoldChanges}}
 }
-\examples{\dontshow{setwd(tempdir())}
+\examples{\dontrun{
 ## Loading sgRNA library annotation file
 data(KY_Library_v1.0)
 
@@ -57,7 +57,7 @@ normANDfcs<-ccr.NormfoldChanges(fn,min_reads=30,
 uncorrected_fn<-ccr.PlainTsvFile(sgRNA_count_object = normANDfcs$norm_counts,fprefix = 'EPLC-272H')
 
 uncorrected_fn
-}
+}}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{utils}% use one of  RShowDoc("KEYWORDS")

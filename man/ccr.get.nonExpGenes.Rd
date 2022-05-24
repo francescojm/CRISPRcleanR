@@ -51,7 +51,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{ccr.get.gdsc1000.AMPgenes}}
 }
-\examples{\dontshow{setwd(tempdir())}
+\examples{
     ccr.get.nonExpGenes('HT-29',amplified = TRUE)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the

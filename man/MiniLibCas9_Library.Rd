@@ -26,7 +26,7 @@ https://github.com/EmanuelGoncalves/crispy/blob/master/notebooks/minlib/librarie
 [1] Goncalves E, Thomas M, Behan FM, Picco G, Pacini C, Allen F, Parry-Smith D, et al. 2019.
 Minimal Genome-Wide Human CRISPR-Cas9 Library. BioRxiv, January, 848895. https://doi.org/10.1101/848895
 }
-\examples{
+\examples{\dontrun{
 ## Loading sgRNA MiniLibCas9 library annotation file
 data(MiniLibCas9_Library)
 ## Visualising first entries
@@ -59,5 +59,5 @@ correctedFCs_and_segments<-
     ccr.GWclean(gwSortedFCs = gwSortedFCs,
                 display=TRUE,
                 label=expName)
-}
+}}
 \keyword{datasets}

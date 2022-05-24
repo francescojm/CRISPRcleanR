@@ -130,7 +130,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{ccr.logFCs2chromPos}}, \code{\link{ccr.NormfoldChanges}}
 }
-\examples{
+\examples{\dontrun{
 data(KY_Library_v1.0)
 
 fn<-paste(system.file('extdata', package = 'CRISPRcleanR'),'/HT-29_counts.tsv',sep='')
@@ -141,7 +141,7 @@ gwSortedFCs<-ccr.logFCs2chromPos(normANDfcs$logFCs,KY_Library_v1.0)
 
 chr8cleaned<-ccr.cleanChrm(gwSortedFCs,8,display=TRUE,label='HT-29',
                         min.ngenes=3)
-}
+}}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{analysis}% use one of  RShowDoc("KEYWORDS")

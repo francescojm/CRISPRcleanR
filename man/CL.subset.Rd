@@ -22,7 +22,6 @@ Cell 2016 Jul 28;166(3):740-54
 http://doi.org/10.1101/228189
 }
 \examples{
-
 data(CL.subset)
 
 ## Loading annotation for the GDSC1000 cell lines

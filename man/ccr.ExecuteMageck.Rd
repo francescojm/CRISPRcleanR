@@ -39,8 +39,7 @@ ccr.ExecuteMageck(mgckInputFile,
 \author{
 Francesco Iorio (francesco.iorio@fht.org)
 }
-\examples{
-    
+\examples{\dontrun{   
 ## Loading sgRNA library annotation file
 data(KY_Library_v1.0)
 
@@ -64,7 +63,7 @@ uncorrected_gs_fn<-ccr.ExecuteMageck(mgckInputFile = uncorrected_fn,
                                      
 uncorrected_gs_fn
                                      
-}
+}}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{utils}% use one of  RShowDoc("KEYWORDS")

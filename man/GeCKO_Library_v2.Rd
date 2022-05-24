@@ -113,7 +113,7 @@ Sources for the tools:
 
 [2] Aguirre AJ, Meyers RM, Weir BA, et al. Genomic Copy Number Dictates a Gene-Independent Cell Response to CRISPR/Cas9 Targeting. Cancer Discov. 2016;6(8):914-929. doi:10.1158/2159-8290.CD-16-0154
 }
-\examples{
+\examples{\dontrun{
 ## Loading sgRNA GeCKO library annotation file
 data(GeCKO_Library_v2)
 ## Visualising first entries
@@ -145,5 +145,5 @@ correctedFCs_and_segments<-
     ccr.GWclean(gwSortedFCs = gwSortedFCs,
                 display=TRUE,
                 label=expName)
-}
+}}
 \keyword{datasets}

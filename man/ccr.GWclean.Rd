@@ -130,8 +130,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{ccr.cleanChrm}}
 }
-\examples{
-
+\examples{\dontrun{
 ## Loading sgRNA library annotation file
 data(KY_Library_v1.0)
 
@@ -152,7 +151,7 @@ correctedFCs<-ccr.GWclean(gwSortedFCs,display=TRUE,label='HT-29')
 ## Visualising first five entries of the corrected fold changes
 head(correctedFCs$corrected_logFCs)
 
-}
+}}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{analysis}% use one of  RShowDoc("KEYWORDS")

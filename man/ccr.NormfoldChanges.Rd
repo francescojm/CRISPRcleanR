@@ -73,7 +73,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{KY_Library_v1.0}}
 }
-\examples{
+\examples{\dontrun{
     ## loading sgRNA library annotation
     data(KY_Library_v1.0)
     
@@ -90,6 +90,6 @@ Francesco Iorio (francesco.iorio@fht.org)
     ## normalised counts and the log fold-changes
     head(normANDfcs$norm_counts)
     head(normANDfcs$logFCs)
-}
+}}
 \keyword{analysis}% use one of  RShowDoc("KEYWORDS")
 

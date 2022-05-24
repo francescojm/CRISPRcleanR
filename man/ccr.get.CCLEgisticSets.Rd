@@ -64,7 +64,6 @@ head(GS$gm1)
 head(GS$gz)
 head(GS$gp1)
 head(GS$gp2)
-
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

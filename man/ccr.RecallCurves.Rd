@@ -75,7 +75,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \code{\link{GDSC.geneLevCNA}}, \code{\link{RNAseq.fpkms}}, \cr
 \code{\link{BAGEL_essential}}, \code{\link{BAGEL_nonEssential}}
 }
-\examples{
+\examples{\dontrun{
 ## loading corrected sgRNAs log fold-changes and segment annotations for an example
 ## cell line (EPLC-272H)
 data(EPLC.272HcorrectedFCs)
@@ -92,5 +92,5 @@ ccr.RecallCurves('EPLC-272H',EPLC.272HcorrectedFCs$corrected_logFCs,
 ## at the gene level
 ccr.RecallCurves('EPLC-272H',EPLC.272HcorrectedFCs$corrected_logFCs,
                   libraryAnnotation=KY_Library_v1.0,GeneLev = TRUE)
-}
+}}
 \keyword{Assessment and Visualisation}% use one of  RShowDoc("KEYWORDS")

@@ -84,7 +84,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \code{\link{EssGenes.DNA_REPLICATION_cons}}, \code{\link{EssGenes.KEGG_rna_polymerase}}, \code{\link{EssGenes.PROTEASOME_cons}}, \code{\link{EssGenes.ribosomalProteins}}, \code{\link{EssGenes.SPLICEOSOME_cons}} \cr
 \code{\link{BAGEL_essential}}, \code{\link{BAGEL_nonEssential}}
 }
-\examples{
+\examples{\dontrun{
 ## loading corrected sgRNAs log fold-changes and segment annotations for an example
 ## cell line (HT-29)
 data(HT.29correctedFCs)
@@ -96,7 +96,7 @@ data(KY_Library_v1.0)
 ccr.perf_distributions('HT-29',HT.29correctedFCs$corrected_logFCs,
                        libraryAnnotation = KY_Library_v1.0)
 
-}
+}}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{Assessment and Visualisation}% use one of  RShowDoc("KEYWORDS")

@@ -51,7 +51,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
     \code{\link{ccr.NormfoldChanges}}, \code{\link{KY_Library_v1.0}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
     data(KY_Library_v1.0)
     fn<-paste(system.file('extdata', package = 'CRISPRcleanR'),'/A2058_counts.tsv',sep='')
     normANDfcs<-ccr.NormfoldChanges(fn,min_reads=30,

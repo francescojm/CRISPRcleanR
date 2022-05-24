@@ -56,7 +56,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{ccr.get.gdsc1000.AMPgenes}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
 GS<-ccr.get.CCLEgisticSets('HT-29')
 
 head(GS$gm2)

@@ -21,7 +21,7 @@ A list of strings containing the identifiers of the sgRNAs targeting the inputte
 \author{
 Francesco Iorio (francesco.iorio@fht.org)
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
     ## Loading an sgRNA pooled library annotation
     data(KY_Library_v1.0)
     ## Loading an example set of genes

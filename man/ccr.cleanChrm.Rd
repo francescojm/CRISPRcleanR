@@ -130,7 +130,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{ccr.logFCs2chromPos}}, \code{\link{ccr.NormfoldChanges}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
 data(KY_Library_v1.0)
 
 fn<-paste(system.file('extdata', package = 'CRISPRcleanR'),'/HT-29_counts.tsv',sep='')

@@ -73,7 +73,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{KY_Library_v1.0}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
     ## loading sgRNA library annotation
     data(KY_Library_v1.0)
     

@@ -84,7 +84,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \code{\link{EssGenes.DNA_REPLICATION_cons}}, \code{\link{EssGenes.KEGG_rna_polymerase}}, \code{\link{EssGenes.PROTEASOME_cons}}, \code{\link{EssGenes.ribosomalProteins}}, \code{\link{EssGenes.SPLICEOSOME_cons}} \cr
 \code{\link{BAGEL_essential}}, \code{\link{BAGEL_nonEssential}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
 ## loading corrected sgRNAs log fold-changes and segment annotations for an example
 ## cell line (HT-29)
 data(HT.29correctedFCs)

@@ -1,4 +1,4 @@
-#import(stats)
+importFrom("stats", "aggregate", "density", "median", "t.test")
 import(utils)
 import(grDevices)
 import(graphics)

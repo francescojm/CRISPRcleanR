@@ -33,7 +33,7 @@ A vector of strings (one per each density in \code{TOPLOT}) specifying correspon
 }
 \author{
 Francesco Iorio (francesco.iorio@fht.org)}
-\examples{
+\examples{\dontshow{setwd(tempdir())}
 ## generating random data
 x <- rnorm(1000, 0, 0.5)
 y <- rnorm(1000, 2, 0.4)

@@ -51,7 +51,7 @@ A logical parameter specifying if a plot containing the computed ROC curve with 
 
 \code{\link{ccr.PrRc_Curve}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
 ## loading corrected sgRNAs log fold-changes and segment annotations for an example
 ## cell line (EPLC-272H)
 data(EPLC.272HcorrectedFCs)

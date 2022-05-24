@@ -28,7 +28,7 @@ ccr.geneMeanFCs(sgRNA_FCprofile, libraryAnnotation)
 \seealso{
 \code{\link{KY_Library_v1.0}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
 ## loading corrected sgRNAs log fold-changes and segment annotations for
 ## an example cell line (EPLC-272H)
 data(EPLC.272HcorrectedFCs)

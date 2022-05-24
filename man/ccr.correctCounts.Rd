@@ -61,7 +61,7 @@ Francesco Iorio (francesco.iorio@fht.orgfht.org)
 \seealso{
 \code{\link{ccr.NormfoldChanges}}, \code{\link{ccr.GWclean}}
 }
-\examples{
+\examples{\dontrun{
 ## Loading sgRNA library annotation file
 data(KY_Library_v1.0)
 
@@ -90,7 +90,7 @@ correctedCounts<-ccr.correctCounts('EPLC-272H',normANDfcs$norm_counts,
                   OutDir='./')
 
 head(correctedCounts)
-}
+}}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{analysis}% use one of  RShowDoc("KEYWORDS")

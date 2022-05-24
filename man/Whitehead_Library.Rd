@@ -26,7 +26,7 @@ A data frame with a named row for each sgRNA of the Whitehead sgRNA library [1] 
 \source{
 Discontinued by Addgene
 }
-\examples{
+\examples{\dontrun{
 ## Loading sgRNA Whitehead library annotation file
 data(Whitehead_Library)
 ## Visualising first entries
@@ -58,6 +58,6 @@ correctedFCs_and_segments<-
     ccr.GWclean(gwSortedFCs = gwSortedFCs,
                 display=TRUE,
                 label=expName)
-}
+}}
 \keyword{datasets}
 \keyword{Supported sgRNA libraries}

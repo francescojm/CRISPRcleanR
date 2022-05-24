@@ -38,7 +38,7 @@ Francesco Iorio (francesco.iorio@fht.org)
 \seealso{
 \code{\link{ccr.NormfoldChanges}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
 ## Loading sgRNA library annotation file
 data(KY_Library_v1.0)
 

@@ -33,8 +33,7 @@ Addgene website (catalog number: 73179; file:
 broadgpp-brunello-library-contents.txt, url:
 https://www.addgene.org/static/cms/filer_public/8b/4c/8b4c89d9-eac1-44b2-bb2f-8fea95672705/broadgpp-brunello-library-contents.txt)
 }
-\examples{
-
+\examples{\dontrun{
 ## Loading sgRNA Brunello library annotation file
 data(Brunello_Library)
 ## Visualising first entries
@@ -67,6 +66,6 @@ correctedFCs_and_segments<-
     ccr.GWclean(gwSortedFCs = gwSortedFCs,
                 display=TRUE,
                 label=expName)
-}
+}}
 \keyword{datasets}
 \keyword{Supported sgRNA libraries}

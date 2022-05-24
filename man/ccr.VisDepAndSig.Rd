@@ -47,7 +47,7 @@ Francesco Iorio (iorio@gmail.com)
 \seealso{
 \code{\link{ccr.ROC_Curve}}, \code{\link{ccr.PrRc_Curve}}
 }
-\examples{
+\examples{\dontshow{setwd(tempdir())}
 ## loading corrected sgRNAs log fold-changes and segment annotations
 ## for an example cell line (EPLC-272H)
 data(EPLC.272HcorrectedFCs)

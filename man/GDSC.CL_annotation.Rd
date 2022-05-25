@@ -20,7 +20,7 @@ Tissue type and other annotations for 1,001 human cancer cell lines
   }
 }
 \source{
-This data frame has been derived from the xls table available at \url{http://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources//Data/suppData/TableS1E.xlsx}.
+This data frame has been derived from the xls table available at \url{https://www.cancerrxgene.org/gdsc1000/GDSC1000_WebResources//Data/suppData/TableS1E.xlsx}.
 }
 \references{
 [1] Iorio F, Knijnenburg TA, Vis DJ, Bignell GR, Menden MP, et al. A landscape of pharmacogenomic interactions in cancer Cell 2016 Jul 28;166(3):740-54

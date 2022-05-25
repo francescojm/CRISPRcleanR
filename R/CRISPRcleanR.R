@@ -628,6 +628,8 @@ ccr.ExecuteMageck<-function(mgckInputFile,expName='expName',normMethod='none',
     textbunch<-paste(textbunch,' ',mgckInputFile,' -c ',paste(Cnames,collapse=','),' -t ',paste(Tnames,collapse=','),' -n ',
                      outputPath,expName,' --norm-method ',normMethod,sep='')
     system(textbunch)
+
+    geneSummaryFN<-paste(outputPath,expName,'.gene_summary.txt',sep='')
     
     return(geneSummaryFN)
 }

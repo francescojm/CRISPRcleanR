@@ -670,7 +670,7 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,e
         if(length(SENS)==0){
             legend('bottomright',paste('AUC = ',format(RES$auc,digits=3)),bty = 'n')    
         }else{
-            legend('bottomright',c(paste('Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
+            legend('bottomright',c(paste('- - Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
                                    paste('AUC = ',format(RES$auc,digits=3))),bty = 'n')
         }
         
@@ -710,9 +710,9 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,
         threshold<- res$sigthreshold
         
         if(display){
-            abline(h=1-FDRth,lty=2)
+            abline(h=1-FDRth,lty=1)
             
-            abline(v=SENS,lty=1)
+            abline(v=SENS,lty=2)
         }
     }
     
@@ -721,11 +721,11 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,
         if(length(SENS)==0){
             legend('bottomleft',paste('AUC = ',format(prc$auc.integral,digits=3)),bty = 'n')    
         }else{
-            legend('bottomleft',c(paste('Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
+            legend('bottomleft',c(paste('- - Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
                                   paste('AUC = ',format(prc$auc.integral,digits=3))),bty = 'n')
         }
         
-        abline(h=RND)
+        abline(h=RND,col='lightgray')
     }    
     # 
     curve<-prc$curve

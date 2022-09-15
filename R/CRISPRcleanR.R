@@ -1406,6 +1406,35 @@ ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
                 distortion=to_bind,
                 impact=to_bind_A))
 }
+
+ccr.geneSummary<-function(sgRNA_FCprofile,
+                          libraryAnnotation,
+                          FDRth=0.05){
+    
+    geneLevFCs<-ccr.geneMeanFCs(sgRNA_FCprofile,libraryAnnotation)
+    
+    data(BAGEL_essential)
+    data(BAGEL_nonEssential)
+    
+    ROCresults<-ccr.PrRc_Curve(FCsprofile = geneLevFCs,
+                               positives = BAGEL_essential,
+                               negative = BAGEL_nonEssential,
+                               display = FALSE,FDRth = FDRth)
+    
+    SigDepletedVector<-
+        geneLevFCs<ROCresults$sigthreshold
+    
+    oo<-order(geneLevFCs)
+    geneLevFCs<-geneLevFCs[oo]
+    SigDepletedVector<-SigDepletedVector[oo]
+    
+    res<-data.frame(stringsAsFactors = FALSE,
+                    row.names = names(geneLevFCs),
+                    logFC=geneLevFCs,
+                    'SigDep'=SigDepletedVector)
+    return(res)
+}
+
 ## other exported non documented functions
 
 #### Assessment and visualisation

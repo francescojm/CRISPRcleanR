@@ -12,6 +12,9 @@ Quick start guide:
 https://github.com/francescojm/CRISPRcleanR/blob/master/Quick_start.pdf
 
 **NEWS**
+- New Gene Summary function introduced in version 2.3.0: This function collapses single-guide RNAs (sgRNAs) depletion log fold-changes (logFCs)
+on a targeted gene basis, by averaging. In addition it computes a logFC threshold \eqn{T} such that when considering as significantly depleted all the genes with a depletion logFC \eqn{< T}, the false discover rate (FDR) of prior known non-essential genes is below a given threshold (specificed in input). Finally it calls significantly depleted genes according to the computed threshold.
+
 - Error fixed in version 2.2.0: the function ccr.NormfoldChanges was erroneously documented as performing Median ratios normalisation but implemeted a sample scaling for total number of reads. This function has been now parametrised and the user can choose between the Median Ratios method or scaling for total number of reads.
 
 - Now fully supporting the following additional libraries, with dedicated native annotation data objects and example datasets:

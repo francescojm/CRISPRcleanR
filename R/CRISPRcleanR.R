@@ -725,7 +725,7 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,
                                   paste('AUC = ',format(prc$auc.integral,digits=3))),bty = 'n')
         }
         
-        abline(h=RND)
+        abline(h=RND,col='lightgray')
     }    
     # 
     curve<-prc$curve
@@ -1410,24 +1410,24 @@ ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
 ccr.geneSummary<-function(sgRNA_FCprofile,
                           libraryAnnotation,
                           FDRth=0.05){
-
+    
     geneLevFCs<-ccr.geneMeanFCs(sgRNA_FCprofile,libraryAnnotation)
-
+    
     data(BAGEL_essential)
     data(BAGEL_nonEssential)
-
+    
     ROCresults<-ccr.PrRc_Curve(FCsprofile = geneLevFCs,
                                positives = BAGEL_essential,
                                negative = BAGEL_nonEssential,
                                display = FALSE,FDRth = FDRth)
-
+    
     SigDepletedVector<-
         geneLevFCs<ROCresults$sigthreshold
-
+    
     oo<-order(geneLevFCs)
     geneLevFCs<-geneLevFCs[oo]
     SigDepletedVector<-SigDepletedVector[oo]
-
+    
     res<-data.frame(stringsAsFactors = FALSE,
                     row.names = names(geneLevFCs),
                     logFC=geneLevFCs,

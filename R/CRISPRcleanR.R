@@ -670,7 +670,7 @@ ccr.ROC_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,e
         if(length(SENS)==0){
             legend('bottomright',paste('AUC = ',format(RES$auc,digits=3)),bty = 'n')    
         }else{
-            legend('bottomright',c(paste('Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
+            legend('bottomright',c(paste('- - Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
                                    paste('AUC = ',format(RES$auc,digits=3))),bty = 'n')
         }
         
@@ -710,9 +710,9 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,
         threshold<- res$sigthreshold
         
         if(display){
-            abline(h=1-FDRth,lty=2)
+            abline(h=1-FDRth,lty=1)
             
-            abline(v=SENS,lty=1)
+            abline(v=SENS,lty=2)
         }
     }
     
@@ -721,7 +721,7 @@ ccr.PrRc_Curve<-function(FCsprofile,positives,negatives,display=TRUE,FDRth=NULL,
         if(length(SENS)==0){
             legend('bottomleft',paste('AUC = ',format(prc$auc.integral,digits=3)),bty = 'n')    
         }else{
-            legend('bottomleft',c(paste('Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
+            legend('bottomleft',c(paste('- - Recall ',100*FDRth,'%FDR = ',format(SENS,digits=3),sep=''),
                                   paste('AUC = ',format(prc$auc.integral,digits=3))),bty = 'n')
         }
         
@@ -1406,6 +1406,35 @@ ccr.impactOnPhenotype<-function(MO_uncorrectedFile,
                 distortion=to_bind,
                 impact=to_bind_A))
 }
+
+ccr.geneSummary<-function(sgRNA_FCprofile,
+                          libraryAnnotation,
+                          FDRth=0.05){
+
+    geneLevFCs<-ccr.geneMeanFCs(sgRNA_FCprofile,libraryAnnotation)
+
+    data(BAGEL_essential)
+    data(BAGEL_nonEssential)
+
+    ROCresults<-ccr.PrRc_Curve(FCsprofile = geneLevFCs,
+                               positives = BAGEL_essential,
+                               negative = BAGEL_nonEssential,
+                               display = FALSE,FDRth = FDRth)
+
+    SigDepletedVector<-
+        geneLevFCs<ROCresults$sigthreshold
+
+    oo<-order(geneLevFCs)
+    geneLevFCs<-geneLevFCs[oo]
+    SigDepletedVector<-SigDepletedVector[oo]
+
+    res<-data.frame(stringsAsFactors = FALSE,
+                    row.names = names(geneLevFCs),
+                    logFC=geneLevFCs,
+                    'SigDep'=SigDepletedVector)
+    return(res)
+}
+
 ## other exported non documented functions
 
 #### Assessment and visualisation

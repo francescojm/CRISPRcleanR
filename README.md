@@ -2,7 +2,7 @@
 
 ![alt text](https://github.com/francescojm/CRISPRcleanR/blob/master/web/CCRlogo.jpg)
 
-v2.3.0
+v2.3.1
 
 **An R package for unsupervised identification and correction of gene independent cell responses to CRISPR-cas9 targeting**
 
@@ -12,6 +12,8 @@ Quick start guide:
 https://github.com/francescojm/CRISPRcleanR/blob/master/Quick_start.pdf
 
 **NEWS**
+- from version 2.3.1: default parameter method value of function ccr.NormfoldChanges changed from '_CPM' to 'ScalingByTotalReads' to avoid confusion with gene name CPM.
+
 - New Gene Summary function introduced in version 2.3.0: This function collapses single-guide RNAs (sgRNAs) depletion log fold-changes (logFCs)
 on a targeted gene basis, by averaging. In addition it computes a logFC threshold such that when considering as significantly depleted all the genes with a depletion lower than this threshold, the false discover rate (FDR) of prior known non-essential genes is below a given threshold (specificed in input). Finally it calls significantly depleted genes according to the computed threshold.
 

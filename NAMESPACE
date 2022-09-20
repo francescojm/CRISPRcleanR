@@ -23,6 +23,7 @@ export(ccr.get.nonExpGenes)
 export(ccr.get.CCLEgisticSets)
 export(ccr.PlainTsvFile)
 export(ccr.ExecuteMageck)
+export(ccr.geneSummary)
 
 #visualisation and assessment
 export(ccr.ROC_Curve)

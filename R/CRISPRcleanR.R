@@ -9,7 +9,7 @@ ccr.NormfoldChanges<-function(filename,
                               EXPname='',
                               libraryAnnotation,
                               ncontrols=1,
-                              method='_CPM'){
+                              method='ScalingByTotalReads'){
     
 
     
@@ -52,7 +52,7 @@ ccr.NormfoldChanges<-function(filename,
         numd<-numd/pseudo_ref_mat
         normFact<-t(matrix(rep(colSums(numd),nrow(numd)),ncol(counts)-2,nrow(numd)))
     }else{
-        if(method=='_CPM'){
+        if(method=='ScalingByTotalReads'){
             normFact<-t(matrix(rep(colSums(numd),nrow(numd)),ncol(counts)-2,nrow(numd)))
         } else{
             if(!is.element(method,libraryAnnotation$GENES)){

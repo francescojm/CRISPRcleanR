@@ -1522,9 +1522,9 @@ ccr.NormfoldChanges <- function(
     )
   }
 
-  if (display) {
-    withr::with_par(
-      list(mfrow = c(1, 2)), {
+  withr::with_par(
+    list(mfrow = c(1, 2)), {
+      if (display) {
         ccr.boxplot(
           counts[, 3:ncol(counts)],
           main = paste(EXPname, "Raw sgRNA counts"),
@@ -1533,90 +1533,90 @@ ccr.NormfoldChanges <- function(
             paste("library r", seq_len(ncol(counts) - 2 - ncontrols))
           )
         )
-      },
-      no.readonly = TRUE
-    )
-  }
-
-  numd <- counts[
-    is.element(
-      counts[["sgRNA"]],
-      rownames(libraryAnnotation)
-    ),
-    seq(from = 3, to = ncol(counts))
-  ]
-
-  IDX <- which(rowMeans(
-    numd[, seq_len(ncontrols), drop = FALSE],
-  ) >= min_reads)
-  numd <- numd[IDX, ]
-  counts <- counts[IDX, ]
-
-  if (method == "MedRatios") {
-    numd <- numd + 0.5
-    pseudo_ref_sample <- apply(
-      numd,
-      MARGIN = 1,
-      function(x) {
-        prod(x) ^ (1 / length(x))
       }
-    )
-    pseudo_ref_mat <- matrix(
-      rep(pseudo_ref_sample, ncol(numd)),
-      length(pseudo_ref_sample), ncol(numd)
-    )
-    numd <- numd / pseudo_ref_mat
-    normFact <- t(matrix(
-      rep(colSums(numd), nrow(numd)),
-      ncol(counts) - 2,
-      nrow(numd)
-    ))
-  } else {
-    if (method == "ScalingByTotalReads") {
+
+      numd <- counts[
+        is.element(
+          counts[["sgRNA"]],
+          rownames(libraryAnnotation)
+        ),
+        seq(from = 3, to = ncol(counts))
+      ]
+
+      IDX <- which(rowMeans(
+        numd[, seq_len(ncontrols), drop = FALSE],
+      ) >= min_reads)
+      numd <- numd[IDX, ]
+      counts <- counts[IDX, ]
+
+      if (method == "MedRatios") {
+        numd <- numd + 0.5
+        pseudo_ref_sample <- apply(
+          numd,
+          MARGIN = 1,
+          function(x) {
+            prod(x) ^ (1 / length(x))
+          }
+        )
+        pseudo_ref_mat <- matrix(
+          rep(pseudo_ref_sample, ncol(numd)),
+          length(pseudo_ref_sample), ncol(numd)
+        )
+        numd <- numd / pseudo_ref_mat
         normFact <- t(matrix(
           rep(colSums(numd), nrow(numd)),
           ncol(counts) - 2,
           nrow(numd)
         ))
-    } else {
-      if (!is.element(
-        method,
-        libraryAnnotation[["GENES"]]
-      )) {
-        print("Invalid normalisation method")
-        return()
       } else {
-        gidx <- rownames(libraryAnnotation)[
-          which(libraryAnnotation[["GENES"]] == method)
-        ]
-        gidx <- intersect(gidx, counts[["sgRNA"]])
-        gidx <- match(gidx, counts[["sgRNA"]])
+        if (method == "ScalingByTotalReads") {
+            normFact <- t(matrix(
+              rep(colSums(numd), nrow(numd)),
+              ncol(counts) - 2,
+              nrow(numd)
+            ))
+        } else {
+          if (!is.element(
+            method,
+            libraryAnnotation[["GENES"]]
+          )) {
+            print("Invalid normalisation method")
+            return()
+          } else {
+            gidx <- rownames(libraryAnnotation)[
+              which(libraryAnnotation[["GENES"]] == method)
+            ]
+            gidx <- intersect(gidx, counts[["sgRNA"]])
+            gidx <- match(gidx, counts[["sgRNA"]])
+          }
+          normFact <- t(matrix(
+            rep(colSums(numd[gidx, ]), nrow(numd)),
+            ncol(counts) - 2,
+            nrow(numd)
+          ))
+        }
       }
-      normFact <- t(matrix(
-        rep(colSums(numd[gidx, ]), nrow(numd)),
-        ncol(counts) - 2,
-        nrow(numd)
-      ))
-    }
-  }
-  numd <- numd / normFact * 10000000
-  normed <- cbind(counts[, seq_len(2)], numd)
+      numd <- numd / normFact * 10000000
+      normed <- cbind(counts[, seq_len(2)], numd)
 
-  if (display) {
-    withr::with_par(
-      list(mfrow = c(1, 2)), {
-        ccr.boxplot(
-          numd,
-          main = paste(EXPname, "normalised sgRNA counts"),
-          names = c(
-            paste("CTRL", seq_len(ncontrols)),
-            paste("library r", seq_len(ncol(counts) - 2 - ncontrols))
-          )
+      if (display) {
+        withr::with_par(
+          list(mfrow = c(1, 2)), {
+            ccr.boxplot(
+              numd,
+              main = paste(EXPname, "normalised sgRNA counts"),
+              names = c(
+                paste("CTRL", seq_len(ncontrols)),
+                paste("library r", seq_len(ncol(counts) - 2 - ncontrols))
+              )
+            )
+          },
+          no.readonly = TRUE
         )
-      },
-      no.readonly = TRUE
-    )
-  }
+      }
+    },
+    no.readonly = TRUE
+  )
 
   if (saveToFig) {
     dev.off()

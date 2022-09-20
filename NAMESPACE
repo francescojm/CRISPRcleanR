@@ -49,6 +49,10 @@ export(ccr.impactOnPhenotype)
 #pipeline utility functions non Documented
 #pipeline
 export(ccr.AnalysisPipeline)
+export(ccr.getLibrary)
+export(ccr.getCounts)
+export(ccr.checkCounts)
+export(ccr.sgRNAmeanFCs)
 
 #FASTQcounts
 export(ccr.CreateLibraryIndex)

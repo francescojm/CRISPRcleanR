@@ -1,12 +1,20 @@
 importFrom("stats", "aggregate", "density", "median", "t.test")
 import(utils)
+import(withr)
 import(grDevices)
 import(graphics)
 import(stringr)
 import(DNAcopy)
 import(pROC)
 import(pracma)
-import(PRROC)
+import(ggplot2)
+import(tools)
+import(ShortRead)
+import(Biostrings)
+import(Rsubread)
+import(GenomicAlignments)
+import(Rqc)
+
 
 #analysis
 export(ccr.NormfoldChanges)
@@ -26,6 +34,7 @@ export(ccr.ExecuteMageck)
 export(ccr.geneSummary)
 
 #visualisation and assessment
+export(ccr.randomised_ROC)
 export(ccr.ROC_Curve)
 export(ccr.PrRc_Curve)
 export(ccr.VisDepAndSig)
@@ -37,7 +46,26 @@ export(ccr.impactOnPhenotype)
 
 #visualisation and assessment non Documented
 
+#pipeline utility functions non Documented
+#pipeline
+export(ccr.AnalysisPipeline)
+
+#FASTQcounts
+export(ccr.CreateLibraryIndex)
+export(ccr.BAM2counts)
+export(ccr.FASTQ2counts)
+export(ccr.MAGeCK2counts)
+
 #utils non Documented
+
+#pipeline
+export(ccr.AnalysisPipeline)
+
+#FASTQcounts
+export(ccr.CreateLibraryIndex)
+export(ccr.BAM2counts)
+export(ccr.FASTQ2counts)
+export(ccr.MAGeCK2counts)
 
 
 #export(ccr.retrieveAMPgeneGuides)

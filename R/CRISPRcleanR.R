@@ -20,7 +20,7 @@ ccr.AnalysisPipeline <- function(
   library_file = NULL,
   duplicatedSeq = "keep",
   ncontrols = 1,
-  method = "CPM",
+  method = "ScalingByTotalReads",
   min.ngenes = 3,
   FDRth = 0.05,
   alpha = 0.01,

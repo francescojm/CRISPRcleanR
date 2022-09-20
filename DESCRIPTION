@@ -4,9 +4,9 @@ Title: Unsupervised correction of gene independent cell responses to CRISPR-cas9
 Version: 3.0.0
 Date: 2021-03-15
 Author: Francesco Iorio
-Maintainer: Francesco Iorio <iorio@ebi.ac.uk>
+Maintainer: Francesco Iorio <francesco.iorio@fht.org>
 License: MIT + file LICENSE
-Description: Description: Unsupervised approach to identify and correct gene independent responses to CRISPRcas9 targeting, in genome-wide pooled sgRNA drop-out screens, based on the segmentation of single-guide RNA (sgRNA) fold change values across the genome, without making any assumption on the copy number status of the targeted genes. The package allows to export sgRNA fold changes and normalised sgRNA read counts, and is therefore compatible with downstream analysis tools, and works with multiple sgRNA libraries. Iorio F, Behan FM, Goncalves E, et al. (2018) <doi:10.1186/s12864-018-4989-y>. 
+Description: Unsupervised approach to identify and correct gene independent responses to CRISPRcas9 targeting, in genome-wide pooled sgRNA drop-out screens, based on the segmentation of single-guide RNA (sgRNA) fold change values across the genome, without making any assumption on the copy number status of the targeted genes. The package allows to export sgRNA fold changes and normalised sgRNA read counts, and is therefore compatible with downstream analysis tools, and works with multiple sgRNA libraries. Iorio F, Behan FM, Goncalves E, et al. (2018) <doi:10.1186/s12864-018-4989-y>. 
 biocViews:
 Depends: stringr, DNAcopy, pROC, stats, utils, withr, grDevices, graphics, pracma, PRROC, tools, BiocManager, ShortRead, Biostrings, Rsubread, GenomicAlignments, Rqc, jsonlite
 RoxygenNote: 6.0.1

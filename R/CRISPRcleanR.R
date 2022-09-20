@@ -1600,18 +1600,13 @@ ccr.NormfoldChanges <- function(
       normed <- cbind(counts[, seq_len(2)], numd)
 
       if (display) {
-        withr::with_par(
-          list(mfrow = c(1, 2)), {
-            ccr.boxplot(
-              numd,
-              main = paste(EXPname, "normalised sgRNA counts"),
-              names = c(
-                paste("CTRL", seq_len(ncontrols)),
-                paste("library r", seq_len(ncol(counts) - 2 - ncontrols))
-              )
-            )
-          },
-          no.readonly = TRUE
+        ccr.boxplot(
+          numd,
+          main = paste(EXPname, "normalised sgRNA counts"),
+          names = c(
+            paste("CTRL", seq_len(ncontrols)),
+            paste("library r", seq_len(ncol(counts) - 2 - ncontrols))
+          )
         )
       }
     },

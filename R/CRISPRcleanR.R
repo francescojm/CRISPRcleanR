@@ -1048,7 +1048,7 @@ ccr.perf_statTests<-function(cellLine,
                 correctedFCs[guideSets[[19]],'correctedFC'],
                 correctedFCs$correctedFC,
                 at=AT,outline = FALSE,
-                names = rep('',20),frame.plot=FALSE,main='',ylab='pre-CRISPRcleanR sgRNA log2 FC',
+                names = rep('',20),frame.plot=FALSE,main='',ylab='post-CRISPRcleanR sgRNA log2 FC',
                 col=c('#B0B0B0',"#898989","#626262",c('red2','red4'),'cornflowerblue','blue',
                       c("#FF6EB4","#FF4978","#FF243C","#FF0000"),"#8EE5EE","#5E98CD","#2F4CAC","#00008B",'darkgreen','green','darkcyan',
                       "bisque4","white"))

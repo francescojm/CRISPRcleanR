@@ -2,7 +2,7 @@
 \alias{ccr.NormfoldChanges}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Median-ratio normalisation of sgRNA counts and fold change computation
+Normalisation of sgRNA counts and fold change computation
 }
 \description{
     This function normalises sgRNAs' counts stored in a tsv file whose path is provided in input, to adjust for the effect of library size and read count distributions, scaling by the total number of reads per sample or using the gene wise median of ratios method [1]. It computes log fold changes of transfected library replicates versus controls (tipically the sgRNA counts in the plasmid). The output of this function is returned as a list, and it is also saved into two tsv files.

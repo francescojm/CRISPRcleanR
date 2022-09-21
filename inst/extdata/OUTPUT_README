@@ -1,0 +1,67 @@
+This document contains a description of the individual files included in the Results compressed folders.
+
+
+Useful abbreviations:
+FDR = false discovery rate
+logFC = log fold-change
+ROC = receiver operating characteristic
+sgRNA = single-guide RNA
+
+
+Folder content (data folder):
+
+raw_counts.tsv: sgRNAs raw counts: this will be the processed sgRNA count file uploaded by the user or it will contain the sgRNA counts derived by CRISPRcleanR from the raw sequencing FASTQ/BAM file provided by the user.
+
+alignments_stats.tsv number of reads mapped/unmapped for each sample. This file is generated only when using FASTQ/BAM files as input.
+
+count_norm.tsv: normalised sgRNAs counts, scaled by the total number of reads per sample or using the gene-wise median of ratios method (based on the user selection).
+
+logFCs.tsv: sgRNAs depletion logFCs derived from the normalised sgRNA counts (prior CRISPRcleanR correction for gene independent responses to CRISPR-Cas9 targeting, for example due to copy number amplifications).
+
+logFCs_adj.tsv: sgRNAs depletion logFCs corrected by CRISPRcleanR for gene independent responses to CRISPR-Cas9 targeting, for example due to copy number amplifications (these logFCs can be analysed with BAGEL [1]).
+
+gene_summary.tsv: sgRNAs depletion logFCs collapsed on a targeted gene basis by averaging, plus an indication of depletion significance at a 5% FDR computed as described in [2, 3] and making use of prior known sets of essential/non-essential from [1] as classification template.
+
+counts_corrected.tsv: normalised and CRISPRcleanR corrected sgRNAs counts, obtained from the corrected sgRNA logFCs (in the logFCs_adj.tsv file) via an inverse transformation procedure described in [4]. These counts can be analysed with MAGeCK [5].
+
+genes_signatures.tsv: Recall of reference positive control gene sets among the significantly depleted genes, when calling these based on their depletion logFC being lower than lower than a 5% FDR threshold T (computed as explained above).
+
+segments.tsv: Genomic segments of sgRNAs’ equal logFCs identified by CRISPRcleanR with an indication of the type of correction to be applied (more details in [4]).
+
+segments_adj.tsv: Genomic segments of equal sgRNAs’ logFCs (post-CRISPRcleanR correction).
+
+mageck_corrected_sgRNA_count.tsv: correct counts file used as MAGeCK input.
+
+mageck_corrected.sgrna_summary.txt: MAGeCK output summary at sgRNA level.
+
+mageck_corrected.gene_summary.txt: MAGeCK output summary at gene level.
+
+
+Folder content (pdf folder → same as for png folder):
+
+[1-24].pdf: (one chart per chromosome) segments of equal sgRNAs depletion logFCs identified by CRISPRcleanR before (top) and after (bottom) correction for gene independent responses to CRISPR-Cas9 targeting
+
+fcs.pdf: Boxplots of sgRNAs depletion logFCs before CRISPRcleanR correction.
+
+genes_signatures.pdf: visualisation of a gene essentiality profile derived from applying CRISPRcleanR to the user data, with superimposed reference positive control gene sets. The dashed red line indicates the depletion rank threshold at a fixed false discovery rate (i.e. 5%, computed as described above).
+
+normCounts.pdf: boxplots of sgRNA raw (left) and normalised (right) counts.
+
+PrRC_by_gene.pdf: precision-recall curve at the gene-level logFCs using state-of-the-art reference essential and nonessential genes from [1] as positive and negative controls. 
+
+PrRC_by_sgRNA.pdf: precision-recall curve at the sgRNA-level logFCs using state-of-the-art reference essential and nonessential genes as positive and negative controls from [1].
+
+ROC_by_gene.pdf: ROC curve at the gene-level logFCs using state-of-the-art reference essential and nonessential genes from [1] as positive and negative controls. 
+
+ROC_by_sgRNA.pdf: ROC curve precision-recall curve at the sgRNA-level logFCs using state-of-the-art reference essential and nonessential genes as positive and negative controls from [1].
+
+
+
+
+REFERENCES
+1. Hart T, Moffat J. BAGEL: a computational framework for identifying essential genes from pooled library screens. BMC Bioinformatics. 2016;17:164.
+2. Pacini C, Dempster JM, Boyle I, Gonçalves E, Najgebauer H, Karakoc E, et al. Integrated cross-study datasets of genetic dependencies in cancer. Nat Commun. 2021;12:1661.
+3. Dempster J, Behan FM, Green T, Najgebauer H, Krill-Burger J, Allen F, et al. Agreement between two large pan-cancer genome-scale CRISPR knock-out datasets. Nat Commun. 2019;10:5817.
+4. Iorio F, Behan FM, Gonçalves E, Bhosle SG, Chen E, Shepherd R, et al. Unsupervised correction of gene-independent cell responses to CRISPR-Cas9 targeting. BMC Genomics. 2018;19:604.
+5. Li W, Xu H, Xiao T, Cong L, Love MI, Zhang F, et al. MAGeCK enables robust identification of essential genes from genome-scale CRISPR/Cas9 knockout screens. Genome Biol. 2014;15:554.
+

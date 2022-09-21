@@ -61,6 +61,7 @@ ccr.AnalysisPipeline <- function(
   )
 ) {
   # Create main run folder
+  step_name <- "Initialize parameters"
   dir.create(outdir, recursive = TRUE, showWarnings = FALSE)
 
   # Create the subfolder structures
@@ -75,6 +76,18 @@ ccr.AnalysisPipeline <- function(
     dir.create(outdir_pdf, recursive = TRUE, showWarnings = FALSE)
   )
   status <- 0
+
+  # Copy the description of the output files
+  with_dir(
+      outdir,
+      file.copy(
+      file.path(
+        system.file("extdata", package = "CRISPRcleanR"),
+        "OUTPUT_README"
+      ),
+      file.path(outdir_data, "README")
+    )
+  )
 
   # Dump environent data in case of web pipeline
   if (is_web) {
@@ -116,6 +129,13 @@ ccr.AnalysisPipeline <- function(
     # Set control samples number based on the input files
     ncontrols <- length(files_BAM_controls)
   }
+
+  # Remove
+  try({
+    EXPname <- iconv(EXPname, to = "UTF-8", from = "ASCII//TRANSLIT")
+    EXPname <- str_replace_all(EXPname, "[[:punct:]]", "_")
+    EXPname <- str_replace_all(EXPname, "[^[:alnum:]]", "_")
+  })
 
   # Print pipeline parameters
   try(ccr.PrintPipelineParams(
@@ -199,8 +219,8 @@ ccr.AnalysisPipeline <- function(
         if (!run_mageck) {
           pipleline_steps <- pipleline_steps[
             !names(pipleline_steps) %in% c(
-              "run_mageck_uncorrected",
-              "run_mageck_corrected",
+              "mageck_uncorrected",
+              "mageck_corrected",
               "imacpt_on_phenotype"
             )
           ]
@@ -338,12 +358,12 @@ ccr.AnalysisPipeline <- function(
             # MAGeCK / Impact on Phenotype options
             run_mageck = run_mageck,
             expName = if (step_name %in% c(
-              "run_mageck_uncorrected", "run_mageck_corrected"
+              "mageck_uncorrected", "mageck_corrected"
             )) {
               if (step_name == "run_mageck_uncorrected") {
-                paste(EXPname, "uncorrected", sep = "_")
+                "mageck_uncorrected"
               } else {
-                paste(EXPname, "corrected", sep = "_")
+                "mageck_corrected"
               }
             } else {
               EXPname
@@ -356,10 +376,10 @@ ccr.AnalysisPipeline <- function(
             },
             normMethod = "none",
             MO_uncorrectedFile = (
-              pipleline_steps[["run_mageck_uncorrected"]][["output"]]
+              pipleline_steps[["mageck_uncorrected"]][["output"]]
             ),
             MO_correctedFile = (
-              pipleline_steps[["run_mageck_corrected"]][["output"]]
+              pipleline_steps[["mageck_corrected"]][["output"]]
             ),
             sigFDR = FDRth,
             path_to_mageck = path_to_mageck,
@@ -382,9 +402,15 @@ ccr.AnalysisPipeline <- function(
 
       # Return the error
       # ERROR: [ERROR_NUMBER] | TYPE:[CLIENT/INTERNAL] | MSG: Msg custom
-      exec_error_step <- seq_along(pipleline_steps)[
-        names(pipleline_steps) == step_name
-      ]
+      if (step_name == "Initialize parameters") {
+        exec_error_step <- 0
+        exec_error_step_desc <- step_name
+      } else {
+        exec_error_step <- seq_along(pipleline_steps)[
+          names(pipleline_steps) == step_name
+        ]
+        exec_error_step_desc <- pipleline_steps[[step_name]][["desc"]]
+      }
       exec_error_type <- ifelse(
         exec_error_step <= 3,
         "CLIENT",
@@ -393,7 +419,7 @@ ccr.AnalysisPipeline <- function(
       exec_error_message <- paste0(
         exec_error,
         " in step ",
-        pipleline_steps[[step_name]][["desc"]]
+        exec_error_step_desc
       )
       stop(paste0(
         "ERROR: ", exec_error_step, " | ",
@@ -498,13 +524,6 @@ ccr.ExecPipelineStep <- function(
 
   # Extra steps after normalization
   if (step_name == "norm") {
-    # Export file in MAGeckFormat
-    ccr.PlainTsvFile(
-      sgRNA_count_object = res[["norm_counts"]],
-      fprefix = "mageck_uncorrected",
-      path = outdir_data
-    )
-
     # Move PDFs created by the norm step
     file.rename(
       paste0(arguments[["EXPname"]], "_fcs.pdf"),
@@ -653,6 +672,25 @@ ccr.ExecPipelineStep <- function(
 
   # Return results
   return(res)
+}
+
+ccr.RemoveExtraFiles <- function(
+  outdir_data
+) {
+    # Remove unecessary files
+  for (file_to_remove in list.files(
+    outdir_data,
+    pattern = "mageck_corrected",
+    full.names = TRUE
+  )) {
+    if (!basename(file_to_remove) %in% c(
+      "mageck_corrected_sgRNA_count.tsv",
+      "mageck_corrected.gene_summary.txt",
+      "mageck_corrected.sgrna_summary.txt"
+    )) {
+      file.remove(file_to_remove)
+    }
+  }
 }
 
 # Export the LFCs and segments

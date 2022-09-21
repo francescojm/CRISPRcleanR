@@ -1,7 +1,6 @@
-## exported, web, vignetted functions
-# Start update for web version
+#### interface to CRISPRcleanR-WebApp
 
-#### Pipeline
+# Whole CRISPRcleanR pipeline
 ccr.AnalysisPipeline <- function(
   file_counts = NULL,
   files_FASTQ_controls = NULL,
@@ -1060,11 +1059,12 @@ ccr.PrintPipelineParams <- function(
   }
 }
 
-# End update for web version
+#### END interface to CRISPRcleanR-WebApp
 
-# Start update for FASTQ read counts
 
-# Create index file for the library
+#### sgRNAcount generation from low-level sequencing Files
+
+#### Create index file for the library
 ccr.CreateLibraryIndex <- function(
   libraryAnnotation,
   duplicatedSeq = "keep",
@@ -1485,7 +1485,7 @@ ccr.FASTQ2counts <- function(
   return(counts)
 }
 
-# End update for FASTQ read counts
+#### END sgRNAcount generation from low-level sequencing Files
 
 #### Analysis
 ccr.NormfoldChanges <- function(

@@ -2178,7 +2178,7 @@ ccr.geneMeanFCs <- function(
 ccr.sgRNAmeanFCs <- function(
   foldchanges
 ) {
-  FCs <- foldchanges[["avgFC"]]
+  FCs <- foldchanges[["correctedFC"]]
   names(FCs) <- rownames(foldchanges)
 
   return(FCs)

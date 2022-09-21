@@ -1,0 +1,117 @@
+{
+  "library": {
+    "FUN": ["ccr.getLibrary"],
+    "desc": ["Load Library Annotation"],
+    "output": {}
+  },
+  "counts": {
+    "FUN": ["ccr.getCounts"],
+    "desc": ["Load Count data"],
+    "files": ["raw_counts"],
+    "output": {}
+  },
+  "checks": {
+    "FUN": ["ccr.checkCounts"],
+    "desc": ["Check Library/Count data"],
+    "output": {}
+  },
+  "norm": {
+    "FUN": ["ccr.NormfoldChanges"],
+    "desc": ["Run Count normalization"],
+    "objs": ["norm_counts", "logFCs"],
+    "files": ["count_norm", "logFCs"],
+    "output": {
+      "norm_counts": {},
+      "logFCs": {}
+    }
+  },
+  "sort": {
+    "FUN": ["ccr.logFCs2chromPos"],
+    "desc": ["Run sgRNA Sorting"],
+    "output": {}
+  },
+  "correct_LFC": {
+    "FUN": ["ccr.GWclean"],
+    "desc": ["Run sgRNA Sorting"],
+    "objs": ["corrected_logFCs", "segments", "segments_adj"],
+    "files": ["logFCs_adj", "segments", "segments_adj"],
+    "output": {
+      "corrected_logFCs": {},
+      "segments": {},
+      "segments_adj": {}
+    }
+  },
+  "correct_counts": {
+    "FUN": ["ccr.correctCounts"],
+    "desc": ["Correct counts"],
+    "files": ["counts_corrected"],
+    "output": {}
+  },
+  "mean_FCs_sgRNA": {
+    "FUN": ["ccr.sgRNAmeanFCs"],
+    "desc": ["Get corrected FCs by probe"],
+    "output": {}
+  },
+  "mean_FCs_gene": {
+    "FUN": ["ccr.geneMeanFCs"],
+    "desc": ["Get corrected FCs by gene"],
+    "output": {}
+  },
+  "gene_summary": {
+    "FUN": ["ccr.geneSummary"],
+    "desc": ["Get corrected FCs by gene"],
+    "files": ["gene_summary"],
+    "output": {}
+  },
+  "ROC_by_sgRNA": {
+    "FUN": ["ccr.ROC_Curve"],
+    "desc": ["ROC curve at sgRNA level"],
+    "pdf": ["ROC_by_sgRNA"],
+    "files": ["ROC_by_sgRNA"],
+    "output": {}
+  },
+  "ROC_by_gene": {
+    "FUN": ["ccr.ROC_Curve"],
+    "desc": ["ROC curve at gene level"],
+    "pdf": ["ROC_by_gene"],
+    "files": ["ROC_by_gene"],
+    "output": {}
+  },
+  "PrRc_by_sgRNA": {
+    "FUN": ["ccr.PrRc_Curve"],
+    "desc": ["PrRc curve at sgRNA level"],
+    "pdf": ["PrRc_by_sgRNA"],
+    "files": ["PrRc_by_sgRNA"],
+    "output": {}
+  },
+  "PrRc_by_gene": {
+    "FUN": ["ccr.PrRc_Curve"],
+    "desc": ["PrRc curve at gene level"],
+    "pdf": ["PrRc_by_gene"],
+    "files": ["PrRc_by_gene"],
+    "output": {}
+  },
+  "signatures_by_gene": {
+    "FUN": ["ccr.VisDepAndSig"],
+    "desc": ["Visialize dependecy by gene signatures"],
+    "pdf": ["genes_signatures"],
+    "files": ["genes_signatures"],
+    "output": {}
+  },
+  "run_mageck_uncorrected": {
+    "FUN": ["ccr.ExecuteMageck"],
+    "desc": ["Run MAGeCK on uncorrected counts"],
+    "output": {}
+  },
+  "run_mageck_corrected": {
+    "FUN": ["ccr.ExecuteMageck"],
+    "desc": ["Run MAGeCK on corrected counts"],
+    "output": {}
+  },
+  "imacpt_on_phenotype": {
+    "FUN": ["ccr.impactOnPhenotype"],
+    "desc": ["Visialize correction impact on phenotype"],
+    "pdf": ["impactOnPhenotype"],
+    "output": {}
+  }
+}

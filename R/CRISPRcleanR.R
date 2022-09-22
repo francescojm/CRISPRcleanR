@@ -89,14 +89,13 @@ ccr.AnalysisPipeline <- function(
     )
   )
 
-  # Dump environent data in case of web pipeline
+  # Create folder to store web app data
   if (is_web) {
     outdir_json <- "./json/"
     with_dir(
       outdir,
       dir.create(outdir_json, recursive = TRUE, showWarnings = FALSE)
     )
-    withr::with_dir(outdir, save(list = ls(), file = "localEnv.RData"))
     pipeline_meta_file <- "pipleline_web_v1.0.0.json"
   } else {
     outdir_json <- ""
@@ -397,9 +396,6 @@ ccr.AnalysisPipeline <- function(
 
     # Error handling
     error = function(exec_error) {
-      # Dump environment data in case of web pipeline
-      if (is_web) save(list = ls(), file = "localEnv.RData")
-
       # Return the error
       # ERROR: [ERROR_NUMBER] | TYPE:[CLIENT/INTERNAL] | MSG: Msg custom
       if (step_name == "Initialize parameters") {
@@ -427,12 +423,6 @@ ccr.AnalysisPipeline <- function(
         "MSG: ", exec_error_message
       ))
     }
-  )
-
-  # Dump environment data in case of web pipeline
-  if (is_web) withr::with_dir(
-    outdir,
-    save(list = ls(), file = "localEnv.RData")
   )
 
   # Return data / status
@@ -843,7 +833,7 @@ ccr.getLibrary <- function(
         libraryAnnotation <- get(library_builtin, environment())
       }
     }
-    if (is.null(libraryAnnotation)) stop("Missing Annotaion library")
+    if (is.null(libraryAnnotation)) stop("Missing annotation library")
   }
   if (verbose > -1) setTxtProgressBar(pb, 1)
   stopifnot(class(libraryAnnotation) == "data.frame")
@@ -1036,7 +1026,7 @@ ccr.checkCounts <- function(
       warning(paste0(
         "Count miss ",
         sum(!counts[, "sgRNA"] %in% rownames(libraryAnnotation)),
-        " sgRNAs from annotaion library"
+        " sgRNAs from annotation library"
       ))
     }
   }

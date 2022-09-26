@@ -2,26 +2,38 @@
 
 # Whole CRISPRcleanR pipeline
 ccr.AnalysisPipeline <- function(
+  # Library releated parameters
+  library_builtin = NULL,
+  library_file = NULL,
+
+  # Counts / FCs related parameters
   file_counts = NULL,
+
+  # FASTQ / BAM options
   files_FASTQ_controls = NULL,
   files_FASTQ_samples = NULL,
   files_BAM_controls = NULL,
   files_BAM_samples = NULL,
-  outdir="./",
-  min_reads = 30,
   aligner = "Rsubreads",
   maxMismatches = 0,
-  nTrim5 = 0,
-  nTrim3 = 0,
+  nTrim5 = "0",
+  nTrim3 = "0",
+  nBestLocations = 2,
   strand = "F",
-  EXPname = "",
-  library_builtin = NULL,
-  library_file = NULL,
   duplicatedSeq = "keep",
+  nthreads = 1,
+  indexMemory = 2000,
+
+  # Main analysis parameters
+  EXPname = "",
+  outdir = "./",
   ncontrols = 1,
+  min_reads = 30,
   method = "ScalingByTotalReads",
-  min.ngenes = 3,
   FDRth = 0.05,
+
+  # Correction parameters
+  min.ngenes = 3,
   alpha = 0.01,
   nperm = 10000,
   p.method ="hybrid",
@@ -33,19 +45,15 @@ ccr.AnalysisPipeline <- function(
   undo.splits = "none",
   undo.prune = 0.05,
   undo.SD = 3,
-  nthreads = 1,
-  indexMemory = 2000,
-  cellLine = NULL,
-  GDSC.geneLevCNA = NULL,
-  CCLE.gisticCNA = NULL,
-  RNAseq.fpkms = NULL,
+
+  # Run MAGeCK
   run_mageck = FALSE,
-  run_bagel = FALSE,
   path_to_mageck = "mageck",
-  nseed=0xA5EED,
-  retrun_data = FALSE,
-  verbose = -1,
+
+  # Other options udocumented
   is_web = FALSE,
+  nseed = 0xA5EED,
+  verbose = -1,
   columns_map = c(
     id = "id",
     CHR = "chr",
@@ -138,26 +146,38 @@ ccr.AnalysisPipeline <- function(
 
   # Print pipeline parameters
   try(ccr.PrintPipelineParams(
+    # Main analysis parameters
+    EXPname = EXPname,
+    outdir = outdir,
+    ncontrols = ncontrols,
+    min_reads = min_reads,
+    method = method,
+    FDRth = FDRth,
+
+    # Library releated parameters
+    library_builtin = library_builtin,
+    library_file = library_file,
+
+    # Counts / FCs related parameters
     file_counts = file_counts,
+
+    # FASTQ / BAM options
     files_FASTQ_controls = files_FASTQ_controls,
     files_FASTQ_samples = files_FASTQ_samples,
     files_BAM_controls = files_BAM_controls,
     files_BAM_samples = files_BAM_samples,
-    outdir = outdir,
-    min_reads = min_reads,
     aligner = aligner,
     maxMismatches = maxMismatches,
+    nBestLocations = nBestLocations,
     nTrim5 = nTrim5,
     nTrim3 = nTrim3,
     strand = strand,
-    EXPname = EXPname,
-    library_builtin = library_builtin,
-    library_file = library_file,
     duplicatedSeq = duplicatedSeq,
-    ncontrols = ncontrols,
-    method = method,
+    nthreads = nthreads,
+    indexMemory = indexMemory,
+
+    # Correction parameters
     min.ngenes = min.ngenes,
-    FDRth = FDRth,
     alpha = alpha,
     nperm = nperm,
     p.method = p.method,
@@ -169,19 +189,14 @@ ccr.AnalysisPipeline <- function(
     undo.splits = undo.splits,
     undo.prune = undo.prune,
     undo.SD = undo.SD,
-    nthreads = nthreads,
-    indexMemory = indexMemory,
-    cellLine = cellLine,
-    GDSC.geneLevCNA = GDSC.geneLevCNA,
-    CCLE.gisticCNA = CCLE.gisticCNA,
-    RNAseq.fpkms = RNAseq.fpkms,
+
+    # Run MAGeCK
     run_mageck = run_mageck,
-    run_bagel = run_bagel,
     path_to_mageck = path_to_mageck,
+
+    # Other options udocumented
     is_web = is_web,
-    nseed = nseed,
-    verbose = verbose,
-    columns_map = columns_map
+    nseed = nseed
   ))
 
   # Start pipeline with error handling
@@ -249,72 +264,16 @@ ccr.AnalysisPipeline <- function(
             outdir_bam = outdir_bam,
             filename = NULL,
 
-            # Counts related parameters
-            counts = pipleline_steps[["counts"]][["output"]],
-            Dframe = pipleline_steps[["counts"]][["output"]],
-            foldchanges = if (step_name == "sort") {
-              pipleline_steps[["norm"]][["output"]][["logFCs"]]
-            } else {
-              pipleline_steps[["correct_LFC"]][["output"]][["corrected_logFCs"]]
-            },
-            gwSortedFCs = pipleline_steps[["sort"]][["output"]],
-            FCs = pipleline_steps[["mean_FCs_sgRNA"]][["output"]],
-            FCsprofile = if (regexpr("_by_gene$", step_name) > -1) {
-              pipleline_steps[["mean_FCs_gene"]][["output"]]
-            } else {
-              pipleline_steps[["mean_FCs_sgRNA"]][["output"]]
-            },
-            sgRNA_FCprofile = pipleline_steps[["mean_FCs_sgRNA"]][["output"]],
-            normalised_counts = (
-              pipleline_steps[["norm"]][["output"]][["norm_counts"]]
-            ),
-            correctedFCs_and_segments = (
-              pipleline_steps[["correct_LFC"]][["output"]]
-            ),
-            file_counts = file_counts,
-
-            # FASTQ / BAM options
-            files_FASTQ_controls = files_FASTQ_controls,
-            files_FASTQ_samples = files_FASTQ_samples,
-            files_BAM_controls = files_BAM_controls,
-            files_BAM_samples = files_BAM_samples,
-            aligner = aligner,
-            maxMismatches = maxMismatches,
-            nTrim5 = nTrim5,
-            nTrim3 = nTrim3,
-            strand = strand,
-            nthreads = nthreads,
-            indexMemory = indexMemory,
-
-            # Library releated parameters
-            libraryAnnotation = pipleline_steps[["library"]][["output"]],
-            duplicatedSeq = duplicatedSeq,
-            library_builtin = library_builtin,
-            library_file = library_file,
-
             # Main analysis parameters
             EXPname = EXPname,
+            CL = EXPname,
+            TITLE = EXPname,
             ncontrols = ncontrols,
             min_reads = min_reads,
-            minTargetedGenes = min.ngenes,
-            FDRth = FDRth,
-            TITLE = EXPname,
-            pIs = 6,
-            nIs = 7,
-            th = FDRth,
             method = method,
-            min.ngenes = min.ngenes,
-            alpha = alpha,
-            nperm = nperm,
-            p.method = p.method,
-            min.width = min.width,
-            kmax = kmax,
-            nmin = nmin,
-            eta = eta,
-            trim = trim,
-            undo.splits = undo.splits,
-            undo.prune = undo.prune,
-            undo.SD = undo.SD,
+            FDRth = FDRth,
+            th = FDRth,
+            sigFDR = FDRth,
 
             # Visialization options
             display = TRUE,
@@ -326,11 +285,67 @@ ccr.AnalysisPipeline <- function(
             saveTO = outdir_pdf,
             plotFCprofile = TRUE,
 
-            # Output file options
+            # Library releated parameters
+            libraryAnnotation = pipleline_steps[["library"]][["output"]],
+            library_builtin = library_builtin,
+            library_file = library_file,
+
+            # Counts / FCs related parameters
+            file_counts = file_counts,
+            counts = pipleline_steps[["counts"]][["output"]],
+            Dframe = pipleline_steps[["counts"]][["output"]],
+            normalised_counts = (
+              pipleline_steps[["norm"]][["output"]][["norm_counts"]]
+            ),
+            foldchanges = if (step_name == "sort") {
+              pipleline_steps[["norm"]][["output"]][["logFCs"]]
+            } else {
+              pipleline_steps[["correct_LFC"]][["output"]][["corrected_logFCs"]]
+            },
+            gwSortedFCs = pipleline_steps[["sort"]][["output"]],
+            sgRNA_FCprofile = pipleline_steps[["mean_FCs_sgRNA"]][["output"]],
+            correctedFCs_and_segments = (
+              pipleline_steps[["correct_LFC"]][["output"]]
+            ),
+            FCsprofile = if (regexpr("_by_gene$", step_name) > -1) {
+              pipleline_steps[["mean_FCs_gene"]][["output"]]
+            } else {
+              pipleline_steps[["mean_FCs_sgRNA"]][["output"]]
+            },
+
+            # FASTQ / BAM options
+            files_FASTQ_controls = files_FASTQ_controls,
+            files_FASTQ_samples = files_FASTQ_samples,
+            files_BAM_controls = files_BAM_controls,
+            files_BAM_samples = files_BAM_samples,
+            aligner = aligner,
+            maxMismatches = maxMismatches,
+            nTrim5 = nTrim5,
+            nTrim3 = nTrim3,
+            nBestLocations = nBestLocations,
+            strand = strand,
+            duplicatedSeq = duplicatedSeq,
+            nthreads = nthreads,
+            indexMemory = indexMemory,
+
+            # Correction parameters
+            min.ngenes = min.ngenes,
+            minTargetedGenes = min.ngenes,
+            alpha = alpha,
+            nperm = nperm,
+            p.method = p.method,
+            min.width = min.width,
+            kmax = kmax,
+            nmin = nmin,
+            eta = eta,
+            trim = trim,
+            undo.splits = undo.splits,
+            undo.prune = undo.prune,
+            undo.SD = undo.SD,
             return.segments.unadj = TRUE,
             return.segments.adj = TRUE,
 
-            # QC gene sets
+            # QC parameters
             positives = if (regexpr("_by_gene$", step_name) > -1) {
               BAGEL_essential
             } else {
@@ -346,16 +361,17 @@ ccr.AnalysisPipeline <- function(
               )
             },
             SIGNATURES = SIGNATURES,
+            pIs = 6,
+            nIs = 7,
 
-            # Cell line data for CN correction QCs
-            CL = EXPname,
-            cellLine = cellLine,
-            GDSC.geneLevCNA = GDSC.geneLevCNA,
-            CCLE.gisticCNA = CCLE.gisticCNA,
-            RNAseq.fpkms = RNAseq.fpkms,
-
-            # MAGeCK / Impact on Phenotype options
+            # Run MAGeCK
             run_mageck = run_mageck,
+            mgckInputFile = if (step_name == "run_mageck_uncorrected") {
+              file.path(outdir_data, "mageck_uncorrected_sgRNA_count.tsv")
+            } else {
+              file.path(outdir_data, "mageck_corrected_sgRNA_count.tsv")
+            },
+            normMethod = "none",
             expName = if (step_name %in% c(
               "mageck_uncorrected", "mageck_corrected"
             )) {
@@ -368,24 +384,10 @@ ccr.AnalysisPipeline <- function(
               EXPname
             },
             outputPath = outdir_data,
-            mgckInputFile = if (step_name == "run_mageck_uncorrected") {
-              file.path(outdir_data, "mageck_uncorrected_sgRNA_count.tsv")
-            } else {
-              file.path(outdir_data, "mageck_corrected_sgRNA_count.tsv")
-            },
-            normMethod = "none",
-            MO_uncorrectedFile = (
-              pipleline_steps[["mageck_uncorrected"]][["output"]]
-            ),
-            MO_correctedFile = (
-              pipleline_steps[["mageck_corrected"]][["output"]]
-            ),
-            sigFDR = FDRth,
             path_to_mageck = path_to_mageck,
 
             # Other options udocumented
             is_web = is_web,
-            run_bagel = run_bagel,
             nseed = nseed,
             verbose = verbose,
             columns_map = columns_map
@@ -569,25 +571,31 @@ ccr.ExecPipelineStep <- function(
 
     # Calculate corrected summary stats for the web
     if (step_name %in% c("ROC_by_sgRNA", "ROC_by_gene")) {
+      metrics_df <- data.frame(
+        AUC = ifelse(
+          is.null(res[["AUC"]]),
+          NA,
+          res[["AUC"]]
+        ),
+        THR = ifelse(
+          is.null(res[["sigthreshold"]]),
+          NA,
+          res[["sigthreshold"]]
+        ),
+        Recall = ifelse(
+          is.null(res[["Recall"]]),
+          NA,
+          res[["Recall"]]
+        )
+      )
+      colnames(metrics_df) <- c(
+        "AUC",
+        paste0(round(arguments[["FDRth"]] * 100, 2), "% FDR logFC threshold"),
+        paste0("Recall at ", round(arguments[["FDRth"]] * 100, 2), "% FDR")
+      )
       ccr.dfToFile(
         list(
-          metrics = data.frame(
-            AUC = ifelse(
-              is.null(res[["AUC"]]),
-              NA,
-              res[["AUC"]]
-            ),
-            recall = ifelse(
-              is.null(res[["Recall"]]),
-              NA,
-              res[["Recall"]]
-            ),
-            FDR = ifelse(
-              is.null(res[["sigthreshold"]]),
-              NA,
-              res[["sigthreshold"]]
-            )
-          ),
+          metrics = metrics_df,
           curve = data.frame(res[["curve"]])
         ),
         file.path(outdir_json, step_files),
@@ -596,29 +604,35 @@ ccr.ExecPipelineStep <- function(
     }
 
     if (step_name %in% c("PrRc_by_sgRNA", "PrRc_by_gene")) {
+      metrics_df <- data.frame(
+        AUC = ifelse(is.null(res[["AUC"]]), NA, res[["AUC"]]),
+        FDR = ifelse(
+          is.null(res[["sigthreshold"]]),
+          NA,
+          res[["sigthreshold"]]
+        ),
+        precision = ifelse(
+          is.null(res[["Recall"]]),
+          NA,
+          head(res[["curve"]][
+            abs(res[["curve"]][, "recall"] - res[["Recall"]]) == min(
+              abs(res[["curve"]][, "recall"] - res[["Recall"]])
+            ),
+            "precision"],
+            1
+          )
+        ),
+        recall = ifelse(is.null(res[["Recall"]]), NA, res[["Recall"]])
+      )
+      colnames(metrics_df) <- c(
+        "AUC",
+        paste0(round(arguments[["FDRth"]] * 100, 2), "% FDR logFC threshold"),
+        paste0("Precision at ", round(arguments[["FDRth"]] * 100, 2), "% FDR"),
+        paste0("Recall at ", round(arguments[["FDRth"]] * 100, 2), "% FDR")
+      )
       ccr.dfToFile(
         list(
-          metrics = data.frame(
-            AUC = ifelse(is.null(res[["AUC"]]), NA, res[["AUC"]]),
-            recall = ifelse(is.null(res[["Recall"]]), NA, res[["Recall"]]),
-            precision = ifelse(
-              is.null(res[["Recall"]]),
-              NA,
-              head(res[["curve"]][
-                abs(res[["curve"]][, "recall"] - res[["Recall"]]) == min(
-                  abs(res[["curve"]][, "recall"] - res[["Recall"]])
-                ),
-                "precision"],
-                1
-              )
-            ),
-            FDR = ifelse(
-              is.null(res[["sigthreshold"]]),
-              NA,
-              res[["sigthreshold"]]
-            ),
-            rnd = ifelse(is.null(res[["RND"]]), NA, res[["RND"]])
-          ),
+          metrics = metrics_df,
           curve = data.frame(res[["curve"]])
         ),
         file.path(outdir_json, step_files),
@@ -863,6 +877,7 @@ ccr.getCounts <- function(
   nTrim5,
   nTrim3,
   nthreads,
+  nBestLocations,
   duplicatedSeq,
   indexMemory,
   strand,
@@ -893,6 +908,8 @@ ccr.getCounts <- function(
           nTrim5 = nTrim5,
           nTrim3 = nTrim3,
           nthreads = nthreads,
+          nBestLocations = nBestLocations,
+          strand = strand,
           duplicatedSeq = duplicatedSeq,
           indexMemory = indexMemory,
           EXPname = EXPname,
@@ -1254,6 +1271,8 @@ ccr.MAGeCK2counts <- function(
   libraryAnnotation,
   maxMismatches = 0,
   nTrim5 = 0,
+  strand = "F",
+  qc_plots = TRUE,
   EXPname = "",
   outdir = "./",
   aligner = "Rsubreads",
@@ -1267,7 +1286,10 @@ ccr.MAGeCK2counts <- function(
       "--norm-method none",
       "--sample-label ", paste0(names(FASTQfileList), collapse = ","), " ",
       "-n ", file.path(outdir, EXPname), " ",
-      "--trim-5 ", nTrim5
+      "--trim-5 ", nTrim5,
+      if (maxMismatches > 0) "--count-n ",
+      if (strand == "R") "--reverse-complement ",
+      if (qc_plots) "--pdf-report "
     )
     output_text <- system(textbunch, intern = TRUE, wait = TRUE)
     print(output_text)
@@ -1284,16 +1306,17 @@ ccr.FASTQ2counts <- function(
   FASTQfileList,
   libraryAnnotation,
   maxMismatches = 0,
-  nTrim5 = 0,
-  nTrim3 = 0,
+  nTrim5 = "0",
+  nTrim3 = "0",
   nthreads = 1,
+  nBestLocations = 2,
   strand = "F",
   indexMemory = 2000,
   duplicatedSeq = "keep",
   EXPname = "",
   outdir = "./",
   aligner = "Rsubreads",
-  qc_plots = FALSE,
+  qc_plots = TRUE,
   export_counts = TRUE,
   overwrite = FALSE
 ) {
@@ -1395,15 +1418,15 @@ ccr.FASTQ2counts <- function(
 
             # unique mapping and multi-mapping
             unique = FALSE,
-            nBestLocations = 2,
+            nBestLocations = nBestLocations,
 
             # indel detection
             indels = as.integer(maxMismatches > 0),
             complexIndels = FALSE,
 
             # read trimming
-            nTrim5 = nTrim5,
-            nTrim3 = nTrim3,
+            nTrim5 = as.integer(nTrim5),
+            nTrim3 = as.integer(nTrim3),
 
             # read order
             keepReadOrder = FALSE,
@@ -1502,8 +1525,10 @@ ccr.FASTQ2counts <- function(
     counts <- ccr.MAGeCK2counts(
       FASTQfileList,
       libraryAnnotation,
-      maxMismatches = 0,
-      nTrim5 = 0,
+      maxMismatches = maxMismatches,
+      nTrim5 = nTrim5,
+      strand = strand,
+      qc_plots = qc_plots,
       EXPname = "",
       outdir = "./",
       path_to_mageck = "mageck",
@@ -1986,14 +2011,10 @@ ccr.GWclean <- function(
   undo.splits = "none",
   undo.prune = 0.05,
   undo.SD = 3,
-
-  # Start update for web version
   return.segments.unadj = TRUE,
   return.segments.adj = FALSE,
   nseed = 0xA5EED,
   verbose = 1
-  # End update for web version
-
 ) {
 
   gwSortedFCs <- as.data.frame(gwSortedFCs)
@@ -2448,13 +2469,9 @@ ccr.ExecuteMageck <- function(
   expName = "expName",
   normMethod = "none",
   outputPath = "./",
-
-  # Start update for web version
   ncontrols = 1,
   path_to_mageck = "mageck",
   verbose = 1
-  # End update for web version
-
 ) {
   fc <- read.table(mgckInputFile, sep = "\t", header = TRUE)
 

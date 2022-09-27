@@ -31,6 +31,7 @@ ccr.AnalysisPipeline <- function(
   min_reads = 30,
   method = "ScalingByTotalReads",
   FDRth = 0.05,
+  retrun_data = FALSE,
 
   # Correction parameters
   min.ngenes = 3,

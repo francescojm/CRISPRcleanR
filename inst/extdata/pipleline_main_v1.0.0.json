@@ -98,20 +98,14 @@
     "files": ["genes_signatures"],
     "output": {}
   },
-  "run_mageck_uncorrected": {
+  "mageck_corrected": {
     "FUN": ["ccr.ExecuteMageck"],
-    "desc": ["Run MAGeCK on uncorrected counts"],
+    "desc": ["Run MAGeCK on corrected counts"],
     "output": {}
   },
-  "run_mageck_corrected": {
-    "FUN": ["ccr.ExecuteMageck"],
-    "desc": ["Run MAGeCK on uncorrected counts"],
-    "output": {}
-  },
-  "imacpt_on_phenotype": {
-    "FUN": ["ccr.impactOnPhenotype"],
-    "desc": ["Visialize correction impact on phenotype"],
-    "pdf": ["impactOnPhenotype"],
+  "remove_extra_files": {
+    "FUN": ["ccr.RemoveExtraFiles"],
+    "desc": ["Run MAGeCK on corrected counts"],
     "output": {}
   }
 }

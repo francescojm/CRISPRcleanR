@@ -52,6 +52,7 @@ export(ccr.getLibrary)
 export(ccr.getCounts)
 export(ccr.checkCounts)
 export(ccr.sgRNAmeanFCs)
+export(ccr.RemoveExtraFiles)
 
 #FASTQcounts
 export(ccr.CreateLibraryIndex)

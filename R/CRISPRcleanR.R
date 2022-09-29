@@ -680,19 +680,42 @@ ccr.ExecPipelineStep <- function(
 }
 
 ccr.RemoveExtraFiles <- function(
+  is_web = FALSE,
+  file_counts = NULL,
+  files_FASTQ_controls = NULL,
+  files_FASTQ_samples = NULL,
+  files_BAM_controls = NULL,
+  files_BAM_samples = NULL,
   outdir_data
 ) {
     # Remove unecessary files
-  for (file_to_remove in list.files(
-    outdir_data,
-    pattern = "mageck_corrected",
-    full.names = TRUE
+  for (file_current in c(
+    file_counts,
+    files_FASTQ_controls,
+    files_FASTQ_samples,
+    files_BAM_controls,
+    files_BAM_samples,
+    list.files(
+      outdir_data,
+      pattern = "mageck_corrected"
+    )
   )) {
-    if (!basename(file_to_remove) %in% c(
-      "mageck_corrected_sgRNA_count.tsv",
-      "mageck_corrected.gene_summary.txt",
-      "mageck_corrected.sgrna_summary.txt"
-    )) {
+    file_to_remove <- file.path(
+      outdir_data,
+      basename(file_current)
+    )
+    if (
+      is_web &
+      file.exists(file_to_remove) &
+      !basename(file_to_remove) %in% c(
+        "raw_counts.tsv",
+        "count_norm.tsv",
+        "counts_corrected.tsv",
+        "mageck_corrected_sgRNA_count.tsv",
+        "mageck_corrected.gene_summary.txt",
+        "mageck_corrected.sgrna_summary.txt"
+      )
+    ) {
       file.remove(file_to_remove)
     }
   }

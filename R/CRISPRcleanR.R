@@ -23,7 +23,7 @@ ccr.AnalysisPipeline <- function(
   duplicatedSeq = "keep",
   nthreads = 1,
   indexMemory = 2000,
-  qc_plots = FALSE,
+  fastqc_plots = FALSE,
 
   # Main analysis parameters
   EXPname = "",
@@ -177,7 +177,7 @@ ccr.AnalysisPipeline <- function(
     duplicatedSeq = duplicatedSeq,
     nthreads = nthreads,
     indexMemory = indexMemory,
-    qc_plots = qc_plots,
+    fastqc_plots = fastqc_plots,
 
     # Correction parameters
     min.ngenes = min.ngenes,
@@ -330,7 +330,7 @@ ccr.AnalysisPipeline <- function(
             duplicatedSeq = duplicatedSeq,
             nthreads = nthreads,
             indexMemory = indexMemory,
-            qc_plots = qc_plots,
+            fastqc_plots = fastqc_plots,
 
             # Correction parameters
             min.ngenes = min.ngenes,
@@ -535,7 +535,10 @@ ccr.ExecPipelineStep <- function(
   if (step_name == "correct_counts") {
     # Export file in MAGeckFormat
     ccr.PlainTsvFile(
-      sgRNA_count_object = res,
+      sgRNA_count_object = res[
+        !is.na(res[, "gene"]) &
+        res[, "gene"] != "",
+      ],
       fprefix = "mageck_corrected",
       path = outdir_data
     )
@@ -912,6 +915,7 @@ ccr.getCounts <- function(
   outdir_data,
   outdir_bam,
   aligner,
+  fastqc_plots,
   verbose
 ) {
   counts <- NULL
@@ -942,6 +946,7 @@ ccr.getCounts <- function(
           EXPname = EXPname,
           outdir = outdir_bam,
           aligner = aligner,
+          fastqc_plots = fastqc_plots,
           export_counts = TRUE,
           overwrite = FALSE
         )
@@ -1299,7 +1304,7 @@ ccr.MAGeCK2counts <- function(
   maxMismatches = 0,
   nTrim5 = 0,
   strand = "F",
-  qc_plots = TRUE,
+  fastqc_plots = TRUE,
   EXPname = "",
   outdir = "./",
   aligner = "Rsubreads",
@@ -1316,7 +1321,7 @@ ccr.MAGeCK2counts <- function(
       "--trim-5 ", nTrim5,
       if (maxMismatches > 0) "--count-n ",
       if (strand == "R") "--reverse-complement ",
-      if (qc_plots) "--pdf-report "
+      if (fastqc_plots) "--pdf-report "
     )
     output_text <- system(textbunch, intern = TRUE, wait = TRUE)
     print(output_text)
@@ -1343,7 +1348,7 @@ ccr.FASTQ2counts <- function(
   EXPname = "",
   outdir = "./",
   aligner = "Rsubreads",
-  qc_plots = TRUE,
+  fastqc_plots = TRUE,
   export_counts = TRUE,
   overwrite = FALSE
 ) {
@@ -1394,7 +1399,7 @@ ccr.FASTQ2counts <- function(
             "already exists"
           ))
         } else {
-          if (qc_plots) {
+          if (fastqc_plots) {
             qcRes <- Rqc::rqc(
               path = dirname(FASTQsample),
               sample = FALSE,
@@ -1555,7 +1560,7 @@ ccr.FASTQ2counts <- function(
       maxMismatches = maxMismatches,
       nTrim5 = nTrim5,
       strand = strand,
-      qc_plots = qc_plots,
+      fastqc_plots = fastqc_plots,
       EXPname = "",
       outdir = "./",
       path_to_mageck = "mageck",

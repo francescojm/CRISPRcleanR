@@ -23,6 +23,7 @@ ccr.AnalysisPipeline <- function(
   duplicatedSeq = "keep",
   nthreads = 1,
   indexMemory = 2000,
+  qc_plots = FALSE,
 
   # Main analysis parameters
   EXPname = "",
@@ -176,6 +177,7 @@ ccr.AnalysisPipeline <- function(
     duplicatedSeq = duplicatedSeq,
     nthreads = nthreads,
     indexMemory = indexMemory,
+    qc_plots = qc_plots,
 
     # Correction parameters
     min.ngenes = min.ngenes,
@@ -328,6 +330,7 @@ ccr.AnalysisPipeline <- function(
             duplicatedSeq = duplicatedSeq,
             nthreads = nthreads,
             indexMemory = indexMemory,
+            qc_plots = qc_plots,
 
             # Correction parameters
             min.ngenes = min.ngenes,

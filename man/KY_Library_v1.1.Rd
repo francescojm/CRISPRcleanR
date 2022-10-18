@@ -1,13 +1,13 @@
-\name{KY_Library_v1.0}
-\alias{KY_Library_v1.0}
+\name{KY_Library_v1.1}
+\alias{KY_Library_v1.1}
 \docType{data}
 \title{
-    Genome-wide annotation for the Sanger sgRNA Library v1.0
+    Genome-wide annotation for the Sanger sgRNA Library v1.1
 }
 \description{
-A data frame with a named row for each sgRNA of the Sanger sgRNA library presented in [1] including annotations such as targeted genes, and genomic coordinates.
+A data frame with a named row for each sgRNA of the updated Sanger sgRNA library presented in [1] including annotations such as targeted genes, and genomic coordinates.
 }
-\usage{data(KY_Library_v1.0)}
+\usage{data(KY_Library_v1.1)}
 \format{
   A a row named data frame with 90709 observations (one for each sgRNA) of the following 7 variables.
   \describe{
@@ -26,8 +26,8 @@ A data frame with a named row for each sgRNA of the Sanger sgRNA library present
 Cell Reports 2016 Oct 18;17(4):1193-1205
 }
 \examples{
-data(KY_Library_v1.0)
-head(KY_Library_v1.0)
+data(KY_Library_v1.1)
+head(KY_Library_v1.1)
 }
 \keyword{datasets}
 \keyword{Supported sgRNA libraries}

@@ -17,7 +17,8 @@ A data frame with a named row for each sgRNA of the MiniLibCas9 sgRNA library [1
   \item{\code{STRAND}}{targeted DNA strand ('+' or '-')}
   \item{\code{CHRM}}{chromosome of where the targeted region resides (string)}
   \item{\code{ENDpos}}{ending genomic coordinate of the targeted genomic region (numeric).}
-    }
+  \item{\code{seq}}{nucelotidic sequence of the sgRNAs without the PAM. (string).}
+  }
 }
 \source{
 https://github.com/EmanuelGoncalves/crispy/blob/master/notebooks/minlib/libraries/MinLibCas9.csv.gz

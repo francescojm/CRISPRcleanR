@@ -7,14 +7,15 @@ import(stringr)
 import(DNAcopy)
 import(pROC)
 import(pracma)
-import(ggplot2)
+import(PRROC)
 import(tools)
 import(ShortRead)
 import(Biostrings)
 import(Rsubread)
 import(GenomicAlignments)
 import(Rqc)
-
+import(BiocManager)
+import(jsonlite)
 
 #analysis
 export(ccr.NormfoldChanges)
@@ -34,7 +35,6 @@ export(ccr.ExecuteMageck)
 export(ccr.geneSummary)
 
 #visualisation and assessment
-export(ccr.randomised_ROC)
 export(ccr.ROC_Curve)
 export(ccr.PrRc_Curve)
 export(ccr.VisDepAndSig)
@@ -58,10 +58,11 @@ export(ccr.RemoveExtraFiles)
 export(ccr.CreateLibraryIndex)
 export(ccr.BAM2counts)
 export(ccr.FASTQ2counts)
-export(ccr.MAGeCK2counts)
+
 
 #utils not exported non Documented
 
+#export(ccr.randomised_ROC)
 #export(ccr.retrieveAMPgeneGuides)
 #export(ccr.retrieveDELgeneGuides)
 #export(ccr.retrieveNotEXPgeneGuides)
@@ -78,3 +79,5 @@ export(ccr.MAGeCK2counts)
 
 #export(ccr.geneMeanFCs)
 #export(ccr.visSigSuperimpose)
+
+#export(ccr.MAGeCK2counts)

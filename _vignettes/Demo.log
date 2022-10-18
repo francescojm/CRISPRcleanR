@@ -1,288 +1,257 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.2.23)  15 MAR 2021 21:35
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2022.5.18)  18 OCT 2022 18:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **Demo.tex
 (./Demo.tex
-LaTeX2e <2018-04-01> patch level 2
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+LaTeX2e <2020-02-02> patch level 2
+L3 programming layer <2020-02-14> (/usr/share/texlive/texmf-dist/tex/latex/base
+/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
 )
-\c@part=\count80
-\c@section=\count81
-\c@subsection=\count82
-\c@subsubsection=\count83
-\c@paragraph=\count84
-\c@subparagraph=\count85
-\c@figure=\count86
-\c@table=\count87
-\abovecaptionskip=\skip41
-\belowcaptionskip=\skip42
-\bibindent=\dimen102
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/keyval.sty
+\c@part=\count163
+\c@section=\count164
+\c@subsection=\count165
+\c@subsubsection=\count166
+\c@paragraph=\count167
+\c@subparagraph=\count168
+\c@figure=\count169
+\c@table=\count170
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/trig.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+) (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+Package graphics Info: Driver file: xetex.def on input line 105.
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/xetex.def
+File: xetex.def 2017/06/24 v5.0h Graphics/color driver for xetex
 ))
-\Gin@req@height=\dimen103
-\Gin@req@width=\dimen104
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/graphics-cfg/color.cfg
+\Gin@req@height=\dimen135
+\Gin@req@width=\dimen136
+) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: pdftex.def on input line 147.
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/framed/framed.sty
+Package xcolor Info: Driver file: xetex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+) (/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
-\OuterFrameSep=\skip43
-\fb@frw=\dimen105
-\fb@frh=\dimen106
-\FrameRule=\dimen107
-\FrameSep=\dimen108
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/alltt.sty
+\OuterFrameSep=\skip49
+\fb@frw=\dimen137
+\fb@frh=\dimen138
+\FrameRule=\dimen139
+\FrameSep=\dimen140
+) (/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty
 Package: alltt 1997/06/16 v2.0g defines alltt environment
+) (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2019/12/01 v3.14 programmable bibliographies (PK/MW)
+(/usr/share/texlive/texmf-dist/tex/latex/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2019/11/24 v0.31 Utility functions of pdfTeX for LuaTeX (HO
 )
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.sty
-Package: biblatex 2018/03/04 v3.11 programmable bibliographies (PK/MW)
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2018/01/30 v0.27 Utility functions of pdfTeX for LuaTeX (HO
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2019/11/07 v1.0c TeX engine tests
+) (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2019/12/15 v1.24 LaTeX kernel commands for general use (HO)
 )
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
-)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
-)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
-)
-Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/etoolbox/etoolbox.sty
-Package: etoolbox 2018/02/11 v2.5e e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count88
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-(/usr/local/texlive/2018/texmf-dist/tex/latex/logreq/logreq.sty
+Package pdftexcmds Info: \pdfdraftmode not found.
+) (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count171
+) (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count89
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/logreq/logreq.def
+\lrq@indent=\count172
+(/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
-))
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/url/url.sty
-\Urlmuskip=\muskip10
+) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xstring/xstring.sty
-(/usr/local/texlive/2018/texmf-dist/tex/generic/xstring/xstring.tex
-\@xs@message=\write3
-\integerpart=\count90
-\decimalpart=\count91
-)
-Package: xstring 2013/10/13  v1.7c  String manipulations (C Tellechea)
-)
-\c@tabx@nest=\count92
-\c@listtotal=\count93
-\c@listcount=\count94
-\c@liststart=\count95
-\c@liststop=\count96
-\c@citecount=\count97
-\c@citetotal=\count98
-\c@multicitecount=\count99
-\c@multicitetotal=\count100
-\c@instcount=\count101
-\c@maxnames=\count102
-\c@minnames=\count103
-\c@maxitems=\count104
-\c@minitems=\count105
-\c@citecounter=\count106
-\c@savedcitecounter=\count107
-\c@uniquelist=\count108
-\c@uniquename=\count109
-\c@refsection=\count110
-\c@refsegment=\count111
-\c@maxextratitle=\count112
-\c@maxextratitleyear=\count113
-\c@maxextradate=\count114
-\c@maxextraalpha=\count115
-\c@abbrvpenalty=\count116
-\c@highnamepenalty=\count117
-\c@lownamepenalty=\count118
-\c@maxparens=\count119
-\c@parenlevel=\count120
-\blx@tempcnta=\count121
-\blx@tempcntb=\count122
-\blx@tempcntc=\count123
-\blx@maxsection=\count124
-\blx@maxsegment@0=\count125
-\blx@notetype=\count126
-\blx@parenlevel@text=\count127
-\blx@parenlevel@foot=\count128
-\blx@sectionciteorder@0=\count129
-\labelnumberwidth=\skip44
-\labelalphawidth=\skip45
-\biblabelsep=\skip46
-\bibitemsep=\skip47
-\bibnamesep=\skip48
-\bibinitsep=\skip49
-\bibparsep=\skip50
-\bibhang=\skip51
-\blx@bcfin=\read1
-\blx@bcfout=\write4
-\c@mincomprange=\count130
-\c@maxcomprange=\count131
-\c@mincompwidth=\count132
+\c@tabx@nest=\count173
+\c@listtotal=\count174
+\c@listcount=\count175
+\c@liststart=\count176
+\c@liststop=\count177
+\c@citecount=\count178
+\c@citetotal=\count179
+\c@multicitecount=\count180
+\c@multicitetotal=\count181
+\c@instcount=\count182
+\c@maxnames=\count183
+\c@minnames=\count184
+\c@maxitems=\count185
+\c@minitems=\count186
+\c@citecounter=\count187
+\c@maxcitecounter=\count188
+\c@savedcitecounter=\count189
+\c@uniquelist=\count190
+\c@uniquename=\count191
+\c@refsection=\count192
+\c@refsegment=\count193
+\c@maxextratitle=\count194
+\c@maxextratitleyear=\count195
+\c@maxextraname=\count196
+\c@maxextradate=\count197
+\c@maxextraalpha=\count198
+\c@abbrvpenalty=\count199
+\c@highnamepenalty=\count266
+\c@lownamepenalty=\count267
+\c@maxparens=\count268
+\c@parenlevel=\count269
+\blx@tempcnta=\count270
+\blx@tempcntb=\count271
+\blx@tempcntc=\count272
+\blx@maxsection=\count273
+\blx@maxsegment@0=\count274
+\blx@notetype=\count275
+\blx@parenlevel@text=\count276
+\blx@parenlevel@foot=\count277
+\blx@sectionciteorder@0=\count278
+\blx@entrysetcounter=\count279
+\labelnumberwidth=\skip50
+\labelalphawidth=\skip51
+\biblabelsep=\skip52
+\bibitemsep=\skip53
+\bibnamesep=\skip54
+\bibinitsep=\skip55
+\bibparsep=\skip56
+\bibhang=\skip57
+\blx@bcfin=\read2
+\blx@bcfout=\write3
+\blx@langwohyphens=\language3
+\c@mincomprange=\count280
+\c@maxcomprange=\count281
+\c@mincompwidth=\count282
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/blx-dm.def
-File: blx-dm.def 2018/03/04 v3.11 biblatex localization (PK/MW)
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2019/12/01 v3.14 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count133
-\c@savedafterword=\count134
-\c@annotator=\count135
-\c@savedannotator=\count136
-\c@author=\count137
-\c@savedauthor=\count138
-\c@bookauthor=\count139
-\c@savedbookauthor=\count140
-\c@commentator=\count141
-\c@savedcommentator=\count142
-\c@editor=\count143
-\c@savededitor=\count144
-\c@editora=\count145
-\c@savededitora=\count146
-\c@editorb=\count147
-\c@savededitorb=\count148
-\c@editorc=\count149
-\c@savededitorc=\count150
-\c@foreword=\count151
-\c@savedforeword=\count152
-\c@holder=\count153
-\c@savedholder=\count154
-\c@introduction=\count155
-\c@savedintroduction=\count156
-\c@namea=\count157
-\c@savednamea=\count158
-\c@nameb=\count159
-\c@savednameb=\count160
-\c@namec=\count161
-\c@savednamec=\count162
-\c@translator=\count163
-\c@savedtranslator=\count164
-\c@shortauthor=\count165
-\c@savedshortauthor=\count166
-\c@shorteditor=\count167
-\c@savedshorteditor=\count168
-\c@labelname=\count169
-\c@savedlabelname=\count170
-\c@institution=\count171
-\c@savedinstitution=\count172
-\c@lista=\count173
-\c@savedlista=\count174
-\c@listb=\count175
-\c@savedlistb=\count176
-\c@listc=\count177
-\c@savedlistc=\count178
-\c@listd=\count179
-\c@savedlistd=\count180
-\c@liste=\count181
-\c@savedliste=\count182
-\c@listf=\count183
-\c@savedlistf=\count184
-\c@location=\count185
-\c@savedlocation=\count186
-\c@organization=\count187
-\c@savedorganization=\count188
-\c@origlocation=\count189
-\c@savedoriglocation=\count190
-\c@origpublisher=\count191
-\c@savedorigpublisher=\count192
-\c@publisher=\count193
-\c@savedpublisher=\count194
-\c@language=\count195
-\c@savedlanguage=\count196
-\c@origlanguage=\count197
-\c@savedoriglanguage=\count198
-\c@pageref=\count199
-\c@savedpageref=\count266
-\shorthandwidth=\skip52
-\shortjournalwidth=\skip53
-\shortserieswidth=\skip54
-\shorttitlewidth=\skip55
-\shortauthorwidth=\skip56
-\shorteditorwidth=\skip57
-\locallabelnumberwidth=\skip58
-\locallabelalphawidth=\skip59
-\localshorthandwidth=\skip60
-\localshortjournalwidth=\skip61
-\localshortserieswidth=\skip62
-\localshorttitlewidth=\skip63
-\localshortauthorwidth=\skip64
-\localshorteditorwidth=\skip65
+\c@afterword=\count283
+\c@savedafterword=\count284
+\c@annotator=\count285
+\c@savedannotator=\count286
+\c@author=\count287
+\c@savedauthor=\count288
+\c@bookauthor=\count289
+\c@savedbookauthor=\count290
+\c@commentator=\count291
+\c@savedcommentator=\count292
+\c@editor=\count293
+\c@savededitor=\count294
+\c@editora=\count295
+\c@savededitora=\count296
+\c@editorb=\count297
+\c@savededitorb=\count298
+\c@editorc=\count299
+\c@savededitorc=\count300
+\c@foreword=\count301
+\c@savedforeword=\count302
+\c@holder=\count303
+\c@savedholder=\count304
+\c@introduction=\count305
+\c@savedintroduction=\count306
+\c@namea=\count307
+\c@savednamea=\count308
+\c@nameb=\count309
+\c@savednameb=\count310
+\c@namec=\count311
+\c@savednamec=\count312
+\c@translator=\count313
+\c@savedtranslator=\count314
+\c@shortauthor=\count315
+\c@savedshortauthor=\count316
+\c@shorteditor=\count317
+\c@savedshorteditor=\count318
+\c@labelname=\count319
+\c@savedlabelname=\count320
+\c@institution=\count321
+\c@savedinstitution=\count322
+\c@lista=\count323
+\c@savedlista=\count324
+\c@listb=\count325
+\c@savedlistb=\count326
+\c@listc=\count327
+\c@savedlistc=\count328
+\c@listd=\count329
+\c@savedlistd=\count330
+\c@liste=\count331
+\c@savedliste=\count332
+\c@listf=\count333
+\c@savedlistf=\count334
+\c@location=\count335
+\c@savedlocation=\count336
+\c@organization=\count337
+\c@savedorganization=\count338
+\c@origlocation=\count339
+\c@savedoriglocation=\count340
+\c@origpublisher=\count341
+\c@savedorigpublisher=\count342
+\c@publisher=\count343
+\c@savedpublisher=\count344
+\c@language=\count345
+\c@savedlanguage=\count346
+\c@origlanguage=\count347
+\c@savedoriglanguage=\count348
+\c@pageref=\count349
+\c@savedpageref=\count350
+\shorthandwidth=\skip58
+\shortjournalwidth=\skip59
+\shortserieswidth=\skip60
+\shorttitlewidth=\skip61
+\shortauthorwidth=\skip62
+\shorteditorwidth=\skip63
+\locallabelnumberwidth=\skip64
+\locallabelalphawidth=\skip65
+\localshorthandwidth=\skip66
+\localshortjournalwidth=\skip67
+\localshortserieswidth=\skip68
+\localshorttitlewidth=\skip69
+\localshortauthorwidth=\skip70
+\localshorteditorwidth=\skip71
+Package biblatex Info: Trying to load enhanced support for Unicode engines...
+Package biblatex Info: ... file 'blx-unicode.def' found.
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-unicode.def)
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/blx-compat.def
-File: blx-compat.def 2018/03/04 v3.11 biblatex compatibility (PK/MW)
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 )
 Package biblatex Info: Trying to load BibTeX backend compatibility...
 Package biblatex Info: ... file 'blx-bibtex.def' found.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/blx-bibtex.def
-File: blx-bibtex.def 2018/03/04 v3.11 biblatex compatibility (PK/MW)
-
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+File: blx-bibtex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
 
 Package biblatex Warning: Using fall-back BibTeX(8) backend:
 (biblatex)                functionality may be reduced/unavailable.
@@ -290,34 +259,37 @@ Package biblatex Warning: Using fall-back BibTeX(8) backend:
 )
 Package biblatex Info: Trying to load generic definitions...
 Package biblatex Info: ... file 'biblatex.def' found.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.def
-File: biblatex.def 2018/03/04 v3.11 biblatex compatibility (PK/MW)
-\c@textcitecount=\count267
-\c@textcitetotal=\count268
-\c@textcitemaxnames=\count269
-\c@biburlnumpenalty=\count270
-\c@biburlucpenalty=\count271
-\c@biburllcpenalty=\count272
-\c@smartand=\count273
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2019/12/01 v3.14 biblatex compatibility (PK/MW)
+\c@textcitecount=\count351
+\c@textcitetotal=\count352
+\c@textcitemaxnames=\count353
+\c@biburlbigbreakpenalty=\count354
+\c@biburlbreakpenalty=\count355
+\c@biburlnumpenalty=\count356
+\c@biburlucpenalty=\count357
+\c@biburllcpenalty=\count358
+\biburlbigskip=\muskip17
+\biburlnumskip=\muskip18
+\biburlucskip=\muskip19
+\biburllcskip=\muskip20
+\c@smartand=\count359
 )
 Package biblatex Info: Trying to load bibliography style 'numeric'...
 Package biblatex Info: ... file 'numeric.bbx' found.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2018/03/04 v3.11 biblatex bibliography style (PK/MW)
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
-File: standard.bbx 2018/03/04 v3.11 biblatex bibliography style (PK/MW)
-\c@bbx:relatedcount=\count274
-\c@bbx:relatedtotal=\count275
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2019/12/01 v3.14 biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count360
+\c@bbx:relatedtotal=\count361
 ))
 Package biblatex Info: Trying to load citation style 'numeric'...
 Package biblatex Info: ... file 'numeric.cbx' found.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
-File: numeric.cbx 2018/03/04 v3.11 biblatex citation style (PK/MW)
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/numeric.cbx
+File: numeric.cbx 2019/12/01 v3.14 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -332,1249 +304,1321 @@ Package biblatex Info: Redefining '\smartcites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/biblatex.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.cfg
 File: biblatex.cfg 
-))
-(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
-Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
-
-
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
-Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
-Package hobsub Info: Skipping package `infwarerr' (already loaded).
-Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package hobsub Info: Skipping package `ifluatex' (already loaded).
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
-Package ifvtex Info: VTeX not detected.
-Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
-Package hobsub Info: Skipping package `ifpdf' (already loaded).
-Package hobsub Info: Skipping package `etexcmds' (already loaded).
-Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
-Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)) (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
-Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+\@linkdim=\dimen141
+\Hy@linkcounter=\count362
+\Hy@pagecounter=\count363
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
-Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
-Package: xcolor-patch 2016/05/16 xcolor patch
-Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
-Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
-Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
-Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
-)
-(/usr/local/texlive/2018/texmf-dist/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
-)
-(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/auxhook.sty
-Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
-)
-\@linkdim=\dimen109
-\Hy@linkcounter=\count276
-\Hy@pagecounter=\count277
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-)
-\Hy@SavedSpaceFactor=\count278
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/hyperref.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
-)
-Package hyperref Info: Hyper figures OFF on input line 4509.
-Package hyperref Info: Link nesting OFF on input line 4514.
-Package hyperref Info: Hyper index ON on input line 4517.
-Package hyperref Info: Plain pages OFF on input line 4524.
-Package hyperref Info: Backreferencing OFF on input line 4529.
+\Hy@SavedSpaceFactor=\count364
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4762.
-\c@Hy@tempcnt=\count279
-LaTeX Info: Redefining \url on input line 5115.
-\XeTeXLinkMargin=\dimen110
-\Fld@menulength=\count280
-\Field@Width=\dimen111
-\Fld@charsize=\dimen112
-Package hyperref Info: Hyper figures OFF on input line 6369.
-Package hyperref Info: Link nesting OFF on input line 6374.
-Package hyperref Info: Hyper index ON on input line 6377.
-Package hyperref Info: backreferencing OFF on input line 6384.
-Package hyperref Info: Link coloring OFF on input line 6389.
-Package hyperref Info: Link coloring with OCG OFF on input line 6394.
-Package hyperref Info: PDF/A mode OFF on input line 6399.
-LaTeX Info: Redefining \ref on input line 6439.
-LaTeX Info: Redefining \pageref on input line 6443.
-\Hy@abspage=\count281
-\c@Item=\count282
-\c@Hfootnote=\count283
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count365
+LaTeX Info: Redefining \url on input line 5159.
+\XeTeXLinkMargin=\dimen142
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
-Package hyperref Info: Driver (autodetected): hpdftex.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
-\Fld@listcount=\count284
-\c@bookmark@seq@number=\count285
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
-Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+))
+\Fld@menulength=\count366
+\Field@Width=\dimen143
+\Fld@charsize=\dimen144
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring OFF on input line 6450.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
+(/usr/share/texlive/texmf-dist/tex/generic/atbegshi/atbegshi.sty
+Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
+)
+\Hy@abspage=\count367
+\c@Item=\count368
+\c@Hfootnote=\count369
+)
+Package hyperref Info: Driver (autodetected): hxetex.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hxetex.def
+File: hxetex.def 2020/01/14 v7.00d Hyperref driver for XeTeX
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2020/01/14 v7.00d Hyperref: PDF Unicode definition (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty
+Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
+)
+)
+\pdfm@box=\box45
+\c@Hy@AnnotLevel=\count370
+\HyField@AnnotCount=\count371
+\Fld@listcount=\count372
+\c@bookmark@seq@number=\count373
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/atveryend/atveryend.sty
+Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-82.
+86.
 )
-\Hy@SectionHShift=\skip66
+\Hy@SectionHShift=\skip72
 )
 
 LaTeX Warning: File `references.bib' already exists on the system.
                Not generating it from this source.
 
-(/usr/local/texlive/2018/texmf-dist/tex/latex/upquote/upquote.sty
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
-)
-Package biblatex Info: Trying to load language 'english'...
-Package biblatex Info: ... file 'english.lbx' found.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/biblatex/lbx/english.lbx
-File: english.lbx 2018/03/04 v3.11 biblatex localization (PK/MW)
-)
-\@quotelevel=\count286
-\@quotereset=\count287
-
-(./Demo.aux)
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+))
+\@quotelevel=\count374
+\@quotereset=\count375
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-xdvipdfmx.def
+File: l3backend-xdvipdfmx.def 2020-02-03 L3 backend support: xdvipdfmx
+\g__graphics_track_int=\count376
+\l__pdf_internal_box=\box46
+\g__pdf_backend_object_int=\count377
+\g__pdf_backend_annotation_int=\count378
+) (./Demo.aux)
 \openout1 = `Demo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
-LaTeX Font Info:    ... okay on input line 118.
-
-(/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count288
-\scratchdimen=\dimen113
-\scratchbox=\box26
-\nofMPsegments=\count289
-\nofMParguments=\count290
-\everyMPshowfont=\toks15
-\MPscratchCnt=\count291
-\MPscratchDim=\dimen114
-\MPnumerator=\count292
-\makeMPintoPDFobject=\count293
-\everyMPtoPDFconversion=\toks16
-) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 128.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
+28.
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-Package biblatex Info: Input encoding 'utf8' detected.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 128.
+LaTeX Font Info:    ... okay on input line 128.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+(/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2019/12/01 v3.14 biblatex localization (PK/MW)
+)
+Package biblatex Info: XeTeX detected.
+(biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
 Package biblatex Info: Input encoding 'utf8' specified.
 Package biblatex Info: Data encoding 'utf8' specified.
 (biblatex)             No need to reencode data.
-\openout4 = `Demo-blx.bib'.
+\openout3 = `Demo-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'Demo.bbl' found.
-
 (./Demo.bbl)
-Package biblatex Info: Reference section=0 on input line 118.
-Package biblatex Info: Reference segment=0 on input line 118.
-\AtBeginShipoutBox=\box27
-Package hyperref Info: Link coloring OFF on input line 118.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
-(/usr/local/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+Package biblatex Info: Reference section=0 on input line 128.
+Package biblatex Info: Reference segment=0 on input line 128.
+\AtBeginShipoutBox=\box47
+Package hyperref Info: Link coloring OFF on input line 128.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count294
+\c@section@level=\count379
 )
-LaTeX Info: Redefining \ref on input line 118.
-LaTeX Info: Redefining \pageref on input line 118.
-LaTeX Info: Redefining \nameref on input line 118.
-
+LaTeX Info: Redefining \ref on input line 128.
+LaTeX Info: Redefining \pageref on input line 128.
+LaTeX Info: Redefining \nameref on input line 128.
 (./Demo.out) (./Demo.out)
-\@outlinefile=\write5
-\openout5 = `Demo.out'.
+\@outlinefile=\write4
+\openout4 = `Demo.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 122.
+(Font)              <12> on input line 132.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 122.
+(Font)              <8> on input line 132.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 122.
-Package color Info: Redefining color shadecolor on input line 129.
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 131.
-Package color Info: Redefining color shadecolor on input line 140.
-Package color Info: Redefining color shadecolor on input line 153.
-Package color Info: Redefining color shadecolor on input line 180.
- [1
+(Font)              <6> on input line 132.
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/se-ascii-print.def
+File: se-ascii-print.def 2019/11/29 v1.12 stringenc: Printable ASCII characters
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 187--188
+)
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 141.
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--162
 
  []
 
-Package color Info: Redefining color shadecolor on input line 192.
 
-Underfull \hbox (badness 10000) in paragraph at lines 200--201
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
 
  []
 
-Package color Info: Redefining color shadecolor on input line 205.
 
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 210--210
-[]                                 []\OT1/cmtt/m/n/10 libraryAnnotation[][]=KY_
-Library_v1.0)[][] 
+Overfull \hbox (33.0pt too wide) in paragraph at lines 201--202
+[]\TU/lmtt/m/it/10 ## Bioconductor version 3.15 (BiocManager 1.30.18), R 4.2.1 
+(2022-06-23)[] 
  []
 
-<figure/Norm_and_fc-1.pdf, id=61, 722.7pt x 361.35pt>
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 213--214
+\TU/lmtt/m/it/10 ##     anyDuplicated, append, as.data.frame, basename, cbind, 
+colnames, 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 213--214
+\TU/lmtt/m/it/10 ##     dirname, do.call, duplicated, eval, evalq, Filter, Find
+, get,
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 213--214
+\TU/lmtt/m/it/10 ##     grepl, intersect, is.unsorted, lapply, Map, mapply, mat
+ch, mget, 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 213--214
+\TU/lmtt/m/it/10 ##     order, paste, pmax, pmax.int, pmin, pmin.int, Position,
+ rank, 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 213--214
+\TU/lmtt/m/it/10 ##     rbind, Reduce, rownames, sapply, setdiff, sort, table, 
+tapply, 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     colAlls, colAnyNAs, colAnys, colAvgsPerRowSet, colColla
+pse, 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     colCounts, colCummaxs, colCummins, colCumprods, colCums
+ums, 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     colDiffs, colIQRDiffs, colIQRs, colLogSumExps, colMadDi
+ffs, 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     colMads, colMaxs, colMeans2, colMedians, colMins, colOr
+derStats, 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     colProds, colQuantiles, colRanges, colRanks, colSdDiffs
+, colSds, 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     colSums2, colTabulates, colVarDiffs, colVars, colWeight
+edMads, 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     colWeightedVars, rowAlls, rowAnyNAs, rowAnys, rowAvgsPe
+rColSet, 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     rowCollapse, rowCounts, rowCummaxs, rowCummins, rowCump
+rods, 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     rowMadDiffs, rowMads, rowMaxs, rowMeans2, rowMedians, r
+owMins, 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     rowOrderStats, rowProds, rowQuantiles, rowRanges, rowRa
+nks, 
+ []
+
+
+Overfull \hbox (33.0pt too wide) in paragraph at lines 251--252
+\TU/lmtt/m/it/10 ##     rowSdDiffs, rowSds, rowSums2, rowTabulates, rowVarDiffs
+, rowVars, 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 255--256
+\TU/lmtt/m/it/10 ##     'citation("Biobase")', and for packages 'citation("pkgn
+ame")'.[] 
+ []
+
+[1
+
+] [2] [3]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 283--283
+[]  []\TU/lmtt/b/n/10 c[][]\TU/lmtt/m/n/10 ([][]"test_plasmid.fq.gz"[][],[] []"
+test_sample1.fq.gz"[][],[] []"test_sample2.fq.gz"[][])[][] 
+ []
+
+
+Overfull \hbox (169.5pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ##                                                           
+                                sgRNA[] 
+ []
+
+
+Overfull \hbox (169.5pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG_CCDS1
+2976.1_ex3_19:58862927-58862950:-_5-1[] 
+ []
+
+
+Overfull \hbox (169.5pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG_CCDS1
+2976.1_ex4_19:58863655-58863678:+_5-2[] 
+ []
+
+
+Overfull \hbox (169.5pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG_CCDS1
+2976.1_ex4_19:58863697-58863720:-_5-3[] 
+ []
+
+
+Overfull \hbox (169.5pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG_CCDS1
+2976.1_ex4_19:58863866-58863889:+_5-4[] 
+ []
+
+
+Overfull \hbox (169.5pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG_CCDS1
+2976.1_ex5_19:58864367-58864390:-_5-5[] 
+ []
+
+
+Overfull \hbox (169.5pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1   A1CF_CCDS
+7241.1_ex6_10:52588014-52588037:-_5-1[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ##                                                 gene test_
+plasmid test_sample1[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG      
+      5           10[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG      
+     12            7[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG      
+     15           14[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG      
+     10            5[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG      
+      5            2[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 323--323
+[]\TU/lmtt/m/n/10 ## A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1  A1CF      
+      7            7[] 
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 327--328
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 329--331
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 332--334
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 359--360
+
+ []
+
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 372--373
+
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 382--382
+[]                                 []\TU/lmtt/m/n/10 libraryAnnotation[][]=KY_L
+ibrary_v1.0)[][] 
+ []
+
 File: figure/Norm_and_fc-1.pdf Graphic file (type pdf)
 <use figure/Norm_and_fc-1.pdf>
-Package pdftex.def Info: figure/Norm_and_fc-1.pdf  used on input line 213.
-(pdftex.def)             Requested size: 345.0pt x 172.49767pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 213--214
+Overfull \hbox (15.0pt too wide) in paragraph at lines 385--386
 [][] 
  []
 
-<figure/Norm_and_fc-2.pdf, id=62, 722.7pt x 361.35pt>
 File: figure/Norm_and_fc-2.pdf Graphic file (type pdf)
 <use figure/Norm_and_fc-2.pdf>
-Package pdftex.def Info: figure/Norm_and_fc-2.pdf  used on input line 215.
-(pdftex.def)             Requested size: 345.0pt x 172.49767pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 215--216
-[][] 
+Overfull \hbox (15.0pt too wide) in paragraph at lines 387--389
+[][]
  []
 
-[2 <./figure/Norm_and_fc-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 222.
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 224.
+[6]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 395.
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
-[]\OT1/cmtt/m/n/9 ##                                             sgRNA gene ERS
+Overfull \hbox (9.37527pt too wide) in paragraph at lines 412--412
+[]\TU/lmtt/m/n/9 ##                                             sgRNA gene ERS7
+17283.plasmid[] 
+ []
+
+
+Overfull \hbox (9.37508pt too wide) in paragraph at lines 412--412
+[]\TU/lmtt/m/n/9 ## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG     
+    292.14621[] 
+ []
+
+
+Overfull \hbox (9.37508pt too wide) in paragraph at lines 412--412
+[]\TU/lmtt/m/n/9 ## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG     
+    151.02032[] 
+ []
+
+
+Overfull \hbox (9.37508pt too wide) in paragraph at lines 412--412
+[]\TU/lmtt/m/n/9 ## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG     
+    209.08503[] 
+ []
+
+
+Overfull \hbox (9.37508pt too wide) in paragraph at lines 412--412
+[]\TU/lmtt/m/n/9 ## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG     
+    110.40106[] 
+ []
+
+
+Overfull \hbox (9.37508pt too wide) in paragraph at lines 412--412
+[]\TU/lmtt/m/n/9 ## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG     
+     95.81979[] 
+ []
+
+
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 412--412
+[]\TU/lmtt/m/n/9 ## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF     
+     60.92889[] 
+ []
+
+
+Overfull \hbox (37.7253pt too wide) in paragraph at lines 431--431
+[]\TU/lmtt/m/n/9 ##                                             sgRNA gene HT29
+_c904R1 HT29_c904R2[] 
+ []
+
+
+Overfull \hbox (37.72504pt too wide) in paragraph at lines 431--431
+[]\TU/lmtt/m/n/9 ## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG  0.0
+7635566  0.28027938[] 
+ []
+
+
+Overfull \hbox (37.72504pt too wide) in paragraph at lines 431--431
+[]\TU/lmtt/m/n/9 ## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG -0.0
+5472442 -0.41467098[] 
+ []
+
+
+Overfull \hbox (37.72504pt too wide) in paragraph at lines 431--431
+[]\TU/lmtt/m/n/9 ## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG  0.4
+2548611 -0.03752168[] 
+ []
+
+
+Overfull \hbox (37.72504pt too wide) in paragraph at lines 431--431
+[]\TU/lmtt/m/n/9 ## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG -0.4
+5663336 -0.78070106[] 
+ []
+
+
+Overfull \hbox (37.72504pt too wide) in paragraph at lines 431--431
+[]\TU/lmtt/m/n/9 ## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG -0.2
+8197989  0.36800353[] 
+ []
+
+
+Overfull \hbox (37.72505pt too wide) in paragraph at lines 431--431
+[]\TU/lmtt/m/n/9 ## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF -0.3
+4756262  0.32598467[] 
+ []
+
+
+Overfull \hbox (1.04402pt too wide) in paragraph at lines 437--437
+\TU/lmr/bx/n/12 correction for gene independent responses to CRISPR-
+ []
+
+[7]
+Overfull \hbox (33.00034pt too wide) in paragraph at lines 470--470
+[]\TU/lmtt/m/n/9 ##                                          CHR startp   endp 
+ genes       avgFC[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 470--470
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 
+SAMD11 -0.12965287[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 470--470
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 
+SAMD11  0.09329615[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 470--470
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 
+SAMD11  0.25286616[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 470--470
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 
+SAMD11 -0.05128489[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 470--470
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 
+SAMD11 -0.02110076[] 
+ []
+
+
+Overfull \hbox (33.00009pt too wide) in paragraph at lines 470--470
+[]\TU/lmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411 
+ NOC2L -1.27571756[] 
+ []
+
+
+Overfull \hbox (5.94202pt too wide) in paragraph at lines 474--475
+\TU/lmr/m/n/10 to gene independent responses to CRISPR-Cas9 targeting, using th
+e \TU/lmtt/m/n/10 ccr.GWclean
+ []
+
+
+Overfull \hbox (33.00034pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ##                                          CHR startp   endp 
+ genes       avgFC[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 
+SAMD11 -0.12965287[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 
+SAMD11  0.09329615[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 
+SAMD11  0.25286616[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 
+SAMD11 -0.05128489[] 
+ []
+
+
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 
+SAMD11 -0.02110076[] 
+ []
+
+
+Overfull \hbox (33.00009pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411 
+ NOC2L -1.27571756[] 
+ []
+
+
+Overfull \hbox (9.3753pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ##                                                BP correctio
+n correctedFC[] 
+ []
+
+
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 871265.5          
+0 -0.12965287[] 
+ []
+
+
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 874462.5          
+0  0.09329615[] 
+ []
+
+
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 874498.5          
+0  0.25286616[] 
+ []
+
+
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 874704.5          
+0 -0.05128489[] 
+ []
+
+
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 876612.5          
+0 -0.02110076[] 
+ []
+
+
+Overfull \hbox (9.3751pt too wide) in paragraph at lines 513--513
+[]\TU/lmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  887399.5          
+0 -1.27571756[] 
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 517--518
+
+ []
+
+File: figure/correction_chrm8-1.pdf Graphic file (type pdf)
+<use figure/correction_chrm8-1.pdf>
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 523--525
+[][]
+ []
+
+[9]
+Overfull \hbox (11.56802pt too wide) in paragraph at lines 526--526
+[]\TU/lmr/bx/n/12 Correcting sgRNAs’ treatment counts for mean-variance
+ []
+
+[10]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 564--564
+[]\TU/lmtt/m/n/10 ##                                             sgRNA gene ERS
 717283.plasmid[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
-[]\OT1/cmtt/m/n/9 ## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG    
+Overfull \hbox (48.75pt too wide) in paragraph at lines 564--564
+[]\TU/lmtt/m/n/10 ## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG    
      292.14621[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
-[]\OT1/cmtt/m/n/9 ## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG    
+Overfull \hbox (48.75pt too wide) in paragraph at lines 564--564
+[]\TU/lmtt/m/n/10 ## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG    
      151.02032[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
-[]\OT1/cmtt/m/n/9 ## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG    
+Overfull \hbox (48.75pt too wide) in paragraph at lines 564--564
+[]\TU/lmtt/m/n/10 ## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG    
      209.08503[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
-[]\OT1/cmtt/m/n/9 ## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG    
+Overfull \hbox (48.75pt too wide) in paragraph at lines 564--564
+[]\TU/lmtt/m/n/10 ## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG    
      110.40106[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
-[]\OT1/cmtt/m/n/9 ## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG    
+Overfull \hbox (48.75pt too wide) in paragraph at lines 564--564
+[]\TU/lmtt/m/n/10 ## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG    
       95.81979[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 241--241
-[]\OT1/cmtt/m/n/9 ## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF    
+Overfull \hbox (48.75pt too wide) in paragraph at lines 564--564
+[]\TU/lmtt/m/n/10 ## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF    
       60.92889[] 
  []
 
 
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 260--260
-[]\OT1/cmtt/m/n/9 ##                                             sgRNA gene HT2
-9_c904R1 HT29_c904R2[] 
+Overfull \hbox (4.43202pt too wide) in paragraph at lines 583--585
+[]\TU/lmr/bx/n/10 IMPORTANT: \TU/lmr/m/n/10 the corrected sgRNAs’ counts are al
+ready normalised, there-
  []
 
 
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 260--260
-[]\OT1/cmtt/m/n/9 ## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG  0.
-07635566  0.28027938[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 260--260
-[]\OT1/cmtt/m/n/9 ## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG -0.
-05472442 -0.41467098[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 260--260
-[]\OT1/cmtt/m/n/9 ## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG  0.
-42548611 -0.03752168[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 260--260
-[]\OT1/cmtt/m/n/9 ## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG -0.
-45663336 -0.78070106[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 260--260
-[]\OT1/cmtt/m/n/9 ## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG -0.
-28197989  0.36800353[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 260--260
-[]\OT1/cmtt/m/n/9 ## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF -0.
-34756262  0.32598467[] 
- []
-
-[3 <./figure/Norm_and_fc-2.pdf>]
-Overfull \hbox (2.44728pt too wide) in paragraph at lines 266--266
-\OT1/cmr/bx/n/12 cor-rec-tion for gene in-de-pen-dent re-sponses to CRISPR-
- []
-
-Package color Info: Redefining color shadecolor on input line 271.
-Package color Info: Redefining color shadecolor on input line 280.
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 299--299
-[]\OT1/cmtt/m/n/9 ##                                          CHR startp   endp
-  genes       avgFC[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 299--299
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277
- SAMD11 -0.12965287[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 299--299
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474
- SAMD11  0.09329615[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 299--299
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510
- SAMD11  0.25286616[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 299--299
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716
- SAMD11 -0.05128489[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 299--299
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624
- SAMD11 -0.02110076[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 299--299
-[]\OT1/cmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411
-  NOC2L -1.27571756[] 
- []
-
-
-Overfull \hbox (5.9444pt too wide) in paragraph at lines 303--304
-\OT1/cmr/m/n/10 to gene in-de-pen-dent re-sponses to CRISPR-Cas9 tar-get-ing, u
-s-ing the \OT1/cmtt/m/n/10 ccr.GWclean
- []
-
-Package color Info: Redefining color shadecolor on input line 306.
-[4]
-Package color Info: Redefining color shadecolor on input line 316.
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ##                                          CHR startp   endp
-  genes       avgFC[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277
- SAMD11 -0.12965287[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474
- SAMD11  0.09329615[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510
- SAMD11  0.25286616[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716
- SAMD11 -0.05128489[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624
- SAMD11 -0.02110076[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411
-  NOC2L -1.27571756[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ##                                                BP correcti
-on correctedFC[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 871265.5         
- 0 -0.12965287[] 
- []
-
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 874462.5         
- 0  0.09329615[] 
  []
 
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 874498.5         
- 0  0.25286616[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 874704.5         
- 0 -0.05128489[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 876612.5         
- 0 -0.02110076[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 335--335
-[]\OT1/cmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  887399.5         
- 0 -1.27571756[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 339--340
-
- []
-
-Package color Info: Redefining color shadecolor on input line 344.
-<figure/correction_chrm8-1.pdf, id=93, 433.62pt x 578.16pt>
-File: figure/correction_chrm8-1.pdf Graphic file (type pdf)
-<use figure/correction_chrm8-1.pdf>
-Package pdftex.def Info: figure/correction_chrm8-1.pdf  used on input line 345.
-
-(pdftex.def)             Requested size: 345.0pt x 460.02318pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 345--346
-[][] 
- []
-
-[5]
-Overfull \hbox (12.91258pt too wide) in paragraph at lines 349--349
-[]\OT1/cmr/bx/n/12 Correcting sgR-NAs' treat-ment counts for mean-variance
- []
-
-Package color Info: Redefining color shadecolor on input line 353.
-[6 <./figure/correction_chrm8-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 368.
-
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 387--387
-[]\OT1/cmtt/m/n/10 ##                                             sgRNA gene ER
-S717283.plasmid[] 
- []
-
-
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 387--387
-[]\OT1/cmtt/m/n/10 ## 1 A1BG_CCDS12976.1_ex3_19:58862927-58862950:-_5-1 A1BG   
-      292.14621[] 
- []
-
-
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 387--387
-[]\OT1/cmtt/m/n/10 ## 2 A1BG_CCDS12976.1_ex4_19:58863655-58863678:+_5-2 A1BG   
-      151.02032[] 
- []
-
-
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 387--387
-[]\OT1/cmtt/m/n/10 ## 3 A1BG_CCDS12976.1_ex4_19:58863697-58863720:-_5-3 A1BG   
-      209.08503[] 
- []
-
-
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 387--387
-[]\OT1/cmtt/m/n/10 ## 4 A1BG_CCDS12976.1_ex4_19:58863866-58863889:+_5-4 A1BG   
-      110.40106[] 
+[11]
+Overfull \hbox (33.00034pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ##                                          CHR startp   endp 
+ genes       avgFC[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 387--387
-[]\OT1/cmtt/m/n/10 ## 5 A1BG_CCDS12976.1_ex5_19:58864367-58864390:-_5-5 A1BG   
-       95.81979[] 
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277 
+SAMD11 -0.20295496[] 
  []
 
 
-Overfull \hbox (48.74657pt too wide) in paragraph at lines 387--387
-[]\OT1/cmtt/m/n/10 ## 6  A1CF_CCDS7241.1_ex6_10:52588014-52588037:-_5-1 A1CF   
-       60.92889[] 
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474 
+SAMD11 -0.08917153[] 
  []
 
-Package color Info: Redefining color shadecolor on input line 395.
 
-Overfull \hbox (4.45828pt too wide) in paragraph at lines 406--408
-[]\OT1/cmr/bx/n/10 IMPORTANT: \OT1/cmr/m/n/10 the cor-rected sgR-NAs' counts ar
-e al-ready nor-malised, there-
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510 
+SAMD11 -0.04417670[] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 413--414
-
- []
-
-[7]
-Package color Info: Redefining color shadecolor on input line 418.
-Package color Info: Redefining color shadecolor on input line 426.
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ##                                          CHR startp   endp
-  genes       avgFC[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1   1 871254 871277
- SAMD11 -0.20295496[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2   1 874451 874474
- SAMD11 -0.08917153[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3   1 874487 874510
- SAMD11 -0.04417670[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716
- SAMD11  0.30441537[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624
- SAMD11 -0.11240079[] 
- []
-
-
-Overfull \hbox (32.9956pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411
-  NOC2L -1.61370746[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ##                                                BP correcti
-on correctedFC[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 871265.5         
- 0 -0.20295496[] 
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4   1 874693 874716 
+SAMD11  0.30441537[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 874462.5         
- 0 -0.08917153[] 
+Overfull \hbox (33.00008pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5   1 876601 876624 
+SAMD11 -0.11240079[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 874498.5         
- 0 -0.04417670[] 
+Overfull \hbox (33.00009pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1    1 887388 887411 
+ NOC2L -1.61370746[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 874704.5         
- 0  0.30441537[] 
+Overfull \hbox (9.3753pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ##                                                BP correctio
+n correctedFC[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 876612.5         
- 0 -0.11240079[] 
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex3_1:871254-871277:+_5-1 871265.5          
+0 -0.20295496[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 445--445
-[]\OT1/cmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  887399.5         
- 0 -1.61370746[] 
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874451-874474:-_5-2 874462.5          
+0 -0.08917153[] 
  []
 
-Package color Info: Redefining color shadecolor on input line 452.
-[8]
-Underfull \hbox (badness 10000) in paragraph at lines 471--472
 
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex4_1:874487-874510:+_5-3 874498.5          
+0 -0.04417670[] 
  []
-
-Package color Info: Redefining color shadecolor on input line 474.
-Package color Info: Redefining color shadecolor on input line 484.
-Package color Info: Redefining color shadecolor on input line 497.
 
-Underfull \hbox (badness 10000) in paragraph at lines 509--510
 
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex5_1:874693-874716:+_5-4 874704.5          
+0  0.30441537[] 
  []
-
-Package color Info: Redefining color shadecolor on input line 513.
-<figure/unnamed-chunk-23-1.pdf, id=123, 361.35pt x 361.35pt>
-File: figure/unnamed-chunk-23-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-23-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-23-1.pdf  used on input line 519.
-
-(pdftex.def)             Requested size: 345.0pt x 345.00084pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 519--520
-[][] 
- []
 
-[9]
-Overfull \hbox (4.79604pt too wide) in paragraph at lines 523--524
-\OT1/cmr/m/n/10 file of sgR-NAs' logFCs into gene level sum-maries. The func-ti
-on \OT1/cmtt/m/n/10 ccr.geneMeanFCs
+Overfull \hbox (9.37509pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## SAMD11_CCDS2.2_ex6_1:876601-876624:-_5-5 876612.5          
+0 -0.11240079[] 
  []
 
-Package color Info: Redefining color shadecolor on input line 526.
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 534--534
-[]\OT1/cmtt/m/n/10 ##       A1BG       A1CF        A2M      A2ML1    A3GALT2   
-  A4GALT[] 
+Overfull \hbox (9.3751pt too wide) in paragraph at lines 622--622
+[]\TU/lmtt/m/n/9 ## NOC2L_CCDS3.1_ex8_1:887388-887411:+_5-1  887399.5          
+0 -1.61370746[] 
  []
 
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 648--649
 
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 534--534
-[]\OT1/cmtt/m/n/10 ## -0.2474235 -0.1550534  0.2190111  0.3736683 -0.5151889 -0
-.1698269[] 
  []
 
-Package color Info: Redefining color shadecolor on input line 541.
-[10 <./figure/unnamed-chunk-23-1.pdf>]
-<figure/unnamed-chunk-25-1.pdf, id=137, 361.35pt x 361.35pt>
-File: figure/unnamed-chunk-25-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-25-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-25-1.pdf  used on input line 549.
 
-(pdftex.def)             Requested size: 345.0pt x 345.00084pt.
+Underfull \hbox (badness 10000) in paragraph at lines 686--687
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 549--550
-[][] 
  []
-
-Package color Info: Redefining color shadecolor on input line 556.
-<figure/unnamed-chunk-26-1.pdf, id=138, 361.35pt x 361.35pt>
-File: figure/unnamed-chunk-26-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-26-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-26-1.pdf  used on input line 562.
 
-(pdftex.def)             Requested size: 345.0pt x 345.00084pt.
+File: figure/unnamed-chunk-28-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-28-1.pdf>
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 562--563
-[][] 
+Overfull \hbox (15.0pt too wide) in paragraph at lines 696--700
+[][]
  []
 
-[11 <./figure/unnamed-chunk-25-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 569.
-<figure/unnamed-chunk-27-1.pdf, id=148, 361.35pt x 361.35pt>
-File: figure/unnamed-chunk-27-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-27-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-27-1.pdf  used on input line 577.
-
-(pdftex.def)             Requested size: 345.0pt x 345.00084pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 577--578
-[][] 
+[13]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 710--710
+[]\TU/lmtt/m/n/10 ##       A1BG       A1CF        A2M      A2ML1    A3GALT2    
+ A4GALT[] 
  []
-
-[12 <./figure/unnamed-chunk-26-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 586.
 
-Underfull \hbox (badness 10000) in paragraph at lines 599--600
 
+Overfull \hbox (12.0pt too wide) in paragraph at lines 710--710
+[]\TU/lmtt/m/n/10 ## -0.2474235 -0.1550534  0.2190111  0.3736683 -0.5151889 -0.
+1698269[] 
  []
 
-[13 <./figure/unnamed-chunk-27-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 604.
-Package color Info: Redefining color shadecolor on input line 626.
-<figure/unnamed-chunk-30-1.pdf, id=171, 505.89pt x 505.89pt>
+[14]
 File: figure/unnamed-chunk-30-1.pdf Graphic file (type pdf)
 <use figure/unnamed-chunk-30-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-30-1.pdf  used on input line 636.
 
-(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
- [14]
-Package color Info: Redefining color shadecolor on input line 649.
-
-Overfull \hbox (64.49643pt too wide) in paragraph at lines 658--658
-[]\OT1/cmtt/m/n/10 ## Ribosomal_Proteins    DNA_Replication     RNA_polymerase 
-        Proteasome[] 
+Overfull \hbox (15.0pt too wide) in paragraph at lines 725--727
+[][]
  []
 
+File: figure/unnamed-chunk-31-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-31-1.pdf>
 
-Overfull \hbox (64.49643pt too wide) in paragraph at lines 658--658
-[]\OT1/cmtt/m/n/10 ##         0.96721311         0.86666667         0.80769231 
-        0.78947368[] 
+Overfull \hbox (15.0pt too wide) in paragraph at lines 737--741
+[][]
  []
 
+[15]
+File: figure/unnamed-chunk-32-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-32-1.pdf>
 
-Overfull \hbox (4.68335pt too wide) in paragraph at lines 662--662
-[]\OT1/cmr/bx/n/12 CRISPRcleanR cor-rec-tion as-sess-ment: Sta-tis-ti-cal tests
- 
+Overfull \hbox (15.0pt too wide) in paragraph at lines 751--753
+[][]
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 663--664
-
- []
-
-[15 <./figure/unnamed-chunk-30-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 668.
-
-Underfull \hbox (badness 10000) in paragraph at lines 675--676
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 680.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 680.
-Package color Info: Redefining color shadecolor on input line 701.
- [16]
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 703--703
-[][]\OT1/cmtt/m/n/10 RES[][]<-[][]ccr.perf_statTests[][]([][]^^MHT-29^^M[][],[]
-[]libraryAnnotation[] []= KY_Library_v1.0,[][] 
- []
-
-
-Overfull \hbox (17.24684pt too wide) in paragraph at lines 704--704
-[]                   []\OT1/cmtt/m/n/10 correctedFCs[] []= HT.29correctedFCs[][
-]$[][]corrected_logFCs,[][] 
- []
-
-<HT-29_bp.pdf, id=192, 1084.05pt x 722.7pt>
-File: HT-29_bp.pdf Graphic file (type pdf)
-<use HT-29_bp.pdf>
-Package pdftex.def Info: HT-29_bp.pdf  used on input line 737.
-(pdftex.def)             Requested size: 369.88582pt x 246.58592pt.
-
-Overfull \hbox (24.88582pt too wide) in paragraph at lines 737--738
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 740--741
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 742--743
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 744--745
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 772--773
 
  []
 
 [17]
-Package color Info: Redefining color shadecolor on input line 749.
-
-Overfull \hbox (32.9967pt too wide) in paragraph at lines 751--751
-[][]\OT1/cmtt/m/n/10 RES[][]<-[][]ccr.perf_statTests[][]([][]^^MEPLC-272H^^M[][
-],[][]libraryAnnotation[] []= KY_Library_v1.0,[][] 
+File: figure/unnamed-chunk-35-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-35-1.pdf>
+[18]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 830--830
+[]\TU/lmtt/m/n/10 ## Ribosomal_Proteins    DNA_Replication     RNA_polymerase  
+       Proteasome[] 
  []
 
 
-Overfull \hbox (43.49661pt too wide) in paragraph at lines 752--752
-[]                    []\OT1/cmtt/m/n/10 correctedFCs[] []= EPLC.272HcorrectedF
-Cs[][]$[][]corrected_logFCs)[][] 
- []
-
-[18 <./HT-29_bp.pdf>]
-Package color Info: Redefining color shadecolor on input line 780.
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ##                       Dep (PN) Dep (Gistic)       notExp A
-mp (Gistic +1)[] 
+Overfull \hbox (64.5pt too wide) in paragraph at lines 830--830
+[]\TU/lmtt/m/n/10 ##         0.96721311         0.86666667         0.80769231  
+       0.78947368[] 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ## pre-CRISPRcleanR  5.145194e-27           NA  0.00000e+00  
-            NA[] 
+Overfull \hbox (3.32852pt too wide) in paragraph at lines 834--834
+[]\TU/lmr/bx/n/12 CRISPRcleanR correction assessment: Statistical tests 
  []
 
 
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ## post-CRISPRcleanR 3.219730e-06           NA 5.69841e-173  
-            NA[] 
+Underfull \hbox (badness 10000) in paragraph at lines 835--836
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 847--848
+
+ []
+
+[20]
+Overfull \hbox (12.0pt too wide) in paragraph at lines 875--875
+[][]\TU/lmtt/m/n/10 RES[][]<-[][]\TU/lmtt/b/n/10 ccr.perf_statTests[][]\TU/lmtt
+/m/n/10 ([][][]HT-29[][][],[][]libraryAnnotation[] []= KY_Library_v1.0,[][] 
  []
 
 
-Overfull \hbox (42.4455pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ##                   Amp (Gistic +2) Amp (Gistic +1) notExp A
-mp (Gistic +2) notExp[] 
+Overfull \hbox (17.25pt too wide) in paragraph at lines 876--876
+[]                   []\TU/lmtt/m/n/10 correctedFCs[] []= HT.29correctedFCs[][]
+$[][]corrected_logFCs,[][] 
  []
 
+File: HT-29_bp.pdf Graphic file (type pdf)
+<use HT-29_bp.pdf>
 
-Overfull \hbox (42.4455pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ## pre-CRISPRcleanR               NA                     NA  
-                   NA[] 
- []
-
-
-Overfull \hbox (42.4455pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ## post-CRISPRcleanR              NA                     NA  
-                   NA[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ##                   Amp (PNs >= 2) Amp (PNs >= 4) Amp (PNs >
-= 8) Amp (PNs >= 10)[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ## pre-CRISPRcleanR    1.580669e-18   1.780173e-57  1.991668e
--137    1.476429e-42[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ## post-CRISPRcleanR   4.951065e-05   1.593962e-02   2.036767
-e-01    9.122396e-02[] 
- []
-
-
-Overfull \hbox (28.27066pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ##                   Amp (PNs >= 8) notExp Amp (PNs >= 10) no
-tExp     Essential[] 
- []
-
-
-Overfull \hbox (28.27066pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ## pre-CRISPRcleanR           3.575550e-07           4.600584
-e-05 2.736956e-175[] 
- []
-
-
-Overfull \hbox (28.27066pt too wide) in paragraph at lines 803--803
-[]\OT1/cmtt/m/n/9 ## post-CRISPRcleanR          1.871438e-01           4.089818
-e-01 3.550035e-159[] 
- []
-
-
-Overfull \hbox (42.4455pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ##                   Amp (Gistic +2) Amp (Gistic +1) notExp A
-mp (Gistic +2) notExp[] 
- []
-
-
-Overfull \hbox (42.4455pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ## pre-CRISPRcleanR               NA                     NA  
-                   NA[] 
- []
-
-
-Overfull \hbox (42.4455pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ## post-CRISPRcleanR              NA                     NA  
-                   NA[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ##                   Amp (PNs >= 2) Amp (PNs >= 4) Amp (PNs >
-= 8) Amp (PNs >= 10)[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ## pre-CRISPRcleanR      0.10987879      0.1142627      1.060
-9873      1.34598769[] 
- []
-
-
-Overfull \hbox (37.72055pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ## post-CRISPRcleanR     0.05019186      0.0170022      0.042
-6818      0.09939445[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ##                   Amp (PNs >= 8) notExp Amp (PNs >= 10) no
-tExp Essential[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ## pre-CRISPRcleanR              0.6678038              0.984
-8744  2.859216[] 
- []
-
-
-Overfull \hbox (9.37088pt too wide) in paragraph at lines 826--826
-[]\OT1/cmtt/m/n/9 ## post-CRISPRcleanR             0.1506673              0.161
-7632  2.945718[] 
- []
-
-<EPLC-272H_bp.pdf, id=210, 1084.05pt x 722.7pt>
-File: EPLC-272H_bp.pdf Graphic file (type pdf)
-<use EPLC-272H_bp.pdf>
-Package pdftex.def Info: EPLC-272H_bp.pdf  used on input line 832.
-(pdftex.def)             Requested size: 369.88582pt x 246.58592pt.
-
-Overfull \hbox (24.88582pt too wide) in paragraph at lines 832--833
+Overfull \hbox (24.88582pt too wide) in paragraph at lines 909--910
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[19]
-Package color Info: Redefining color shadecolor on input line 839.
 
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 841--841
-[][]\OT1/cmtt/m/n/10 ccr.perf_distributions[][]([][]^^MHT-29^^M[][],HT.29correc
-tedFCs[][]$[][]corrected_logFCs,[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 912--913
+
  []
 
-<figure/unnamed-chunk-36-1.pdf, id=216, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-36-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-36-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-36-1.pdf  used on input line 845.
 
-(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
+Underfull \hbox (badness 10000) in paragraph at lines 914--915
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 845--846
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 916--917
+
+ []
+
+[21]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 923--923
+[][]\TU/lmtt/m/n/10 RES[][]<-[][]\TU/lmtt/b/n/10 ccr.perf_statTests[][]\TU/lmtt
+/m/n/10 ([][][]EPLC-272H[][][],[][]libraryAnnotation[] []= KY_Library_v1.0,[][]
+ 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 924--924
+[]                    []\TU/lmtt/m/n/10 correctedFCs[] []= EPLC.272HcorrectedFC
+s[][]$[][]corrected_logFCs)[][] 
+ []
+
+[22]
+Overfull \hbox (9.37523pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ##                       Dep (PN) Dep (Gistic)       notExp Am
+p (Gistic +1)[] 
+ []
+
+
+Overfull \hbox (9.3752pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ## pre-CRISPRcleanR  5.145194e-27           NA  0.00000e+00   
+           NA[] 
+ []
+
+
+Overfull \hbox (9.37517pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ## post-CRISPRcleanR 3.219730e-06           NA 5.69841e-173   
+           NA[] 
+ []
+
+
+Overfull \hbox (42.4502pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ##                   Amp (Gistic +2) Amp (Gistic +1) notExp Am
+p (Gistic +2) notExp[] 
+ []
+
+
+Overfull \hbox (42.45035pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ## pre-CRISPRcleanR               NA                     NA   
+                  NA[] 
+ []
+
+
+Overfull \hbox (42.45033pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ## post-CRISPRcleanR              NA                     NA   
+                  NA[] 
+ []
+
+
+Overfull \hbox (37.72517pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ##                   Amp (PNs >= 2) Amp (PNs >= 4) Amp (PNs >=
+ 8) Amp (PNs >= 10)[] 
+ []
+
+
+Overfull \hbox (37.72513pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ## pre-CRISPRcleanR    1.580669e-18   1.780173e-57  1.991668e-
+137    1.476429e-42[] 
+ []
+
+
+Overfull \hbox (37.72513pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ## post-CRISPRcleanR   4.951065e-05   1.593962e-02   2.036767e
+-01    9.122396e-02[] 
+ []
+
+
+Overfull \hbox (28.2752pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ##                   Amp (PNs >= 8) notExp Amp (PNs >= 10) not
+Exp     Essential[] 
+ []
+
+
+Overfull \hbox (28.27518pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ## pre-CRISPRcleanR           3.575550e-07           4.600584e
+-05 2.736956e-175[] 
+ []
+
+
+Overfull \hbox (28.27516pt too wide) in paragraph at lines 975--975
+[]\TU/lmtt/m/n/9 ## post-CRISPRcleanR          1.871438e-01           4.089818e
+-01 3.550035e-159[] 
+ []
+
+
+Overfull \hbox (42.4502pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ##                   Amp (Gistic +2) Amp (Gistic +1) notExp Am
+p (Gistic +2) notExp[] 
+ []
+
+
+Overfull \hbox (42.45035pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ## pre-CRISPRcleanR               NA                     NA   
+                  NA[] 
+ []
+
+
+Overfull \hbox (42.45033pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ## post-CRISPRcleanR              NA                     NA   
+                  NA[] 
+ []
+
+
+Overfull \hbox (37.72517pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ##                   Amp (PNs >= 2) Amp (PNs >= 4) Amp (PNs >=
+ 8) Amp (PNs >= 10)[] 
+ []
+
+
+Overfull \hbox (37.72517pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ## pre-CRISPRcleanR      0.10987878      0.1142627      1.0609
+873      1.34598769[] 
+ []
+
+
+Overfull \hbox (37.72516pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ## post-CRISPRcleanR     0.05019186      0.0170022      0.0426
+818      0.09939445[] 
+ []
+
+
+Overfull \hbox (9.37518pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ##                   Amp (PNs >= 8) notExp Amp (PNs >= 10) not
+Exp Essential[] 
+ []
+
+
+Overfull \hbox (9.37521pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ## pre-CRISPRcleanR              0.6678038              0.9848
+744  2.859216[] 
+ []
+
+
+Overfull \hbox (9.3752pt too wide) in paragraph at lines 998--998
+[]\TU/lmtt/m/n/9 ## post-CRISPRcleanR             0.1506673              0.1617
+632  2.945718[] 
+ []
+
+File: EPLC-272H_bp.pdf Graphic file (type pdf)
+<use EPLC-272H_bp.pdf>
+
+Overfull \hbox (24.88582pt too wide) in paragraph at lines 1004--1005
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[23]
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1013--1013
+[][]\TU/lmtt/b/n/10 ccr.perf_distributions[][]\TU/lmtt/m/n/10 ([][][]HT-29[][][
+],HT.29correctedFCs[][]$[][]corrected_logFCs,[][] 
+ []
+
+File: figure/unnamed-chunk-41-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-41-1.pdf>
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 1017--1018
 [][] 
  []
 
-[20 <./EPLC-272H_bp.pdf>]
-<figure/unnamed-chunk-36-2.pdf, id=227, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-36-2.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-36-2.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-36-2.pdf  used on input line 847.
+[24]
+File: figure/unnamed-chunk-41-2.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-41-2.pdf>
 
-(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 847--848
+Overfull \hbox (15.0pt too wide) in paragraph at lines 1019--1020
 [][] 
  []
 
-[21 <./figure/unnamed-chunk-36-1.pdf>]
-<figure/unnamed-chunk-36-3.pdf, id=241, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-36-3.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-36-3.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-36-3.pdf  used on input line 849.
+[25]
+File: figure/unnamed-chunk-41-3.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-41-3.pdf>
 
-(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 849--850
+Overfull \hbox (15.0pt too wide) in paragraph at lines 1021--1022
 [][] 
  []
 
-[22 <./figure/unnamed-chunk-36-2.pdf>]
-<figure/unnamed-chunk-36-4.pdf, id=255, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-36-4.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-36-4.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-36-4.pdf  used on input line 851.
+[26]
+File: figure/unnamed-chunk-41-4.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-41-4.pdf>
 
-(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 851--852
-[][] 
+Overfull \hbox (15.0pt too wide) in paragraph at lines 1023--1025
+[][]
  []
 
-[23 <./figure/unnamed-chunk-36-3.pdf>]
-Overfull \hbox (11.54176pt too wide) in paragraph at lines 855--856
-[]\OT1/cmr/bx/n/10 IMPORTANT: \OT1/cmr/m/n/10 The in-struc-tions pro-vided re-g
-ard-ing what CN/transcriptional
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 855--856
-
- []
-
-Package color Info: Redefining color shadecolor on input line 864.
-
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 866--866
-[][]\OT1/cmtt/m/n/10 ccr.RecallCurves[][]([][]^^MEPLC-272H^^M[][],EPLC.272Hcorr
-ectedFCs[][]$[][]corrected_logFCs,[][] 
- []
-
-[24 <./figure/unnamed-chunk-36-4.pdf>]
-<figure/unnamed-chunk-37-1.pdf, id=282, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-37-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-37-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-37-1.pdf  used on input line 873.
-
-(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 873--874
-[][] 
- []
-
-
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 881--881
-[]\OT1/cmtt/m/n/10 ##                   BAGEL nonEssential BAGEL Essential Amp 
-(PNs >= 8)[] 
- []
-
-
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 881--881
-[]\OT1/cmtt/m/n/10 ## pre-CRISPRcleanR           0.4405845       0.8282859     
- 0.7921870[] 
- []
-
-
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 881--881
-[]\OT1/cmtt/m/n/10 ## post-CRISPRcleanR          0.4663982       0.8149893     
- 0.5109027[] 
- []
-
-Package color Info: Redefining color shadecolor on input line 888.
-
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 890--890
-[][]\OT1/cmtt/m/n/10 ccr.RecallCurves[][]([][]^^MEPLC-272H^^M[][],EPLC.272Hcorr
-ectedFCs[][]$[][]corrected_logFCs,[][] 
- []
-
-
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 891--891
-[]                  []\OT1/cmtt/m/n/10 libraryAnnotation[][]=KY_Library_v1.0,[]
-[]GeneLev[] []=[] []TRUE[][])[][] 
- []
-
-<figure/unnamed-chunk-38-1.pdf, id=283, 505.89pt x 505.89pt>
-File: figure/unnamed-chunk-38-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-38-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-38-1.pdf  used on input line 897.
-
-(pdftex.def)             Requested size: 345.0pt x 345.00414pt.
-
-Overfull \hbox (15.0pt too wide) in paragraph at lines 897--898
-[][] 
- []
-
-[25 <./figure/unnamed-chunk-37-1.pdf>]
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 905--905
-[]\OT1/cmtt/m/n/10 ##                   BAGEL nonEssential BAGEL Essential Amp 
-(PNs >= 8)[] 
- []
-
-
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 905--905
-[]\OT1/cmtt/m/n/10 ## pre-CRISPRcleanR           0.4188711       0.8704539     
- 0.8697322[] 
- []
-
-
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 905--905
-[]\OT1/cmtt/m/n/10 ## post-CRISPRcleanR          0.4570109       0.8627785     
- 0.5156109[] 
- []
-
-
-Overfull \hbox (11.54176pt too wide) in paragraph at lines 909--910
-[]\OT1/cmr/bx/n/10 IMPORTANT: \OT1/cmr/m/n/10 The in-struc-tions pro-vided re-g
-ard-ing what CN/transcriptional
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 909--910
-
- []
-
-
-Overfull \hbox (1.64581pt too wide) in paragraph at lines 913--913
-[]\OT1/cmr/bx/n/12 CRISPRcleanR cor-rec-tion as-sess-ment: im-pact on phe-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 914--916
-
- []
-
-[26 <./figure/unnamed-chunk-38-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 919.
-Package color Info: Redefining color shadecolor on input line 929.
-
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 938--938
-[]                                []\OT1/cmtt/m/n/10 libraryAnnotation[] []= KY
-_Library_v1.0)[][] 
- []
-
-Package color Info: Redefining color shadecolor on input line 946.
-
-Underfull \hbox (badness 10000) in paragraph at lines 955--956
-
- []
-
-Package color Info: Redefining color shadecolor on input line 960.
 [27]
-Package color Info: Redefining color shadecolor on input line 975.
-Package color Info: Redefining color shadecolor on input line 988.
-
-Overfull \hbox (6.74693pt too wide) in paragraph at lines 990--990
-[][]\OT1/cmtt/m/n/10 gwSortedFCs[][]<-[][]ccr.logFCs2chromPos[][](normANDfcs[][
-]$[][]logFCs,KY_Library_v1.0)[][] 
+Overfull \hbox (11.58003pt too wide) in paragraph at lines 1026--1027
+[]\TU/lmr/bx/n/10 IMPORTANT: \TU/lmr/m/n/10 The instructions provided regarding
+ what CN/transcriptional
  []
 
 
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 992--992
-[][]\OT1/cmtt/m/n/10 correctedFCs[][]<-[][]ccr.GWclean[][](gwSortedFCs,[][]disp
-lay[][]=[][]FALSE[][],[][]label[][]=[][]^^MEPLC-272H^^M[][])[][] 
- []
+Underfull \hbox (badness 10000) in paragraph at lines 1026--1027
 
-
-Overfull \hbox (22.4968pt too wide) in paragraph at lines 994--994
-[][]\OT1/cmtt/m/n/10 correctedCounts[][]<-[][]ccr.correctCounts[][]([][]^^MEPLC
--272H^^M[][],normANDfcs[][]$[][]norm_counts,[][] 
- []
-
-
-Overfull \hbox (11.99689pt too wide) in paragraph at lines 1000--1000
-[][]\OT1/cmtt/m/n/10 corrected_fn[][]<-[][]ccr.PlainTsvFile[][]([][]sgRNA_count
-_object[] []= correctedCounts,[][] 
- []
-
-Package color Info: Redefining color shadecolor on input line 1009.
-
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 1012--1012
-[]                                   []\OT1/cmtt/m/n/10 expName[] []=[] []^^MEP
-LC-272H_ccleaned^^M[][],[][] 
- []
-
-Package color Info: Redefining color shadecolor on input line 1023.
-
-Overfull \hbox (1.49698pt too wide) in paragraph at lines 1025--1025
-[][]\OT1/cmtt/m/n/10 RES[][]<-[][]ccr.impactOnPhenotype[][]([][]MO_uncorrectedF
-ile[] []= uncorrected_gs_fn,[][] 
- []
-
-
-Overfull \hbox (78.77629pt too wide) in paragraph at lines 1031--1032
-[]\OT1/cmtt/m/n/10 ## Warning in file(file, "rt"): cannot open file './EPLC-272
-H.gene[]summary.txt':
  []
 
 [28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1038.
- [29]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1038.
- (./Demo.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1038.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1038.
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1037--1037
+[][]\TU/lmtt/b/n/10 ccr.RecallCurves[][]\TU/lmtt/m/n/10 ([][][]EPLC-272H[][][],
+EPLC.272HcorrectedFCs[][]$[][]corrected_logFCs,[][] 
+ []
+
+File: figure/unnamed-chunk-42-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-42-1.pdf>
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 1044--1045
+[][] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1052--1052
+[]\TU/lmtt/m/n/10 ##                   BAGEL nonEssential BAGEL Essential Amp (
+PNs >= 8)[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1052--1052
+[]\TU/lmtt/m/n/10 ## pre-CRISPRcleanR           0.4405845       0.8282859      
+0.7921870[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1052--1052
+[]\TU/lmtt/m/n/10 ## post-CRISPRcleanR          0.4663982       0.8149893      
+0.5109027[] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1061--1061
+[][]\TU/lmtt/b/n/10 ccr.RecallCurves[][]\TU/lmtt/m/n/10 ([][][]EPLC-272H[][][],
+EPLC.272HcorrectedFCs[][]$[][]corrected_logFCs,[][] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1062--1062
+[]                  []\TU/lmtt/m/n/10 libraryAnnotation[][]=KY_Library_v1.0,[][
+]GeneLev[] []=[] []TRUE[][])[][] 
+ []
+
+[29]
+File: figure/unnamed-chunk-43-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-43-1.pdf>
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 1068--1069
+[][] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1076--1076
+[]\TU/lmtt/m/n/10 ##                   BAGEL nonEssential BAGEL Essential Amp (
+PNs >= 8)[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1076--1076
+[]\TU/lmtt/m/n/10 ## pre-CRISPRcleanR           0.4188711       0.8704539      
+0.8697322[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1076--1076
+[]\TU/lmtt/m/n/10 ## post-CRISPRcleanR          0.4570109       0.8627785      
+0.5156109[] 
+ []
+
+
+Overfull \hbox (11.58003pt too wide) in paragraph at lines 1080--1081
+[]\TU/lmr/bx/n/10 IMPORTANT: \TU/lmr/m/n/10 The instructions provided regarding
+ what CN/transcriptional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1080--1081
+
+ []
+
+[30]
+Overfull \hbox (0.25652pt too wide) in paragraph at lines 1084--1084
+[]\TU/lmr/bx/n/12 CRISPRcleanR correction assessment: impact on phe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1085--1087
+
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1109--1109
+[]                                []\TU/lmtt/m/n/10 libraryAnnotation[] []= KY_
+Library_v1.0)[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1126--1127
+
+ []
+
+[31]
+Overfull \hbox (6.75pt too wide) in paragraph at lines 1159--1159
+[][]\TU/lmtt/m/n/10 gwSortedFCs[][]<-[][]\TU/lmtt/b/n/10 ccr.logFCs2chromPos[][
+]\TU/lmtt/m/n/10 (normANDfcs[][]$[][]logFCs,KY_Library_v1.0)[][] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1161--1161
+[][]\TU/lmtt/m/n/10 correctedFCs[][]<-[][]\TU/lmtt/b/n/10 ccr.GWclean[][]\TU/lm
+tt/m/n/10 (gwSortedFCs,[][]display[][]=[][]FALSE[][],[][]label[][]=[][][]EPLC-2
+72H[][][])[][] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 1163--1163
+[][]\TU/lmtt/m/n/10 correctedCounts[][]<-[][]\TU/lmtt/b/n/10 ccr.correctCounts[
+][]\TU/lmtt/m/n/10 ([][][]EPLC-272H[][][],normANDfcs[][]$[][]norm_counts,[][] 
+ []
+
+
+Overfull \hbox (12.0pt too wide) in paragraph at lines 1169--1169
+[][]\TU/lmtt/m/n/10 corrected_fn[][]<-[][]\TU/lmtt/b/n/10 ccr.PlainTsvFile[][]\
+TU/lmtt/m/n/10 ([][]sgRNA_count_object[] []= correctedCounts,[][] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1181--1181
+[]                                   []\TU/lmtt/m/n/10 expName[] []=[] [][]EPLC
+-272H_ccleaned[][][],[][] 
+ []
+
+
+Overfull \hbox (1.5pt too wide) in paragraph at lines 1192--1192
+[][]\TU/lmtt/m/n/10 RES[][]<-[][]\TU/lmtt/b/n/10 ccr.impactOnPhenotype[][]\TU/l
+mtt/m/n/10 ([][]MO_uncorrectedFile[] []= uncorrected_gs_fn,[][] 
+ []
+
+File: figure/unnamed-chunk-51-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-51-1.pdf>
+[32]
+File: figure/unnamed-chunk-51-2.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-51-2.pdf>
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 1213--1214
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1215--1218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1219--1220
+
+ []
+
+[34] [35]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1257.
+[36]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1257.
+(./Demo.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1257.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1257.
 
 Package rerunfilecheck Info: File `Demo.out' has not changed.
-(rerunfilecheck)             Checksum: A37454E530B37C53E2E3D6B0F908683F;1267.
+(rerunfilecheck)             Checksum: 7CB829F4C518BC9EC68E2F47560A4B69;1713.
 Package logreq Info: Writing requests to 'Demo.run.xml'.
 \openout1 = `Demo.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 11945 strings out of 492649
- 204778 string characters out of 6129622
- 491561 words of memory out of 5000000
- 15649 multiletter control sequences out of 15000+600000
- 9043 words of font info for 33 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 44i,6n,45p,838b,1282s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb>
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
-usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
-r/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
-local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
-ocal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
-al/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on Demo.pdf (29 pages, 2783778 bytes).
-PDF statistics:
- 366 PDF objects out of 1000 (max. 8388607)
- 290 compressed objects within 3 object streams
- 48 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 15916 strings out of 481804
+ 266058 string characters out of 5937876
+ 736670 words of memory out of 5000000
+ 32721 multiletter control sequences out of 15000+600000
+ 535546 words of font info for 48 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 38i,6n,45p,1250b,4647s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+Output written on Demo.pdf (36 pages).

@@ -38,7 +38,7 @@ ccr.AnalysisPipeline <- function(
   min.ngenes = 3,
   alpha = 0.01,
   nperm = 10000,
-  p.method ="hybrid",
+  p.method = "hybrid",
   min.width = 2,
   kmax = 25,
   nmin = 200,
@@ -52,7 +52,7 @@ ccr.AnalysisPipeline <- function(
   run_mageck = FALSE,
   path_to_mageck = "mageck",
 
-  # Other options udocumented
+  # Other options undocumented
   is_web = FALSE,
   nseed = 0xA5EED,
   verbose = -1,
@@ -77,18 +77,18 @@ ccr.AnalysisPipeline <- function(
   # Create the subfolder structures
   outdir_data <- "./data/"
   outdir_pdf <- "./pdf/"
-  with_dir(
+  withr::with_dir(
     outdir,
     dir.create(outdir_data, recursive = TRUE, showWarnings = FALSE)
   )
-  with_dir(
+  withr::with_dir(
     outdir,
     dir.create(outdir_pdf, recursive = TRUE, showWarnings = FALSE)
   )
   status <- 0
 
   # Copy the description of the output files
-  with_dir(
+  withr::with_dir(
       outdir,
       file.copy(
       file.path(
@@ -102,7 +102,7 @@ ccr.AnalysisPipeline <- function(
   # Create folder to store web app data
   if (is_web) {
     outdir_json <- "./json/"
-    with_dir(
+    withr::with_dir(
       outdir,
       dir.create(outdir_json, recursive = TRUE, showWarnings = FALSE)
     )
@@ -112,17 +112,56 @@ ccr.AnalysisPipeline <- function(
     pipeline_meta_file <- "pipleline_main_v1.0.0.json"
   }
 
+  # Convert path from rel. to abs. for library file
+  if (!is.null(library_file)) {
+    library_file <- sapply(
+      library_file,
+      tools::file_path_as_absolute
+    )
+  }
+
+  # Convert path from rel. to abs. for count file
+  if (!is.null(file_counts)) {
+    file_counts <- sapply(
+      file_counts,
+      tools::file_path_as_absolute
+    )
+  }
+
   # Unlist list of files and set control and samples FASTQ files
   if (!is.null(files_FASTQ_controls)) {
     files_FASTQ_controls <- unlist(files_FASTQ_controls)
+    if (is.null(names(files_FASTQ_controls))) {
+      files_FASTQ_controls <- as.character(sapply(
+        files_FASTQ_controls,
+        tools::file_path_as_absolute
+      ))
+    } else {
+      files_FASTQ_controls <- sapply(
+        files_FASTQ_controls,
+        tools::file_path_as_absolute
+      )
+    }
+
     files_FASTQ_samples <- unlist(files_FASTQ_samples)
+    if (is.null(names(files_FASTQ_samples))) {
+      files_FASTQ_samples <- as.character(sapply(
+        files_FASTQ_samples,
+        tools::file_path_as_absolute
+      ))
+    } else {
+      files_FASTQ_samples <- sapply(
+        files_FASTQ_samples,
+        tools::file_path_as_absolute
+      )
+    }
 
     # Set control samples number based on the input files
     ncontrols <- length(files_FASTQ_controls)
 
     # Create BAM folder
     outdir_bam <- "./bam/"
-    with_dir(
+    withr::with_dir(
       outdir,
       dir.create(outdir_bam, recursive = TRUE, showWarnings = FALSE)
     )
@@ -133,7 +172,30 @@ ccr.AnalysisPipeline <- function(
   # Unlist list of files and set control and samples BAM files
   if (!is.null(files_BAM_controls)) {
     files_BAM_controls <- unlist(files_BAM_controls)
+    if (is.null(names(files_BAM_controls))) {
+      files_BAM_controls <- as.character(sapply(
+        files_BAM_controls,
+        tools::file_path_as_absolute
+      ))
+    } else {
+      files_BAM_controls <- sapply(
+        files_BAM_controls,
+        tools::file_path_as_absolute
+      )
+    }
+
     files_BAM_samples <- unlist(files_BAM_samples)
+    if (is.null(names(files_BAM_samples))) {
+      files_BAM_samples <- as.character(sapply(
+        files_BAM_samples,
+        tools::file_path_as_absolute
+      ))
+    } else {
+      files_BAM_samples <- sapply(
+        files_BAM_samples,
+        tools::file_path_as_absolute
+      )
+    }
 
     # Set control samples number based on the input files
     ncontrols <- length(files_BAM_controls)
@@ -142,8 +204,8 @@ ccr.AnalysisPipeline <- function(
   # Remove
   try({
     EXPname <- iconv(EXPname, to = "UTF-8", from = "ASCII//TRANSLIT")
-    EXPname <- str_replace_all(EXPname, "[[:punct:]]", "_")
-    EXPname <- str_replace_all(EXPname, "[^[:alnum:]]", "_")
+    EXPname <- stringr::str_replace_all(EXPname, "[[:punct:]]", "_")
+    EXPname <- stringr::str_replace_all(EXPname, "[^[:alnum:]]", "_")
   })
 
   # Print pipeline parameters
@@ -205,7 +267,7 @@ ccr.AnalysisPipeline <- function(
   # Start pipeline with error handling
   status <- tryCatch(
     expr = {
-      with_dir(outdir, {
+      withr::with_dir(outdir, {
         # Load essential and signature genes for QC
         BAGEL_essential <- vector()
         BAGEL_nonEssential <- vector()
@@ -692,7 +754,7 @@ ccr.RemoveExtraFiles <- function(
   files_FASTQ_samples = NULL,
   files_BAM_controls = NULL,
   files_BAM_samples = NULL,
-  outdir_data
+  outdir_data = NULL
 ) {
     # Remove unecessary files
   for (file_current in c(
@@ -991,7 +1053,7 @@ ccr.getCounts <- function(
     if (!is.null(file_counts)) {
       if (class(file_counts) == "character") {
         if (file.exists(file_counts)) {
-          if (file_ext(file_counts) %in% c("gz", "zip")) {
+          if (tools::file_ext(file_counts) %in% c("gz", "zip")) {
             field_sep <- tools::file_ext(tools::file_path_sans_ext(file_counts))
           } else {
             field_sep <- tools::file_ext(file_counts)
@@ -1313,7 +1375,7 @@ ccr.MAGeCK2counts <- function(
 ) {
     textbunch <- paste0(
       path_to_mageck, " count ",
-      "--list-seq ", libraryName, ".txt ",
+      "--list-seq ", paste0("Library_", EXPname), ".txt ",
       "--fastq ", paste0(FASTQfileList, collapse = " "), " ",
       "--norm-method none",
       "--sample-label ", paste0(names(FASTQfileList), collapse = ","), " ",
@@ -1355,9 +1417,9 @@ ccr.FASTQ2counts <- function(
   # Create FASTQ sample names if missing
   if (is.null(names(FASTQfileList))) {
     names(FASTQfileList) <- ifelse(
-      file_ext(basename(FASTQfileList)) == "gz",
-      file_path_sans_ext(file_path_sans_ext(basename(FASTQfileList))),
-      file_path_sans_ext(basename(FASTQfileList))
+      tools::file_ext(basename(FASTQfileList)) == "gz",
+      tools::file_path_sans_ext(tools::file_path_sans_ext(basename(FASTQfileList))),
+      tools::file_path_sans_ext(basename(FASTQfileList))
     )
   }
 
@@ -1827,7 +1889,7 @@ ccr.cleanChrm <- function(
   corrMet = "mean",
   alpha = 0.01,
   nperm = 10000,
-  p.method ="hybrid",
+  p.method = "hybrid",
   min.width = 2,
   kmax = 25,
   nmin = 200,
@@ -1966,7 +2028,7 @@ ccr.cleanChrm <- function(
   }
 
   if (display) {
-    with_par(
+    withr::with_par(
       list(mfrow = c(2, 1)), {
         plot(
           my.segment.smoothed.CNA.object,
@@ -2221,7 +2283,8 @@ ccr.correctCounts <- function(
 
 #### Utils
 ccr.genes2sgRNAs <- function(
-  libraryAnnotation, genes
+  libraryAnnotation,
+  genes
 ) {
   notIncludedGenes <- genes[
     which(!is.element(genes, libraryAnnotation[["GENES"]]))
@@ -2269,14 +2332,17 @@ ccr.get.gdsc1000.AMPgenes <- function(
   cellLine,
   minCN = 8,
   exact = FALSE,
-  GDSC.geneLevCNA = NULL
+  GDSC.geneLevCNA = NULL,
+  GDSC.CL_annotation = NULL
 ) {
 
   if (is.null(GDSC.geneLevCNA)) {
     data(GDSC.geneLevCNA, envir = environment())
   }
 
-  data(GDSC.CL_annotation, envir = environment())
+  if (is.null(GDSC.CL_annotation)) {
+    data(GDSC.CL_annotation, envir = environment())
+  }
 
   if (
     !is.element(cellLine, GDSC.CL_annotation[["CL.name"]]) &
@@ -2356,10 +2422,13 @@ ccr.get.nonExpGenes <- function(
   th = 0.05,
   amplified = FALSE,
   minCN = 8,
-  RNAseq.fpkms = NULL
+  RNAseq.fpkms = NULL,
+  GDSC.CL_annotation = NULL
 ) {
 
-  data(GDSC.CL_annotation, envir = environment())
+  if (is.null(GDSC.CL_annotation)) {
+    data(GDSC.CL_annotation, envir = environment())
+  }
 
   if (is.null(RNAseq.fpkms)) {
     data(RNAseq.fpkms, envir = environment())
@@ -2412,10 +2481,13 @@ ccr.get.nonExpGenes <- function(
 
 ccr.get.CCLEgisticSets <- function(
   cellLine,
-  CCLE.gisticCNA = NULL
+  CCLE.gisticCNA = NULL,
+  GDSC.CL_annotation = NULL
 ) {
 
-  data(GDSC.CL_annotation, envir = environment())
+  if (is.null(GDSC.CL_annotation)) {
+    data(GDSC.CL_annotation, envir = environment())
+  }
 
   if (is.null(CCLE.gisticCNA)) {
     data(CCLE.gisticCNA, envir = environment())
@@ -2528,32 +2600,6 @@ ccr.ExecuteMageck <- function(
   return(geneSummaryFN)
 }
 
-# Start update for web version
-ccr.ExecuteBagel <- function(
-  libraryAnnotation,
-  ESSENTIAL_GENES,
-  NON_ESSENTIAL_GENES,
-  filename = "./logFCs.tsv",
-  Dframe = NULL,
-  expName = "expName",
-  outputPath = "./"
-) {
-
-  geneSummaryFN <- BAGELR::bagelR.computeAllGuidesBFs_v2(
-    cellLine = "expName",
-    NUM_BOOTSTRAPS = 1000,
-    ESSENTIAL_GENES = ESSENTIAL_GENES,
-    NON_ESSENTIAL_GENES = NON_ESSENTIAL_GENES,
-    filename = filename,
-    Dframe = Dframe,
-    outputFolder = outputPath,
-    refGuidesLibrary = libraryAnnotation,
-    diagnosticPlots = TRUE,
-    whatToTest = "correctedFC"
-  )
-
-  return(geneSummaryFN)
-}
 # End update for web version
 
 #### Assessment and visualisation
@@ -2563,7 +2609,7 @@ ccr.ROC_Curve <- function(
   negatives,
   display = TRUE,
   FDRth = NULL,
-  expName=NULL
+  expName = NULL
 ) {
 
   FCsprofile <- FCsprofile[
@@ -2660,7 +2706,7 @@ ccr.PrRc_Curve <- function(
   negatives,
   display = TRUE,
   FDRth = NULL,
-  expName=NULL
+  expName = NULL
 ) {
 
   FCsprofile <- FCsprofile[
@@ -2853,7 +2899,7 @@ ccr.VisDepAndSig <- function(
 ) {
 
   sigNames <- names(SIGNATURES)
-  with_par(
+  withr::with_par(
     list(mar = c(5, 5, 8, 0)), {
       nsig <- length(SIGNATURES)
 
@@ -2924,7 +2970,7 @@ ccr.VisDepAndSig <- function(
         cex.axis = 1
       )
 
-      with_par(
+      withr::with_par(
         list(xpd = TRUE), {
           lines(
             c(min(FCsprofile), max(FCsprofile) + 1),
@@ -2948,7 +2994,7 @@ ccr.VisDepAndSig <- function(
 
       TPR <- vector()
 
-      with_par(
+      withr::with_par(
         list(xpd = TRUE, mar = c(5, 0, 8, 0)), {
           for (i in seq_along(SIGNATURES)) {
             plot(
@@ -3030,6 +3076,7 @@ ccr.perf_statTests <- function(
   GDSC.geneLevCNA = NULL,
   CCLE.gisticCNA = NULL,
   RNAseq.fpkms = NULL,
+  GDSC.CL_annotation = NULL,
 
   # Start update for web version
   verbose = 1
@@ -3064,7 +3111,8 @@ ccr.perf_statTests <- function(
     GDSC.geneLevCNA,
     CCLE.gisticCNA,
     RNAseq.fpkms,
-    libraryAnnotation = libraryAnnotation
+    libraryAnnotation = libraryAnnotation,
+    GDSC.CL_annotation = GDSC.CL_annotation
   )
   PVALS <- vector()
   PVALSn <- vector()
@@ -3152,7 +3200,7 @@ ccr.perf_statTests <- function(
     1, 2, 3, 4.5, 5.5, 6.5, 7.5, 9, 10,
     11, 12, 13, 14, 15, 16, 17.5, 18.5, 19.5, 20.5, 22
   )
-  with_par(
+  withr::with_par(
     list(mfrow = c(2, 1), mar = c(6, 4, 4, 1), xpd = NA), {
       plotpar <- boxplot(
         correctedFCs[guideSets[[1]], "avgFC"],
@@ -3207,7 +3255,7 @@ ccr.perf_statTests <- function(
       }
       dd <- mean(correctedFCs[["avgFC"]])
       lines(x = c(0.2, 22.8), y = c(dd, dd), lty = 2, col = "red", lwd = 2)
-      with_par(
+      withr::with_par(
         list(mar = c(2, 4, 8, 1), xpd = NA), {
           boxplot(
             correctedFCs[guideSets[[1]], "correctedFC"],
@@ -3351,15 +3399,17 @@ ccr.perf_distributions <- function(
   GDSC.geneLevCNA = NULL,
   CCLE.gisticCNA = NULL,
   RNAseq.fpkms = NULL,
-  minCNs=c(8, 10),
-  libraryAnnotation
+  minCNs = c(8, 10),
+  libraryAnnotation = NULL,
+  GDSC.CL_annotation = NULL
 ) {
   guideSets <- ccr.get.guideSets(
     cellLine,
     GDSC.geneLevCNA,
     CCLE.gisticCNA,
     RNAseq.fpkms,
-    libraryAnnotation = libraryAnnotation
+    libraryAnnotation = libraryAnnotation,
+    GDSC.CL_annotation = GDSC.CL_annotation
   )
 
   names(guideSets)[[16]] <- "MSigDB CFEs"
@@ -3393,10 +3443,10 @@ ccr.perf_distributions <- function(
     REFERENCE = c("darkgreen", "green", "bisque4")
   )
 
-  with_options(
+  withr::with_options(
     list(warn = -1), {
       for (i in seq_len(4)) {
-        with_par(
+        withr::with_par(
           list(mfrow = c(2, 1)), {
             for (j in seq_len(2)) {
 
@@ -3433,9 +3483,9 @@ ccr.perf_distributions <- function(
                 title <- "post CRISPRcleanR"
               }
 
-              with_par(
+              withr::with_par(
                 list(mar = c(4, 4, 2, 1)), {
-                  with_options(
+                  withr::with_options(
                     list(warn = -1), {
                       ccr.multDensPlot(
                         TOPLOT = toPlot,
@@ -3461,21 +3511,23 @@ ccr.perf_distributions <- function(
 ccr.RecallCurves <- function(
   cellLine,
   correctedFCs,
-  GDSC.geneLevCNA=NULL,
-  RNAseq.fpkms=NULL,
-  minCN=8,
-  libraryAnnotation,
-  GeneLev=FALSE,
+  GDSC.geneLevCNA = NULL,
+  RNAseq.fpkms = NULL,
+  minCN = 8,
+  libraryAnnotation = NULL,
+  GeneLev = FALSE,
+  GDSC.CL_annotation = NULL,
   verbose = 1
 ) {
 
   # Start update for web version
   guideSets <- ccr.get.guideSets(
     cellLine,
-    GDSC.geneLevCNA,
+    GDSC.geneLevCNA = GDSC.geneLevCNA,
     CCLE.gisticCNA = NULL,
-    RNAseq.fpkms,
-    libraryAnnotation = libraryAnnotation
+    RNAseq.fpkms = RNAseq.fpkms,
+    libraryAnnotation = libraryAnnotation,
+    GDSC.CL_annotation = GDSC.CL_annotation
   )
 
   toPlot <- c("avgFC", "correctedFC")
@@ -3492,7 +3544,7 @@ ccr.RecallCurves <- function(
 
   COLS <- c("bisque4", "green", "red", "blue")
 
-  with_par(
+  withr::with_par(
     list(mfrow = c(2, 1), mar = c(4, 4, 4, 1)), {
       AUCcombo <- NULL
       for (j in seq_along(toPlot)) {
@@ -3587,9 +3639,9 @@ ccr.RecallCurves <- function(
 ccr.impactOnPhenotype <- function(
   MO_uncorrectedFile,
   MO_correctedFile,
-  sigFDR=0.05,
-  expName="expName",
-  display=TRUE
+  sigFDR = 0.05,
+  expName = "expName",
+  display = TRUE
 ) {
 
   pre <- read.table(
@@ -3662,7 +3714,7 @@ ccr.impactOnPhenotype <- function(
   cm <- cm / t(matrix(rep(colSums(cm), nrow(cm)), 3, 3))
 
   if (display) {
-    with_par(
+    withr::with_par(
       list(mar = c(5, 4, 4, 10), xpd = TRUE), {
         barplot(
           100 * cm,
@@ -3684,7 +3736,7 @@ ccr.impactOnPhenotype <- function(
       no.readonly = TRUE
     )
 
-    with_par(
+    withr::with_par(
       list(mfrow = c(2, 2), mar = c(0, 0, 2, 0), xpd = TRUE), {
         pie(
           c(IMPACTEDg, 100 - IMPACTEDg),
@@ -3803,7 +3855,7 @@ ccr.impactOnPhenotype <- function(
 ccr.geneSummary <- function(
   sgRNA_FCprofile,
   libraryAnnotation,
-  FDRth=0.05
+  FDRth = 0.05
 ) {
 
     geneLevFCs <- ccr.geneMeanFCs(sgRNA_FCprofile, libraryAnnotation)
@@ -3892,10 +3944,11 @@ ccr.cohens_d <- function(
 
 ccr.get.guideSets <- function(
   cellLine,
-  GDSC.geneLevCNA=NULL,
-  CCLE.gisticCNA=NULL,
-  RNAseq.fpkms=NULL,
-  libraryAnnotation
+  GDSC.geneLevCNA = NULL,
+  CCLE.gisticCNA = NULL,
+  RNAseq.fpkms = NULL,
+  libraryAnnotation = NULL,
+  GDSC.CL_annotation = NULL
 ) {
   if (is.null(GDSC.geneLevCNA)) {
     data(GDSC.geneLevCNA, envir = environment())
@@ -3910,15 +3963,18 @@ ccr.get.guideSets <- function(
   GDSC.cna <- ccr.get.gdsc1000.AMPgenes(
     cellLine = cellLine,
     GDSC.geneLevCNA = GDSC.geneLevCNA,
-    minCN = 0
+    minCN = 0,
+    GDSC.CL_annotation = GDSC.CL_annotation
   )
   CCLE.cna <- ccr.get.CCLEgisticSets(
     cellLine = cellLine,
-    CCLE.gisticCNA = CCLE.gisticCNA
+    CCLE.gisticCNA = CCLE.gisticCNA,
+    GDSC.CL_annotation = GDSC.CL_annotation
   )
   notExp <- ccr.get.nonExpGenes(
     cellLine = cellLine,
-    RNAseq.fpkms = RNAseq.fpkms
+    RNAseq.fpkms = RNAseq.fpkms,
+    GDSC.CL_annotation = GDSC.CL_annotation
   )
 
   data(BAGEL_essential, envir = environment())
@@ -3940,7 +3996,7 @@ ccr.get.guideSets <- function(
 
   BAGEL_essOnly <- setdiff(BAGEL_essential, CFEgenes)
 
-  with_options(
+  withr::with_options(
     list(warn = -1), {
       BAGEL_essential <- ccr.genes2sgRNAs(
         BAGEL_essential,

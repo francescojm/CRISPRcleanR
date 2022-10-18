@@ -18,6 +18,7 @@ A data frame with a named row for each sgRNA of the AVANA sgRNA library [1] incl
     \item{\code{STRAND}}{targeted DNA strand ('+' or '-')}
     \item{\code{STARTpos}}{starting genomic coordinate of the targeted genomic region (numeric);}
     \item{\code{ENDpos}}{ending genomic coordinate of the targeted genomic region (numeric).}
+    \item{\code{seq}}{nucelotidic sequence of the sgRNAs without the PAM. (string).}
   }
 }
 \references{

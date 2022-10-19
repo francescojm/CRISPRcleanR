@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.9 $
+% $ biblatex bbl format version 3.1 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -17,6 +17,116 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{Liao:2019}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LY}{%
+         family={Liao},
+         familyi={L\bibinitperiod},
+         given={Yang},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=SGK}{%
+         family={Smyth},
+         familyi={S\bibinitperiod},
+         given={Gordon\bibnamedelima K},
+         giveni={G\bibinitperiod\bibinitdelim K\bibinitperiod},
+      }}%
+      {{hash=SW}{%
+         family={Shi},
+         familyi={S\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LYSGKSW1}
+    \strng{fullhash}{LYSGKSW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{8}
+    \field{pages}{e47}
+    \field{title}{{The R package Rsubread is easier, faster, cheaper and better
+  for alignment and quantification of RNA sequencing reads}}
+    \field{volume}{47}
+    \field{journaltitle}{Nucleic Acids Research}
+    \field{month}{05}
+  \endentry
+
+  \entry{Li:2014kt}{article}{}
+    \name{author}{10}{}{%
+      {{hash=LW}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Wei},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=XH}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Han},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=XT}{%
+         family={Xiao},
+         familyi={X\bibinitperiod},
+         given={Tengfei},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=CL}{%
+         family={Cong},
+         familyi={C\bibinitperiod},
+         given={Le},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=LMI}{%
+         family={Love},
+         familyi={L\bibinitperiod},
+         given={Michael\bibnamedelima I},
+         giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod},
+      }}%
+      {{hash=ZF}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Feng},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=IRA}{%
+         family={Irizarry},
+         familyi={I\bibinitperiod},
+         given={Rafael\bibnamedelima A},
+         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+      {{hash=LJS}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Jun\bibnamedelima S},
+         giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Brown},
+         familyi={B\bibinitperiod},
+         given={Myles},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LXS}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={X\bibnamedelima Shirley},
+         giveni={X\bibinitperiod\bibinitdelim S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LW+1}
+    \strng{fullhash}{LWXHXTCLLMIZFIRALJSBMLXS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{number}{12}
+    \field{pages}{554}
+    \field{title}{{MAGeCK enables robust identification of essential genes from
+  genome-scale CRISPR/Cas9 knockout screens.}}
+    \field{volume}{15}
+    \field{journaltitle}{Genome Biology}
+    \field{year}{2014}
+  \endentry
+
   \entry{Tzelepis:2016ix}{article}{}
     \name{author}{27}{}{%
       {{hash=TK}{%
@@ -27,7 +137,7 @@
       }}%
       {{hash=KYH}{%
          family={Koike-Yusa},
-         familyi={K\bibinitperiod-Y\bibinitperiod},
+         familyi={K\bibinithyphendelim Y\bibinitperiod},
          given={Hiroko},
          giveni={H\bibinitperiod},
       }}%
@@ -147,7 +257,7 @@
       }}%
       {{hash=SRJ}{%
          family={Saez-Rodriguez},
-         familyi={S\bibinitperiod-R\bibinitperiod},
+         familyi={S\bibinithyphendelim R\bibinitperiod},
          given={Julio},
          giveni={J\bibinitperiod},
       }}%
@@ -255,7 +365,7 @@
       }}%
       {{hash=SRJ}{%
          family={Saez-Rodriguez},
-         familyi={S\bibinitperiod-R\bibinitperiod},
+         familyi={S\bibinithyphendelim R\bibinitperiod},
          given={Julio},
          giveni={J\bibinitperiod},
       }}%
@@ -283,82 +393,6 @@
     \field{volume}{0}
     \field{journaltitle}{revision}
     \field{month}{12}
-  \endentry
-
-  \entry{Li:2014kt}{article}{}
-    \name{author}{10}{}{%
-      {{hash=LW}{%
-         family={Li},
-         familyi={L\bibinitperiod},
-         given={Wei},
-         giveni={W\bibinitperiod},
-      }}%
-      {{hash=XH}{%
-         family={Xu},
-         familyi={X\bibinitperiod},
-         given={Han},
-         giveni={H\bibinitperiod},
-      }}%
-      {{hash=XT}{%
-         family={Xiao},
-         familyi={X\bibinitperiod},
-         given={Tengfei},
-         giveni={T\bibinitperiod},
-      }}%
-      {{hash=CL}{%
-         family={Cong},
-         familyi={C\bibinitperiod},
-         given={Le},
-         giveni={L\bibinitperiod},
-      }}%
-      {{hash=LMI}{%
-         family={Love},
-         familyi={L\bibinitperiod},
-         given={Michael\bibnamedelima I},
-         giveni={M\bibinitperiod\bibinitdelim I\bibinitperiod},
-      }}%
-      {{hash=ZF}{%
-         family={Zhang},
-         familyi={Z\bibinitperiod},
-         given={Feng},
-         giveni={F\bibinitperiod},
-      }}%
-      {{hash=IRA}{%
-         family={Irizarry},
-         familyi={I\bibinitperiod},
-         given={Rafael\bibnamedelima A},
-         giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
-      }}%
-      {{hash=LJS}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Jun\bibnamedelima S},
-         giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-      {{hash=BM}{%
-         family={Brown},
-         familyi={B\bibinitperiod},
-         given={Myles},
-         giveni={M\bibinitperiod},
-      }}%
-      {{hash=LXS}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={X\bibnamedelima Shirley},
-         giveni={X\bibinitperiod\bibinitdelim S\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{LW+1}
-    \strng{fullhash}{LWXHXTCLLMIZFIRALJSBMLXS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{number}{12}
-    \field{pages}{554}
-    \field{title}{{MAGeCK enables robust identification of essential genes from
-  genome-scale CRISPR/Cas9 knockout screens.}}
-    \field{volume}{15}
-    \field{journaltitle}{Genome Biology}
-    \field{year}{2014}
   \endentry
 
   \entry{Hart:2016ja}{article}{}
@@ -642,13 +676,13 @@
       }}%
       {{hash=LBN}{%
          family={Lopez-Bigas},
-         familyi={L\bibinitperiod-B\bibinitperiod},
+         familyi={L\bibinithyphendelim B\bibinitperiod},
          given={Nuria},
          giveni={N\bibinitperiod},
       }}%
       {{hash=RMP}{%
          family={Ross-Macdonald},
-         familyi={R\bibinitperiod-M\bibinitperiod},
+         familyi={R\bibinithyphendelim M\bibinitperiod},
          given={Petra},
          giveni={P\bibinitperiod},
       }}%
@@ -691,7 +725,7 @@
       }}%
       {{hash=SRJ}{%
          family={Saez-Rodriguez},
-         familyi={S\bibinitperiod-R\bibinitperiod},
+         familyi={S\bibinithyphendelim R\bibinitperiod},
          given={Julio},
          giveni={J\bibinitperiod},
       }}%

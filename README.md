@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/113632940.svg)](https://zenodo.org/badge/latestdoi/113632940)
+
 # CRISPRcleanR
 
 ![alt text](https://github.com/francescojm/CRISPRcleanR/blob/master/web/CCRlogo.jpg)

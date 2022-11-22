@@ -63,6 +63,16 @@ year = {2016},
 month = jul
 }
 
+@article{Liao:2019,
+author = {Liao, Yang and Smyth, Gordon K and Shi, Wei},
+title = {{The R package Rsubread is easier, faster, cheaper and better for alignment and quantification of RNA sequencing reads}},
+journal = {Nucleic Acids Research},
+volume = {47},
+number = {8},
+pages = {e47},
+month = May
+}
+
 \end{filecontents*}
 
 \begin{document}
@@ -86,7 +96,13 @@ Secondly, install CRISPRcleanR with the following command:
 install_github("francescojm/CRISPRcleanR")
 @
 
-\subsection{Raw sgRNA count normalisation and computation of sgRNAs' log fold-changes}
+\subsection{FASTQ files alignment and creation of the count matrix}
+
+The sgRNA raw counts can be obtained directly with CRISPRcleanR starting from FASTQ or BAM files.
+The \texttt{ccr.FASTQ2counts} function takes as input a sgRNA library and a list of FASTQ files to return a count matrix that can be used as input for normalization step.
+In order to create the proper index for the alignment the sgRNA library should include a \texttt{seq} field reporting the sequences of the guides.\\
+
+\textbf{IMPORTANT:} the alignement process, depending on the computer used, could take 30' or more to generate library index requested for the alignment.\\
 
 Load CRISPRcleanR.
 <<results='hide',echo=FALSE>>=
@@ -94,11 +110,57 @@ Load CRISPRcleanR.
 @
 
  <<results='hide'>>=
-     library(CRISPRcleanR)
+library(CRISPRcleanR)
  @
 
 <<results='hide',echo=FALSE>>=
-     options(warn = 0)
+options(warn = 0)
+@
+
+<<results='hide'>>=
+
+## load built-in library
+data(KY_Library_v1.0)
+
+## locate count file
+fileList <- file.path(
+  system.file("extdata", package = "CRISPRcleanR"),
+  c("test_plasmid.fq.gz", "test_sample1.fq.gz", "test_sample2.fq.gz")
+)
+
+## Run the alignment and extract the raw counts
+counts <- ccr.FASTQ2counts(
+  FASTQfileList = fileList,
+  libraryAnnotation = KY_Library_v1.0,
+  fastqc_plots = FALSE
+)
+@
+
+<<>>=
+head(counts)
+@
+
+\textbf{IMPORTANT:} the index creation and the alignment, performed using the \texttt{Rseubread} package (\cite{Liao:2019}), will create large binary files whose size will be slightly bigger than the FASTQ files used as input, please make sure to have enough space before starting the alignment.\\
+
+If MAGeCk (\cite{Li:2014kt}) is installed the creation of the BAM files can be avoided specifing "mageck" in the \texttt{aligner} parameter.
+In this case the count matrix will be generated using the MAGeCK \texttt{count} function.\\
+
+If the FASTQ files were already aligned, the BAM files can be used directly to generate the counts matrix through the \texttt{ccr.BAM2counts} function.
+Please refer to the function documentation to select the most appropriate parameters based on the alignment strategy that was used to genereate the BAM files.\\
+
+\subsection{Raw sgRNA count normalisation and computation of sgRNAs' log fold-changes}
+
+Load CRISPRcleanR.
+<<results='hide',echo=FALSE>>=
+options(warn = -1)
+@
+
+ <<results='hide'>>=
+library(CRISPRcleanR)
+ @
+
+<<results='hide',echo=FALSE>>=
+options(warn = 0)
 @
 %
 \textbf{Step 1:} Load your sgRNA library annotation. In this example we will use a built in data frame containing the annotation of the SANGER v1.0 library, introduced in \cite{Tzelepis:2016ix}:
@@ -525,6 +587,36 @@ will produce bar/pie charts reported below
 RES<-ccr.impactOnPhenotype(MO_uncorrectedFile = uncorrected_gs_fn,
                       MO_correctedFile = corrected_gs_fn,
                       expName = 'EPLC-272H')
+@
+
+\section{CRISPRcleanR analysis pipeline}
+To facilitate the whole analysis process all the nomalization, correction and QC steps can run sequentially through the \texttt{ccr.AnalysisPipeline} function.\\
+
+The function takes as input FASTQ, BAM or counts files and performs all all steps up to the visualisation of the genes signatures.
+All the results will be saved in the output path organized in different subfolders: \texttt{data}, including all the data table in TSV format; \texttt{pdf}, including all the plots exported in PDF format.
+If the output is based on FASTQ files, an optional \texttt{bam} subfolder will be available to store the output of the alignment process.\\
+
+All the usual parameters required for the different steps can be supplied directly to the \texttt{ccr.AnalysisPipeline} function.\\
+
+<<results='hide'>>=
+fn <- file.path(
+    system.file("extdata", package = "CRISPRcleanR"),
+    "HT-29_counts.tsv"
+)
+
+## Run the alignment and extract the raw counts
+suppressWarnings(ccr.AnalysisPipeline(
+    file_counts = fn,
+    outdir='./HT29_pipeline/',
+    EXPname = 'HT29',
+    library_builtin = "KY_Library_v1.0",
+    run_mageck = FALSE,
+    ncontrols = 1
+))
+@
+
+<<>>=
+list.files('./HT29_pipeline/')
 @
 
 \printbibliography

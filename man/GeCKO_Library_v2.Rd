@@ -18,6 +18,7 @@ A data frame with a named row for each sgRNA of the GeCKO sgRNA library [1] incl
     \item{\code{EXONE}}{exone of the targeted genomic region (exone number);}
     \item{\code{CHRM}}{chromosome of where the targeted region resides (string)}
     \item{\code{ENDpos}}{ending genomic coordinate of the targeted genomic region (numeric).}
+    \item{\code{seq}}{nucelotidic sequence of the sgRNAs without the PAM. (string).}
   }
 }
 \details{

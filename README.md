@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/113632940.svg)](https://zenodo.org/badge/latestdoi/113632940)
+
 # CRISPRcleanR
 
 ![alt text](https://github.com/francescojm/CRISPRcleanR/blob/master/web/CCRlogo.jpg)
@@ -12,7 +14,8 @@ Quick start guide:
 https://github.com/francescojm/CRISPRcleanR/blob/master/Quick_start.pdf
 
 **NEWS**
-- Added support for the direct input of FASTQ / BAM files
+- Added support for the direct input of FASTQ / BAM files and interface functions to CRISPRcleanR WebApp
+https://crisprcleanr-webapp.fht.org/
 
 - from version 2.3.1: default parameter method value of function ccr.NormfoldChanges changed from '_CPM' to 'ScalingByTotalReads' to avoid confusion with gene name CPM.
 

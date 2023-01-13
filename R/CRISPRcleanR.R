@@ -597,10 +597,7 @@ ccr.ExecPipelineStep <- function(
   if (step_name == "correct_counts") {
     # Export file in MAGeckFormat
     ccr.PlainTsvFile(
-      sgRNA_count_object = res[
-        !is.na(res[, "gene"]) &
-        res[, "gene"] != "",
-      ],
+      sgRNA_count_object = res,
       fprefix = "mageck_corrected",
       path = outdir_data
     )
@@ -1418,7 +1415,9 @@ ccr.FASTQ2counts <- function(
   if (is.null(names(FASTQfileList))) {
     names(FASTQfileList) <- ifelse(
       tools::file_ext(basename(FASTQfileList)) == "gz",
-      tools::file_path_sans_ext(tools::file_path_sans_ext(basename(FASTQfileList))),
+      tools::file_path_sans_ext(
+        tools::file_path_sans_ext(basename(FASTQfileList))
+      ),
       tools::file_path_sans_ext(basename(FASTQfileList))
     )
   }
@@ -1817,11 +1816,11 @@ ccr.NormfoldChanges <- function(
 
   save(
     normed,
-    file = paste0(outdir, EXPname, "_normCounts.Rdata")
+    file = paste0(outdir, EXPname, "_normCounts.RData")
   )
   save(
     foldchanges,
-    file = paste0(outdir, EXPname, "_foldChanges.Rdata")
+    file = paste0(outdir, EXPname, "_foldChanges.RData")
   )
 
   return(list(norm_counts = normed, logFCs = foldchanges))

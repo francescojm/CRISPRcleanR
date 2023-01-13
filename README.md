@@ -4,7 +4,7 @@
 
 ![alt text](https://github.com/francescojm/CRISPRcleanR/blob/master/web/CCRlogo.jpg)
 
-v3.0.0
+v3.0.1
 
 **An R package for unsupervised identification and correction of gene independent cell responses to CRISPR-cas9 targeting**
 
@@ -14,6 +14,8 @@ Quick start guide:
 https://github.com/francescojm/CRISPRcleanR/blob/master/Quick_start.pdf
 
 **NEWS**
+- MiniLibCas9 Library fix adding 21 missing probes
+
 - Added support for the direct input of FASTQ / BAM files and interface functions to CRISPRcleanR WebApp
 https://crisprcleanr-webapp.fht.org/
 

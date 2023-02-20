@@ -2013,10 +2013,6 @@ ccr.cleanChrm <- function(
     verbose = verbose
   )
 
-  if (!display) {
-    saveTO <- NULL
-  }
-
   if (length(saveTO)) {
     display <- TRUE
     path <- paste0(saveTO, label, "/")
@@ -2024,6 +2020,10 @@ ccr.cleanChrm <- function(
       dir.create(path)
     }
     pdf(paste0(path, CHR, ".pdf"), width = 7.5, height = 7.5)
+  }
+  
+  if (!display) {
+    saveTO <- NULL
   }
 
   if (display) {
